@@ -1,8 +1,7 @@
 # Primary and Urgent Care Centers of Florida
 
-This is the official website for Primary and Urgent Care Centers of Florida, built with [Next.js](https://nextjs.org) and bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ![Primary and Urgent Care Centers of Florida Logo](public/logo.png)
+This is the official website for Primary and Urgent Care Centers of Florida
 
 ## About Our Services
 
