@@ -1,103 +1,125 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import homeLanding from "@/public/homelanding.png";
+import AppointmentCard from "@/components/ui/AppointmentCard";
+import ServiceCard from "@/components/ui/ServiceCard";
+
+const services = [
+  {
+    imageSrc: "/services/mri.png",
+    title: "1.5T MRI",
+    description: "High-resolution images for spine, brain & joint injuries—in and out in under 30 min.",
+  },
+  {
+    imageSrc: "/services/ct-scan.png",
+    title: "CT Scan",
+    description: "Fast, low-dose scans for trauma, chest pain, or abdominal concerns—results same day.",
+  },
+  {
+    imageSrc: "/services/x-ray.png",
+    title: "Digital X-Ray",
+    description: "Crisp images in seconds to diagnose fractures, pneumonia, and more—no ER visit required.",
+  },
+  {
+    imageSrc: "/services/ultrasound.png",
+    title: "Ultrasound",
+    description: "Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside.",
+  },
+  {
+    imageSrc: "/services/nuclear-medicine.png",
+    title: "Nuclear medicine",
+    description: "Functional imaging to detect thyroid, bone, and cardiac issues—hospital-level tech without the hospital bill.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="h-full w-full flex flex-col text-white">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="flex items-center w-full h-full justify-center relative py-20">
+        <Image
+          src={homeLanding}
+          alt="Hero background"
+          priority
+          className="-z-10 object-cover object-center@a w-full h-full absolute border-2 border-red-500"
+        />
+        <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 border-red-500"></div>
+        <div className="flex flex-col md:flex-row justify-between max-w-7xl w-full px-2">
+          <div className="flex flex-col justify-center space-y-6">
+            <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
+              Call for any emergency: (561) 204-5111
+            </div>
+            <h1 className="text-6xl font-bold ">
+              Immediate medical care when you need it most
+            </h1>
+            <p className="text-lg">
+              Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
+            </p>
+          </div>
+
+          <div className="backdrop-blur-3xl p-8 rounded-2xl w-full md:w-[55%]">
+            <h2 className="text-3xl font-bold mb-6">Request an appointment</h2>
+            <form className="space-y-5">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none" />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none" />
+              </div>
+              <div>
+                <label htmlFor="accidentType" className="block text-sm font-medium mb-2">Type of Accident</label>
+                <div className="relative">
+                  <select id="accidentType" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg appearance-none">
+                    <option>Select</option>
+                    <option>Workplace Accident</option>
+                    <option>Car Accident</option>
+                    <option>Personal Injury</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                <textarea id="message" placeholder="Write your message" rows={4} className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none"></textarea>
+              </div>
+              <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                Submit
+              </button>
+            </form>
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <h2 className="text-5xl font-bold text-black leading-tight">
+              Hospital-Level Diagnostic & Imaging Services
+            </h2>
+            <p className="text-gray-600 text-xl px-5">
+              Skip the crowded emergency room and get hospital-grade imaging right inside our urgent care center. With a 1.5 T MRI, multi-slice CT scanner, digital X-ray, ultrasound, and nuclear medicine suite all under one roof, we deliver STAT reads within 3 hours and same-day scan results for most studies. Walk in anytime or book a same-day appointment—our board-certified providers give you fast, accurate answers when minutes matter.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
+            {services.map((service,index) => (
+              <ServiceCard
+                key={service.title}
+                imageSrc={service.imageSrc}
+                title={service.title}
+                description={service.description}
+              />
+            ))}
+            <div className="lg:col-span-1 md:col-span-2">
+              <AppointmentCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }
