@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Primary and Urgent Care Centers of Florida
 
-## Getting Started
+This is the official website for Primary and Urgent Care Centers of Florida, built with [Next.js](https://nextjs.org) and bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-First, run the development server:
+![Primary and Urgent Care Centers of Florida Logo](public/logo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About Our Services
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Our website showcases the comprehensive primary and urgent care services offered across our Florida locations. We provide expert medical care with a focus on accessibility, quality, and patient-centered treatment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Our Expertise
+- **Primary Care Services**: Comprehensive health maintenance, preventive care, and chronic disease management
+- **Urgent Care Services**: Immediate treatment for non-life-threatening injuries and illnesses
+- **Walk-in Appointments**: Convenient same-day care without the need for scheduling
+- **Extended Hours**: Flexible scheduling to accommodate busy lifestyles
+- **Experienced Medical Staff**: Board-certified physicians and healthcare professionals
+# primaryurgent-care
