@@ -101,7 +101,7 @@ const insuranceData = ["Motor Vehicle Accidents", "Workers Compensations", "Aetn
 const PricingPage = () => {
     return (
         <main className="w-full bg-[#FAFAFA] space-y-20  flex flex-col items-center px-4 lg:px-[60px] min-h-screen">
-            <section className='w-full h-full py-20'>
+            <section className='w-full h-full py-20 border'>
                 <div className="max-w-8xl mx-auto  rounded-2xl bg-[#F2F6FC] grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                     {/* Left: Text and Buttons */}
                     <div className="flex flex-col gap-6 justify-center h-full">
@@ -135,7 +135,7 @@ const PricingPage = () => {
                     </div>
                 </div>
             </section>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
                 {/* Top row */}
                 <PricingCard {...pricingData[0]} />
                 <PricingCard {...pricingData[1]} />

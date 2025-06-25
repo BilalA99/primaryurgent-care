@@ -12,8 +12,8 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({ icon, title, subtitle, features, price, priceNote, className = '' }) => (
-    <div className={`rounded-[28px] p-[3px] bg-[linear-gradient(180deg,#D52128_0%,#fff_100%)] ${className} h-75`}>
-        <div className="bg-white rounded-[24px] p-6 flex flex-col shadow-sm min-w-[300px] h-full">
+    <div className={`rounded-[28px] p-2  bg-[linear-gradient(180deg,#D52128_0%,#fff_70%)] ${className} h-75`}>
+        <div className="bg-white rounded-[24px] p-6 flex flex-col border-[#F4F3F3] border min-w-[300px] h-full">
             <div className="flex items-center gap-3">
                 <div className="bg-[#D52128] rounded-[12px] p-2 flex items-center justify-center w-14 h-14">
                     {icon}
@@ -24,9 +24,9 @@ const PricingCard: React.FC<PricingCardProps> = ({ icon, title, subtitle, featur
                 </div>
             </div>
             <hr className="mt-2 border-gray-200" />
-            <ul className="flex flex-col gap-2 my-4 ">
+            <ul className="flex flex-col gap-2 my-4">
                 {features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-y-1 gap-x-2 text-lg w-full text-[#2563eb] font-medium">
+                    <li key={i} className="flex items-center gap-y-3 gap-x-2 text-lg w-full text-[#2563eb] font-medium">
                         <Securitycheck />
                         <span className="text-gray-800 font-normal text-sm">{feature}</span>
                     </li>

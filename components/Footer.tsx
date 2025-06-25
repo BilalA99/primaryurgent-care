@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star } from 'lucide-react';
-
+import Starred from '@/components/icons/starred';
 const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'Appointment', href: '#' },
@@ -27,7 +26,7 @@ const Footer = () => (
                 href="tel:5612045111"
                 className="inline-flex items-center gap-3 bg-white text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16"
             >
-                <Star className="w-6 h-6" fill="#D52128" />
+                <Starred />
                 Call Now  (561) 204-5111
             </a>
         </div>

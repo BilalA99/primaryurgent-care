@@ -9,6 +9,7 @@ import Waittimes from "@/components/icons/waittimes";
 import ShieldUser from "@/components/icons/shielduser";
 import LocationCard from '@/components/ui/LocationCard';
 import Services from "@/components/Services";
+import LocationsRow from "@/components/LocationsRow";
 
 export default function Home() {
   return (
@@ -74,7 +75,7 @@ export default function Home() {
       <Services />
 
       {/* State of the Art Technology Section */}
-      <section className="w-full max-w-8xl bg-[#FAFAFA] mx-auto py-20 grid grid-cols-1 gap-12 px-[60px]">
+      <section className="w-full max-w-8xl bg-white mx-auto py-10 grid grid-cols-1 gap-12 px-[60px]">
         {/* Top row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-8">
 
@@ -127,6 +128,7 @@ export default function Home() {
                 title="Injury Care"
                 description="From sprains, strains, and simple fractures to minor burns and cuts, our clinicians deliver rapid treatment using hospital-grade splints and on-site X-ray—no referral, no delay."
                 buttonText="Explore Urgent Care"
+                buttonLink="/urgentinjurycare"
               />
             </div>
             <div className="col-span-2">
@@ -135,6 +137,7 @@ export default function Home() {
                 title="Comprehensive Accident & Pain Care"
                 description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait."
                 buttonText="Explore Pain care"
+                buttonLink="/paincare"
               />
             </div>
           </div>
@@ -146,12 +149,13 @@ export default function Home() {
             buttonText="Explore Emergency Care"
             horizontal
             className=""
+            buttonLink="/emergencyroom"
           />
         </div>
       </section>
 
       {/* Reviews Section */}
-      <section className="w-full bg-white py-24 pb-32 px-4 lg:px-[60px]">
+      <section className="w-full bg-white py-10 pb-32 px-4 lg:px-[60px]">
         <div className="max-w-8xl flex flex-col  space-y-24">
           <h2 className="text-5xl md:text-5xl font-bold text-center text-black leading-tight">
             Trusted and Loved by<br />Our Community
@@ -188,28 +192,28 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
               <div className="grid grid-cols-1 md:grid-cols-2 col-span-2 ">
                 {/* Top left card */}
-                <div className="bg-[#F2F6FC] rounded-t-2xl p-8 flex flex-col space-y-20 py-10 relative">
+                <div className="bg-[#F2F6FC] rounded-t-2xl p-8 flex flex-col space-y-20 py-10 relative pb-20">
                   <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
                     <Ambulance />
                   </div>
-                  <h3 className="text-2xl font-bold text-black mb-8">Urgent Care</h3>
-                  <p className="text-gray-700 text-base">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
+                  <h3 className="text-4xl font-bold text-black mb-8">Urgent Care</h3>
+                  <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
                 </div>
                 {/* Top right card */}
                 <div className="bg-[#FDF4F4] rounded-t-2xl p-8 flex flex-col space-y-20 py-10  relative">
                   <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
                     <Waittimes />
                   </div>
-                  <h3 className="text-2xl font-bold text-black mb-8">Short Wait Times</h3>
-                  <p className="text-gray-700 text-base">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
+                  <h3 className="text-4xl font-bold text-black mb-8">Short Wait Times</h3>
+                  <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
                 </div>
                 {/* Bottom card (spans both columns) */}
                 <div className="bg-white rounded-b-2xl p-8 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
                   <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
                     <ShieldUser />
                   </div>
-                  <h3 className="text-2xl font-bold text-black mb-8">Most Insurance Accepted</h3>
-                  <p className="text-gray-700 text-base">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
+                  <h3 className="text-4xl font-bold text-black mb-8">Most Insurance Accepted</h3>
+                  <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
                 </div>
               </div>
               {/* Right: Map Placeholder */}
@@ -224,19 +228,7 @@ export default function Home() {
       </section>
 
       {/* Locations Row Section */}
-      <section className="w-full bg-[#FAFAFA] py-12 px-4 lg:px-[60px] relative">
-        <div className="max-w-8xl mx-auto flex flex-col">
-          <div className="flex flex-row items-center justify-between w-full gap-0">
-            <LocationCard location="Royal Palm Beach" phone="(561) 204-5111" />
-            <div className="hidden md:block h-20 w-[2px] mx-4" style={{ background: 'linear-gradient(180deg, #DD4D53 0%, #FFFFFF 50%, #0445BF 100%)' }} />
-            <LocationCard location="Lake Worth" phone="(561) 433-1700" />
-            <div className="hidden md:block h-20 w-[2px] mx-4" style={{ background: 'linear-gradient(180deg, #DD4D53 0%, #FFFFFF 50%, #0445BF 100%)' }} />
-            <LocationCard location="Palm Springs" phone="(561) 969-1595" />
-            <div className="hidden md:block h-20 w-[2px] mx-4" style={{ background: 'linear-gradient(180deg, #DD4D53 0%, #FFFFFF 50%, #0445BF 100%)' }} />
-            <LocationCard location="Lantana" phone="(561) 249-6959" />
-          </div>
-        </div>
-      </section>
+      <LocationsRow />
     </main>
   );
 }

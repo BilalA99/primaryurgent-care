@@ -16,19 +16,19 @@ const AppointmentPage = () => {
         <main className="w-full bg-[#FAFAFA] py-20 px-4 lg:px-[60px] min-h-screen">
             <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
-                <div className="flex flex-col gap-6 justify-center h-full">
-                    <span className="text-[#2563eb] text-sm mb-1 font-[500]">Appointment</span>
-                    <h1 className="text-4xl md:text-6xl font-[600] text-black mb-2 ">Same Day Appointments & Guaranteed Walk-Ins</h1>
-                    <p className="text-base md:text-lg text-gray-700">
+                <div className="flex flex-col justify-center h-full">
+                    <span className="text-[#2563eb] text-sm mb-6 font-[500]">Appointment</span>
+                    <h1 className="text-4xl md:text-6xl font-[600] text-black mb-8 ">Same Day Appointments & Guaranteed Walk-Ins</h1>
+                    <p className="text-base md:text-lg text-gray-700 mb-4">
                         At Primary & Urgent Care Centers, we're here for you Monday–Friday, 9 a.m.–6 p.m. Choose a same-day appointment online or simply walk in—either way, you'll be welcomed into clean, comfortable surroundings that deliver emergency-level care without the hospital wait. Appointments are preferred but never required.
                     </p>
-                    <p className="text-base md:text-lg text-gray-700">
+                    <p className="text-base md:text-lg text-gray-700 mb-4">
                         Most visitors are seen in 15 minutes or less by our board-certified team. With on-site digital X-ray, 1.5 T MRI, CT, ultrasound, and lab analyzers, we deliver hospital-level care using true emergency-room equipment. Expect STAT imaging reads within three hours and same-day scan results for most studies; if you need specialty follow-up or admission, we'll arrange a prompt referral through our trusted consultant network.
                     </p>
-                    <p className="text-base md:text-lg text-gray-700">
+                    <p className="text-base md:text-lg text-gray-700 mb-4">
                         We accept most insurance plans, and our co-pays are far below typical emergency-room fees. No coverage? Our transparent self-pay pricing keeps quality care within reach, and our staff will help you navigate any billing questions.
                     </p>
-                    <p className="text-base md:text-lg text-gray-700 mb-2">
+                    <p className="text-base md:text-lg text-gray-700 mb-4">
                         Every clinic is fully staffed by experienced physicians, all led by a Clinical Director so you get fast answers, compassionate attention, and a walk-in guaranteed appointment whenever you need us.
                     </p>
                     <div className="flex flex-wrap gap-3 mt-2">

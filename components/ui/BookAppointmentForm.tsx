@@ -1,7 +1,15 @@
 'use client';
 import { useState } from 'react';
 
-const BookAppointmentForm = () => {
+const BookAppointmentForm = ({
+    title = 'Book An Appointment',
+    bgColor = 'bg-[#F2F6FC]',
+    textColor = 'text-black',
+}: {
+    title?: string;
+    bgColor?: string;
+    textColor?: string;
+}) => {
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -11,11 +19,11 @@ const BookAppointmentForm = () => {
     });
 
     return (
-        <div className="bg-[#F2F6FC] rounded-2xl p-8 w-full h-full max-w-xl mx-auto flex flex-col gap-6 shadow-sm">
-            <h2 className="text-3xl font-bold text-black ">Book An Appointment</h2>
+        <div className={`${bgColor} rounded-2xl p-8 w-full h-full max-w-xl mx-auto flex flex-col gap-6 `}>
+            <h2 className={`text-3xl font-bold ${textColor} `}>{title}</h2>
             <form className="flex flex-col gap-5">
                 <div>
-                    <label htmlFor="name" className="block mb-2 font-semibold text-black text-base">Full Name</label>
+                    <label htmlFor="name" className={`block mb-2 font-semibold ${textColor} text-base`}>Full Name</label>
                     <input
                         id="name"
                         type="text"
@@ -26,7 +34,7 @@ const BookAppointmentForm = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="email" className="block mb-2 font-semibold text-black text-base">Email</label>
+                    <label htmlFor="email" className={`block mb-2 font-semibold ${textColor} text-base`}>Email</label>
                     <input
                         id="email"
                         type="email"
@@ -37,7 +45,7 @@ const BookAppointmentForm = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="phone" className="block mb-2 font-semibold text-black text-base">Phone Number</label>
+                    <label htmlFor="phone" className={`block mb-2 font-semibold ${textColor} text-base`}>Phone Number</label>
                     <input
                         id="phone"
                         type="tel"
@@ -48,10 +56,10 @@ const BookAppointmentForm = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="type" className="block mb-2 font-semibold text-black text-base">Type of Accident</label>
+                    <label htmlFor="type" className={`block mb-2 font-semibold ${textColor} text-base`}>Type of Accident</label>
                     <select
                         id="type"
-                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none appearance-none"
+                        className={`w-full rounded-lg px-5 py-3 bg-white ${form.type === "" ? "text-gray-500" : "text-black"} text-base outline-none border-none appearance-none`}
                         value={form.type}
                         onChange={e => setForm(f => ({ ...f, type: e.target.value }))}
                     >
@@ -62,7 +70,7 @@ const BookAppointmentForm = () => {
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="message" className="block mb-2 font-semibold text-black text-base">Message</label>
+                    <label htmlFor="message" className={`block mb-2 font-semibold ${textColor} text-base`}>Message</label>
                     <textarea
                         id="message"
                         placeholder="Write your message"
