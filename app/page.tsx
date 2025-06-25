@@ -1,50 +1,28 @@
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import homeLanding from "@/public/homelanding.png";
-import AppointmentCard from "@/components/ui/AppointmentCard";
-import ServiceCard from "@/components/ui/ServiceCard";
-
-const services = [
-  {
-    imageSrc: "/services/mri.png",
-    title: "1.5T MRI",
-    description: "High-resolution images for spine, brain & joint injuries—in and out in under 30 min.",
-  },
-  {
-    imageSrc: "/services/ct-scan.png",
-    title: "CT Scan",
-    description: "Fast, low-dose scans for trauma, chest pain, or abdominal concerns—results same day.",
-  },
-  {
-    imageSrc: "/services/x-ray.png",
-    title: "Digital X-Ray",
-    description: "Crisp images in seconds to diagnose fractures, pneumonia, and more—no ER visit required.",
-  },
-  {
-    imageSrc: "/services/ultrasound.png",
-    title: "Ultrasound",
-    description: "Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside.",
-  },
-  {
-    imageSrc: "/services/nuclear-medicine.png",
-    title: "Nuclear medicine",
-    description: "Functional imaging to detect thyroid, bone, and cardiac issues—hospital-level tech without the hospital bill.",
-  },
-];
+import GradientImage from '@/components/ui/GradientImage';
+import CareCard from '@/components/ui/CareCard';
+import ReviewCard from '@/components/ui/ReviewCard';
+import Ambulance from "@/components/icons/ambulance";
+import Waittimes from "@/components/icons/waittimes";
+import ShieldUser from "@/components/icons/shielduser";
+import LocationCard from '@/components/ui/LocationCard';
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
     <main className="h-full w-full flex flex-col text-white">
-
       <section className="flex items-center w-full h-full justify-center relative py-20">
         <Image
-          src={homeLanding}
+          src={'/homelanding.png'}
           alt="Hero background"
           priority
-          className="-z-10 object-cover object-center@a w-full h-full absolute border-2 border-red-500"
+          fill
+          className="-z-10 w-full h-full absolute object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 border-red-500"></div>
-        <div className="flex flex-col md:flex-row justify-between max-w-7xl w-full px-2">
+        <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
+        <div className="flex flex-col md:flex-row justify-between max-w-8xl w-full px-[60px]">
           <div className="flex flex-col justify-center space-y-6">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
               Call for any emergency: (561) 204-5111
@@ -52,7 +30,7 @@ export default function Home() {
             <h1 className="text-6xl font-bold ">
               Immediate medical care when you need it most
             </h1>
-            <p className="text-lg">
+            <p className="text-lg w-[45%]">
               Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
             </p>
           </div>
@@ -93,33 +71,172 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            <h2 className="text-5xl font-bold text-black leading-tight">
-              Hospital-Level Diagnostic & Imaging Services
-            </h2>
-            <p className="text-gray-600 text-xl px-5">
-              Skip the crowded emergency room and get hospital-grade imaging right inside our urgent care center. With a 1.5 T MRI, multi-slice CT scanner, digital X-ray, ultrasound, and nuclear medicine suite all under one roof, we deliver STAT reads within 3 hours and same-day scan results for most studies. Walk in anytime or book a same-day appointment—our board-certified providers give you fast, accurate answers when minutes matter.
-            </p>
+      <Services />
+
+      {/* State of the Art Technology Section */}
+      <section className="w-full max-w-8xl bg-[#FAFAFA] mx-auto py-20 grid grid-cols-1 gap-12 px-[60px]">
+        {/* Top row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-8">
+
+          <div className="w-full">
+            <GradientImage
+              src="/femaledoctor.jpg"
+              alt="Doctor with MRI and X-ray"
+              className="w-full h-[50%]"
+              priority
+            />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
-            {services.map((service,index) => (
-              <ServiceCard
-                key={service.title}
-                imageSrc={service.imageSrc}
-                title={service.title}
-                description={service.description}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              State of the Art Technology,<br />Right Inside Our Urgent Care
+            </h2>
+            <p className="text-gray-700 text-base md:text-lg">
+              Healthcare has entered the fast lane—and so have we. Primary & Urgent Care Centers pairs hospital-level care with true emergency-room equipment: 1.5 T MRI, multi-slice CT, high-definition digital X-ray, ultrasound, and lab analyzers. Every image is read STAT—often within three hours—so you leave with same-day answers and a clear plan, not more questions.
+            </p>
+          </div>
+        </div>
+        {/* Bottom row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+              Seen in 15 minutes or less!
+            </h2>
+            <p className="text-gray-700 text-base md:text-lg">
+              Now cold, unfriendly waiting rooms and interminable wait times to be seen are a nightmare of the past! Come to a Primary and Urgent Care Center and step into the new age of health care, where you will feel welcome while also knowing you will be seen by a knowledgeable medical professional IN LESS THAN 15 MINUTES.
+            </p>
+          </div>
+          <GradientImage
+            src="/doctorwithpatient.jpg"
+            alt="Doctor with patient"
+            className="w-full "
+            direction="left"
+            priority={false}
+          />
+        </div>
+      </section>
+
+      {/* Urgent, Accident, Emergency Room Care Section */}
+      <section className="w-full bg-white py-20 px-4 lg:px-[60px]">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 gap-8">
+          {/* Top row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div className=" col-span-1">
+              <CareCard
+                imageSrc="/urgent.jpg"
+                title="Injury Care"
+                description="From sprains, strains, and simple fractures to minor burns and cuts, our clinicians deliver rapid treatment using hospital-grade splints and on-site X-ray—no referral, no delay."
+                buttonText="Explore Urgent Care"
               />
-            ))}
-            <div className="lg:col-span-1 md:col-span-2">
-              <AppointmentCard />
             </div>
+            <div className="col-span-2">
+              <CareCard
+                imageSrc="/accident.jpg"
+                title="Comprehensive Accident & Pain Care"
+                description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait."
+                buttonText="Explore Pain care"
+              />
+            </div>
+          </div>
+          {/* Bottom row */}
+          <CareCard
+            imageSrc="/emergencyroomlevelcare.jpg"
+            title="Emergency Room Level Care"
+            description="Why battle long waits at a hospital ER? Our urgent care centers deliver true hospital-level care with emergency-room equipment from on-site imaging so you get the right treatment fast. For non-life- or limb-threatening emergencies, simply walk in or book a same-day appointment and be seen in 15 minutes or less. Enjoy STAT imaging reads within 3 hours and same-day scan results."
+            buttonText="Explore Emergency Care"
+            horizontal
+            className=""
+          />
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="w-full bg-white py-24 pb-32 px-4 lg:px-[60px]">
+        <div className="max-w-8xl flex flex-col  space-y-24">
+          <h2 className="text-5xl md:text-5xl font-bold text-center text-black leading-tight">
+            Trusted and Loved by<br />Our Community
+          </h2>
+          <div className="flex flex-row space-x-32 px-20 w-full">
+            <ReviewCard
+              text="This office has an incredible and amazing customer service team who taking care all patients. Based on my experience with this Primary &Urgent Care I really do recommend it to anyone. Doctors and nurses are really care and gentle. I can say you will be in good hands."
+              avatarSrc="https://randomuser.me/api/portraits/women/25.jpg"
+              name="Ernst"
+              role="Business Analytic at Opndoo"
+            />
+            <ReviewCard
+              text="The Primary & Urgent Care Center in RPB has been my primary care provider for nearly 2 years. The staff are kind and attentive. Many diagnostics can be ran right here in their facilities, so no having to drive to another place back and forth for a test to be administered."
+              avatarSrc="https://randomuser.me/api/portraits/men/40.jpg"
+              name="Gail Hilpert"
+              role="Business Analytic at Domino"
+            />
           </div>
         </div>
       </section>
 
+      {/* Accessible Urgent Care Section */}
+      <section className="w-full bg-[#FAFAFA] py-24 px-4 lg:px-[60px]">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+          {/* Left: Text and Cards */}
+          <div className="lg:col-span-3 flex flex-col gap-10">
+            <div>
+              <h2 className="text-6xl font-bold text-black mb-6 leading-tight">Accessible Urgent Care Across Palm Beach County</h2>
+              <p className="text-lg text-gray-700 mb-10">
+                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana— we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 col-span-2 ">
+                {/* Top left card */}
+                <div className="bg-[#F2F6FC] rounded-t-2xl p-8 flex flex-col space-y-20 py-10 relative">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <Ambulance />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-8">Urgent Care</h3>
+                  <p className="text-gray-700 text-base">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
+                </div>
+                {/* Top right card */}
+                <div className="bg-[#FDF4F4] rounded-t-2xl p-8 flex flex-col space-y-20 py-10  relative">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <Waittimes />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-8">Short Wait Times</h3>
+                  <p className="text-gray-700 text-base">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
+                </div>
+                {/* Bottom card (spans both columns) */}
+                <div className="bg-white rounded-b-2xl p-8 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <ShieldUser />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-8">Most Insurance Accepted</h3>
+                  <p className="text-gray-700 text-base">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
+                </div>
+              </div>
+              {/* Right: Map Placeholder */}
+              <div className="w-full h-[420px] col-span-1 bg-gray-200 rounded-2xl flex items-center justify-center">
+                <span className="text-gray-400 text-lg">[Map Placeholder]</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Locations Row Section */}
+      <section className="w-full bg-[#FAFAFA] py-12 px-4 lg:px-[60px] relative">
+        <div className="max-w-8xl mx-auto flex flex-col">
+          <div className="flex flex-row items-center justify-between w-full gap-0">
+            <LocationCard location="Royal Palm Beach" phone="(561) 204-5111" />
+            <div className="hidden md:block h-20 w-[2px] mx-4" style={{ background: 'linear-gradient(180deg, #DD4D53 0%, #FFFFFF 50%, #0445BF 100%)' }} />
+            <LocationCard location="Lake Worth" phone="(561) 433-1700" />
+            <div className="hidden md:block h-20 w-[2px] mx-4" style={{ background: 'linear-gradient(180deg, #DD4D53 0%, #FFFFFF 50%, #0445BF 100%)' }} />
+            <LocationCard location="Palm Springs" phone="(561) 969-1595" />
+            <div className="hidden md:block h-20 w-[2px] mx-4" style={{ background: 'linear-gradient(180deg, #DD4D53 0%, #FFFFFF 50%, #0445BF 100%)' }} />
+            <LocationCard location="Lantana" phone="(561) 249-6959" />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

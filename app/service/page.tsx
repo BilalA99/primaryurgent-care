@@ -1,0 +1,68 @@
+import Services from "@/components/Services";
+import Image from "next/image";
+const ServicePage = () => {
+    return (
+        <main className="w-full h-full">
+            <section className="relative min-h-screen w-full">
+                {/* Background image */}
+                <div className="absolute inset-0 w-full h-full -z-10">
+                    <Image
+                        src="/servicelanding.jpg"
+                        alt="Services Landing Background"
+                        fill
+                        className="object-cover w-full h-full"
+                        priority
+                    />
+                </div>
+                {/* Blurred overlay card */}
+                <div className="relative flex justify-center items-center h-fit py-16 w-full px-[60px]">
+                    <div className="backdrop-blur-3xl bg-white/70 rounded-2xl shadow-xl max-w-8xl w-full mx-auto p-10 flex flex-col md:flex-row gap-10 border border-white/30">
+                        {/* Left: Text content */}
+                        <div className="flex-1 flex flex-col gap-6 justify-center">
+                            <div className="text-sm mb-2">
+                                <span className="text-gray-500">Home/</span>
+                                <span className="text-[#2563eb] ml-1">Services</span>
+                            </div>
+                            <h1 className="text-4xl md:text-5xl font-bold text-black mb-2 ">Integrated Primary Care in Palm Beach County</h1>
+                            <p className="text-gray-700 text-lg mb-2">
+                                Having Primary Care services available to you is a very powerful combination with our Urgent Care. Why? Because this combination affords you the highest level of communication and continuity of treatment for you between your entire Primary UC "Care Team". Your Care Team communicates with each other before, after and, if needed, during your visit in order to provide you with the safest and highest quality care.
+                            </p>
+                            <p className="text-gray-700 text-lg mb-2">
+                                Our team of board certified Family Doctors, Emergency Medicine Specialist, and Pediatricians work with you and each other to provide evaluation and treatment of common ailments and other medical problems for an affordable fee of $69.99 for the initial medical consultation.
+                            </p>
+                            <p className="text-gray-700 text-lg mb-2">
+                                If you already have a primary care physician, we communicate your case information to them (with your approval, of course) quickly and easily. In addition, we also have a multitude of connections to some of the finest Primary Care doctors in Palm Beach County, so if you need a referral we are happy to provide you with one to a highly-qualified physician outside of our offices.
+                            </p>
+                        </div>
+                        {/* Right: Image and bullet points */}
+                        <div className="flex-1 flex flex-col gap-6 justify-center">
+                            <div className="w-full mb-4">
+                                <Image
+                                    src="/docotorgroup.jpg"
+                                    alt="Doctor Group"
+                                    width={420}
+                                    height={200}
+                                    className="rounded-2xl object-cover w-full "
+                                />
+                            </div>
+                            <div className="text-gray-700 text-lg">
+                                <p className="mb-2">
+                                    Your regular primary care doctor at Primary & Urgent Care Centers is the head of your Care Team and works with our highly-qualified nurses to manage your overall health. Your Care Team provides you with increased access to all of our services including:
+                                </p>
+                                <ul className="list-disc pl-6 space-y-2">
+                                    <li>Follow-up routine visits for chronic conditions such as asthma, arthritis, diabetes, high blood pressure, high cholesterol and many others</li>
+                                    <li>Follow-up appointments after visits to Urgent Care or Emergency Room visits</li>
+                                    <li>Same-day appointments for infections and many other significant illnesses</li>
+                                    <li>Annual physicals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <Services header="Expert Diagnostic &br Imaging Services" description="From advanced MRI and CT scans to expert X-rays and ultrasounds, our urgent care services are designed to deliver fast, accurate results when you need them most — all under one roof, with a compassionate touch."/>
+        </main>
+    )
+}
+
+export default ServicePage
