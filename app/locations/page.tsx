@@ -7,7 +7,6 @@ import Waittimes from '@/components/icons/waittimes'
 import ShieldUser from '@/components/icons/shielduser'
 import { LocationsScreens } from '@/components/locationsscreens'
 import Link from 'next/link'
-
 const LocationsPage = () => {
   return (
     <main className="w-full bg-[#FAFAFA] min-h-screen py-12 max-w-8xl mx-auto px-[60px]">

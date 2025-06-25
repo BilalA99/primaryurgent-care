@@ -17,7 +17,7 @@ const NavBar = () => {
     return (
        <div className=''>
             <div className="bg-white  p-4 font-sans">
-                <div className="max-w-screen-xl mx-auto bg-[#FAFAFA] rounded-xl p-3">
+                <div className=" mx-auto bg-[#FAFAFA] rounded-xl p-3">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex items-center space-x-3">
                             <Image src="/logoheart.png" alt="Logo" width={40} height={40} className="" />

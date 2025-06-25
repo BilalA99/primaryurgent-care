@@ -30,7 +30,7 @@ const services = [
   ];
 const Services = ({header = "Hospital-Level Diagnostic & Imaging Services", description = "Skip the crowded emergency room and get hospital-grade imaging right inside our urgent care center. With a 1.5 T MRI, multi-slice CT scanner, digital X-ray, ultrasound, and nuclear medicine suite all under one roof, we deliver STAT reads within 3 hours and same-day scan results for most studies. Walk in anytime or book a same-day appointment—our board-certified providers give you fast, accurate answers when minutes matter."}: {header?: string, description?: string}) => {
   return (
-    <section className="py-20 lg:px-[60px]">
+    <section className="py-20 xl:px-[60px] px-6">
     <div className="max-w-8xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
         <h2 className="text-5xl font-bold text-black leading-tight">
@@ -60,7 +60,7 @@ const Services = ({header = "Hospital-Level Diagnostic & Imaging Services", desc
           title="Ultrasound"
           description="Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside."
         />
-        <div className="lg:col-span-1 md:col-span-2">
+        <div className="col-span-1 ">
           <AppointmentCard />
         </div>
         <ServiceCard

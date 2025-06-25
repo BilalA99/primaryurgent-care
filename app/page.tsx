@@ -23,7 +23,7 @@ export default function Home() {
           className="-z-10 w-full h-full absolute object-cover object-center"
         />
         <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
-        <div className="flex flex-col md:flex-row justify-between max-w-8xl w-full px-[60px]">
+        <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between max-w-8xl w-full xl:px-[60px] px-6">
           <div className="flex flex-col justify-center space-y-6">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
               Call for any emergency: (561) 204-5111
@@ -31,12 +31,12 @@ export default function Home() {
             <h1 className="text-6xl font-bold ">
               Immediate medical care when you need it most
             </h1>
-            <p className="text-lg w-[45%]">
+            <p className="text-lg xl:w-[45%]">
               Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
             </p>
           </div>
 
-          <div className="backdrop-blur-3xl p-8 rounded-2xl w-full md:w-[55%]">
+          <div className="backdrop-blur-3xl p-8 rounded-2xl w-full xl:w-[50%]">
             <h2 className="text-3xl font-bold mb-6">Request an appointment</h2>
             <form className="space-y-5">
               <div>
