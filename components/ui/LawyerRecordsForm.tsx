@@ -34,15 +34,15 @@ export default function LawyerRecordsForm() {
     }
 
     return (
-        <section className="w-full bg-[#FAFAFA] py-20 px-4 lg:px-[60px] relative">
-        <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch relative z-10">
+        <section className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-4 lg:px-[60px] relative">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-10 items-stretch relative z-10">
             {/* Left: Heading, subheading, image */}
             <div className="flex flex-col gap-4 justify-start">
                 <h2 className="text-5xl font-bold text-black leading-tight mb-2">For Attorneys and Legal Representatives</h2>
                 <p className="text-lg text-gray-700 mb-4">
                 Please complete the form below to request medical records on behalf of your client. All submissions are processed securely and in accordance with HIPAA guidelines. Ensure all required fields are filled out accurately, and upload the necessary authorization or subpoena for timely processing.
                 </p>
-                <div className="w-full rounded-2xl overflow-hidden h-full border mt-4 relative">
+                <div className="w-full rounded-2xl overflow-hidden lg:h-full h-100 border mt-4 relative">
                     <Image src="/lawyerform.jpg" alt="Doctors talking" fill className="w-full  object-cover rounded-2xl" />
                 </div>
             </div>

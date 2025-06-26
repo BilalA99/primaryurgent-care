@@ -8,7 +8,7 @@ import LocationsRow from '@/components/LocationsRow';
 const UrgentInjuryCarePage = () => {
     return (
         <main className=''>
-            <section className="relative h-full w-full px-[60px]">
+            <section className="relative h-full w-full xl:px-[60px] px-4">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
                     <Image
@@ -30,9 +30,9 @@ const UrgentInjuryCarePage = () => {
                         <p className="text-lg mb-8 max-w-2xl text-center">
                             Sprain, fracture, cut, or burn? Skip the ER. Walk in or book a same-day slot and see a board-certified provider in less then 15 min. On-site X-ray, CT, MRI, and labs with STAT reads (less then 3 hrs), same-day results, splints, stitches, and pain relief at a fraction of ER cost. Most insurance accepted; $69 self-pay.
                         </p>
-                        <div className="flex flex-wrap gap-4 w-full justify-center">
-                            <button className="bg-[#D52128] text-white font-semibold px-8 py-4 w-[40%] justify-center rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex w-[40%] justify-center items-center gap-3 hover:bg-gray-100 transition">
+                        <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
+                            <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
+                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                                 <Phone className="w-6 h-6" /> (561) 204-5111
                             </a>
                         </div>
@@ -43,16 +43,16 @@ const UrgentInjuryCarePage = () => {
                     </div>
                 </div>
             </section>
-            <section className='grid grid-cols-2 gap-14 h-full px-[60px] py-20'>
-                <div className='w-full h-full relative rounded-2xl overflow-hidden '><Image src="/rapidinjurycare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
-                <div className=' flex items-start justify-center py-32 space-y-6 flex-col'>
+            <section className='grid xl:grid-cols-2 xl:gap-14 gap-10 h-full xl:px-[60px] px-4 lg:py-20 py-10'>
+                <div className='w-full xl:h-full overflow-hidden h-100 relative rounded-2xl sm:block hidden  '><Image src="/rapidinjurycare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square w-full h-full' /></div>
+                <div className=' flex items-start justify-center xl:py-32 py-10 space-y-6 flex-col'>
                     <p className='text-6xl font-600'>Walk in NOW for Rapid Injury Care</p>
                     <p className='text-2xl font-600'>Sprains, Strains, Fractures & More</p>
                     <p className='text-lg text-[#494647]'>Twisted ankle? Possible fracture? Cut that needs stitches? Skip the ER line and head straight to Primary & Urgent Care Centers for hospital-level injury treatment in under 15 minutes. Our board-certified team splints sprains, reduces dislocations, repairs lacerations, and delivers on-the-spot digital X-ray, CT, and ultrasound—with STAT reads in three hours and same-day results. Book a same-day urgent care appointment or simply walk in; most insurance accepted and $69 self-pay visits keep costs predictable. Get moving again—fast, safe, affordable.</p>
                 </div>
             </section>
             {/* Our Specialities Section */}
-            <section className="w-full py-20 px-4 md:px-[60px]">
+            <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px]">
                 <h2 className="text-5xl font-bold text-center mb-14">Our specialities</h2>
                 <div className="flex flex-wrap justify-center gap-6">
                     {[

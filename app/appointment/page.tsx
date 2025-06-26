@@ -13,8 +13,8 @@ import FAQSection from '@/components/ui/FAQSection';
 
 const AppointmentPage = () => {
     return (
-        <main className="w-full bg-[#FAFAFA] py-20 px-4 lg:px-[60px] min-h-screen">
-            <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
+        <main className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-4 lg:px-[60px] min-h-screen">
+            <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
                 <div className="flex flex-col justify-center h-full">
                     <span className="text-[#2563eb] text-sm mb-6 font-[500]">Appointment</span>
@@ -40,12 +40,12 @@ const AppointmentPage = () => {
                     </div>
                 </div>
                 {/* Right: Image */}
-                <div className="flex justify-center relative items-center w-full h-full mt-8 md:mt-0">
+                <div className="flex justify-center relative items-center w-full xl:h-full mt-8 md:mt-0 lg:h-200 h-100">
                     <Image
                         src="/appointment.png"
                         alt="Appointment"
                         fill
-                        className="rounded-2xl object-cover w-full h-[340px] md:h-[420px]"
+                        className="rounded-2xl object-cover w-full xl:h-[420px]"
                     />
                 </div>
             </div>
@@ -54,17 +54,17 @@ const AppointmentPage = () => {
             <section className="w-full bg-[#FAFAFA] py-24 px-4 lg:px-[60px]">
                 <div className="max-w-7xl mx-auto flex flex-col items-center">
                     <h2 className="text-6xl font-bold text-black text-center mb-4">Prepare for Your Visit</h2>
-                    <p className="text-lg text-gray-500 text-center mb-20">What to Bring to Ensure a Smooth and Efficient Check in</p>
+                    <p className="text-lg text-gray-500 text-center lg:mb-20 mb-10">What to Bring to Ensure a Smooth and Efficient Check in</p>
 
-                    <div className="grid grid-cols-3 gap-x-10 w-full items-center">
+                    <div className="grid xl:grid-cols-3 grid-cols-1 xl:gap-x-10 gap-y-10 xl:gap-y-0 w-full items-center">
                         {/* Left: Image */}
-                        <div className="col-span-1 h-full flex items-stretch justify-center">
+                        <div className="xl:col-span-1 xl:order-1 order-2 w-full  lg:h-200 h-100 xl:h-full flex items-stretch justify-center">
                             <div className="w-full h-full relative">
                                 <Image
                                     src="/prepareforvisit.png"
                                     alt="Prepare for visit"
                                     fill
-                                    className="rounded-2xl object-cover w-full h-full"
+                                    className="rounded-2xl object-cover object-center w-full h-full"
                                 />
                             </div>
                         </div>

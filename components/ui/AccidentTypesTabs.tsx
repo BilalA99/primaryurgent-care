@@ -67,7 +67,7 @@ const AccidentTypesTabs = () => {
     const activeType = accidentTypes[active];
 
     return (
-        <section className="w-full py-20 px-4 md:px-[60px] flex flex-col space-y-14">
+        <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px] flex flex-col space-y-14">
             <h2 className="text-5xl md:text-6xl font-bold">Accident Types We Treat<br />in Palm Beach County, FL</h2>
             <div className="text-lg text-[#494647] ">From fender-benders to workplace falls, our board-certified team documents injuries, bills direct to PIP or workers' comp, and gets you seen in 15 minutes.</div>
             <div className="flex flex-wrap gap-4 mb-10">
@@ -81,14 +81,14 @@ const AccidentTypesTabs = () => {
                     </button>
                 ))}
             </div>
-            <div className="grid grid-cols-2 gap-4 items-start ">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 items-start ">
                 <div className=" flex flex-col space-y-10">
                     <h3 className="text-4xl font-bold ">{activeType.title}</h3>
                     <p className="text-lg text-[#494647]">{activeType.description}</p>
                     <button className="bg-[#D52128] text-white font-semibold px-7 py-4 rounded-xl w-fit text-lg shadow hover:bg-[#b81b22] transition">{activeType.button}</button>
                 </div>
                 <div className="flex-1  flex justify-center items-center">
-                    <div className="w-full rounded-2xl overflow-hidden relative h-150">
+                    <div className="w-full rounded-2xl overflow-hidden relative xl:h-150 h-100">
                         <Image src={activeType.image} alt={activeType.title} fill className=" w-full object-cover rounded-2xl" />
                     </div>
                 </div>

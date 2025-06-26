@@ -3,7 +3,7 @@ import Image from "next/image";
 const ServicePage = () => {
     return (
         <main className="w-full h-full">
-            <section className="relative min-h-screen w-full items-center justify-center flex">
+            <section className="relative h-fullw-full items-center justify-center flex">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
                     <Image
@@ -15,8 +15,8 @@ const ServicePage = () => {
                     />
                 </div>
                 {/* Blurred overlay card */}
-                <div className="relative flex justify-center items-center h-full py-16 w-full px-[60px]">
-                    <div className="backdrop-blur-[10.550000190734863px] bg-[rgba(242,246,252,0.10)] rounded-2xl max-w-8xl w-full mx-auto p-10 flex flex-col md:flex-row gap-10 border border-white/30 h-full">
+                <div className="relative flex justify-center items-center h-full lg:py-16 py-10 w-full lg:px-[60px] px-6">
+                    <div className="backdrop-blur-[10.550000190734863px] bg-[rgba(242,246,252,0.10)] rounded-2xl max-w-8xl w-full mx-auto lg:p-10 sm:p-6 p-2 flex flex-col lg:flex-row gap-10 border border-white/30 h-full">
                         {/* Left: Text content */}
                         <div className="flex-1 flex flex-col gap-6 justify-center">
                             <div className="text-sm mb-2">
@@ -36,12 +36,11 @@ const ServicePage = () => {
                         </div>
                         {/* Right: Image and bullet points */}
                         <div className="flex-1 flex flex-col gap-6 justify-center">
-                            <div className="w-full mb-4">
+                            <div className="w-full mb-4 relative h-100" >
                                 <Image
                                     src="/docotorgroup.jpg"
                                     alt="Doctor Group"
-                                    width={420}
-                                    height={200}
+                                    fill
                                     className="rounded-2xl object-cover w-full "
                                 />
                             </div>

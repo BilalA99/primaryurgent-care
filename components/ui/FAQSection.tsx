@@ -49,7 +49,7 @@ const FAQSection = () => {
         <section className="w-full bg-white py-24 px-4 lg:px-[60px]">
             <h2 className="text-5xl font-bold text-black text-center mb-2">Got Questions? We've Got Answers</h2>
             <p className="text-lg text-gray-500 text-center mb-16">Find quick answers to common questions about urgent care, insurance, cost, wait times, and more.</p>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 {/* Left: FAQ List */}      
                 <div className="flex flex-col gap-8 col-span-1">
                         <div className="flex flex-col gap-0 w-full">
@@ -68,7 +68,7 @@ const FAQSection = () => {
                         </div>
                 </div>
                 {/* Right: Image */}
-                <div className="flex justify-center items-start w-full h-full col-span-1">
+                <div className="flex justify-center items-start w-full lg:h-full h-100 col-span-1">
                     <div className="w-full h-full relative">
                         <Image
                             src="/faq.png"

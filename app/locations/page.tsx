@@ -9,7 +9,7 @@ import { LocationsScreens } from '@/components/locationsscreens'
 import Link from 'next/link'
 const LocationsPage = () => {
   return (
-    <main className="w-full bg-[#FAFAFA] min-h-screen py-12 max-w-8xl mx-auto px-[60px]">
+    <main className="w-full bg-[#FAFAFA] min-h-screen lg:py-12 py-10 max-w-8xl mx-auto lg:px-[60px] px-6">
       <div className="w-full mx-auto flex flex-col items-center mb-12">
         <div className="text-sm mb-2">
           Home / <span className="text-[#2563eb]">Locations</span>
@@ -52,7 +52,7 @@ const LocationsPage = () => {
       </div>
 
         {/* Feature cards section */}
-        <div className="max-w-8xl  mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 py-20">
+        <div className="max-w-8xl  mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:py-20 py-10">
         <LocationFeatureCard
           icon={<Ambulance />}
           title="Urgent Care"

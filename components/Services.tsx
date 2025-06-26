@@ -32,7 +32,7 @@ const Services = ({header = "Hospital-Level Diagnostic & Imaging Services", desc
   return (
     <section className="py-20 xl:px-[60px] px-6">
     <div className="max-w-8xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center mb-16">
         <h2 className="text-5xl font-bold text-black leading-tight">
           {header.split('br').map((item, index) => (
             <span key={index}>
@@ -41,7 +41,7 @@ const Services = ({header = "Hospital-Level Diagnostic & Imaging Services", desc
             </span>
           ))}
         </h2>
-        <p className="text-[#494647] text-xl px-5">
+        <p className="text-[#494647] lg:text-xl text-base lg:px-5">
           {description}
         </p>
       </div>

@@ -1,5 +1,6 @@
 import Mappin from '@/components/icons/mappin';
 import Phone from '@/components/icons/phone';
+import Mappin2 from '../icons/mappin2';
 interface LocationCardProps {
     location: string;
     phone: string;
@@ -7,9 +8,9 @@ interface LocationCardProps {
 }
 
 const LocationCard: React.FC<LocationCardProps> = ({ location, phone, className = '' }) => (
-    <div className={`flex items-center gap-4 ${className}`}>
+    <div className={`flex items-center justify-center gap-4 ${className} `}>
         <div className="border-2 border-[#0445BF] bg-[#0445BF]/10 rounded-xl p-3 px-4 flex items-center justify-center">
-            <Mappin fill="#0445BF" />
+            <Mappin2 fill="#0445BF" />
         </div>
         <div>
             <div className="text-2xl font-[500] text-black">{location}</div>

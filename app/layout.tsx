@@ -8,6 +8,10 @@ import BookAppointmentSection from "@/components/BookAppointmentSection";
 export const metadata: Metadata = {
   title: "Primary and Urgent Care Centers of Florida",
   description: "Primary and Urgent Care Centers of Florida",
+  icons: {
+    icon: '/websitelogo.png',
+    apple: '/websitelogo.png',
+  },
 };
 
 const interTight = Inter_Tight({

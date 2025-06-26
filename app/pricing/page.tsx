@@ -69,7 +69,7 @@ const pricingData = [
         ],
         price: '$400.00',
         priceNote: '/ one time payment',
-        icon: <Securitycheck />,
+        icon: <Polestar />,
     },
     {
         title: 'MRI',
@@ -100,12 +100,12 @@ const pricingData = [
 const insuranceData = ["Motor Vehicle Accidents", "Workers Compensations", "Aetna",  "Cigna", "BlueCross Blue Shield", "Florida Medicare", "Florida Medicaid",]
 const PricingPage = () => {
     return (
-        <main className="w-full bg-[#FAFAFA] space-y-20  flex flex-col items-center px-4 lg:px-[60px] min-h-screen">
-            <section className='w-full h-full py-20 border'>
-                <div className="max-w-8xl mx-auto  rounded-2xl bg-[#F2F6FC] grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
+        <main className="w-full bg-[#FAFAFA] lg:space-y-20 space-y-10  flex flex-col items-center px-4 lg:px-[60px] min-h-screen">
+            <section className='w-full h-full lg:py-20 py-10'>
+                <div className="max-w-8xl mx-auto  rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                     {/* Left: Text and Buttons */}
-                    <div className="flex flex-col gap-6 justify-center h-full">
-                        <p className='text-black text-sm'>Home/<span className="text-[#2563eb] text-sm mb-1 font-[500]">Appointment</span></p>
+                    <div className="flex flex-col gap-6 justify-center h-full w-full">
+                        <p className='text-black text-sm'>Home/<span className="text-[#2563eb] text-sm mb-1 font-[500]"> Pricing</span></p>
                         <h1 className="text-4xl md:text-6xl font-[600] text-black mb-2 ">Payment &<br/>Insurance Information</h1>
                         <p className="text-base md:text-xl font-[500] text-[#494647]">
                         Need hospital-level urgent care in Palm Beach County minus ER pricing? Primary & Urgent Care Centers accepts most insurance (Aetna, BCBS, Cigna, Medicare, Medicaid, workers’ comp, PIP) and quotes every cost up front. No coverage? A flat $69 self-pay urgent care visit keeps care affordable, with low, posted rates for X-ray, labs, CT, MRI, and ultrasound. Book a same-day appointment or walk in and be seen in under 15 minutes. Honest, transparent pricing and no-surprise bills that’s why patients searching “urgent care cost near me” choose us.
@@ -125,7 +125,7 @@ const PricingPage = () => {
                         </div>
                     </div>
                     {/* Right: Image */}
-                    <div className="flex justify-center relative items-center w-full h-full mt-8 md:mt-0">
+                    <div className="flex justify-center relative xl:h-full lg:h-200 h-100 items-center w-full  mt-8 md:mt-0">
                         <Image
                             src="/insurance.jpg"
                             alt="Insurance"
@@ -135,7 +135,7 @@ const PricingPage = () => {
                     </div>
                 </div>
             </section>
-            <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+            <div className="max-w-8xl mx-auto grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 gap-8 pb-8">
                 {/* Top row */}
                 <PricingCard {...pricingData[0]} />
                 <PricingCard {...pricingData[1]} />

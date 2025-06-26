@@ -13,12 +13,12 @@ import Reviews from '@/components/Reviews'
 import GradientImage from '@/components/ui/GradientImage'
 const PainManagementProgramPage = () => {
     return (
-        <main className='w-full bg-[#FAFAFA] py-20 px-4 lg:px-[60px]'>
+        <main className='w-full bg-[#FAFAFA] xl:py-20 py-10 px-4 lg:px-[60px]'>
             
-            <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
+            <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-4 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
                 <div className="flex flex-col justify-center h-full">
-                    <p className='text-black text-sm mb-6 font-[500]'>Home/<span className="text-[#2563eb] text-sm mb-6 font-[500]">Pain Management Program</span></p>
+                    <p className='text-black text-sm mb-6 font-[500]'>Services/<span className="text-[#2563eb] text-sm mb-6 font-[500]">Pain Management Program</span></p>
                     <h1 className="text-4xl md:text-6xl font-[600] text-black mb-8 ">A Holistic Approach to Pain Management</h1>
                     <p className="text-base md:text-lg text-gray-700 mb-4">
                         Living with pain can hinder your ability to work, care for yourself and your loved ones, and enjoy life. It can significantly diminish your overall well-being. At Primary & Urgent Care Center's Pain Management Program, our goal is to help you alleviate your discomfort so you can return to your daily activities.
@@ -40,7 +40,7 @@ const PainManagementProgramPage = () => {
                     </div>
                 </div>
                 {/* Right: Image */}
-                <div className="flex justify-center relative items-center w-full h-full mt-8 md:mt-0">
+                <div className="flex justify-center relative items-center w-full xl:h-full sm:h-200 h-100 mt-8 md:mt-0">
                     <Image
                         src="/painmanage.jpg"
                         alt="Appointment"
@@ -49,7 +49,7 @@ const PainManagementProgramPage = () => {
                     />
                 </div>
             </div>
-            <section className="w-full bg-white py-20 px-4 md:px-[60px]">
+            <section className="w-full bg-white lg:py-20 py-10 px-4 md:px-[60px]">
                 <div className="max-w-7xl mx-auto flex flex-col items-center">
                     <h1 className="text-5xl md:text-6xl font-bold text-center mb-6">Managing Chronic Pain Effectively</h1>
                     <p className="text-lg text-gray-700 text-center max-w-3xl mb-12">

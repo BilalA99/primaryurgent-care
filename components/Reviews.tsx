@@ -7,7 +7,7 @@ const Reviews = () => {
           <h2 className="text-5xl md:text-6xl font-bold text-center text-black leading-tight">
             Trusted and Loved by<br />Our Community
           </h2>
-          <div className="flex flex-row space-x-32 px-20 w-full">
+          <div className="flex flex-col lg:flex-row lg:space-x-32 space-y-6 lg:space-y-0 lg:px-20 px-4 w-full">
             <ReviewCard
               text="This office has an incredible and amazing customer service team who taking care all patients. Based on my experience with this Primary &Urgent Care I really do recommend it to anyone. Doctors and nurses are really care and gentle. I can say you will be in good hands."
               avatarSrc="https://randomuser.me/api/portraits/women/25.jpg"

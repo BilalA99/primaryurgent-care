@@ -47,7 +47,7 @@ const accordionSections = [
 const EmergencyRoomPage = () => {
     return (
         <main>
-            <section className="relative h-full w-full px-[60px]">
+            <section className="relative h-full w-full xl:px-[60px] px-4">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
                     <Image
@@ -59,7 +59,7 @@ const EmergencyRoomPage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-[#222]/80 via-[#222]/60 to-[#222]/40" />
                 </div>
-                <div className="relative flex flex-col md:flex-row items-center justify-between py-20 max-w-8xl mx-auto px-4 md:px-12 gap-10">
+                <div className="relative flex flex-col lg:flex-row items-center justify-between xl:py-20 py-10 max-w-8xl mx-auto px-4 md:px-12 gap-10">
                     {/* Left: Content */}
                     <div className="flex-1 flex flex-col justify-center items-center text-white max-w-2xl">
                         <div className="mb-6">
@@ -69,9 +69,9 @@ const EmergencyRoomPage = () => {
                         <p className="text-lg mb-8 max-w-2xl text-center">
                             Skip the crowded ER and get the same MRI, CT, digital X-ray, ultrasound, and QUICK lab work right inside our urgent-care clinic. Average wait: less then 15 min. Flat $69 self-pay, direct insurance & PIP billing, detailed records for your doctor or attorney.
                         </p>
-                        <div className="flex flex-wrap gap-4 w-full justify-center">
-                            <button className="bg-[#D52128] text-white font-semibold px-8 py-4 w-[40%] justify-center rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex w-[40%] justify-center items-center gap-3 hover:bg-gray-100 transition">
+                        <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
+                            <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
+                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                                 <Phone /> (561) 204-5111
                             </a>
                         </div>
@@ -82,22 +82,22 @@ const EmergencyRoomPage = () => {
                     </div>
                 </div>
             </section>
-            <section className='grid grid-cols-2 gap-14 h-full px-[60px] py-20'>
-                <div className=' flex items-start justify-center py-14 space-y-6 flex-col'>
-                    <p className='text-6xl font-600'>Hospital-Level Care, Minus the Hospital Headache</p>
+            <section className='grid lg:grid-cols-2 xl:gap-14 gap-8 h-full xl:px-[60px] px-4 lg:py-20 py-10'>
+                <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
+                    <p className='lg:text-6xl text-5xl font-600'>Hospital-Level Care, Minus the Hospital Headache</p>
                     <p className='text-lg text-[#494647]'>
                         Looking for an urgent care center with hospital-level equipment and ER-caliber care near you? Primary Urgent Care delivers exactly that  providing advanced, hospital-quality urgent care services with on-site X-ray, MRI, lab testing and more in a convenient, patient-friendly clinic setting. We combine the technology and expertise you’d find in an emergency room with faster service, lower costs, and none of the hassle.
                     </p>
-                    <button className="bg-[#D52128] text-white font-semibold px-8 py-4 w-[40%] justify-center rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Locate Our Clinic</button>
+                    <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Locate Our Clinic</button>
 
                 </div>
-                <div className='w-full h-full relative rounded-2xl overflow-hidden '><Image src="/hospitalcare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
+                <div className='w-full h-full relative rounded-2xl overflow-hidden sm:h-100 '><Image src="/hospitalcare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
             </section>
 
-            <section className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start px-[60px] py-20">
+            <section className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 lg:gap-12 gap-y-8 items-start xl:px-[60px] px-4 lg:py-20 py-10">
                 {/* Left: Post */}
-                <div className="md:col-span-2 flex flex-col gap-10">
-                    <div>
+                <div className="md:col-span-2 flex flex-col gap-10 w-full">
+                    <div className="flex flex-col gap-10 w-full">
                         <h1 className="text-5xl font-bold mb-4">Emergency-Trained Doctors, Ready for Serious Injuries</h1>
                         <p className="text-lg text-[#494647] mb-8">
                             Unlike many walk-in clinics, Primary Urgent Care is staffed by board-certified physicians and highly trained nurses – led by an emergency medicine specialist. Having an ER-experienced doctor always on-site means we can handle serious (but non-life-threatening) conditions that other clinics might send to the ER. From broken bones and severe sprains to deep cuts that need stitches, our team provides the expert care you need on the spot. We also offer services like IV fluids, on-site medications, and pediatric care, delivering the same breadth of treatment you'd expect from a hospital emergency department, but in a more accessible setting.
@@ -124,17 +124,17 @@ const EmergencyRoomPage = () => {
                             </p>
                        </div>
                        <div>
-                            <h2 className="text-5xl font-bold mb-4 leading-tight">Visit Primary & Urgent Care Centers for Accessible, Affordable, Hospital-Level Care</h2>
+                            <h2 className="lg:text-5xl text-4xl font-bold mb-4 leading-tight">Visit Primary & Urgent Care Centers for Accessible, Affordable, Hospital-Level Care</h2>
                             <p className="text-lg text-[#494647] mb-4 font-400">
                             Primary & Urgent Care Centers deliver high-quality urgent care with hospital-grade technology all in a calm, walk-in setting. Our mission is simple: give every patient fast answers, compassionate treatment, and transparent pricing.
                             </p>
-                            <p className="text-lg text-[#494647] font-500 mb-10">
+                            <p className="text-lg text-[#494647] font-500 mb-10 sm:px-0 px-8">
                             What Makes Us Different<br/>
-                            <li> Board-certified physicians & ER-trained teams</li>
-                            <li> On-site digital X-ray, CT, MRI & ultrasound for same-day answers</li>
-                            <li> STAT in-house lab testing CBC, CMP, D-dimer, and more</li>
-                            <li> $69 self-pay visits & direct insurance / PIP billing</li>
-                            <li> Friendly bilingual staff who keep your wait under 15 minutes</li>
+                            <li>Board-certified physicians & ER-trained teams</li>
+                            <li>On-site digital X-ray, CT, MRI & ultrasound for same-day answers</li>
+                            <li>STAT in-house lab testing CBC, CMP, D-dimer, and more</li>
+                            <li>$69 self-pay visits & direct insurance / PIP billing</li>
+                            <li>Friendly bilingual staff who keep your wait under 15 minutes</li>
                             </p>
                             <p className="text-lg text-[#494647] font-500">By merging hospital-level diagnostics with neighborly care and pricing you can trust Primary & Urgent Care Centers set a new standard for walk-in medicine in Palm Beach County.</p>
                        </div>
@@ -143,14 +143,14 @@ const EmergencyRoomPage = () => {
                     </div>
                 </div>
                 {/* Right: Accordion */}
-                <div className="w-full max-w-md mx-auto">
+                <div className="w-full lg:max-w-md mx-auto lg:col-span-1 col-span-3">
                     <h2 className="text-2xl font-bold mb-2">How Can We Assist You?</h2>
                     <p className="text-base text-gray-600 mb-4">Get answers to frequently asked questions regarding account management and services.</p>
                     <Accordion sections={accordionSections} defaultOpen={0} />
                 </div>
             </section>
 
-            <section className="relative w-full py-52 flex items-center justify-center ">
+            <section className="relative w-full lg:py-52 py-10 flex items-center justify-center ">
                 <Image
                     src="/car-accident.jpg"
                     alt="Immediate care for injuries"
@@ -159,9 +159,9 @@ const EmergencyRoomPage = () => {
                     priority
                 />
                 <div className="absolute inset-0 bg-[#570000]/50 -z-10" />
-                <div className="flex flex-col items-center justify-center h-full text-center self-center w-[50%]">
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Walk-In Hospital-Level Urgent Care Palm Beach County</h1>
-                    <div className="text-lg md:text-xl text-white max-w-2xl mx-auto">
+                <div className="flex flex-col items-center justify-center h-full text-center self-center lg:w-[50%] w-[70%]">
+                    <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold text-white mb-6">Walk-In Hospital-Level Urgent Care Palm Beach County</h1>
+                    <div className="md:text-lg text-base text-white max-w-2xl mx-auto">
                     On-site MRI, CT, digital X-ray, and STAT labs. Board-certified providers see you in {'<'} 15 minutes—no appointment, no ER prices.
                     </div>
                 </div>

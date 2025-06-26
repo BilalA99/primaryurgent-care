@@ -8,7 +8,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ imageSrc, title, description }) => {
     return (
-        <div className="bg-[#F4F3F3] rounded-lg h-90 shadow-md overflow-hidden group">
+        <div className="bg-[#F4F3F3] rounded-lg md:h-90 shadow-md overflow-hidden group">
             <div className="relative h-48">
                 <Image
                     src={imageSrc}

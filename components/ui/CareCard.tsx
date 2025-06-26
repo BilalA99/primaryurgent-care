@@ -14,8 +14,8 @@ interface CareCardProps {
 }
 
 const CareCard: React.FC<CareCardProps> = ({ imageSrc, title, description, buttonText, onButtonClick, horizontal = false, className = '', buttonLink='#' }) => (
-    <div className={`bg-[#FAFAFA] p-2 h-120 rounded-2xl flex ${horizontal ? 'flex-row' : 'flex-col '} ${className}`}>
-        <div className='w-full h-full relative'>
+    <div className={`bg-[#FAFAFA] p-6 lg:h-120 rounded-2xl flex space-y-6 ${horizontal ? 'lg:flex-row flex-col' : 'flex-col '} ${className}`}>
+        <div className={`w-full h-60 lg:h-full relative p-8 ${title === 'Comprehensive Accident & Pain Care' ? 'lg:order-first md:order-2' : ''}`}>
             <Image
                 src={imageSrc}
                 alt={title}
@@ -23,10 +23,10 @@ const CareCard: React.FC<CareCardProps> = ({ imageSrc, title, description, butto
                 className="object-cover object-center aspect-square rounded-2xl"
             />
         </div>
-        <div className={`flex flex-col ${horizontal ? 'p-8 w-1/2 justify-center ' : 'p-6  justify-between' }`}>
-            <div>
+        <div className={`flex flex-col ${horizontal ? 'lg:p-8 lg:w-1/2 w-full justify-center ' : ' justify-between' }`}>
+            <div className=''>
                 <h3 className="font-bold text-3xl mb-2 text-gray-900">{title}</h3>
-                <p className="text-gray-700 text-base mb-4">{description}</p>
+                <p className="text-gray-700 text-sm xl:text-base mb-4">{description}</p>
             </div>
             <Link 
                 href={buttonLink}
