@@ -31,7 +31,9 @@ export default function RootLayout({
         className={`${interTight.variable} antialiased`}
       >
         <NavBar />
-        {children}
+        <div className="lg:mt-20 mt-30">
+          {children}
+        </div>
         <BookAppointmentSection />
         <Footer />
       </body>

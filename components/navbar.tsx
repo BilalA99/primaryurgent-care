@@ -54,8 +54,8 @@ const NavBar = () => {
     // Mobile: handle accordion open/close
 
     return (
-        <div className=''>
-            <div className="bg-white  p-4 font-sans">
+        <div className='fixed top-0 left-0 right-0 z-50 flex w-full'>
+            <div className="bg-white  p-4 font-sans w-full">
                 <div className=" mx-auto bg-[#FAFAFA] rounded-xl p-3">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex items-center space-x-3">
