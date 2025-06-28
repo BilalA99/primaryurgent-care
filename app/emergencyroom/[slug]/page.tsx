@@ -20,29 +20,29 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
           </a>
         </div>
       </div>
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="w-full mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-black">What is a {service?.title}?</h2>
-          <p className="text-lg text-gray-600">{service?.whatItIs}</p>
+          <h2 className="text-xl md:text-2xl font-bold text-black">What is a {service?.title}?</h2>
+          <p className="md:text-lg text-md text-gray-600">{service?.whatItIs}</p>
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-black">Why choose an {service?.title}?</h2>
-          <p className="text-lg text-gray-600">{service?.whyChooseUs}</p>
+          <h2 className="text-xl md:text-2xl font-bold text-black">Why choose an {service?.title}?</h2>
+          <p className="md:text-lg text-md text-gray-600">{service?.whyChooseUs}</p>
         </div>
       </div>
       <div className='relative w-full items-center justify-center rounded-2xl my-4 sm:block hidden overflow-hidden self-center h-140'><Image src={service?.imageSrc} alt={service?.title} fill className='aspect-video  w-full h-full' /></div>
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-black">How does a {service?.title} work?</h2>
-          <p className="text-lg text-gray-600">{service?.howItWorks}</p>
+        <div className="flex flex-col gap-4 col-span-1 w-full">
+          <h2 className="text-xl md:text-2xl font-bold text-black">How does a {service?.title} work?</h2>
+          <p className="md:text-lg text-md text-gray-600">{service?.howItWorks}</p>
         </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-black">Why choose Primary & Urgent Care Center for a {service?.title}?</h2>
-          <p className="text-lg text-gray-600">{service?.urgentCareAdvantage}</p>
+        <div className="flex flex-col gap-4 col-span-1 w-full">
+          <h2 className="text-xl md:text-2xl font-bold text-black">Why choose Primary & Urgent Care Center for a {service?.title}?</h2>
+          <p className="md:text-lg text-md text-gray-600">{service?.urgentCareAdvantage}</p>
         </div>
-        <div className='col-span-2'>
-          <h2 className='text-2xl font-bold text-black'>Costs at a Primary & Urgent Care Center</h2>
-          <p className='text-lg text-gray-600'>{service?.costs}</p>
+        <div className='sm:col-span-2 col-span-1 flex flex-col gap-4'>
+          <h2 className='text-xl md:text-2xl font-bold text-black'>Costs at a Primary & Urgent Care Center</h2>
+          <p className='md:text-lg text-md text-gray-600'>{service?.costs}</p>
         </div>
        </div>
       </main>

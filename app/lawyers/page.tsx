@@ -5,6 +5,7 @@ import LawyerRecordsForm from '@/components/ui/LawyerRecordsForm'
 const LawyersPage = () => {
     return (
         <main>
+            <LawyerRecordsForm />
             <section className="relative w-full items-center justify-center flex h-full">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
@@ -60,7 +61,6 @@ const LawyersPage = () => {
                     </div>
                 </div>
             </section>
-            <LawyerRecordsForm />
         </main>
     )
 }

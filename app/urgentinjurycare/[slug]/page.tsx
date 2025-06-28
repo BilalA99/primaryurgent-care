@@ -107,7 +107,7 @@ export default async function ConditionDetails({
             </div>
         </div>
 
-        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col overflow-hidden px-6 xl:px-[80px] py-[50px] space-x-[60px]'>
+        <section className=' max-w-[1440px] w-full h-full flex lg:flex-row flex-col overflow-hidden px-6 xl:px-[80px] xl:py-[50px] space-x-[60px]'>
             <div className='lg:w-[30%] w-full lg:order-1 order-2 bg-white flex flex-col'>
                 <div className='h-fit'><BookAppointmentForm title="Request an appointment" bgColor="bg-[#FAFAFA]" textColor="text-black" /></div>
             </div>
