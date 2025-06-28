@@ -91,7 +91,7 @@ const EmergencyRoomPage = () => {
                     <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Locate Our Clinic</button>
 
                 </div>
-                <div className='w-full h-full relative rounded-2xl overflow-hidden sm:h-100 '><Image src="/hospitalcare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
+                <div className='w-full h-full relative rounded-2xl overflow-hidden sm:h-100 lg:h-full '><Image src="/hospitalcare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
             </section>
 
             <section className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 lg:gap-12 gap-y-8 items-start xl:px-[60px] px-4 lg:py-20 py-10">

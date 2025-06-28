@@ -13,6 +13,7 @@ import Star from '@/components/icons/star'
 import Link from 'next/link'
 import { MapPin } from 'lucide-react'
 import Mappin2 from '@/components/icons/mappin2'
+import ClinicsMap from '@/components/clinicsmap'
 const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params
     const location = LocationsScreens.find((location) => location.slug === slug)
@@ -56,11 +57,11 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
             </section>
             {/* Why Choose Section */}
             <section className='w-full bg-white py-10 px-4 lg:px-[60px] flex flex-col items-center'>
-                <div className='flex xl:flex-row flex-col self-center max-w-7xl xl:space-y-0 space-y-6 justify-between items-center'>
+                <div className='flex xl:flex-row flex-col self-center max-w-8xl xl:space-y-0 space-y-6 justify-between items-center'>
                     <h2 className="text-4xl xl:w-[50%] w-full lg:text-6xl font-bold ">Why Choose {location?.clinic}</h2>
                     <p className="text-lg xl:w-[50%] w-full text-gray-700">From advanced MRI and CT scans to expert X-rays and ultrasounds, our urgent care services are designed to deliver fast, accurate results when you need them most — all under one roof, with a compassionate touch.</p>
                 </div>
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center xl:py-20 py-10 px-4 md:px-0">
+                <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center xl:py-20 py-10 px-4 md:px-0">
                     {/* Left: Text and Features */}
                     <div>
                         <div className="sm:grid flex flex-col sm:grid-cols-2 ">
@@ -69,40 +70,40 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                                 <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white mb-2">
                                     <span className="text-2xl"><Doctor /></span>
                                 </div>
-                                <div className="font-bold text-lg">World - Class Expertise</div>
-                                <div className="text-gray-600 text-sm">Our orthopedic specialists in {location.name} ensure quality care with innovative techniques and patient-centered approaches.</div>
+                                <div className="font-bold lg:text-xl text-lg">World - Class Expertise</div>
+                                <div className="text-gray-600 lg:text-lg text-sm">Our orthopedic specialists in {location.name} ensure quality care with innovative techniques and patient-centered approaches.</div>
                             </div>
                             {/* Card 2 */}
                             <div className="bg-[#FDF4F4] rounded-tr-2xl p-6 flex flex-col gap-2 ">
                                 <div className="w-10 h-10 relative flex items-center justify-center rounded-full bg-white mb-2">
                                     <Image src={'/image.png'} alt='imaging' width={25} height={25} className='object-contain' />
                                 </div>
-                                <div className="font-bold text-lg">Imaging Services</div>
-                                <div className="text-gray-600 text-sm">Our orthopedic specialists in {location.name} use advanced technology for accurate assessments. We focus on patient comfort.</div>
+                                <div className="font-bold lg:text-xl text-lg">Imaging Services</div>
+                                <div className="text-gray-600 lg:text-lg text-sm">Our orthopedic specialists in {location.name} use advanced technology for accurate assessments. We focus on patient comfort.</div>
                             </div>
                             {/* Card 3 */}
                             <div className="bg-[#FDF4F4] p-6 flex flex-col gap-2  ">
                                 <div className="w-10 h-10 relative flex items-center justify-center rounded-full bg-white mb-2">
                                     <Image src={'/urgentinjcare.png'} alt='imaging' width={25} height={25} className='object-contain' />
                                 </div>
-                                <div className="font-bold text-lg">Urgent Injury Care</div>
-                                <div className="text-gray-600 text-sm">Our board-certified <span className="font-semibold">{location.name}</span> orthopedic surgeons bring years of experience and a proven track record of successful outcomes.</div>
+                                <div className="font-bold lg:text-xl text-lg">Urgent Injury Care</div>
+                                <div className="text-gray-600 lg:text-lg text-sm">Our board-certified <span className="font-semibold">{location.name}</span> orthopedic surgeons bring years of experience and a proven track record of successful outcomes.</div>
                             </div>
                             {/* Card 4 */}
                             <div className="bg-[#F2F6FC] p-6 flex flex-col gap-2  ">
                                 <div className="w-10 h-10 relative flex items-center justify-center rounded-full bg-white mb-2">
                                     <Image src={'/paincare.png'} alt='imaging' width={25} height={25} className='object-contain' />
                                 </div>
-                                <div className="font-bold text-lg">Pain Care</div>
-                                <div className="text-gray-600 text-sm">Our board-certified <span className="font-semibold">{location.name}</span> orthopedic surgeons bring years of experience and a proven track record of successful outcomes.</div>
+                                <div className="font-bold lg:text-xl text-lg">Pain Care</div>
+                                <div className="text-gray-600 lg:text-lg text-sm">Our board-certified <span className="font-semibold">{location.name}</span> orthopedic surgeons bring years of experience and a proven track record of successful outcomes.</div>
                             </div>
                             {/* Card 5 */}
                             <div className="bg-white rounded-b-2xl p-6 flex flex-col gap-2 col-span-2">
-                                <div className="font-bold text-lg flex flex-row justify-between items-center">
-                                  <p>  Explore our Emergency care</p>
+                                <div className="font-bold flex flex-row justify-between items-center">
+                                  <p className='lg:text-xl text-lg'>  Explore our Emergency care</p>
                                   <ShieldUser />
                                  </div>
-                                <div className="text-gray-600 text-sm">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</div>
+                                <div className="text-gray-600 lg:text-lg text-sm">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</div>
                             </div>
                         </div>
                     </div>
@@ -114,35 +115,8 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                     </div>
                 </div>
             </section>
-            <div className='max-w-7xl mx-auto xl:px-[60px] px-4'>
-                <div className="relative rounded-2xl h-140  overflow-hidden shadow-md">
-                    {/* Map image */}
-                    <Image
-                    src={'/mapplaceholder.png'}
-                    alt={location?.clinic}
-                    fill
-                    className="w-full object-cover"
-                    />
-                    {/* Blurred overlay card */}
-                    <div className="absolute left-0 right-0 bottom-0 px-6 pb-6 flex flex-col items-start z-10">
-                        <div className="flex flex-col items-center w-full translate-y-1/2 z-10">
-                            <button className="flex items-center gap-2 bg-[#D52128] text-white font-semibold px-6 py-2 rounded-full shadow-lg mb-2">
-                            <Star /> Get Direction
-                            </button>
-                        </div>
-                        <div className="xl:w-[55%] sm:w-[80%] w-full self-center rounded-2xl backdrop-blur-2xl bg-[#222]/60 p-8 space-y-5 text-white shadow-lg">
-                            <div className="text-3xl font-bold  leading-tight">{location?.clinic}</div>
-                            <div className="flex items-center gap-2 ">
-                             <Mappin2 fill='#fff' />
-                            <span className="text-base font-medium opacity-90">{location?.address}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                            <Phone fill='#fff' />
-                            <span className="text-base font-medium opacity-90">{location?.phone}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className='max-w-8xl mx-auto xl:px-[60px] py-10 px-4'>
+                <ClinicsMap startingClinic={location}/>
             </div>
             <Reviews />
         </main>

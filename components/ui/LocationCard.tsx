@@ -1,14 +1,16 @@
 import Mappin from '@/components/icons/mappin';
 import Phone from '@/components/icons/phone';
 import Mappin2 from '../icons/mappin2';
+import Link from 'next/link';
 interface LocationCardProps {
     location: string;
     phone: string;
     className?: string;
+    slug?: string;
 }
 
-const LocationCard: React.FC<LocationCardProps> = ({ location, phone, className = '' }) => (
-    <div className={`flex items-center justify-center gap-4 ${className} `}>
+const LocationCard: React.FC<LocationCardProps> = ({ location, phone, className = '', slug }) => (
+    <Link href={`/locations/${slug}`} className={`flex items-center justify-center gap-4 ${className} `}>
         <div className="border-2 border-[#0445BF] bg-[#0445BF]/10 rounded-xl p-3 px-4 flex items-center justify-center">
             <Mappin2 fill="#0445BF" />
         </div>
@@ -19,7 +21,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location, phone, className 
                 <span className="text-[#DD4D53] text-sm font-medium">{phone}</span>
             </div>
         </div>
-    </div>
+    </Link>
 );
 
 export default LocationCard; 

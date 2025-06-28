@@ -4,6 +4,8 @@ import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
 import { Phone } from 'lucide-react';
 import Star2 from '@/components/icons/star2';
 import LocationsRow from '@/components/LocationsRow';
+import Link from 'next/link';
+import { conditions } from '@/components/conditions';
 
 const UrgentInjuryCarePage = () => {
     return (
@@ -55,22 +57,14 @@ const UrgentInjuryCarePage = () => {
             <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px]">
                 <h2 className="text-5xl font-bold text-center mb-14">Our specialities</h2>
                 <div className="flex flex-wrap justify-center gap-6">
-                    {[
-                        "Sprains, Strains & Fractures",
-                        "Illness",
-                        "Allergic Reactions",
-                        "Stomach Pain",
-                        "Digestive Issues",
-                        "Work Injuries & Workers' Comp",
-                        "UTIs & Women's Health",
-                    ].map((item, i) => (
-                        <div
+                    {conditions.slice(0, 7).map((item, i) => (
+                        <Link href={`/urgentinjurycare/${item.slug}`}
                             key={i}
                             className="bg-[#FDF4F4] rounded-[30px] px-10 py-8 text-2xl md:text-3xl font-600 text-black text-center cursor-pointer transition-transform duration-200 hover:scale-105"
                             style={{ minWidth: '280px', flex: i === 5 ? '1 1 420px' : undefined }}
                         >
-                            {item}
-                        </div>
+                            {item.title}
+                        </Link>
                     ))}
                 </div>
             </section>
@@ -81,25 +75,11 @@ const UrgentInjuryCarePage = () => {
                 <div className="text-lg text-black mb-6">Walk in or book a same-day appointment our board-certified team delivers STAT MRI reads within 3 hours and same-day results, so treatment starts now, not next week.</div>
                 <div className="text-base text-black mb-12">Our specialists provide care for a variety of minor injuries, including:</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                        "Acute Injuries",
-                        "Bites from Domestic Animals",
-                        "Sprains & Strains",
-                        "Contusions & Soft-Tissue Swelling",
-                        "Cuts, Lacerations & Stitches",
-                        "Eye & Ear Injuries",
-                        "Fractures and Dislocations",
-                        "Athletic Injuries",
-                        "Bruises and Contusions",
-                        "Foreign-Body Removal",
-                        "Chronic Pain Issues",
-                        "Wounds, Abrasions, and Burns",
-                        "Cuts and Scrapes",
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-center bg-[#F7F7F7] rounded-[20px] px-8 py-5 text-2xl font-bold text-black gap-4">
+                    {conditions.slice(7, conditions.length).map((item, i) => (
+                        <Link href={`/urgentinjurycare/${item.slug}`} key={i} className="flex items-center bg-[#F7F7F7] rounded-[20px] px-8 py-5 text-2xl font-bold text-black gap-4">
                             <span className="flex-shrink-0"><Star2 /></span>
-                            <span>{item}</span>
-                        </div>
+                            <span>{item.title}</span>
+                        </Link>
                     ))}
                 </div>
             </section>

@@ -10,7 +10,8 @@ import ShieldUser from "@/components/icons/shielduser";
 import LocationCard from '@/components/ui/LocationCard';
 import Services from "@/components/Services";
 import LocationsRow from "@/components/LocationsRow";
-
+import ClinicsMap from "@/components/clinicsmap";
+import { LocationsScreens } from "@/components/locationsscreens";
 export default function Home() {
   return (
     <main className="h-full w-full flex flex-col text-white">
@@ -75,7 +76,7 @@ export default function Home() {
       <Services />
 
       {/* State of the Art Technology Section */}
-      <section className="w-full max-w-8xl bg-white mx-auto py-10 grid grid-cols-1 lg:gap-12 px-6 lg:px-[60px]">
+      <section className="w-full max-w-8xl bg-white mx-auto md:py-10 grid grid-cols-1 lg:gap-12 px-6 lg:px-[60px]">
         {/* Top row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-8">
 
@@ -83,7 +84,7 @@ export default function Home() {
             <GradientImage
               src="/femaledoctor.jpg"
               alt="Doctor with MRI and X-ray"
-              className="w-full h-[50%] aspect-square"
+              className="w-full h-[50%] aspect-square sm:block hidden"
               priority
             />
           </div>
@@ -110,7 +111,7 @@ export default function Home() {
           <GradientImage
             src="/doctorwithpatient.jpg"
             alt="Doctor with patient"
-            className="w-full "
+            className="w-full sm:block hidden"
             direction="left"
             priority={false}
           />
@@ -218,7 +219,7 @@ export default function Home() {
               </div>
               {/* Right: Map Placeholder */}
               <div className="w-full h-full col-span-1 bg-gray-200 rounded-2xl flex items-center justify-center">
-                <span className="text-gray-400 text-lg">[Map Placeholder]</span>
+                <ClinicsMap zoom={11}/>
               </div>
             </div>
 

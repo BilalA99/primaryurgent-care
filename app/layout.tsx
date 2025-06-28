@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import BookAppointmentSection from "@/components/BookAppointmentSection";
+import { MapProvider } from "@/providers/map-provider";
 
 export const metadata: Metadata = {
   title: "Primary and Urgent Care Centers of Florida",
@@ -30,12 +31,14 @@ export default function RootLayout({
       <body
         className={`${interTight.variable} antialiased`}
       >
-        <NavBar />
-        <div className="lg:mt-20 mt-30">
-          {children}
-        </div>
-        <BookAppointmentSection />
-        <Footer />
+        <MapProvider>
+          <NavBar />
+          <div className="lg:mt-14 mt-30">
+            {children}
+          </div>
+          <BookAppointmentSection />
+          <Footer />
+        </MapProvider>
       </body>
     </html>
   );
