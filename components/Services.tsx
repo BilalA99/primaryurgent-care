@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceCard from '@/components/ui/ServiceCard'
 import AppointmentCard from '@/components/ui/AppointmentCard'
+import Reveal from './RevealAnimation'
 export const services = [
   {
     imageSrc: "/HomeCards/15TMRI.jpg",
@@ -79,20 +80,20 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
           {services.slice(0, 3).map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              imageSrc={service.imageSrc}
-              title={service.title}
-              description={service.description}
-              slug={service.slug}
-            />
+              <ServiceCard
+                key={index}
+                imageSrc={service.imageSrc}
+                title={service.title}
+                description={service.description}
+                slug={service.slug}
+              />
           ))}
-          <ServiceCard
-            imageSrc="/HomeCards/Ultrasound.jpg"
-            title="Ultrasound"
-            description="Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside."
-            slug="Ultrasound"
-          />
+            <ServiceCard
+              imageSrc="/HomeCards/Ultrasound.jpg"
+              title="Ultrasound"
+              description="Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside."
+              slug="Ultrasound"
+            />
           <div className="col-span-1 ">
             <AppointmentCard />
           </div>

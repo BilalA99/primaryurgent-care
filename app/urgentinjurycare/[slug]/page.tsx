@@ -2,6 +2,7 @@ import React from 'react'
 import { notFound } from 'next/navigation';
 import { conditions, ConditionInfoProp } from '@/components/conditions';
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
+import Image from 'next/image';
 export default async function ConditionDetails({
     params,
   }: {
@@ -180,7 +181,10 @@ export default async function ConditionDetails({
                             {condition_details?.whenToSeekCare}
                         </p>
                     </div>
-    
+                    {
+                    condition_details?.img && 
+                    <div className='rounded-2xl overflow-hidden w-full h-full aspect-video relative'><Image src={condition_details?.img} alt={condition_details?.title} fill className='object-cover' /></div>
+                    }
                     {/*  Diagnosing */}
                     <div className=' flex flex-col space-y-[16px] '>
                     <h2

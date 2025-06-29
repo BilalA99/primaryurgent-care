@@ -25,7 +25,7 @@ const LocationsPage = () => {
       </div>
 
         {/* Feature cards section */}
-        <div className="max-w-8xl  mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:py-20 py-10">
+        <div className="max-w-8xl items-stretch   mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:py-20 py-10">
         <LocationFeatureCard
           icon={<Ambulance />}
           title="Urgent Care"

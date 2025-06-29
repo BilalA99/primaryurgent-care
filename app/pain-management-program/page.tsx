@@ -11,34 +11,40 @@ import KneePain from '@/components/icons/kneepain'
 import Headaches from '@/components/icons/headaches'
 import Reviews from '@/components/Reviews'
 import GradientImage from '@/components/ui/GradientImage'
+import Reveal from '@/components/RevealAnimation'
+import SlidingDiv from '@/components/SlidingAnimation'
+import PainCareWeTreat  from '@/components/paincarewetreat'
+import Testimonials from '@/components/testimonials'
 const PainManagementProgramPage = () => {
     return (
         <main className='w-full bg-[#FAFAFA] xl:py-20 py-10 px-4 lg:px-[60px]'>
             
             <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-4 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
-                <div className="flex flex-col justify-center h-full">
-                    <p className='text-black text-sm mb-6 font-[500]'>Services/<span className="text-[#2563eb] text-sm mb-6 font-[500]">Pain Management Program</span></p>
-                    <h1 className="text-4xl md:text-6xl font-[600] text-black mb-8 ">A Holistic Approach to Pain Management</h1>
-                    <p className="text-base md:text-lg text-gray-700 mb-4">
-                        Living with pain can hinder your ability to work, care for yourself and your loved ones, and enjoy life. It can significantly diminish your overall well-being. At Primary & Urgent Care Center's Pain Management Program, our goal is to help you alleviate your discomfort so you can return to your daily activities.
-                    </p>
-                    <p className="text-base md:text-lg text-gray-700 mb-4">
-                        We begin by identifying the underlying causes of your pain. We consider your medical history, current health status, and any treatments you have undergone or are currently receiving. From there, we create a personalized plan tailored to your unique requirements.
-                    </p>
-                    <p className="text-base md:text-lg text-gray-700 mb-4">
-                        At Primary & Urgent Care Center's, we address various types of pain, including discomfort in the head and neck, back, arms, hands, and legs. Our advanced services feature techniques like peripheral nerve stimulation, spinal cord stimulation, and interventional pain management guided by imaging.                    </p>
-                    <p className="text-base md:text-lg text-gray-700 mb-4">
-                        Alongside our conventional therapies, we provide an Integrative Pain Management Program that merges traditional methods with Eastern practices, such as acupuncture. Our aim is to ensure you have access to every safe and effective option available for pain relief.
-                    </p>
-                    <div className="flex flex-wrap gap-3 mt-2">
-                        <button className="bg-[#D52128] text-white font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base hover:bg-[#b81b22] transition gap-2"><Calendar /> Make A Reservation</button>
-                        <button className="bg-[#2563eb] text-white font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base hover:bg-[#174ea6] transition gap-2"><Mappin /> Find A Location</button>
-                        <button className="border border-gray-400 text-black font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base bg-white hover:bg-gray-100 transition gap-2">
-                            <Pdf /> Registration Form
-                        </button>
+                <Reveal className='w-full overflow-hidden'>
+                    <div className="flex flex-col justify-center h-full">
+                        <p className='text-black text-sm mb-6 font-[500]'>Services/<span className="text-[#2563eb] text-sm mb-6 font-[500]">Pain Management Program</span></p>
+                        <h1 className="text-4xl md:text-6xl font-[600] text-black mb-8 ">A Holistic Approach to Pain Management</h1>
+                        <p className="text-base md:text-lg text-gray-700 mb-4">
+                            Living with pain can hinder your ability to work, care for yourself and your loved ones, and enjoy life. It can significantly diminish your overall well-being. At Primary & Urgent Care Center's Pain Management Program, our goal is to help you alleviate your discomfort so you can return to your daily activities.
+                        </p>
+                        <p className="text-base md:text-lg text-gray-700 mb-4">
+                            We begin by identifying the underlying causes of your pain. We consider your medical history, current health status, and any treatments you have undergone or are currently receiving. From there, we create a personalized plan tailored to your unique requirements.
+                        </p>
+                        <p className="text-base md:text-lg text-gray-700 mb-4">
+                            At Primary & Urgent Care Center's, we address various types of pain, including discomfort in the head and neck, back, arms, hands, and legs. Our advanced services feature techniques like peripheral nerve stimulation, spinal cord stimulation, and interventional pain management guided by imaging.                    </p>
+                        <p className="text-base md:text-lg text-gray-700 mb-4">
+                            Alongside our conventional therapies, we provide an Integrative Pain Management Program that merges traditional methods with Eastern practices, such as acupuncture. Our aim is to ensure you have access to every safe and effective option available for pain relief.
+                        </p>
+                        <div className="flex flex-wrap gap-3 mt-2">
+                            <button className="bg-[#D52128] text-white font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base hover:bg-[#b81b22] transition gap-2"><Calendar /> Make A Reservation</button>
+                            <button className="bg-[#2563eb] text-white font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base hover:bg-[#174ea6] transition gap-2"><Mappin /> Find A Location</button>
+                            <button className="border border-gray-400 text-black font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base bg-white hover:bg-gray-100 transition gap-2">
+                                <Pdf /> Registration Form
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </Reveal>
                 {/* Right: Image */}
                 <div className="flex justify-center relative items-center w-full xl:h-full sm:h-200 h-100 mt-8 md:mt-0">
                     <Image
@@ -50,65 +56,38 @@ const PainManagementProgramPage = () => {
                 </div>
             </div>
             <section className="w-full bg-white lg:py-20 py-10 px-4 md:px-[60px]">
-                <div className="max-w-7xl mx-auto flex flex-col items-center">
-                    <h1 className="text-5xl md:text-6xl font-bold text-center mb-6">Managing Chronic Pain Effectively</h1>
-                    <p className="text-lg text-gray-700 text-center max-w-3xl mb-12">
-                        Are you experiencing chronic pain and seeking immediate relief? At Pain Management NYC, our skilled orthopedic specialists provide tailored pain management and injury-specific care to help you find prompt and effective solutions.
-                    </p>
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                        {/* Left: Text */}
-                        <div>
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4">Pain Management & Urgent Care Facility</h2>
-                            <p className="text-base md:text-lg text-gray-800 mb-8">
-                                Our urgent care centers specialize in pain management, offering a variety of treatments such as medications, physical therapy, sports medicine, and primary care. We aim to reduce inflammation and alleviate pain while enhancing mobility. Patients can receive comprehensive care on-site, minimizing the need for multiple visits. Our orthopedic clinic is ready to assist both new and returning patients, and we can easily schedule follow-up appointments.
-                            </p>
-                            <h3 className="text-xl md:text-2xl font-bold mb-2">Further Details</h3>
-                            <p className="text-base md:text-lg text-gray-800">
-                                At our orthopedic urgent care centers, patients receive immediate relief from qualified professionals. We emphasize accurate diagnoses, personalized treatment plans, and patient education, ensuring a holistic approach to pain management that enhances quality of life.
-                            </p>
+                    <div className="max-w-7xl mx-auto flex flex-col items-center">
+                        <h1 className="text-5xl md:text-6xl font-bold text-center mb-6">Managing Chronic Pain Effectively</h1>
+                        <p className="text-lg text-gray-700 text-center max-w-3xl mb-12">
+                            Are you experiencing chronic pain and seeking immediate relief? At Pain Management NYC, our skilled orthopedic specialists provide tailored pain management and injury-specific care to help you find prompt and effective solutions.
+                        </p>
+                        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                            {/* Left: Text */}
+                            <SlidingDiv className='w-full overflow-hidden' position='left'>
+                                <div>
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Pain Management & Urgent Care Facility</h2>
+                                    <p className="text-base md:text-lg text-gray-800 mb-8">
+                                        Our urgent care centers specialize in pain management, offering a variety of treatments such as medications, physical therapy, sports medicine, and primary care. We aim to reduce inflammation and alleviate pain while enhancing mobility. Patients can receive comprehensive care on-site, minimizing the need for multiple visits. Our orthopedic clinic is ready to assist both new and returning patients, and we can easily schedule follow-up appointments.
+                                    </p>
+                                    <h3 className="text-xl md:text-2xl font-bold mb-2">Further Details</h3>
+                                    <p className="text-base md:text-lg text-gray-800">
+                                        At our orthopedic urgent care centers, patients receive immediate relief from qualified professionals. We emphasize accurate diagnoses, personalized treatment plans, and patient education, ensuring a holistic approach to pain management that enhances quality of life.
+                                    </p>
+                                </div>
+                            </SlidingDiv>
+                            {/* Right: Image with gradient overlay */}
+                            <GradientImage
+                                src="/painmanage2.jpg"
+                                alt="Pain management consultation"
+                                className="object-cover w-full h-full rounded-2xl"
+                            />
                         </div>
-                        {/* Right: Image with gradient overlay */}
-                        <GradientImage
-                            src="/painmanage2.jpg"
-                            alt="Pain management consultation"
-                            className="object-cover w-full h-full rounded-2xl"
-                        />
                     </div>
-                </div>
             </section>
             {/* Pain & Injuries We Treat After Accidents Section */}
-            <section className="w-full bg-[#FAFAFA] py-20 px-4 md:px-[60px]">
-                <h2 className="text-5xl md:text-6xl font-bold text-center mb-6">Pain & Injuries We Treat After Accidents –<br />Palm Beach</h2>
-                <div className="text-lg text-[#494647] text-center mb-12">Seen in less then 15 min for whiplash, nerve pain, headaches, or joint injuries—on-site X-ray, MRI, and direct PIP billing.</div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <NeckPain />
-                        <div className="text-2xl font-bold text-black mt-6">Neck Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <BackPain />
-                        <div className="text-2xl font-bold text-black mt-6">Back Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <HandPain />
-                        <div className="text-2xl font-bold text-black mt-6">Hand Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <ShoulderPain />
-                        <div className="text-2xl font-bold text-black mt-6">Shoulder Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <KneePain />
-                        <div className="text-2xl font-bold text-black mt-6">Knee & Foot Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <Headaches />
-                        <div className="text-2xl font-bold text-black mt-6">Headaches & Migraines</div>
-                    </div>
-                </div>
-            </section>
+           <PainCareWeTreat />
 
-            <Reviews />
+            <Testimonials />
         </main>
     )
 }

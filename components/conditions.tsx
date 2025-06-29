@@ -8,8 +8,9 @@ export interface ConditionInfoProp {
     prevention: string;
     urgentCareAdvantage: string;
     slug: string;
+    img?: string;
 }
-export const conditions = [
+export const conditions: ConditionInfoProp[] = [
     {
         title: "Sprains, Strains & Fractures",
         description: "Comprehensive care for musculoskeletal injuries with immediate diagnosis and treatment",
@@ -19,7 +20,8 @@ export const conditions = [
         treatment: "Treatment varies based on the type and severity of injury, but typically includes the RICE protocol (Rest, Ice, Compression, Elevation), pain management, and immobilization when necessary. Our urgent care providers can apply splints, casts, or braces, provide prescription pain medication if needed, and refer patients to orthopedic specialists for follow-up care. We also offer physical therapy referrals and guidance on rehabilitation exercises to promote proper healing and prevent future injuries.",
         prevention: "Prevention strategies include proper warm-up before physical activity, using appropriate protective equipment, maintaining good physical conditioning, and learning proper techniques for sports and exercise. Regular strength training and flexibility exercises can help prevent strains and sprains by improving muscle and joint stability. Our urgent care centers can provide education on injury prevention and recommend appropriate exercises for specific activities.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to X-ray imaging and orthopedic evaluation without the long waits typically associated with emergency rooms. We can diagnose and treat most sprains, strains, and simple fractures on the same day, with board-certified providers who specialize in musculoskeletal injuries. Our streamlined process means you can get the care you need quickly and return to your daily activities faster.",
-        slug: "sprains-strains-fractures"
+        slug: "sprains-strains-fractures",
+        img: '/strainsprain.png'
     },
     {
         title: "Illness",
@@ -30,7 +32,8 @@ export const conditions = [
         treatment: "Treatment depends on the specific illness but may include prescription medications, over-the-counter remedies, rest recommendations, and lifestyle modifications. Our providers can prescribe antibiotics when appropriate, provide symptom relief medications, and offer guidance on home care. We also provide vaccinations and preventive care to help reduce the risk of future illnesses.",
         prevention: "Prevention strategies include regular hand washing, maintaining a healthy lifestyle, getting adequate sleep, eating a balanced diet, and staying up to date on vaccinations. Avoiding close contact with sick individuals and practicing good hygiene can significantly reduce the risk of contracting common illnesses. Our urgent care centers offer flu shots and other preventive vaccinations.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to illness treatment without the need for appointments or long waits. We can diagnose and treat most common illnesses on the same day, with providers who are experienced in managing a wide range of acute medical conditions. Our facilities are equipped with diagnostic testing capabilities for rapid results.",
-        slug: "illness"
+        slug: "illness",
+        img: '/illness.png'
     },
     {
         title: "Allergic Reactions",
@@ -41,7 +44,8 @@ export const conditions = [
         treatment: "Treatment depends on the severity of the reaction and may include antihistamines, corticosteroids, epinephrine for severe reactions, and other medications to control symptoms. Our providers can administer emergency treatments for severe reactions and prescribe medications for ongoing management. We also provide education on avoiding triggers and recognizing early warning signs.",
         prevention: "Prevention involves identifying and avoiding known allergens, carrying emergency medications when prescribed, and having an action plan for managing reactions. Regular allergy testing can help identify specific triggers, and immunotherapy may be recommended for long-term management. Our urgent care centers can provide referrals to allergists for comprehensive allergy management.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to treatment for allergic reactions without the long waits of emergency rooms. We can administer emergency medications, provide symptom relief, and help develop prevention strategies. Our providers are experienced in managing both mild and severe allergic reactions.",
-        slug: "allergic-reactions"
+        slug: "allergic-reactions",
+        img: '/allergic.png'
     },
     {
         title: "Stomach Pain",
@@ -52,7 +56,8 @@ export const conditions = [
         treatment: "Treatment depends on the underlying cause and may include medications for pain relief, anti-nausea medications, antibiotics for infections, or recommendations for dietary changes. Our providers can prescribe appropriate medications and provide guidance on home care. For serious conditions, we can arrange immediate referral to specialists or emergency care.",
         prevention: "Prevention strategies include maintaining a healthy diet, avoiding foods that trigger symptoms, practicing good food safety, and managing stress. Regular exercise and adequate hydration can help maintain digestive health. Our urgent care centers can provide education on dietary modifications and lifestyle changes to prevent recurrent stomach pain.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to abdominal pain evaluation without the need for appointments. We can perform diagnostic testing and imaging on-site, providing rapid results and treatment recommendations. Our providers are experienced in managing a wide range of gastrointestinal conditions.",
-        slug: "stomach-pain"
+        slug: "stomach-pain",
+        img: '/stomach.png'
     },
     {
         title: "Digestive Issues",
@@ -63,7 +68,8 @@ export const conditions = [
         treatment: "Treatment depends on the specific digestive issue and may include medications to control symptoms, dietary modifications, lifestyle changes, or referral to specialists for further evaluation. Our providers can prescribe appropriate medications and provide guidance on dietary and lifestyle modifications. We can also arrange referrals to gastroenterologists when needed.",
         prevention: "Prevention strategies include maintaining a healthy diet, avoiding trigger foods, managing stress, regular exercise, and adequate hydration. Keeping a food diary can help identify specific triggers. Our urgent care centers can provide education on dietary modifications and lifestyle changes to improve digestive health.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to digestive health evaluation without the need for appointments. We can perform diagnostic testing on-site and provide immediate treatment recommendations. Our providers are experienced in managing common digestive issues and can arrange specialist referrals when needed.",
-        slug: "digestive-issues"
+        slug: "digestive-issues",
+        img: '/digestive.png'
     },
     {
         title: "Work Injuries & Workers' Comp",
@@ -74,7 +80,8 @@ export const conditions = [
         treatment: "Treatment depends on the specific injury and may include medications, physical therapy, occupational therapy, or referral to specialists. Our providers can provide appropriate treatment and ensure proper documentation for workers' compensation claims. We work with employers and insurance companies to facilitate the claims process.",
         prevention: "Prevention strategies include proper training, use of personal protective equipment, ergonomic workplace design, and regular safety training. Employers should provide appropriate safety equipment and training to prevent workplace injuries. Our urgent care centers can provide education on workplace safety and injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to work injury treatment with experience in workers' compensation documentation. We can provide immediate evaluation and treatment while ensuring proper documentation for insurance claims. Our providers are experienced in managing work-related injuries and navigating the workers' compensation process.",
-        slug: "work-injuries-workers-comp"
+        slug: "work-injuries-workers-comp",
+        img: '/work.png'
     },
     {
         title: "UTIs & Women's Health",
@@ -85,7 +92,8 @@ export const conditions = [
         treatment: "Treatment typically includes antibiotics to eliminate the bacterial infection, pain relief medications, and recommendations for increased fluid intake. Our providers can prescribe appropriate antibiotics and provide guidance on home care. We can also address related women's health issues and provide referrals to specialists when needed.",
         prevention: "Prevention strategies include staying hydrated, urinating frequently, practicing good hygiene, and avoiding irritating feminine products. Cranberry supplements may help prevent recurrent UTIs. Our urgent care centers can provide education on UTI prevention and women's health maintenance.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to UTI treatment and women's health care without the need for appointments. We can perform diagnostic testing on-site and provide immediate treatment recommendations. Our providers are experienced in managing women's health concerns and can provide appropriate referrals when needed.",
-        slug: "utis-womens-health"
+        slug: "utis-womens-health",
+        img: '/uti.png'
     },
     {
         title: "Acute Injuries",
@@ -96,7 +104,8 @@ export const conditions = [
         treatment: "Treatment depends on the specific injury and may include wound care, splinting, casting, medications, or referral to specialists. Our providers can provide immediate treatment and arrange follow-up care when needed. We can also provide guidance on home care and rehabilitation.",
         prevention: "Prevention strategies include using appropriate safety equipment, maintaining good physical conditioning, and practicing safe behaviors during activities. Regular exercise and strength training can help prevent some types of acute injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to acute injury treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment for most injuries. Our providers are experienced in managing a wide range of acute injuries.",
-        slug: "acute-injuries"
+        slug: "acute-injuries",
+        img: '/acute.png'
     },
     {
         title: "Bites from Domestic Animals",
@@ -107,7 +116,8 @@ export const conditions = [
         treatment: "Treatment includes thorough wound cleaning, antibiotic therapy to prevent infection, tetanus vaccination if needed, and wound care instructions. Our providers can provide appropriate treatment and monitor for signs of infection. We can also arrange rabies prophylaxis if necessary.",
         prevention: "Prevention strategies include avoiding unfamiliar animals, teaching children how to interact safely with pets, and ensuring pets are properly vaccinated and trained. Never approach or attempt to pet unknown animals. Our urgent care centers can provide education on animal bite prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to animal bite treatment without the need for appointments. We can provide immediate wound care and infection prevention. Our providers are experienced in managing animal bites and can arrange appropriate follow-up care.",
-        slug: "bites-domestic-animals"
+        slug: "bites-domestic-animals",
+        img: '/bite.png'
     },
     {
         title: "Sprains & Strains",
@@ -118,7 +128,8 @@ export const conditions = [
         treatment: "Treatment typically includes the RICE protocol (Rest, Ice, Compression, Elevation), pain management, and immobilization when necessary. Our providers can apply appropriate braces or splints and provide prescription medications if needed. We can also arrange physical therapy referrals for rehabilitation.",
         prevention: "Prevention strategies include proper warm-up before physical activity, using appropriate protective equipment, and maintaining good physical conditioning. Regular strength training and flexibility exercises can help prevent sprains and strains. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to sprain and strain treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment. Our providers are experienced in managing soft tissue injuries and can provide appropriate rehabilitation guidance.",
-        slug: "sprains-strains"
+        slug: "sprains-strains",
+        img: '/strainsprain.png'
     },
     {
         title: "Contusions & Soft-Tissue Swelling",
@@ -129,7 +140,8 @@ export const conditions = [
         treatment: "Treatment typically includes the RICE protocol (Rest, Ice, Compression, Elevation), pain management, and monitoring for complications. Our providers can prescribe appropriate pain medications and provide guidance on home care. We can also arrange follow-up care if needed.",
         prevention: "Prevention strategies include using appropriate protective equipment during activities, maintaining good physical conditioning, and practicing safe behaviors. Regular exercise can help improve muscle strength and reduce the risk of injury. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to contusion and soft-tissue injury treatment without the need for appointments. We can perform diagnostic imaging on-site if needed and provide immediate treatment recommendations. Our providers are experienced in managing these common injuries.",
-        slug: "contusions-soft-tissue-swelling"
+        slug: "contusions-soft-tissue-swelling",
+        img: '/contusions.png'
     },
     {
         title: "Cuts, Lacerations & Stitches",
@@ -140,7 +152,8 @@ export const conditions = [
         treatment: "Treatment includes thorough wound cleaning, closure with sutures or adhesive strips when needed, antibiotic therapy to prevent infection, and wound care instructions. Our providers can provide appropriate treatment and monitor for signs of infection. We can also arrange follow-up care for wound removal.",
         prevention: "Prevention strategies include using appropriate safety equipment, keeping sharp objects properly stored, and practicing safe behaviors during activities. Regular safety training can help prevent accidental injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to wound care and suturing services without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
-        slug: "cuts-lacerations-stitches"
+        slug: "cuts-lacerations-stitches",
+        img: '/cuts.png'
     },
     {
         title: "Eye & Ear Injuries",
@@ -151,7 +164,8 @@ export const conditions = [
         treatment: "Treatment depends on the specific injury and may include foreign body removal, medications, irrigation, or referral to specialists. Our providers can provide appropriate treatment and monitor for complications. We can also arrange follow-up care with specialists when necessary.",
         prevention: "Prevention strategies include using appropriate eye and ear protection during activities, avoiding inserting objects into ears, and practicing good hygiene. Regular eye and ear examinations can help detect problems early. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to eye and ear injury treatment without the need for appointments. We can provide immediate evaluation and treatment for most injuries. Our providers are experienced in managing these specialized injuries and can arrange appropriate referrals.",
-        slug: "eye-ear-injuries"
+        slug: "eye-ear-injuries",
+        img: '/eye.png'
     },
     {
         title: "Fractures and Dislocations",
@@ -162,7 +176,8 @@ export const conditions = [
         treatment: "Treatment depends on the type and severity of the injury and may include immobilization, reduction (realignment), casting, or referral to orthopedic specialists. Our providers can provide immediate treatment and arrange appropriate follow-up care. We can also provide pain management and rehabilitation guidance.",
         prevention: "Prevention strategies include using appropriate protective equipment, maintaining good physical conditioning, and practicing safe behaviors during activities. Regular exercise can help improve bone strength and joint stability. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to fracture and dislocation treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment. Our providers are experienced in managing these injuries and can arrange appropriate specialist referrals.",
-        slug: "fractures-dislocations"
+        slug: "fractures-dislocations",
+        img: '/fractures.png'
     },
     {
         title: "Athletic Injuries",
@@ -173,7 +188,8 @@ export const conditions = [
         treatment: "Treatment depends on the specific injury and may include rest, physical therapy, medications, or referral to sports medicine specialists. Our providers can provide appropriate treatment and rehabilitation guidance. We can also arrange referrals to specialists for complex injuries.",
         prevention: "Prevention strategies include proper warm-up and cool-down, gradual progression of training intensity, using appropriate equipment, and maintaining good physical conditioning. Regular strength training and flexibility exercises can help prevent athletic injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to sports medicine care without the need for appointments. We can provide immediate evaluation and treatment for athletic injuries. Our providers are experienced in managing sports-related injuries and can provide appropriate rehabilitation guidance.",
-        slug: "athletic-injuries"
+        slug: "athletic-injuries",
+        img: '/athletic.png'
     },
     {
         title: "Bruises and Contusions",
@@ -184,7 +200,8 @@ export const conditions = [
         treatment: "Treatment typically includes the RICE protocol (Rest, Ice, Compression, Elevation), pain management, and monitoring for complications. Our providers can prescribe appropriate pain medications and provide guidance on home care. We can also arrange follow-up care if needed.",
         prevention: "Prevention strategies include using appropriate protective equipment during activities, maintaining good physical conditioning, and practicing safe behaviors. Regular exercise can help improve muscle strength and reduce the risk of injury. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to bruise and contusion treatment without the need for appointments. We can perform diagnostic imaging on-site if needed and provide immediate treatment recommendations. Our providers are experienced in managing these common injuries.",
-        slug: "bruises-contusions"
+        slug: "bruises-contusions",
+        img: '/contusions.png'
     },
     {
         title: "Foreign-Body Removal",
@@ -195,7 +212,8 @@ export const conditions = [
         treatment: "Treatment includes safe removal of the foreign body, wound cleaning, and infection prevention measures. Our providers can remove most foreign bodies safely and provide appropriate wound care. We can also prescribe antibiotics if needed and arrange follow-up care.",
         prevention: "Prevention strategies include using appropriate protective equipment, being careful when handling sharp objects, and practicing good hygiene. Regular safety training can help prevent foreign body injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to foreign body removal services without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in safe foreign body removal and can provide appropriate referrals when needed.",
-        slug: "foreign-body-removal"
+        slug: "foreign-body-removal",
+        img: '/foreign.png'
     },
     {
         title: "Chronic Pain Issues",
@@ -206,7 +224,8 @@ export const conditions = [
         treatment: "Treatment depends on the underlying cause and may include medications, physical therapy, lifestyle modifications, or referral to pain management specialists. Our providers can provide appropriate treatment and help develop long-term management strategies. We can also arrange referrals to specialists for comprehensive care.",
         prevention: "Prevention strategies include maintaining good physical conditioning, practicing good posture, managing stress, and avoiding activities that exacerbate pain. Regular exercise and healthy lifestyle choices can help prevent some chronic pain conditions. Our urgent care centers can provide education on pain management and prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to chronic pain evaluation and treatment without the need for appointments. We can provide immediate relief and help develop long-term management strategies. Our providers are experienced in managing chronic pain and can arrange appropriate specialist referrals.",
-        slug: "chronic-pain-issues"
+        slug: "chronic-pain-issues",
+        img: '/chronic.png'
     },
     {
         title: "Wounds, Abrasions, and Burns",
@@ -217,7 +236,8 @@ export const conditions = [
         treatment: "Treatment includes thorough wound cleaning, appropriate dressings, infection prevention measures, and wound care instructions. Our providers can provide appropriate treatment and monitor for complications. We can also arrange follow-up care and specialist referrals when needed.",
         prevention: "Prevention strategies include using appropriate safety equipment, practicing good hygiene, and being careful when handling hot objects or sharp items. Regular safety training can help prevent these types of injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to wound care and burn treatment without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
-        slug: "wounds-abrasions-burns"
+        slug: "wounds-abrasions-burns",
+        img: '/wounds.png'
     },
     {
         title: "Cuts and Scrapes",
@@ -228,7 +248,56 @@ export const conditions = [
         treatment: "Treatment includes thorough wound cleaning, appropriate dressings, and infection prevention measures. Our providers can provide appropriate treatment and wound care instructions. We can also prescribe antibiotics if needed and arrange follow-up care.",
         prevention: "Prevention strategies include using appropriate safety equipment, being careful when handling sharp objects, and practicing good hygiene. Regular safety training can help prevent these types of injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to cut and scrape treatment without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
-        slug: "cuts-scrapes"
+        slug: "cuts-scrapes",
+        img: '/scrapes.png'
+    },
+    {
+        title: "Abrasions / Road Rash",
+        description: "Specialized care for friction injuries and road rash wounds",
+        whatItIs: "Abrasions and road rash are friction injuries that occur when the skin is scraped against rough surfaces, commonly resulting from falls, motorcycle accidents, bicycle crashes, or sports injuries. These injuries can range from superficial scrapes to deep wounds that remove multiple layers of skin and require specialized care to prevent infection and scarring. Our urgent care centers provide comprehensive treatment for abrasions and road rash, including thorough cleaning, debridement, and wound management to ensure optimal healing.",
+        symptoms: "Abrasion and road rash symptoms include pain, bleeding, redness, swelling, and visible skin damage with embedded debris or gravel. The affected area may appear raw, with varying degrees of skin loss depending on the severity of the injury. Signs of infection may develop within hours or days and include increased pain, redness, swelling, warmth, pus drainage, and sometimes fever. Severe road rash may cause significant pain and require immediate medical attention.",
+        whenToSeekCare: "Seek immediate medical attention for deep abrasions, road rash covering large areas, wounds with embedded debris that cannot be removed, or if signs of infection develop. Our urgent care centers can provide same-day evaluation and treatment for abrasions and road rash, including thorough cleaning, debridement, and appropriate wound care. We can also assess the need for tetanus vaccination and antibiotics.",
+        treatment: "Treatment includes thorough cleaning and debridement to remove embedded debris, application of appropriate dressings, infection prevention measures, and wound care instructions. Our providers can perform professional wound cleaning that removes all foreign material and prevents infection. We can prescribe antibiotics if needed, provide pain management, and arrange follow-up care for wound monitoring and dressing changes.",
+        prevention: "Prevention strategies include wearing appropriate protective clothing during activities, using safety equipment such as helmets and protective gear, and practicing safe behaviors during sports and recreational activities. For motorcyclists and cyclists, wearing protective clothing and using appropriate safety equipment can significantly reduce the risk of road rash. Our urgent care centers can provide education on injury prevention and safety measures.",
+        urgentCareAdvantage: "Our urgent care centers provide immediate access to professional abrasion and road rash treatment without the need for appointments. We can perform thorough wound cleaning and debridement that may be difficult to achieve at home. Our providers are experienced in managing these specialized wounds and can provide appropriate follow-up care to ensure optimal healing and minimize scarring.",
+        slug: "abrasions-road-rash",
+        img: '/abrasions.png'
+    },
+    {
+        title: "Avulsions & Crush Injuries",
+        description: "Expert care for severe tissue damage and traumatic injuries",
+        whatItIs: "Avulsions and crush injuries are severe traumatic injuries that can cause significant tissue damage and require immediate medical attention. Avulsions occur when tissue is torn away from the body, while crush injuries result from extreme pressure that damages muscles, bones, and other tissues. These injuries can occur from industrial accidents, motor vehicle crashes, falls from height, or other traumatic events. Our urgent care centers provide comprehensive evaluation and treatment for these serious injuries, including immediate stabilization and referral to specialists when needed.",
+        symptoms: "Avulsion symptoms include severe pain, heavy bleeding, visible tissue loss, and sometimes exposed bone or muscle. Crush injury symptoms include severe pain, swelling, bruising, numbness or tingling, and sometimes compartment syndrome with severe pressure and pain. Both types of injuries may cause shock, rapid heart rate, and other systemic symptoms. Immediate symptoms often include severe pain, visible deformity, and significant bleeding.",
+        whenToSeekCare: "Seek immediate medical attention for any avulsion or crush injury, as these are serious injuries that require prompt evaluation and treatment. Our urgent care centers can provide immediate evaluation and stabilization for these injuries, including diagnostic imaging to assess the extent of damage. We can arrange immediate referral to specialists or emergency care when needed.",
+        treatment: "Treatment depends on the severity and type of injury but typically includes immediate stabilization, pain management, wound care, and referral to specialists for definitive treatment. Our providers can provide immediate care and stabilization while arranging appropriate specialist referrals. We can also provide pain management and monitor for complications such as infection or compartment syndrome.",
+        prevention: "Prevention strategies include using appropriate safety equipment, following safety protocols in industrial settings, maintaining safe driving practices, and avoiding risky behaviors that could lead to traumatic injuries. Regular safety training and proper use of protective equipment can significantly reduce the risk of these serious injuries. Our urgent care centers can provide education on injury prevention and safety measures.",
+        urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and stabilization for avulsions and crush injuries without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide immediate care while arranging appropriate specialist referrals. Our providers are experienced in managing these serious injuries and can provide appropriate stabilization and pain management.",
+        slug: "avulsions-crush-injuries",
+        img: '/crush.png'
+    },
+    {
+        title: "Tendon & Ligament Tears (ACL, MCL, Achilles)",
+        description: "Specialized care for tendon and ligament injuries with advanced diagnostics",
+        whatItIs: "Tendon and ligament tears are serious musculoskeletal injuries that can significantly impact mobility and function. Common injuries include ACL (anterior cruciate ligament) tears in the knee, MCL (medial collateral ligament) tears, and Achilles tendon ruptures. These injuries often occur during sports activities, falls, or traumatic events and require specialized evaluation and treatment. Our urgent care centers provide comprehensive evaluation for tendon and ligament injuries using advanced imaging technology and can arrange appropriate specialist referrals for definitive treatment.",
+        symptoms: "Tendon and ligament tear symptoms include severe pain, swelling, bruising, instability, and difficulty bearing weight or moving the affected joint. ACL tears may cause a popping sensation, knee instability, and difficulty with pivoting movements. Achilles tendon ruptures typically cause sudden pain in the back of the ankle, difficulty walking, and inability to push off with the affected foot. MCL tears cause pain on the inner side of the knee and instability with side-to-side movements.",
+        whenToSeekCare: "Seek immediate medical attention for any suspected tendon or ligament tear, especially if you experience severe pain, inability to bear weight, or significant instability. Our urgent care centers can provide same-day evaluation for these injuries, including diagnostic imaging to confirm the diagnosis and assess the severity. We can arrange immediate referral to orthopedic specialists for definitive treatment.",
+        treatment: "Treatment depends on the specific injury and severity but typically includes immediate stabilization, pain management, and referral to orthopedic specialists for definitive treatment. Our providers can provide immediate care and stabilization while arranging appropriate specialist referrals. We can also provide pain management, immobilization when needed, and guidance on activity modification.",
+        prevention: "Prevention strategies include proper warm-up and cool-down exercises, gradual progression of training intensity, using appropriate protective equipment, and maintaining good physical conditioning. Regular strength training and flexibility exercises can help prevent tendon and ligament injuries by improving joint stability and muscle strength. Our urgent care centers can provide education on injury prevention and appropriate exercise programs.",
+        urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and diagnostic imaging for tendon and ligament injuries without the long waits of emergency rooms. We can perform advanced imaging studies on-site and provide immediate stabilization while arranging appropriate specialist referrals. Our providers are experienced in managing these specialized injuries and can provide appropriate care coordination.",
+        slug: "tendon-ligament-tears",
+        img: '/tendon.png'
+    },
+    {
+        title: "Simple Stress Fractures",
+        description: "Expert diagnosis and treatment for overuse bone injuries",
+        whatItIs: "Simple stress fractures are small cracks or breaks in bones that develop gradually from repetitive stress and overuse, rather than from a single traumatic event. These injuries commonly occur in weight-bearing bones such as the feet, shins, and hips, particularly among athletes, runners, and individuals who engage in repetitive activities. Stress fractures develop when the bone's ability to repair itself is overwhelmed by the repetitive stress placed upon it. Our urgent care centers provide comprehensive evaluation and treatment for stress fractures using advanced imaging technology to ensure accurate diagnosis and appropriate treatment planning.",
+        symptoms: "Stress fracture symptoms typically begin as a dull ache that gradually worsens with activity and improves with rest. As the condition progresses, pain becomes more localized and intense, often occurring during weight-bearing activities. Common symptoms include tenderness to touch over the affected bone, swelling, and sometimes a visible bump or bruising. Pain may be worse in the morning or after periods of inactivity, and the affected area may feel weak or unstable during activities.",
+        whenToSeekCare: "Seek medical attention if you experience persistent pain that worsens with activity, localized tenderness over a bone, or if pain interferes with daily activities or exercise routines. Our urgent care centers can provide same-day evaluation for stress fractures, including X-ray and advanced imaging studies when needed. Early diagnosis and treatment can prevent the fracture from worsening and reduce recovery time.",
+        treatment: "Treatment for simple stress fractures typically includes rest and activity modification to allow the bone to heal, pain management, and sometimes immobilization with a brace or walking boot. Our providers can prescribe appropriate pain medications, provide guidance on activity modification, and arrange follow-up care to monitor healing progress. We can also refer patients to physical therapy for rehabilitation exercises once healing begins.",
+        prevention: "Prevention strategies include gradual progression of training intensity, proper footwear and equipment, adequate nutrition including calcium and vitamin D, and listening to your body's signals of pain or fatigue. Cross-training and incorporating rest days into exercise routines can help prevent overuse injuries. Our urgent care centers can provide education on injury prevention and appropriate training modifications.",
+        urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and diagnostic imaging for stress fractures without the long waits of emergency rooms. We can perform X-ray and advanced imaging studies on-site to confirm the diagnosis and assess the severity. Our providers are experienced in managing overuse injuries and can provide appropriate treatment recommendations and follow-up care.",
+        slug: "simple-stress-fractures",
+        img: '/simple-fracture.png'
     }
 ];
 

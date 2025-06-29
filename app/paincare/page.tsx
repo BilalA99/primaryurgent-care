@@ -9,6 +9,9 @@ import HandPain from '@/components/icons/handpain';
 import ShoulderPain from '@/components/icons/shoulderpain';
 import KneePain from '@/components/icons/kneepain';
 import Headaches from '@/components/icons/headaches';
+import Reveal from '@/components/RevealAnimation'
+import SlidingDiv from '@/components/SlidingAnimation'
+import PainCareWeTreat from '@/components/paincarewetreat'
 
 const PainCare = () => {
     return (
@@ -51,18 +54,20 @@ const PainCare = () => {
 
             <section className='grid lg:grid-cols-2 gap-14 h-full xl:px-[60px] px-4 lg:py-20 py-2'>
                 <div className='w-full h-full relative rounded-2xl overflow-hidden '><Image src="/piprule.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
-                <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
-                    <p className='lg:text-6xl text-5xl font-600'>Florida's 14-Day PIP Rule  See a Doctor Fast to Protect Your Claim</p>
-                    <p className='text-lg text-[#494647]'>
-                        Under Florida's Personal Injury Protection (PIP) law, you must receive medical care within 14 days of your car accident to unlock PIP benefits no matter who was at fault. Miss this window and the insurance carrier can deny payment for treatment, imaging, prescriptions, and lost wages.<br /><br />
-                        Even "minor" aches can mask whiplash, internal bleeding, or herniated discs, so book a same-day auto-injury visit or walk in today:
-                        <br />
-                        <li>On-site digital X-ray, CT & MRI with STAT reads (≤ 3 hrs)</li>
-                        <li>Detailed injury documentation for attorneys & insurers</li>
-                        <li>Direct PIP billing—no out-of-pocket surprise bills</li>
-                        <li>Open extended hours across Palm Beach County</li>
-                    </p>
-                </div>
+                <SlidingDiv position='right' className='flex flex-col gap-2'>
+                    <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
+                        <p className='lg:text-6xl text-5xl font-600'>Florida's 14-Day PIP Rule  See a Doctor Fast to Protect Your Claim</p>
+                        <p className='text-lg text-[#494647]'>
+                            Under Florida's Personal Injury Protection (PIP) law, you must receive medical care within 14 days of your car accident to unlock PIP benefits no matter who was at fault. Miss this window and the insurance carrier can deny payment for treatment, imaging, prescriptions, and lost wages.<br /><br />
+                            Even "minor" aches can mask whiplash, internal bleeding, or herniated discs, so book a same-day auto-injury visit or walk in today:
+                            <br />
+                            <li>On-site digital X-ray, CT & MRI with STAT reads (≤ 3 hrs)</li>
+                            <li>Detailed injury documentation for attorneys & insurers</li>
+                            <li>Direct PIP billing—no out-of-pocket surprise bills</li>
+                            <li>Open extended hours across Palm Beach County</li>
+                        </p>
+                    </div>
+                </SlidingDiv>
             </section>
             <AccidentTypesTabs />
             <section className="relative w-full xl:py-52 py-10 flex items-center justify-center ">
@@ -82,36 +87,7 @@ const PainCare = () => {
                 </div>
             </section>
             {/* Pain & Injuries We Treat After Accidents Section */}
-            <section className="w-full bg-[#FAFAFA] py-20 px-4 md:px-[60px]">
-                <h2 className="text-4xl md:text-6xl font-bold text-center mb-6">Pain & Injuries We Treat After Accidents –<br />Palm Beach</h2>
-                <div className="md:text-lg text-base text-[#494647] text-center mb-12">Seen in less then 15 min for whiplash, nerve pain, headaches, or joint injuries—on-site X-ray, MRI, and direct PIP billing.</div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <NeckPain />
-                        <div className="text-2xl font-bold text-black mt-6">Neck Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <BackPain />
-                        <div className="text-2xl font-bold text-black mt-6">Back Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <HandPain />
-                        <div className="text-2xl font-bold text-black mt-6">Hand Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <ShoulderPain />
-                        <div className="text-2xl font-bold text-black mt-6">Shoulder Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <KneePain />
-                        <div className="text-2xl font-bold text-black mt-6">Knee & Foot Pain</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-10 flex flex-col items-start justify-between h-60 shadow-sm">
-                        <Headaches />
-                        <div className="text-2xl font-bold text-black mt-6">Headaches & Migraines</div>
-                    </div>
-                </div>
-            </section>
+            <PainCareWeTreat />
             
         </main>
     )

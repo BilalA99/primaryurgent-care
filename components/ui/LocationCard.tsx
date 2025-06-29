@@ -10,9 +10,9 @@ interface LocationCardProps {
 }
 
 const LocationCard: React.FC<LocationCardProps> = ({ location, phone, className = '', slug }) => (
-    <Link href={`/locations/${slug}`} className={`flex items-center justify-center gap-4 ${className} `}>
+    <Link href={`/locations/${slug}`} className={`flex items-center justify-center gap-4 hover:cursor-pointer group${className} `}>
         <div className="border-2 border-[#0445BF] bg-[#0445BF]/10 rounded-xl p-3 px-4 flex items-center justify-center">
-            <Mappin2 fill="#0445BF" />
+            <div className='group-hover:-translate-y-1 transition-transform duration-300'><Mappin2 fill="#0445BF"  /></div>
         </div>
         <div>
             <div className="text-2xl font-[500] text-black">{location}</div>

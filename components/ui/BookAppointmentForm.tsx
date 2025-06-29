@@ -1,5 +1,35 @@
 'use client';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { Button } from '@/components/ui/button';
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
+
+const formSchema = z.object({
+    name: z.string().min(2, 'Name must be at least 2 characters'),
+    email: z.string().email('Please enter a valid email address'),
+    phone: z.string().min(10, 'Please enter a valid phone number'),
+    type: z.string().min(1, 'Please select an accident type'),
+    message: z.string(),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const BookAppointmentForm = ({
     title = 'Book An Appointment',
@@ -10,83 +40,154 @@ const BookAppointmentForm = ({
     bgColor?: string;
     textColor?: string;
 }) => {
-    const [form, setForm] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        type: '',
-        message: '',
+    const form = useForm<FormData>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: '',
+            email: '',
+            phone: '',
+            type: '',
+            message: '',
+        },
     });
 
+    const onSubmit = async (data: FormData) => {
+        try {
+            console.log('Form data:', data);
+            // Here you would typically send the data to your API
+            // await submitForm(data);
+
+            // Reset form after successful submission
+            form.reset();
+            alert('Appointment request submitted successfully!');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting your request. Please try again.');
+        }
+    };
+
     return (
-        <div className={`${bgColor} rounded-2xl p-8 w-full h-full max-w-xl mx-auto flex flex-col gap-6 `}>
-            <h2 className={`text-3xl font-bold ${textColor} `}>{title}</h2>
-            <form className="flex flex-col gap-5">
-                <div>
-                    <label htmlFor="name" className={`block mb-2 font-semibold ${textColor} text-base`}>Full Name</label>
-                    <input
-                        id="name"
-                        type="text"
-                        placeholder="Enter your full name"
-                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
-                        value={form.name}
-                        onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+        <div className={`${bgColor} rounded-2xl p-8 w-full h-full max-w-xl mx-auto flex flex-col gap-6`}>
+            <h2 className={`text-3xl font-bold ${textColor}`}>{title}</h2>
+
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
+                    <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                    Full Name
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="Enter your full name"
+                                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
                     />
-                </div>
-                <div>
-                    <label htmlFor="email" className={`block mb-2 font-semibold ${textColor} text-base`}>Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        placeholder="Enter your email address"
-                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
-                        value={form.email}
-                        onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                    Email
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="email"
+                                        placeholder="Enter your email address"
+                                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
                     />
-                </div>
-                <div>
-                    <label htmlFor="phone" className={`block mb-2 font-semibold ${textColor} text-base`}>Phone Number</label>
-                    <input
-                        id="phone"
-                        type="tel"
-                        placeholder="Enter your phone number"
-                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
-                        value={form.phone}
-                        onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+
+                    <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                    Phone Number
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="tel"
+                                        placeholder="Enter your phone number"
+                                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
                     />
-                </div>
-                <div>
-                    <label htmlFor="type" className={`block mb-2 font-semibold ${textColor} text-base`}>Type of Accident</label>
-                    <select
-                        id="type"
-                        className={`w-full rounded-lg px-5 py-3 bg-white ${form.type === "" ? "text-gray-500" : "text-black"} text-base outline-none border-none appearance-none`}
-                        value={form.type}
-                        onChange={e => setForm(f => ({ ...f, type: e.target.value }))}
+
+                    <FormField
+                        control={form.control}
+                        name="type"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                    Type of Accident
+                                </FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none">
+                                            <SelectValue placeholder="Select" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        <SelectItem value="Workplace Accident">Workplace Accident</SelectItem>
+                                        <SelectItem value="Car Accident">Car Accident</SelectItem>
+                                        <SelectItem value="Personal Injury">Personal Injury</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                    Message
+                                </FormLabel>
+                                <FormControl>
+                                    <Textarea
+                                        placeholder="Write your message"
+                                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none min-h-[100px]"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <Button
+                        type="submit"
+                        className="w-full bg-[#D52128] hover:bg-[#b81b22] text-white font-bold py-3 px-4 rounded-xl text-lg transition duration-300 mt-2"
+                        disabled={form.formState.isSubmitting}
                     >
-                        <option value="">Select</option>
-                        <option value="Workplace Accident">Workplace Accident</option>
-                        <option value="Car Accident">Car Accident</option>
-                        <option value="Personal Injury">Personal Injury</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="message" className={`block mb-2 font-semibold ${textColor} text-base`}>Message</label>
-                    <textarea
-                        id="message"
-                        placeholder="Write your message"
-                        rows={4}
-                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
-                        value={form.message}
-                        onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                    />
-                </div>
-                <button
-                    type="submit"
-                    className="w-full bg-[#D52128] hover:bg-[#b81b22] text-white font-bold py-3 px-4 rounded-xl text-lg transition duration-300 mt-2"
-                >
-                    Submit
-                </button>
-            </form>
+                        {form.formState.isSubmitting ? 'Submitting...' : 'Submit'}
+                    </Button>
+                </form>
+            </Form>
         </div>
     );
 };

@@ -16,7 +16,7 @@ const accidentTypes = [
         title: 'Heavy Vehicle Accident',
         description:
             'Injured in a truck or bus accident? Our urgent care centers provide rapid assessment, imaging, and documentation for workplace and commercial vehicle injuries. We help you navigate insurance and return-to-work paperwork.',
-        image: '/placeholder-heavyvehicle.jpg',
+        image: '/truck.png',
         button: 'Book Heavy Vehicle Injury Visit',
     },
     {
@@ -24,7 +24,7 @@ const accidentTypes = [
         title: 'Motorcycle/Bike Accident',
         description:
             'Motorcycle or bike crash? We treat road rash, fractures, and head injuries with on-site imaging and same-day care. We also provide legal documentation for insurance and attorney needs.',
-        image: '/placeholder-twowheeler.jpg',
+        image: '/motorcycle.png',
         button: 'Book Two-Wheeler Injury Visit',
     },
     {
@@ -32,7 +32,7 @@ const accidentTypes = [
         title: 'Cyclist/Pedestrian Injury',
         description:
             'Hit while walking or cycling? Our team provides urgent care for fractures, sprains, and soft-tissue injuries, plus documentation for insurance and legal claims.',
-        image: '/placeholder-cyclist.jpg',
+        image: '/cycle.png',
         button: 'Book Cyclist/Pedestrian Injury Visit',
     },
     {
@@ -40,7 +40,7 @@ const accidentTypes = [
         title: 'Rideshare Accident',
         description:
             'Injured in an Uber or Lyft? We offer rapid evaluation, imaging, and paperwork for rideshare-related injuries, and help you file claims with the appropriate insurer.',
-        image: '/placeholder-rideshare.jpg',
+        image: '/rideshare.png',
         button: 'Book Rideshare Injury Visit',
     },
     {
@@ -48,7 +48,7 @@ const accidentTypes = [
         title: 'Workplace Accident',
         description:
             'Workplace fall or injury? We provide urgent care, OSHA notes, and return-to-work documentation for all occupational injuries, with on-site imaging and same-day results.',
-        image: '/placeholder-occupational.jpg',
+        image: '/work.png',
         button: 'Book Occupational Injury Visit',
     },
     {
@@ -56,7 +56,7 @@ const accidentTypes = [
         title: 'Trip & Fall Injury',
         description:
             'Slipped or tripped? We treat sprains, fractures, and head injuries, and provide documentation for insurance and legal needs.',
-        image: '/placeholder-tripfall.jpg',
+        image: '/trip.png',
         button: 'Book Trip & Fall Injury Visit',
     },
 ];

@@ -6,6 +6,8 @@ import Star2 from '@/components/icons/star2';
 import LocationsRow from '@/components/LocationsRow';
 import Link from 'next/link';
 import { conditions } from '@/components/conditions';
+import Reveal from '@/components/RevealAnimation';
+import SlidingDiv from '@/components/SlidingAnimation';
 
 const UrgentInjuryCarePage = () => {
     return (
@@ -47,11 +49,13 @@ const UrgentInjuryCarePage = () => {
             </section>
             <section className='grid xl:grid-cols-2 xl:gap-14 gap-10 h-full xl:px-[60px] px-4 lg:py-20 py-10'>
                 <div className='w-full xl:h-full overflow-hidden h-100 relative rounded-2xl sm:block hidden  '><Image src="/rapidinjurycare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square w-full h-full' /></div>
-                <div className=' flex items-start justify-center xl:py-32 py-10 space-y-6 flex-col'>
-                    <p className='text-6xl font-600'>Walk in NOW for Rapid Injury Care</p>
-                    <p className='text-2xl font-600'>Sprains, Strains, Fractures & More</p>
-                    <p className='text-lg text-[#494647]'>Twisted ankle? Possible fracture? Cut that needs stitches? Skip the ER line and head straight to Primary & Urgent Care Centers for hospital-level injury treatment in under 15 minutes. Our board-certified team splints sprains, reduces dislocations, repairs lacerations, and delivers on-the-spot digital X-ray, CT, and ultrasound—with STAT reads in three hours and same-day results. Book a same-day urgent care appointment or simply walk in; most insurance accepted and $69 self-pay visits keep costs predictable. Get moving again—fast, safe, affordable.</p>
-                </div>
+               <SlidingDiv position='right' className='w-full overflow-hidden'>
+                    <div className=' flex items-start justify-center xl:py-32 py-10 space-y-6 flex-col'>
+                        <p className='text-6xl font-600'>Walk in NOW for Rapid Injury Care</p>
+                        <p className='text-2xl font-600'>Sprains, Strains, Fractures & More</p>
+                        <p className='text-lg text-[#494647]'>Twisted ankle? Possible fracture? Cut that needs stitches? Skip the ER line and head straight to Primary & Urgent Care Centers for hospital-level injury treatment in under 15 minutes. Our board-certified team splints sprains, reduces dislocations, repairs lacerations, and delivers on-the-spot digital X-ray, CT, and ultrasound—with STAT reads in three hours and same-day results. Book a same-day urgent care appointment or simply walk in; most insurance accepted and $69 self-pay visits keep costs predictable. Get moving again—fast, safe, affordable.</p>
+                    </div>
+               </SlidingDiv>
             </section>
             {/* Our Specialities Section */}
             <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px]">
@@ -60,7 +64,7 @@ const UrgentInjuryCarePage = () => {
                     {conditions.slice(0, 7).map((item, i) => (
                         <Link href={`/urgentinjurycare/${item.slug}`}
                             key={i}
-                            className="bg-[#FDF4F4] rounded-[30px] px-10 py-8 text-2xl md:text-3xl font-600 text-black text-center cursor-pointer transition-transform duration-200 hover:scale-105"
+                            className="bg-[#FDF4F4] rounded-3xl lg:px-10 px-4 lg:py-8 py-4 lg:text-2xl text-xl font-600 text-black text-center cursor-pointer transition-transform duration-200 hover:scale-105"
                             style={{ minWidth: '280px', flex: i === 5 ? '1 1 420px' : undefined }}
                         >
                             {item.title}
@@ -75,10 +79,10 @@ const UrgentInjuryCarePage = () => {
                 <div className="text-lg text-black mb-6">Walk in or book a same-day appointment our board-certified team delivers STAT MRI reads within 3 hours and same-day results, so treatment starts now, not next week.</div>
                 <div className="text-base text-black mb-12">Our specialists provide care for a variety of minor injuries, including:</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {conditions.slice(7, conditions.length).map((item, i) => (
-                        <Link href={`/urgentinjurycare/${item.slug}`} key={i} className="flex items-center bg-[#F7F7F7] rounded-[20px] px-8 py-5 text-2xl font-bold text-black gap-4">
-                            <span className="flex-shrink-0"><Star2 /></span>
-                            <span>{item.title}</span>
+                    {conditions.slice(7, 20).map((item, i) => (
+                        <Link href={`/urgentinjurycare/${item.slug}`} key={i} className="flex group items-center bg-[#F7F7F7] rounded-[20px] px-8 py-5 text-2xl font-bold text-black gap-4">
+                            <span className="flex-shrink-0 group-hover:scale-120 transition-all duration-300"><Star2 /></span>
+                            <span className='group-hover:text-[#D52128] transition-all duration-300'>{item.title}</span>
                         </Link>
                     ))}
                 </div>
@@ -124,30 +128,30 @@ const UrgentInjuryCarePage = () => {
                     <p className="text-lg text-[#494647] mb-6">We provide comprehensive wound care services, including sutures and medications, to avoid infections. With 43 locations in Florida and extended hours, we ensure convenient access to care.</p>
                     <p className="text-lg text-[#494647] mb-10">Our team will develop a tailored treatment plan based on your injury's specifics.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-white rounded-2xl p-6">
+                        <Link href={`/urgentinjurycare/abrasions-road-rash`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Abrasions / Road Rash</div>
                             <div className="text-base text-[#494647]">Surface scrapes need deep cleaning to prevent infection and scarring.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/avulsions-crush-injuries`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Avulsions & Crush Injuries</div>
                             <div className="text-base text-[#494647]">Skin or tissue torn away; rapid closure controls bleeding and preserves tissue.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/chronic-pain-issues`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Chronic wounds</div>
                             <div className="text-base text-[#494647]">Individuals with conditions like diabetes may experience slow healing and require specialized care, including debridement and advanced treatments.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/cuts-lacerations-stitches`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Lacerations</div>
                             <div className="text-base text-[#494647]">Jagged or straight cuts often need stitches or staples for proper healing.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/wounds-abrasions-burns`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Burns & Scalds</div>
                             <div className="text-base text-[#494647]">Minor to moderate thermal injuries; debride, dress, and manage pain.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/bites-domestic-animals`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Animal & Human Bites</div>
                             <div className="text-base text-[#494647]">High-infection wounds; thorough irrigation and preventive antibiotics.</div>
-                        </div>
+                        </Link>
                     </div>
                 </section>
             </section>
@@ -162,22 +166,22 @@ const UrgentInjuryCarePage = () => {
                     <p className="text-lg text-[#494647] mb-2">We offer a variety of wound care services, including sutures and medications, to prevent infections. With 43 locations in Florida and extended hours, we provide convenient access to care.</p>
                     <p className="text-lg text-[#494647] mb-10">Our team will create a personalized treatment plan based on your injury.</p>
                     <div className="flex flex-col gap-6">
-                        <div className="bg-white rounded-2xl p-6">
+                        <Link href={`/urgentinjurycare/simple-stress-fractures`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Simple & Stress Fractures</div>
                             <div className="text-base text-[#494647]">Digital X-ray on site; splinting and STAT radiology reads in less then 4 3 hrs. Referral for casting or surgery when needed.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/fractures-dislocations`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Shoulder Dislocation / Subluxation</div>
                             <div className="text-base text-[#494647]">We reduce the joint, numb pain, immobilize, and order follow-up MRI if labrum or rotator cuff damage is suspected.</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/sprains-strains-fractures`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Ankle & Wrist Sprains / Strains</div>
                             <div className="text-base text-[#494647]">Rapid swelling or inability to bear weight? Rule out fracture, apply supportive brace, RICE, and anti-inflammatory meds</div>
-                        </div>
-                        <div className="bg-white rounded-2xl p-6">
+                        </Link>
+                        <Link href={`/urgentinjurycare/tendon-ligament-tears`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Tendon & Ligament Tears (ACL, MCL, Achilles)</div>
                             <div className="text-base text-[#494647]">Point-of-care ultrasound screens major tears; 1.5 T MRI confirms extent so ortho referral is seamless.</div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>

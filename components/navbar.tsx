@@ -5,6 +5,7 @@ import Star from "@/components/icons/star";
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import Phone from './icons/phone';
 
 const navItems = [
     { name: 'Home', href: '/' },
@@ -93,8 +94,8 @@ const NavBar = () => {
                         </nav>
 
                         {/* Desktop Call Button */}
-                        <button className="hidden xl:flex items-center bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
-                            <Star className="w-5 h-5 mr-3" fill="white" />
+                        <button className="hidden xl:flex items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                            <Phone fill="white" />
                             <span>(561) 204-5111</span>
                         </button>
 

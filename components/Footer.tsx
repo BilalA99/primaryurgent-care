@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Starred from '@/components/icons/starred';
+import Phone from './icons/phone';
 const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'Appointment', href: '#' },
@@ -24,9 +25,9 @@ const Footer = () => (
             </p>
             <a
                 href="tel:5612045111"
-                className="inline-flex items-center gap-3 bg-white text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16"
+                className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16"
             >
-                <Starred />
+                <div className='group-hover:scale-[1.2] transition-all duration-300'><Phone  /></div>
                 Call Now  (561) 204-5111
             </a>
         </div>

@@ -12,6 +12,10 @@ import Services from "@/components/Services";
 import LocationsRow from "@/components/LocationsRow";
 import ClinicsMap from "@/components/clinicsmap";
 import { LocationsScreens } from "@/components/locationsscreens";
+import SlidingDiv from "@/components/SlidingAnimation";
+import Reveal from "@/components/RevealAnimation";
+import Testimonials from "@/components/testimonials";
+import Reviews from "@/components/Reviews";
 export default function Home() {
   return (
     <main className="h-full w-full flex flex-col text-white">
@@ -89,25 +93,29 @@ export default function Home() {
             />
           </div>
 
-          <div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              State of the Art Technology,<br className="hidden lg:block" />Right Inside Our Urgent Care
-            </h2>
-            <p className="text-gray-700 text-base lg:text-lg">
-              Healthcare has entered the fast lane—and so have we. Primary & Urgent Care Centers pairs hospital-level care with true emergency-room equipment: 1.5 T MRI, multi-slice CT, high-definition digital X-ray, ultrasound, and lab analyzers. Every image is read STAT—often within three hours—so you leave with same-day answers and a clear plan, not more questions.
-            </p>
-          </div>
+          <SlidingDiv className="w-full" position="right">
+            <div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                State of the Art Technology,<br className="hidden lg:block" />Right Inside Our Urgent Care
+              </h2>
+              <p className="text-gray-700 text-base lg:text-lg">
+                Healthcare has entered the fast lane—and so have we. Primary & Urgent Care Centers pairs hospital-level care with true emergency-room equipment: 1.5 T MRI, multi-slice CT, high-definition digital X-ray, ultrasound, and lab analyzers. Every image is read STAT—often within three hours—so you leave with same-day answers and a clear plan, not more questions.
+              </p>
+            </div>
+          </SlidingDiv>
         </div>
         {/* Bottom row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              Seen in 15 minutes or less!
-            </h2>
-            <p className="text-gray-700 text-base lg:text-lg">
-              No cold, unfriendly waiting rooms and interminable wait times to be seen are a nightmare of the past! Come to a Primary and Urgent Care Center and step into the new age of health care, where you will feel welcome while also knowing you will be seen by a knowledgeable medical professional IN LESS THAN 15 MINUTES.
-            </p>
-          </div>
+          <SlidingDiv className="w-full" position="left">
+            <div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                Seen in 15 minutes or less!
+              </h2>
+              <p className="text-gray-700 text-base lg:text-lg">
+                No cold, unfriendly waiting rooms and interminable wait times to be seen are a nightmare of the past! Come to a Primary and Urgent Care Center and step into the new age of health care, where you will feel welcome while also knowing you will be seen by a knowledgeable medical professional IN LESS THAN 15 MINUTES.
+              </p>
+            </div>
+          </SlidingDiv>
           <GradientImage
             src="/doctorwithpatient.jpg"
             alt="Doctor with patient"
@@ -156,27 +164,7 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="w-full bg-white py-10 pb-32 px-4 lg:px-[60px]">
-        <div className="max-w-8xl flex flex-col  space-y-24">
-          <h2 className="text-5xl md:text-5xl font-bold text-center text-black leading-tight">
-            Trusted and Loved by<br />Our Community
-          </h2>
-          <div className="flex flex-col lg:flex-row lg:space-x-32 lg:space-y-0 space-y-10 lg:px-20 px-6 w-full">
-            <ReviewCard
-              text="This office has an incredible and amazing customer service team who taking care all patients. Based on my experience with this Primary &Urgent Care I really do recommend it to anyone. Doctors and nurses are really care and gentle. I can say you will be in good hands."
-              avatarSrc="https://randomuser.me/api/portraits/women/25.jpg"
-              name="Ernst"
-              role="Business Analytic at Opndoo"
-            />
-            <ReviewCard
-              text="The Primary & Urgent Care Center in RPB has been my primary care provider for nearly 2 years. The staff are kind and attentive. Many diagnostics can be ran right here in their facilities, so no having to drive to another place back and forth for a test to be administered."
-              avatarSrc="https://randomuser.me/api/portraits/men/40.jpg"
-              name="Gail Hilpert"
-              role="Business Analytic at Domino"
-            />
-          </div>
-        </div>
-      </section>
+      <Testimonials/>
 
       {/* Accessible Urgent Care Section */}
       <section className="w-full bg-[#FAFAFA] lg:py-24 py-10 px-6 lg:px-[60px]">
@@ -190,35 +178,47 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-16 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-16 gap-10">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:col-span-2 col-span-1 ">
                 {/* Top left card */}
-                <div className="bg-[#F2F6FC] rounded-t-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
-                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                    <Ambulance />
+                  <div className="w-full overflow-hidden bg-[#F2F6FC] rounded-tl-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
+                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                      <Ambulance />
+                    </div>
+                    <Reveal className="w-full overflow-hidden">
+                     <div className="w-full overflow-hidden">
+                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Urgent Care</h3>
+                        <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
+                     </div>
+                    </Reveal>
                   </div>
-                  <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Urgent Care</h3>
-                  <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
-                </div>
                 {/* Top right card */}
-                <div className="bg-[#FDF4F4] rounded-t-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10  relative">
-                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                    <Waittimes />
+                  <div className="w-full overflow-hidden bg-[#FDF4F4] rounded-tr-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
+                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                      <Waittimes />
+                    </div>
+                   <Reveal className="w-full overflow-hidden">
+                      <div className="w-full overflow-hidden">
+                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Short Wait Times</h3>
+                        <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
+                      </div>
+                   </Reveal>
                   </div>
-                  <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Short Wait Times</h3>
-                  <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
-                </div>
                 {/* Bottom card (spans both columns) */}
-                <div className="bg-white rounded-b-2xl lg:p-8 p-6 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
-                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                    <ShieldUser />
+                  <div className="bg-white rounded-b-2xl lg:p-8 p-6 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
+                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                      <ShieldUser />
+                    </div>
+                    <Reveal className="w-full overflow-hidden">
+                      <div className="w-full overflow-hidden">
+                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8 md:w-full w-[80%]">Most Insurance Accepted</h3>
+                        <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
+                      </div>
+                    </Reveal>
                   </div>
-                  <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8 md:w-full w-[80%]">Most Insurance Accepted</h3>
-                  <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
-                </div>
               </div>
               {/* Right: Map Placeholder */}
-              <div className="w-full h-full col-span-1 bg-gray-200 rounded-2xl flex items-center justify-center">
+              <div className="w-full h-full col-span-2 bg-gray-200 rounded-2xl flex items-center justify-center">
                 <ClinicsMap zoom={11}/>
               </div>
             </div>

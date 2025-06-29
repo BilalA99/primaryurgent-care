@@ -30,7 +30,6 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
           <p className="md:text-lg text-md text-gray-600">{service?.whyChooseUs}</p>
         </div>
       </div>
-      <div className='relative w-full items-center justify-center rounded-2xl my-4 sm:block hidden overflow-hidden self-center h-140'><Image src={service?.imageSrc} alt={service?.title} fill className='aspect-video  w-full h-full' /></div>
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <div className="flex flex-col gap-4 col-span-1 w-full">
           <h2 className="text-xl md:text-2xl font-bold text-black">How does a {service?.title} work?</h2>

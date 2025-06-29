@@ -1,7 +1,9 @@
 import Phone from "@/components/icons/phone";
+import SlidingDiv from "@/components/SlidingAnimation";
 import Accordion from "@/components/ui/Accordion";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 const accordionSections = [
     {
@@ -43,7 +45,7 @@ const accordionSections = [
       title: 'ABOUT US',
       content: <div>Learn more about our team and mission.</div>,
     },
-  ];
+];
 const EmergencyRoomPage = () => {
     return (
         <main>
@@ -61,21 +63,21 @@ const EmergencyRoomPage = () => {
                 </div>
                 <div className="relative flex flex-col lg:flex-row items-center justify-between xl:py-20 py-10 max-w-8xl mx-auto px-4 md:px-12 gap-10">
                     {/* Left: Content */}
-                    <div className="flex-1 flex flex-col justify-center items-center text-white max-w-2xl">
-                        <div className="mb-6">
-                            <span className="bg-[rgba(255,255,255,0.20)] text-white font-semibold px-6 py-2 rounded-[12px] text-lg shadow-md backdrop-blur-[8.5px]">Hospital Level Care</span>
+                        <div className="flex-1 flex flex-col justify-center items-center text-white max-w-2xl">
+                            <div className="mb-6">
+                                <span className="bg-[rgba(255,255,255,0.20)] text-white font-semibold px-6 py-2 rounded-[12px] text-lg shadow-md backdrop-blur-[8.5px]">Hospital Level Care</span>
+                            </div>
+                            <h1 className="text-5xl md:text-6xl font-600 mb-6 leading-tight text-center">Emergency Room Services</h1>
+                            <p className="text-lg mb-8 max-w-2xl text-center">
+                                Skip the crowded ER and get the same MRI, CT, digital X-ray, ultrasound, and QUICK lab work right inside our urgent-care clinic. Average wait: less then 15 min. Flat $69 self-pay, direct insurance & PIP billing, detailed records for your doctor or attorney.
+                            </p>
+                            <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
+                                <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
+                                <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                                    <Phone /> (561) 204-5111
+                                </a>
+                            </div>
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-600 mb-6 leading-tight text-center">Emergency Room Services</h1>
-                        <p className="text-lg mb-8 max-w-2xl text-center">
-                            Skip the crowded ER and get the same MRI, CT, digital X-ray, ultrasound, and QUICK lab work right inside our urgent-care clinic. Average wait: less then 15 min. Flat $69 self-pay, direct insurance & PIP billing, detailed records for your doctor or attorney.
-                        </p>
-                        <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
-                            <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
-                                <Phone /> (561) 204-5111
-                            </a>
-                        </div>
-                    </div>
                     {/* Right: Form in blurred card */}
                     <div className="flex-1 flex justify-center items-center w-full max-w-xl">
                         <BookAppointmentForm title="Request Same-Day Visit" bgColor="bg-[rgba(255,255,255,0.22)] backdrop-blur-[7.150000095367432px]" textColor="text-white" />
@@ -83,14 +85,16 @@ const EmergencyRoomPage = () => {
                 </div>
             </section>
             <section className='grid lg:grid-cols-2 xl:gap-14 gap-8 h-full xl:px-[60px] px-4 lg:py-20 py-10'>
-                <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
-                    <p className='lg:text-6xl text-5xl font-600'>Hospital-Level Care, Minus the Hospital Headache</p>
-                    <p className='text-lg text-[#494647]'>
-                        Looking for an urgent care center with hospital-level equipment and ER-caliber care near you? Primary Urgent Care delivers exactly that  providing advanced, hospital-quality urgent care services with on-site X-ray, MRI, lab testing and more in a convenient, patient-friendly clinic setting. We combine the technology and expertise you’d find in an emergency room with faster service, lower costs, and none of the hassle.
-                    </p>
-                    <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Locate Our Clinic</button>
-
-                </div>
+                <SlidingDiv position='left' className="w-full overflow-hidden">
+                    <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
+                        <p className='lg:text-6xl text-5xl font-600'>Hospital-Level Care, Minus the Hospital Headache</p>
+                        <p className='text-lg text-[#494647]'>
+                            Looking for an urgent care center with hospital-level equipment and ER-caliber care near you? Primary Urgent Care delivers exactly that  providing advanced, hospital-quality urgent care services with on-site X-ray, MRI, lab testing and more in a convenient, patient-friendly clinic setting. We combine the technology and expertise you’d find in an emergency room with faster service, lower costs, and none of the hassle.
+                        </p>
+                        <Link href={`/locations`} className="bg-[#D52128] text-white font-semibold px-8 py-4 flex items-center justify-center xl:w-[40%] w-full rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Locate Our Clinics</Link>
+    
+                    </div>
+                </SlidingDiv>
                 <div className='w-full h-full relative rounded-2xl overflow-hidden sm:h-100 lg:h-full '><Image src="/hospitalcare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square' /></div>
             </section>
 
