@@ -46,9 +46,112 @@ const accordionSections = [
       content: <div>Learn more about our team and mission.</div>,
     },
 ];
+
+export const metadata = {
+  title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
+  description:
+    "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
+  keywords: [
+    "emergency room alternative",
+    "walk-in ER Palm Beach County",
+    "hospital-level urgent care",
+    "urgent care ER",
+    "emergency care clinic",
+    "ER wait times Palm Beach",
+    "urgent care with MRI CT X-ray",
+    "affordable emergency care",
+    "no wait ER Palm Beach",
+    "emergency doctor urgent care",
+    "PIP injury care ER alternative",
+    "auto accident emergency care",
+    "board-certified ER doctors urgent care"
+  ],
+  openGraph: {
+    title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
+    description:
+      "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
+    url: "https://primaryurgentcare.com/emergencyroom",
+    type: "website",
+    images: [
+      {
+        url: "/hospitalcare.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hospital-level emergency care urgent care Palm Beach County"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
+    description:
+      "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
+    images: [
+      "/hospitalcare.jpg"
+    ]
+  },
+  alternates: {
+    canonical: "https://primaryurgentcare.com/emergencyroom"
+  }
+};
+
+// Structured data for hospital-level emergency care
+const EmergencyRoomJsonLd = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'MedicalClinic',
+        name: 'Primary & Urgent Care Centers of Palm Beach County',
+        url: 'https://primaryurgentcare.com/emergencyroom',
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: 'Palm Beach County, FL'
+        },
+        medicalSpecialty: [
+          'EmergencyCare',
+          'UrgentCare',
+          'DiagnosticImaging',
+          'InjuryCare',
+          'PediatricCare'
+        ],
+        availableService: [
+          'Hospital-Level Urgent Care',
+          'Walk-In Emergency Room Alternative',
+          'Auto Accident & PIP Injury Care',
+          'Advanced Imaging (MRI, CT, X-ray, Ultrasound)',
+          'On-Site Lab Testing',
+          'Board-Certified Emergency Doctors',
+          'Workers\' Comp & Occupational Medicine',
+          'Pediatric & Family Care',
+          'Telemedicine',
+          'Vaccinations',
+          'Physicals',
+          'IV Fluids',
+          'Stitches & Wound Care',
+          'Same-Day Appointments',
+          'Direct Insurance & PIP Billing'
+        ],
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'See locations page',
+          addressLocality: 'Palm Beach County',
+          addressRegion: 'FL',
+          postalCode: '',
+          addressCountry: 'US'
+        },
+        telephone: '+1-561-555-5555',
+        description: 'Hospital-level emergency care and walk-in ER alternative with advanced imaging, board-certified doctors, and affordable pricing. Less than 15 min wait. Serving Palm Beach County.'
+      })
+    }}
+  />
+);
+
 const EmergencyRoomPage = () => {
     return (
         <main>
+            <EmergencyRoomJsonLd />
             <section className="relative h-full w-full xl:px-[60px] px-4">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
@@ -89,7 +192,7 @@ const EmergencyRoomPage = () => {
                     <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
                         <p className='lg:text-6xl text-5xl font-600'>Hospital-Level Care, Minus the Hospital Headache</p>
                         <p className='text-lg text-[#494647]'>
-                            Looking for an urgent care center with hospital-level equipment and ER-caliber care near you? Primary Urgent Care delivers exactly that  providing advanced, hospital-quality urgent care services with on-site X-ray, MRI, lab testing and more in a convenient, patient-friendly clinic setting. We combine the technology and expertise you’d find in an emergency room with faster service, lower costs, and none of the hassle.
+                            Looking for an urgent care center with hospital-level equipment and ER-caliber care near you? Primary Urgent Care delivers exactly that  providing advanced, hospital-quality urgent care services with on-site X-ray, MRI, lab testing and more in a convenient, patient-friendly clinic setting. We combine the technology and expertise you'd find in an emergency room with faster service, lower costs, and none of the hassle.
                         </p>
                         <Link href={`/locations`} className="bg-[#D52128] text-white font-semibold px-8 py-4 flex items-center justify-center xl:w-[40%] w-full rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Locate Our Clinics</Link>
     
@@ -102,7 +205,7 @@ const EmergencyRoomPage = () => {
                 {/* Left: Post */}
                 <div className="md:col-span-2 flex flex-col gap-10 w-full">
                     <div className="flex flex-col gap-10 w-full">
-                        <h1 className="text-5xl font-bold mb-4">Emergency-Trained Doctors, Ready for Serious Injuries</h1>
+                        <h2 className="text-5xl font-bold mb-4">Emergency-Trained Doctors, Ready for Serious Injuries</h2>
                         <p className="text-lg text-[#494647] mb-8">
                             Unlike many walk-in clinics, Primary Urgent Care is staffed by board-certified physicians and highly trained nurses – led by an emergency medicine specialist. Having an ER-experienced doctor always on-site means we can handle serious (but non-life-threatening) conditions that other clinics might send to the ER. From broken bones and severe sprains to deep cuts that need stitches, our team provides the expert care you need on the spot. We also offer services like IV fluids, on-site medications, and pediatric care, delivering the same breadth of treatment you'd expect from a hospital emergency department, but in a more accessible setting.
                         </p>
@@ -121,10 +224,10 @@ const EmergencyRoomPage = () => {
                        <div>
                             <h2 className="text-5xl font-bold mb-4">Convenient, Patient-Focused Access</h2>
                             <p className="text-lg text-[#494647] mb-4">
-                            Everything at Primary Urgent Care is designed for your convenience. We welcome walk-ins, offer easy online reservations, and have multiple locations across Palm Beach County making it simple to find “ER-level urgent care near me”. Our clinics are open beyond typical doctors’ office hours (Monday through Friday, 9am–6pm) so it’s easier to get care after work or school when your regular doctor is unavailable. Inside, you’ll find a clean, comfortable environment (no crowded, chaotic hospital hallways) and a friendly staff focused on your needs. The result is a stress-free urgent care experience that puts patients first from the moment you walk in.
+                            Everything at Primary Urgent Care is designed for your convenience. We welcome walk-ins, offer easy online reservations, and have multiple locations across Palm Beach County making it simple to find "ER-level urgent care near me". Our clinics are open beyond typical doctors' office hours (Monday through Friday, 9am–6pm) so it's easier to get care after work or school when your regular doctor is unavailable. Inside, you'll find a clean, comfortable environment (no crowded, chaotic hospital hallways) and a friendly staff focused on your needs. The result is a stress-free urgent care experience that puts patients first from the moment you walk in.
                             </p>
                             <p className="text-lg text-[#494647]">
-                            When an unexpected injury or illness needs attention fast, trust Primary Urgent Care to deliver hospital-level care without the hospital wait or cost – it’s the faster, more affordable way to get you feeling better.
+                            When an unexpected injury or illness needs attention fast, trust Primary Urgent Care to deliver hospital-level care without the hospital wait or cost – it's the faster, more affordable way to get you feeling better.
                             </p>
                        </div>
                        <div>
@@ -164,7 +267,7 @@ const EmergencyRoomPage = () => {
                 />
                 <div className="absolute inset-0 bg-[#570000]/50 -z-10" />
                 <div className="flex flex-col items-center justify-center h-full text-center self-center lg:w-[50%] w-[70%]">
-                    <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold text-white mb-6">Walk-In Hospital-Level Urgent Care Palm Beach County</h1>
+                    <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold text-white mb-6">Walk-In Hospital-Level Urgent Care Palm Beach County</h2>
                     <div className="md:text-lg text-base text-white max-w-2xl mx-auto">
                     On-site MRI, CT, digital X-ray, and STAT labs. Board-certified providers see you in {'<'} 15 minutes—no appointment, no ER prices.
                     </div>

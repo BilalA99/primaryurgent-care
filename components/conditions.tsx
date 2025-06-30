@@ -9,6 +9,9 @@ export interface ConditionInfoProp {
     urgentCareAdvantage: string;
     slug: string;
     img?: string;
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
 }
 export const conditions: ConditionInfoProp[] = [
     {
@@ -21,7 +24,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include proper warm-up before physical activity, using appropriate protective equipment, maintaining good physical conditioning, and learning proper techniques for sports and exercise. Regular strength training and flexibility exercises can help prevent strains and sprains by improving muscle and joint stability. Our urgent care centers can provide education on injury prevention and recommend appropriate exercises for specific activities.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to X-ray imaging and orthopedic evaluation without the long waits typically associated with emergency rooms. We can diagnose and treat most sprains, strains, and simple fractures on the same day, with board-certified providers who specialize in musculoskeletal injuries. Our streamlined process means you can get the care you need quickly and return to your daily activities faster.",
         slug: "sprains-strains-fractures",
-        img: '/strainsprain.png'
+        img: '/strainsprain.png',
+        metaTitle: "Sprains, Strains, and Fractures - Urgent Care Palm Beach County",
+        metaDescription: "Learn about sprains, strains, and fractures, common musculoskeletal injuries that require immediate medical attention. Our urgent care centers offer comprehensive care and advanced imaging technology for accurate diagnosis and treatment.",
+        keywords: ["sprains", "strains", "fractures", "musculoskeletal injuries", "urgent care", "Palm Beach County"]
     },
     {
         title: "Illness",
@@ -33,7 +39,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include regular hand washing, maintaining a healthy lifestyle, getting adequate sleep, eating a balanced diet, and staying up to date on vaccinations. Avoiding close contact with sick individuals and practicing good hygiene can significantly reduce the risk of contracting common illnesses. Our urgent care centers offer flu shots and other preventive vaccinations.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to illness treatment without the need for appointments or long waits. We can diagnose and treat most common illnesses on the same day, with providers who are experienced in managing a wide range of acute medical conditions. Our facilities are equipped with diagnostic testing capabilities for rapid results.",
         slug: "illness",
-        img: '/illness.png'
+        img: '/illness.png',
+        metaTitle: "Illness - Urgent Care Palm Beach County",
+        metaDescription: "Learn about common illnesses and infections, and how our urgent care centers can provide rapid diagnosis and treatment. Preventive care and vaccinations are available to help reduce the risk of future illnesses.",
+        keywords: ["illness", "infections", "common illnesses", "urgent care", "Palm Beach County"]
     },
     {
         title: "Allergic Reactions",
@@ -45,7 +54,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention involves identifying and avoiding known allergens, carrying emergency medications when prescribed, and having an action plan for managing reactions. Regular allergy testing can help identify specific triggers, and immunotherapy may be recommended for long-term management. Our urgent care centers can provide referrals to allergists for comprehensive allergy management.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to treatment for allergic reactions without the long waits of emergency rooms. We can administer emergency medications, provide symptom relief, and help develop prevention strategies. Our providers are experienced in managing both mild and severe allergic reactions.",
         slug: "allergic-reactions",
-        img: '/allergic.png'
+        img: '/allergic.png',
+        metaTitle: "Allergic Reactions - Urgent Care Palm Beach County",
+        metaDescription: "Learn about allergic reactions and how our urgent care centers can provide immediate treatment and long-term management strategies. Avoidance strategies and emergency medications are available to help manage allergic reactions.",
+        keywords: ["allergic reactions", "allergies", "urgent care", "Palm Beach County"]
     },
     {
         title: "Stomach Pain",
@@ -57,7 +69,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include maintaining a healthy diet, avoiding foods that trigger symptoms, practicing good food safety, and managing stress. Regular exercise and adequate hydration can help maintain digestive health. Our urgent care centers can provide education on dietary modifications and lifestyle changes to prevent recurrent stomach pain.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to abdominal pain evaluation without the need for appointments. We can perform diagnostic testing and imaging on-site, providing rapid results and treatment recommendations. Our providers are experienced in managing a wide range of gastrointestinal conditions.",
         slug: "stomach-pain",
-        img: '/stomach.png'
+        img: '/stomach.png',
+        metaTitle: "Stomach Pain - Urgent Care Palm Beach County",
+        metaDescription: "Learn about abdominal pain and digestive issues, and how our urgent care centers can provide comprehensive evaluation and treatment. Preventive strategies and dietary modifications are available to help manage stomach pain.",
+        keywords: ["stomach pain", "abdominal pain", "digestive issues", "urgent care", "Palm Beach County"]
     },
     {
         title: "Digestive Issues",
@@ -69,7 +84,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include maintaining a healthy diet, avoiding trigger foods, managing stress, regular exercise, and adequate hydration. Keeping a food diary can help identify specific triggers. Our urgent care centers can provide education on dietary modifications and lifestyle changes to improve digestive health.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to digestive health evaluation without the need for appointments. We can perform diagnostic testing on-site and provide immediate treatment recommendations. Our providers are experienced in managing common digestive issues and can arrange specialist referrals when needed.",
         slug: "digestive-issues",
-        img: '/digestive.png'
+        img: '/digestive.png',
+        metaTitle: "Digestive Issues - Urgent Care Palm Beach County",
+        metaDescription: "Learn about gastrointestinal problems and digestive health, and how our urgent care centers can provide expert care and treatment. Preventive strategies and dietary modifications are available to help manage digestive issues.",
+        keywords: ["digestive issues", "gastrointestinal problems", "urgent care", "Palm Beach County"]
     },
     {
         title: "Work Injuries & Workers' Comp",
@@ -81,7 +99,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include proper training, use of personal protective equipment, ergonomic workplace design, and regular safety training. Employers should provide appropriate safety equipment and training to prevent workplace injuries. Our urgent care centers can provide education on workplace safety and injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to work injury treatment with experience in workers' compensation documentation. We can provide immediate evaluation and treatment while ensuring proper documentation for insurance claims. Our providers are experienced in managing work-related injuries and navigating the workers' compensation process.",
         slug: "work-injuries-workers-comp",
-        img: '/work.png'
+        img: '/work.png',
+        metaTitle: "Work Injuries & Workers' Comp - Urgent Care Palm Beach County",
+        metaDescription: "Learn about workplace injuries and workers' compensation cases, and how our urgent care centers can provide specialized care and experience in navigating the claims process.",
+        keywords: ["work injuries", "workers' compensation", "urgent care", "Palm Beach County"]
     },
     {
         title: "UTIs & Women's Health",
@@ -93,7 +114,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include staying hydrated, urinating frequently, practicing good hygiene, and avoiding irritating feminine products. Cranberry supplements may help prevent recurrent UTIs. Our urgent care centers can provide education on UTI prevention and women's health maintenance.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to UTI treatment and women's health care without the need for appointments. We can perform diagnostic testing on-site and provide immediate treatment recommendations. Our providers are experienced in managing women's health concerns and can provide appropriate referrals when needed.",
         slug: "utis-womens-health",
-        img: '/uti.png'
+        img: '/uti.png',
+        metaTitle: "UTIs & Women's Health - Urgent Care Palm Beach County",
+        metaDescription: "Learn about urinary tract infections and women's health concerns, and how our urgent care centers can provide comprehensive care and treatment.",
+        keywords: ["UTIs", "women's health", "urgent care", "Palm Beach County"]
     },
     {
         title: "Acute Injuries",
@@ -105,7 +129,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate safety equipment, maintaining good physical conditioning, and practicing safe behaviors during activities. Regular exercise and strength training can help prevent some types of acute injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to acute injury treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment for most injuries. Our providers are experienced in managing a wide range of acute injuries.",
         slug: "acute-injuries",
-        img: '/acute.png'
+        img: '/acute.png',
+        metaTitle: "Acute Injuries - Urgent Care Palm Beach County",
+        metaDescription: "Learn about acute injuries and how our urgent care centers can provide immediate care and treatment for sudden injuries and trauma.",
+        keywords: ["acute injuries", "sudden injuries", "trauma", "urgent care", "Palm Beach County"]
     },
     {
         title: "Bites from Domestic Animals",
@@ -117,7 +144,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include avoiding unfamiliar animals, teaching children how to interact safely with pets, and ensuring pets are properly vaccinated and trained. Never approach or attempt to pet unknown animals. Our urgent care centers can provide education on animal bite prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to animal bite treatment without the need for appointments. We can provide immediate wound care and infection prevention. Our providers are experienced in managing animal bites and can arrange appropriate follow-up care.",
         slug: "bites-domestic-animals",
-        img: '/bite.png'
+        img: '/bite.png',
+        metaTitle: "Bites from Domestic Animals - Urgent Care Palm Beach County",
+        metaDescription: "Learn about animal bites and how our urgent care centers can provide expert care for animal bites and wound management.",
+        keywords: ["animal bites", "domestic animals", "urgent care", "Palm Beach County"]
     },
     {
         title: "Sprains & Strains",
@@ -129,7 +159,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include proper warm-up before physical activity, using appropriate protective equipment, and maintaining good physical conditioning. Regular strength training and flexibility exercises can help prevent sprains and strains. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to sprain and strain treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment. Our providers are experienced in managing soft tissue injuries and can provide appropriate rehabilitation guidance.",
         slug: "sprains-strains",
-        img: '/strainsprain.png'
+        img: '/strainsprain.png',
+        metaTitle: "Sprains & Strains - Urgent Care Palm Beach County",
+        metaDescription: "Learn about sprains and strains, common soft tissue injuries that require immediate medical attention and proper evaluation and treatment.",
+        keywords: ["sprains", "strains", "soft tissue injuries", "urgent care", "Palm Beach County"]
     },
     {
         title: "Contusions & Soft-Tissue Swelling",
@@ -141,7 +174,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate protective equipment during activities, maintaining good physical conditioning, and practicing safe behaviors. Regular exercise can help improve muscle strength and reduce the risk of injury. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to contusion and soft-tissue injury treatment without the need for appointments. We can perform diagnostic imaging on-site if needed and provide immediate treatment recommendations. Our providers are experienced in managing these common injuries.",
         slug: "contusions-soft-tissue-swelling",
-        img: '/contusions.png'
+        img: '/contusions.png',
+        metaTitle: "Contusions & Soft-Tissue Swelling - Urgent Care Palm Beach County",
+        metaDescription: "Learn about contusions and soft-tissue swelling, common injuries that require immediate medical attention and proper evaluation and treatment.",
+        keywords: ["contusions", "soft-tissue swelling", "bruises", "urgent care", "Palm Beach County"]
     },
     {
         title: "Cuts, Lacerations & Stitches",
@@ -153,7 +189,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate safety equipment, keeping sharp objects properly stored, and practicing safe behaviors during activities. Regular safety training can help prevent accidental injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to wound care and suturing services without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
         slug: "cuts-lacerations-stitches",
-        img: '/cuts.png'
+        img: '/cuts.png',
+        metaTitle: "Cuts, Lacerations & Stitches - Urgent Care Palm Beach County",
+        metaDescription: "Learn about cuts and lacerations, common injuries that require immediate medical attention and proper wound care and suturing services.",
+        keywords: ["cuts", "lacerations", "stitches", "urgent care", "Palm Beach County"]
     },
     {
         title: "Eye & Ear Injuries",
@@ -165,7 +204,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate eye and ear protection during activities, avoiding inserting objects into ears, and practicing good hygiene. Regular eye and ear examinations can help detect problems early. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to eye and ear injury treatment without the need for appointments. We can provide immediate evaluation and treatment for most injuries. Our providers are experienced in managing these specialized injuries and can arrange appropriate referrals.",
         slug: "eye-ear-injuries",
-        img: '/eye.png'
+        img: '/eye.png',
+        metaTitle: "Eye & Ear Injuries - Urgent Care Palm Beach County",
+        metaDescription: "Learn about ocular and auditory injuries and how our urgent care centers can provide specialized care for these injuries.",
+        keywords: ["eye injuries", "ear injuries", "urgent care", "Palm Beach County"]
     },
     {
         title: "Fractures and Dislocations",
@@ -177,7 +219,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate protective equipment, maintaining good physical conditioning, and practicing safe behaviors during activities. Regular exercise can help improve bone strength and joint stability. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to fracture and dislocation treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment. Our providers are experienced in managing these injuries and can arrange appropriate specialist referrals.",
         slug: "fractures-dislocations",
-        img: '/fractures.png'
+        img: '/fractures.png',
+        metaTitle: "Fractures & Dislocations - Urgent Care Palm Beach County",
+        metaDescription: "Learn about bone fractures and joint dislocations and how our urgent care centers can provide expert care for these injuries.",
+        keywords: ["fractures", "dislocations", "bone injuries", "urgent care", "Palm Beach County"]
     },
     {
         title: "Athletic Injuries",
@@ -189,7 +234,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include proper warm-up and cool-down, gradual progression of training intensity, using appropriate equipment, and maintaining good physical conditioning. Regular strength training and flexibility exercises can help prevent athletic injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to sports medicine care without the need for appointments. We can provide immediate evaluation and treatment for athletic injuries. Our providers are experienced in managing sports-related injuries and can provide appropriate rehabilitation guidance.",
         slug: "athletic-injuries",
-        img: '/athletic.png'
+        img: '/athletic.png',
+        metaTitle: "Athletic Injuries - Urgent Care Palm Beach County",
+        metaDescription: "Learn about athletic injuries and how our urgent care centers can provide specialized sports medicine care for athletes.",
+        keywords: ["athletic injuries", "sports medicine", "athletes", "urgent care", "Palm Beach County"]
     },
     {
         title: "Bruises and Contusions",
@@ -201,7 +249,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate protective equipment during activities, maintaining good physical conditioning, and practicing safe behaviors. Regular exercise can help improve muscle strength and reduce the risk of injury. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to bruise and contusion treatment without the need for appointments. We can perform diagnostic imaging on-site if needed and provide immediate treatment recommendations. Our providers are experienced in managing these common injuries.",
         slug: "bruises-contusions",
-        img: '/contusions.png'
+        img: '/contusions.png',
+        metaTitle: "Bruises & Contusions - Urgent Care Palm Beach County",
+        metaDescription: "Learn about bruises and contusions, common injuries that require immediate medical attention and proper evaluation and treatment.",
+        keywords: ["bruises", "contusions", "urgent care", "Palm Beach County"]
     },
     {
         title: "Foreign-Body Removal",
@@ -213,7 +264,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate protective equipment, being careful when handling sharp objects, and practicing good hygiene. Regular safety training can help prevent foreign body injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to foreign body removal services without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in safe foreign body removal and can provide appropriate referrals when needed.",
         slug: "foreign-body-removal",
-        img: '/foreign.png'
+        img: '/foreign.png',
+        metaTitle: "Foreign-Body Removal - Urgent Care Palm Beach County",
+        metaDescription: "Learn about foreign body removal and how our urgent care centers can provide expert care for removing foreign objects from the skin and body.",
+        keywords: ["foreign body removal", "urgent care", "Palm Beach County"]
     },
     {
         title: "Chronic Pain Issues",
@@ -225,7 +279,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include maintaining good physical conditioning, practicing good posture, managing stress, and avoiding activities that exacerbate pain. Regular exercise and healthy lifestyle choices can help prevent some chronic pain conditions. Our urgent care centers can provide education on pain management and prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to chronic pain evaluation and treatment without the need for appointments. We can provide immediate relief and help develop long-term management strategies. Our providers are experienced in managing chronic pain and can arrange appropriate specialist referrals.",
         slug: "chronic-pain-issues",
-        img: '/chronic.png'
+        img: '/chronic.png',
+        metaTitle: "Chronic Pain Issues - Urgent Care Palm Beach County",
+        metaDescription: "Learn about chronic pain conditions and how our urgent care centers can provide comprehensive evaluation and management for these conditions.",
+        keywords: ["chronic pain", "pain management", "urgent care", "Palm Beach County"]
     },
     {
         title: "Wounds, Abrasions, and Burns",
@@ -237,7 +294,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate safety equipment, practicing good hygiene, and being careful when handling hot objects or sharp items. Regular safety training can help prevent these types of injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to wound care and burn treatment without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
         slug: "wounds-abrasions-burns",
-        img: '/wounds.png'
+        img: '/wounds.png',
+        metaTitle: "Wounds, Abrasions, & Burns - Urgent Care Palm Beach County",
+        metaDescription: "Learn about wounds, abrasions, and burns and how our urgent care centers can provide expert care for these injuries.",
+        keywords: ["wounds", "abrasions", "burns", "urgent care", "Palm Beach County"]
     },
     {
         title: "Cuts and Scrapes",
@@ -249,7 +309,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate safety equipment, being careful when handling sharp objects, and practicing good hygiene. Regular safety training can help prevent these types of injuries. Our urgent care centers can provide education on injury prevention.",
         urgentCareAdvantage: "Our urgent care centers provide convenient access to cut and scrape treatment without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
         slug: "cuts-scrapes",
-        img: '/scrapes.png'
+        img: '/scrapes.png',
+        metaTitle: "Cuts & Scrapes - Urgent Care Palm Beach County",
+        metaDescription: "Learn about cuts and scrapes, common minor injuries that require immediate medical attention and proper care.",
+        keywords: ["cuts", "scrapes", "urgent care", "Palm Beach County"]
     },
     {
         title: "Abrasions / Road Rash",
@@ -261,7 +324,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include wearing appropriate protective clothing during activities, using safety equipment such as helmets and protective gear, and practicing safe behaviors during sports and recreational activities. For motorcyclists and cyclists, wearing protective clothing and using appropriate safety equipment can significantly reduce the risk of road rash. Our urgent care centers can provide education on injury prevention and safety measures.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to professional abrasion and road rash treatment without the need for appointments. We can perform thorough wound cleaning and debridement that may be difficult to achieve at home. Our providers are experienced in managing these specialized wounds and can provide appropriate follow-up care to ensure optimal healing and minimize scarring.",
         slug: "abrasions-road-rash",
-        img: '/abrasions.png'
+        img: '/abrasions.png',
+        metaTitle: "Abrasions & Road Rash - Urgent Care Palm Beach County",
+        metaDescription: "Learn about abrasions and road rash and how our urgent care centers can provide specialized care for these injuries.",
+        keywords: ["abrasions", "road rash", "urgent care", "Palm Beach County"]
     },
     {
         title: "Avulsions & Crush Injuries",
@@ -273,7 +339,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include using appropriate safety equipment, following safety protocols in industrial settings, maintaining safe driving practices, and avoiding risky behaviors that could lead to traumatic injuries. Regular safety training and proper use of protective equipment can significantly reduce the risk of these serious injuries. Our urgent care centers can provide education on injury prevention and safety measures.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and stabilization for avulsions and crush injuries without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide immediate care while arranging appropriate specialist referrals. Our providers are experienced in managing these serious injuries and can provide appropriate stabilization and pain management.",
         slug: "avulsions-crush-injuries",
-        img: '/crush.png'
+        img: '/crush.png',
+        metaTitle: "Avulsions & Crush Injuries - Urgent Care Palm Beach County",
+        metaDescription: "Learn about avulsions and crush injuries and how our urgent care centers can provide expert care for these serious injuries.",
+        keywords: ["avulsions", "crush injuries", "urgent care", "Palm Beach County"]
     },
     {
         title: "Tendon & Ligament Tears (ACL, MCL, Achilles)",
@@ -285,7 +354,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include proper warm-up and cool-down exercises, gradual progression of training intensity, using appropriate protective equipment, and maintaining good physical conditioning. Regular strength training and flexibility exercises can help prevent tendon and ligament injuries by improving joint stability and muscle strength. Our urgent care centers can provide education on injury prevention and appropriate exercise programs.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and diagnostic imaging for tendon and ligament injuries without the long waits of emergency rooms. We can perform advanced imaging studies on-site and provide immediate stabilization while arranging appropriate specialist referrals. Our providers are experienced in managing these specialized injuries and can provide appropriate care coordination.",
         slug: "tendon-ligament-tears",
-        img: '/tendon.png'
+        img: '/tendon.png',
+        metaTitle: "Tendon & Ligament Tears - Urgent Care Palm Beach County",
+        metaDescription: "Learn about tendon and ligament tears and how our urgent care centers can provide advanced diagnostics and specialized care for these injuries.",
+        keywords: ["tendon tears", "ligament tears", "urgent care", "Palm Beach County"]
     },
     {
         title: "Simple Stress Fractures",
@@ -297,7 +369,10 @@ export const conditions: ConditionInfoProp[] = [
         prevention: "Prevention strategies include gradual progression of training intensity, proper footwear and equipment, adequate nutrition including calcium and vitamin D, and listening to your body's signals of pain or fatigue. Cross-training and incorporating rest days into exercise routines can help prevent overuse injuries. Our urgent care centers can provide education on injury prevention and appropriate training modifications.",
         urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and diagnostic imaging for stress fractures without the long waits of emergency rooms. We can perform X-ray and advanced imaging studies on-site to confirm the diagnosis and assess the severity. Our providers are experienced in managing overuse injuries and can provide appropriate treatment recommendations and follow-up care.",
         slug: "simple-stress-fractures",
-        img: '/simple-fracture.png'
+        img: '/simple-fracture.png',
+        metaTitle: "Simple Stress Fractures - Urgent Care Palm Beach County",
+        metaDescription: "Learn about simple stress fractures and how our urgent care centers can provide expert diagnosis and treatment for these overuse bone injuries.",
+        keywords: ["simple stress fractures", "overuse injuries", "urgent care", "Palm Beach County"]
     }
 ];
 

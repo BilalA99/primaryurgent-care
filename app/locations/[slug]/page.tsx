@@ -17,6 +17,7 @@ import ClinicsMap from '@/components/clinicsmap'
 import SlidingDiv from '@/components/SlidingAnimation'
 import Reveal from '@/components/RevealAnimation'
 import Testimonials from '@/components/testimonials'
+
 const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params
     const location = LocationsScreens.find((location) => location.slug === slug)
@@ -137,3 +138,23 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
 }
 
 export default LocationPage
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const location = LocationsScreens.find((x) => x.slug === params.slug);
+  return {
+    title: location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+    description: location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+    keywords: location?.keywords || [
+      'urgent care Palm Beach County',
+      'walk-in clinic Palm Beach',
+      'medical clinic Palm Beach',
+      'emergency care Palm Beach',
+      'primary care Palm Beach',
+      'family doctor Palm Beach',
+      'same day doctor appointment Palm Beach'
+    ],
+    alternates: {
+      canonical: `https://primaryurgentcare.com/locations/${params.slug}`,
+    },
+  };
+}

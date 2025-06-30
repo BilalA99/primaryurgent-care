@@ -2,6 +2,7 @@ import { pricingData } from '@/app/pricing/page'
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+
 const PricingPage = async ({params}: {params: Promise<{slug: string}>}) => {
     const slug = (await params).slug
     const pricing = pricingData.find((item) => item.slug === slug)
@@ -173,4 +174,24 @@ const PricingPage = async ({params}: {params: Promise<{slug: string}>}) => {
     </main>
     )
 }
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const pricing = pricingData.find((x) => x.slug === params.slug);
+  return {
+    title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
+    description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    keywords: pricing?.keywords || [
+      'urgent care pricing',
+      'urgent care cost',
+      'walk-in clinic prices',
+      'self-pay urgent care',
+      'Palm Beach County urgent care',
+      'affordable urgent care',
+    ],
+    alternates: {
+      canonical: `https://primaryurgentcare.com/pricing/${params.slug}`,
+    },
+  };
+}
+
 export default PricingPage;

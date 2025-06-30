@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
 import { PainCareWeTreatData } from '@/components/paincarewetreat';
 import Image from 'next/image';
+
 export default async function ConditionDetails({
     params,
   }: {
@@ -178,4 +179,22 @@ export default async function ConditionDetails({
         </section>
     </main>
   )
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const condition_details = PainCareWeTreatData.find((x) => x.slug === params.slug);
+  return {
+    title: condition_details?.metaTitle || `Pain & Injury Care | Palm Beach County Urgent Care`,
+    description: condition_details?.metaDescription || `Walk-in urgent care for pain and injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
+    keywords: condition_details?.keywords || [
+      'pain care urgent care',
+      'injury treatment Palm Beach',
+      'walk-in pain clinic',
+      'urgent care for injuries',
+      'pain relief Palm Beach County'
+    ],
+    alternates: {
+      canonical: `https://primaryurgentcare.com/paincare/${params.slug}`,
+    },
+  };
 }

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { conditions, ConditionInfoProp } from '@/components/conditions';
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
 import Image from 'next/image';
+
 export default async function ConditionDetails({
     params,
   }: {
@@ -255,4 +256,12 @@ export default async function ConditionDetails({
         </section>
     </main>
   )
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  return {
+    alternates: {
+      canonical: `https://primaryurgentcare.com/urgentinjurycare/${params.slug}`,
+    },
+  };
 }

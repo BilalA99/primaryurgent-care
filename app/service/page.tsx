@@ -1,6 +1,94 @@
 import Services from "@/components/Services";
 import Image from "next/image";
 import Reveal from "@/components/RevealAnimation";
+
+export const metadata = {
+  title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
+  description: 'Get same-day MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine at our urgent care centers in Palm Beach County. Walk in or book an appointment for hospital-level diagnostics—no ER wait, affordable pricing, and fast results. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+  keywords: [
+    'urgent care imaging',
+    'hospital-grade diagnostics',
+    'MRI urgent care',
+    'CT scan urgent care',
+    'digital X-ray',
+    'ultrasound urgent care',
+    'nuclear medicine urgent care',
+    'walk-in imaging Palm Beach',
+    'same-day diagnostic services',
+    'advanced imaging urgent care',
+    'urgent care with MRI',
+    'urgent care with CT',
+    'urgent care with X-ray',
+    'urgent care with ultrasound',
+    'urgent care with nuclear medicine',
+    'Palm Beach County urgent care',
+    'Royal Palm Beach',
+    'Lake Worth',
+    'Palm Springs',
+    'Lantana'
+  ],
+  openGraph: {
+    title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
+    description: 'Get same-day MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine at our urgent care centers in Palm Beach County. Walk in or book an appointment for hospital-level diagnostics—no ER wait, affordable pricing, and fast results.',
+    url: 'https://primaryurgentcare.com/service',
+    type: 'website',
+    images: [
+      {
+        url: 'https://primaryurgentcare.com/servicelanding.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
+    description: 'Get same-day MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine at our urgent care centers in Palm Beach County. Walk in or book an appointment for hospital-level diagnostics—no ER wait, affordable pricing, and fast results.',
+    images: ['https://primaryurgentcare.com/servicelanding.jpg'],
+  },
+  alternates: {
+    canonical: 'https://primaryurgentcare.com/service',
+  },
+};
+
+// Add JSON-LD structured data for MedicalClinic
+export function ServiceJsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'MedicalClinic',
+          name: 'Primary & Urgent Care Centers of Palm Beach County',
+          url: 'https://primaryurgentcare.com/service',
+          image: 'https://primaryurgentcare.com/servicelanding.jpg',
+          description:
+            'Hospital-grade imaging and diagnostic services including MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine. Walk-in or book same-day appointments at our urgent care centers in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+          areaServed: [
+            'Royal Palm Beach FL',
+            'Lake Worth FL',
+            'Palm Springs FL',
+            'Lantana FL',
+            'Palm Beach County FL',
+          ],
+          availableService: [
+            'MRI',
+            'CT Scan',
+            'Digital X-ray',
+            'Ultrasound',
+            'Nuclear Medicine',
+          ],
+          openingHours: 'Mo-Su 08:00-20:00',
+          priceRange: '$$',
+          telephone: '+1-561-555-1234', // Update to real phone if available
+        }),
+      }}
+    />
+  );
+}
+
 const ServicePage = () => {
     return (
         <main className="w-full h-full">

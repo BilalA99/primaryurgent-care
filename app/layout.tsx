@@ -8,10 +8,40 @@ import { MapProvider } from "@/providers/map-provider";
 
 export const metadata: Metadata = {
   title: "Primary and Urgent Care Centers of Florida",
-  description: "Primary and Urgent Care Centers of Florida",
+  description: "Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.",
+  openGraph: {
+    title: "Primary and Urgent Care Centers of Florida",
+    description: "Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.",
+    images: [
+      {
+        url: "/websitelogo.png",
+        width: 512,
+        height: 512,
+        alt: "Primary & Urgent Care Centers Logo"
+      }
+    ]
+  },
+  alternates: {
+    canonical: "https://primaryurgentcare.com"
+  },
   icons: {
-    icon: '/websitelogo.png',
-    apple: '/websitelogo.png',
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon1.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon0.svg', type: 'image/svg+xml' },
+      { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon1.png', sizes: '32x32', type: 'image/png' },
+    ],
+    other: [
+      { url: '/icon0.svg', type: 'image/svg+xml' },
+    ]
   },
 };
 

@@ -2,9 +2,109 @@ import Image from 'next/image'
 import React from 'react'
 import LawyerRecordsForm from '@/components/ui/LawyerRecordsForm'
 
+export const metadata = {
+  title: "Legal Records Request for Attorneys | Auto Accident & Personal Injury Medical Records Palm Beach County",
+  description:
+    "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County. Immediate access to documentation for car accident, whiplash, and injury claims.",
+  keywords: [
+    "legal records request",
+    "attorney medical records",
+    "auto accident medical records",
+    "PIP records urgent care",
+    "personal injury documentation",
+    "car accident doctor records",
+    "lawyer urgent care records",
+    "Palm Beach County legal records",
+    "HIPAA compliant medical records",
+    "urgent care for attorneys",
+    "medical records for law firms",
+    "whiplash injury documentation",
+    "accident injury records Palm Beach"
+  ],
+  openGraph: {
+    title: "Legal Records Request for Attorneys | Auto Accident & Personal Injury Medical Records Palm Beach County",
+    description:
+      "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County.",
+    url: "https://primaryurgentcare.com/lawyers",
+    type: "website",
+    images: [
+      {
+        url: "/lawyers.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lawyers requesting urgent care medical records Palm Beach County"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Legal Records Request for Attorneys | Auto Accident & Personal Injury Medical Records Palm Beach County",
+    description:
+      "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County.",
+    images: [
+      "/lawyers.jpg"
+    ]
+  },
+  alternates: {
+    canonical: "https://primaryurgentcare.com/lawyers"
+  }
+};
+
+// Structured data for legal/medical records request
+const LawyersJsonLd = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LegalService',
+        name: 'Primary & Urgent Care Centers of Palm Beach County - Legal Records Department',
+        url: 'https://primaryurgentcare.com/lawyers',
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: 'Palm Beach County, FL'
+        },
+        serviceType: [
+          'Medical Records Request',
+          'Personal Injury Documentation',
+          'Auto Accident Medical Records',
+          'PIP 14-Day Rule Records',
+          'HIPAA-Compliant Legal Records'
+        ],
+        provider: {
+          '@type': 'MedicalClinic',
+          name: 'Primary & Urgent Care Centers of Palm Beach County',
+          url: 'https://primaryurgentcare.com',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'See locations page',
+            addressLocality: 'Palm Beach County',
+            addressRegion: 'FL',
+            postalCode: '',
+            addressCountry: 'US'
+          },
+          telephone: '+1-561-555-5555'
+        },
+        audience: [
+          {
+            '@type': 'Audience',
+            audienceType: 'Personal Injury Attorneys'
+          },
+          {
+            '@type': 'Audience',
+            audienceType: 'Law Firms'
+          }
+        ],
+        description: 'Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County.'
+      })
+    }}
+  />
+);
+
 const LawyersPage = () => {
     return (
         <main>
+            <LawyersJsonLd />
             <LawyerRecordsForm />
             <section className="relative w-full items-center justify-center flex h-full">
                 {/* Background image */}
@@ -31,11 +131,12 @@ const LawyersPage = () => {
                                 <span className="text-white ml-1">Lawyers</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 ">Legal Records Request for Attorneys</h1>
+                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 ">Legal Records Request for Attorneys</h2>
                             <p className="text-white lg:text-lg text-base mb-2">
                                 If you are a legal representative seeking patient medical records, please complete the secure form below. This form allows our urgent care staff to connect with your law firm and process your request in compliance with HIPAA regulations. Please provide accurate details regarding the patient, date of service, and the type of records required. For your request to be processed, ensure that all necessary authorizations or subpoenas are uploaded and that the legal acknowledgement is accepted. We are committed to maintaining the confidentiality and security of all Protected Health Information (PHI) throughout the process.
                             </p>
                             <p className="text-white lg:text-lg text-base mb-2">
-                                To help us process your request without delays, please fill in all required information, including your firm or attorney name, contact details, and the patient’s full name and date of birth. Indicate the approximate date of service and specify which records are needed—whether the full chart, imaging only, or billing only—using the dropdown provided. Additionally, upload a secure file containing the signed authorization or subpoena relevant to the case.
+                                To help us process your request without delays, please fill in all required information, including your firm or attorney name, contact details, and the patient's full name and date of birth. Indicate the approximate date of service and specify which records are needed—whether the full chart, imaging only, or billing only—using the dropdown provided. Additionally, upload a secure file containing the signed authorization or subpoena relevant to the case.
                             </p>
                             <p className="text-white lg:text-lg text-base mb-2">
                                 Before submitting, you must confirm that you are legally authorized to request the patient's medical records. By checking the HIPAA acknowledgement box, you affirm that you understand no Protected Health Information (PHI) will be transmitted through unsecured email and that your request complies with all applicable privacy laws.

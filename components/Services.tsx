@@ -12,7 +12,20 @@ export const services = [
     urgentCareAdvantage: "Our urgent care centers are equipped with the same high-quality 1.5T MRI technology found in major hospitals and imaging centers, but with the added advantage of significantly reduced wait times and immediate availability for urgent cases. Unlike traditional hospital settings where MRI appointments can take weeks to schedule and patients often wait 4-6 hours in crowded emergency rooms, our urgent care model provides walk-in access to this advanced diagnostic technology. For patients experiencing acute back pain, suspected disc herniations, sports injuries, or neurological symptoms, our 1.5T MRI offers immediate diagnostic clarity without the lengthy delays associated with hospital-based imaging. Our board-certified radiologists are available on-site to provide STAT interpretations within 3 hours, ensuring that patients receive timely results when minutes matter. The convenience of our urgent care setting means that patients can receive the same diagnostic quality as a hospital MRI department while avoiding the chaos, long waits, and higher costs typically associated with emergency room visits.",
     costs: "The cost advantage of receiving a 1.5T MRI at our urgent care centers is substantial, with typical pricing ranging from $400-800 compared to hospital costs of $1,200-2,500 for the same diagnostic procedure. This represents a savings of 50-70% compared to traditional hospital-based MRI services, making advanced diagnostic imaging accessible to patients without the financial burden of hospital pricing. Our urgent care centers accept most major insurance plans, and patients typically experience significantly lower copays and deductibles compared to hospital settings. For patients without insurance, we offer transparent, upfront pricing with no hidden fees, and we work with patients to establish affordable payment plans when needed. The cost savings extend beyond the procedure itself, as our urgent care model eliminates the additional emergency room facility fees, physician fees, and other charges that can add hundreds or thousands of dollars to a hospital-based MRI.",
     whyChooseUs: "Choosing our urgent care centers for your 1.5T MRI means accessing hospital-level diagnostic quality with the convenience and efficiency of urgent care. Unlike traditional hospitals where patients often face 4-6 hour wait times in crowded emergency rooms, our streamlined process gets you in and out quickly while providing the same diagnostic accuracy. Our board-certified radiologists are the same specialists who read studies at major hospitals, ensuring you receive expert interpretation of your results. The immediate availability of our 1.5T MRI technology means you can get answers to urgent medical questions without waiting weeks for an appointment or enduring lengthy emergency room visits. For patients experiencing acute back pain, sports injuries, neurological symptoms, or other conditions requiring immediate imaging, our rapid access to high-quality MRI can make the difference between timely treatment and prolonged suffering.",
-    slug: '1.5T-MRI'
+    slug: '1-5t-mri',
+    metaTitle: '1.5T MRI | Same-Day MRI Scan Palm Beach County | Urgent Care MRI Near Me',
+    metaDescription: 'Get a same-day 1.5T MRI scan at our Palm Beach County urgent care. Walk-in MRI for spine, brain, and joint injuries. No appointment needed. Fast, affordable, and expert imaging. Hospital-quality MRI without the wait or high cost.',
+    keywords: [
+      'urgent care MRI',
+      'MRI scan near me',
+      'same day MRI Palm Beach',
+      'walk-in MRI Florida',
+      '1.5T MRI urgent care',
+      'MRI without referral',
+      'affordable MRI scan',
+      'urgent care with MRI',
+      'MRI imaging Palm Beach County'
+    ]
   },
   {
     imageSrc: "/HomeCards/CTScan.jpg",
@@ -23,8 +36,20 @@ export const services = [
     urgentCareAdvantage: "Our urgent care centers feature state-of-the-art multi-slice CT technology that provides the same diagnostic quality as major hospitals, but with the added benefits of immediate availability and significantly reduced wait times. Unlike traditional hospital settings where CT scans often require lengthy appointment scheduling or involve 6-8 hour waits in crowded emergency rooms, our urgent care model provides walk-in access to this critical diagnostic technology. For patients experiencing trauma, chest pain, abdominal emergencies, or other acute conditions requiring immediate imaging, our CT scanner offers rapid diagnostic capabilities without the chaos and delays associated with hospital emergency departments. Our board-certified radiologists are available to provide same-day interpretations, ensuring that patients receive timely results when every minute counts. The convenience of our urgent care setting means that patients can receive hospital-level CT imaging while avoiding the stress, long waits, and higher costs typically associated with emergency room visits.",
     costs: "The cost advantage of receiving a CT scan at our urgent care centers is significant, with typical pricing ranging from $300-600 compared to hospital costs of $800-1,500 for the same diagnostic procedure. This represents a savings of 50-60% compared to traditional hospital-based CT services, making this essential diagnostic tool accessible to patients without the financial burden of hospital pricing. Our urgent care centers accept most major insurance plans, and patients typically experience lower copays and deductibles compared to hospital settings. For patients without insurance, we offer transparent, upfront pricing with no hidden fees, and we work with patients to establish affordable payment plans when needed. Emergency cases receive priority scheduling at no additional cost, ensuring that urgent medical needs are addressed promptly without financial penalty.",
     whyChooseUs: "Choosing our urgent care centers for your CT scan means accessing hospital-level diagnostic quality with the convenience and efficiency of urgent care. Unlike traditional hospitals where patients often face 6-8 hour wait times in crowded emergency rooms, our streamlined process provides rapid access to advanced CT imaging while maintaining the same diagnostic accuracy. Our CT scans are read by the same board-certified radiologists who work at major hospitals, ensuring you receive expert interpretation of your results. The immediate availability of our multi-slice CT technology means you can get answers to urgent medical questions without waiting for appointments or enduring lengthy emergency room visits. For patients experiencing trauma, chest pain, abdominal emergencies, or other acute conditions, our rapid access to high-quality CT imaging can make the difference between timely treatment and prolonged suffering.",
-    slug: 'CT-Scan'
-
+    slug: 'ct-scan',
+    metaTitle: 'CT Scan | Same-Day CT Imaging Palm Beach County | Urgent Care CT Near Me',
+    metaDescription: 'Walk in for a same-day CT scan at our Palm Beach County urgent care. Fast, low-dose CT imaging for trauma, chest pain, and emergencies. No appointment needed. Hospital-quality CT with immediate results and affordable pricing.',
+    keywords: [
+      'urgent care CT scan',
+      'CT scan near me',
+      'same day CT scan Palm Beach',
+      'walk-in CT scan Florida',
+      'CT imaging urgent care',
+      'emergency CT scan',
+      'affordable CT scan',
+      'CT scan without referral',
+      'CT scan Palm Beach County'
+    ]
   },
   {
     imageSrc: "/HomeCards/DigitalXray.jpg",
@@ -35,7 +60,20 @@ export const services = [
     urgentCareAdvantage: "Our urgent care centers provide walk-in access to advanced digital X-ray technology with immediate results, eliminating the lengthy waits and appointment scheduling typically associated with hospital-based X-ray services. Unlike traditional hospital settings where X-rays often require appointments or involve hours of waiting in crowded emergency rooms, our digital X-ray system provides instant imaging capabilities for patients with urgent medical needs. For patients experiencing fractures, chest pain, respiratory symptoms, or other conditions requiring immediate imaging, our digital X-ray technology offers rapid diagnostic capabilities without the chaos and delays associated with hospital emergency departments. The immediate availability of digital images means that our healthcare providers can make prompt diagnostic and treatment decisions, often within minutes of the X-ray being taken. Our digital X-ray system provides superior image quality compared to traditional film X-rays, with the ability to enhance and manipulate images to optimize visualization of specific anatomical structures and pathological conditions.",
     costs: "The cost advantage of receiving a digital X-ray at our urgent care centers is substantial, with typical pricing ranging from $50-150 compared to hospital costs of $200-400 for the same diagnostic procedure. This represents a savings of 60-75% compared to traditional hospital-based X-ray services, making this essential diagnostic tool highly accessible to patients without the financial burden of hospital pricing. Our urgent care centers accept most major insurance plans, and patients typically experience lower copays and deductibles compared to hospital settings. For patients without insurance, we offer transparent, upfront pricing with no hidden fees, and we work with patients to establish affordable payment plans when needed. No appointment is necessary for urgent cases, ensuring that patients with immediate medical needs can receive prompt diagnostic imaging without financial barriers.",
     whyChooseUs: "Choosing our urgent care centers for your digital X-ray means accessing high-quality diagnostic imaging with immediate results and significant cost savings. Unlike traditional hospitals where patients often face lengthy waits in crowded emergency rooms, our streamlined process provides rapid access to advanced digital X-ray technology while maintaining the same diagnostic accuracy. Our digital X-ray system provides superior image quality compared to traditional film X-rays, with the ability to enhance and manipulate images to optimize visualization of specific anatomical structures and pathological conditions. The immediate availability of digital images means that our healthcare providers can make prompt diagnostic and treatment decisions, often within minutes of the X-ray being taken. For patients experiencing fractures, chest pain, respiratory symptoms, or other conditions requiring immediate imaging, our rapid access to high-quality digital X-ray technology can make the difference between timely treatment and prolonged suffering.",
-    slug: 'Digital X-Ray'
+    slug: 'digital-x-ray',
+    metaTitle: 'Digital X-Ray | Walk-In X-Ray Palm Beach County | Urgent Care X-Ray Near Me',
+    metaDescription: 'Walk in for a digital X-ray at our Palm Beach County urgent care. Immediate imaging for fractures, chest pain, and injuries. No appointment needed. Fast, affordable, and expert X-ray with same-day results.',
+    keywords: [
+      'urgent care X-ray',
+      'X-ray near me',
+      'walk-in X-ray Palm Beach',
+      'digital X-ray urgent care',
+      'same day X-ray',
+      'X-ray without appointment',
+      'affordable X-ray',
+      'urgent care with X-ray',
+      'X-ray imaging Palm Beach County'
+    ]
   },
   {
     imageSrc: "/HomeCards/Ultrasound.jpg",
@@ -46,7 +84,20 @@ export const services = [
     urgentCareAdvantage: "Our urgent care centers feature portable bedside ultrasound technology that provides immediate diagnostic capabilities without the lengthy appointment scheduling typically associated with hospital-based ultrasound services. Unlike traditional hospital settings where ultrasound examinations often require weeks of advance scheduling or involve lengthy waits in crowded emergency rooms, our portable ultrasound equipment allows for immediate evaluation of patients with urgent medical needs. For patients experiencing abdominal pain, pregnancy concerns, vascular issues, or other conditions requiring immediate imaging, our bedside ultrasound provides rapid diagnostic capabilities without the chaos and delays associated with hospital emergency departments. The portability of our ultrasound equipment means that examinations can be performed at the patient's bedside, eliminating the need for patient transfers and reducing the risk of complications for patients with mobility issues or acute medical conditions. Our healthcare providers are trained to perform and interpret ultrasound examinations, ensuring that patients receive immediate results and prompt treatment decisions.",
     costs: "The cost advantage of receiving an ultrasound at our urgent care centers is significant, with typical pricing ranging from $100-300 compared to hospital costs of $400-800 for the same diagnostic procedure. This represents a savings of 60-75% compared to traditional hospital-based ultrasound services, making this essential diagnostic tool highly accessible to patients without the financial burden of hospital pricing. Our urgent care centers accept most major insurance plans, and patients typically experience lower copays and deductibles compared to hospital settings. For patients without insurance, we offer transparent, upfront pricing with no hidden fees, and we work with patients to establish affordable payment plans when needed. Emergency evaluations are often covered by insurance with minimal copay, ensuring that patients with urgent medical needs can receive prompt diagnostic imaging without financial barriers.",
     whyChooseUs: "Choosing our urgent care centers for your ultrasound means accessing high-quality diagnostic imaging with immediate results and significant cost savings. Unlike traditional hospitals where patients often face lengthy appointment scheduling or lengthy waits in crowded emergency rooms, our portable bedside ultrasound provides immediate diagnostic capabilities without the delays associated with hospital-based ultrasound services. Our healthcare providers are trained to perform and interpret ultrasound examinations, ensuring that patients receive immediate results and prompt treatment decisions. The real-time nature of ultrasound imaging allows our providers to make immediate diagnostic assessments and treatment recommendations, often within minutes of the examination. For patients experiencing abdominal pain, pregnancy concerns, vascular issues, or other conditions requiring immediate imaging, our rapid access to high-quality ultrasound technology can make the difference between timely treatment and prolonged suffering.",
-    slug: 'Ultrasound'
+    slug: 'ultrasound',
+    metaTitle: 'Ultrasound | Walk-In Ultrasound Palm Beach County | Urgent Care Ultrasound Near Me',
+    metaDescription: 'Get a same-day ultrasound at our Palm Beach County urgent care. Walk-in ultrasound for soft tissue, OB/GYN, and vascular evaluations. No appointment needed. Fast, affordable, and expert imaging with immediate results.',
+    keywords: [
+      'urgent care ultrasound',
+      'ultrasound near me',
+      'walk-in ultrasound Palm Beach',
+      'same day ultrasound',
+      'ultrasound without appointment',
+      'affordable ultrasound',
+      'urgent care with ultrasound',
+      'diagnostic ultrasound clinic',
+      'ultrasound imaging Palm Beach County'
+    ]
   },
   {
     imageSrc: "/HomeCards/NuclearMedicine.jpg",
@@ -57,7 +108,20 @@ export const services = [
     urgentCareAdvantage: "Our urgent care centers provide access to the same advanced nuclear medicine technology found in major hospitals, but with the added benefits of immediate availability and significantly reduced wait times. Unlike traditional hospital settings where nuclear medicine studies often require weeks of advance scheduling or involve lengthy waits in crowded imaging departments, our urgent care model provides prompt access to this cutting-edge diagnostic technology. For patients requiring thyroid evaluations, bone scans, cardiac perfusion studies, or other nuclear medicine examinations, our immediate availability ensures that critical diagnostic information is obtained without unnecessary delays. Our nuclear medicine suite is staffed by experienced technologists and interpreted by board-certified nuclear medicine specialists who provide same-day results for urgent cases. The convenience of our urgent care setting means that patients can receive hospital-level nuclear medicine imaging while avoiding the lengthy appointment scheduling and higher costs typically associated with hospital-based nuclear medicine services.",
     costs: "The cost advantage of receiving nuclear medicine studies at our urgent care centers is substantial, with typical pricing ranging from $500-1,200 compared to hospital costs of $1,500-3,000 for the same diagnostic procedures. This represents a savings of 60-70% compared to traditional hospital-based nuclear medicine services, making this advanced diagnostic technology accessible to patients without the financial burden of hospital pricing. Our urgent care centers accept most major insurance plans, and patients typically experience lower copays and deductibles compared to hospital settings. For patients without insurance, we offer transparent, upfront pricing with no hidden fees, and we work with patients to establish affordable payment plans when needed. Most insurance plans are accepted with lower deductibles, ensuring that patients can access this advanced diagnostic technology without facing prohibitive out-of-pocket costs.",
     whyChooseUs: "Choosing our urgent care centers for your nuclear medicine studies means accessing cutting-edge functional imaging technology with immediate availability and significant cost savings. Unlike traditional hospitals where nuclear medicine studies often require weeks of advance scheduling or involve lengthy waits in crowded imaging departments, our urgent care model provides prompt access to this sophisticated diagnostic technology. Our nuclear medicine suite features the same advanced equipment and technology found in major hospitals, ensuring that you receive the highest quality diagnostic imaging available. Our board-certified nuclear medicine specialists provide same-day interpretations for urgent cases, ensuring that critical diagnostic information is available when you need it most. For patients requiring thyroid evaluations, bone scans, cardiac perfusion studies, or other nuclear medicine examinations, our immediate availability ensures that you receive timely diagnostic information without the delays associated with hospital-based nuclear medicine services.",
-    slug: 'Nuclear-Medicine'
+    slug: 'nuclear-medicine',
+    metaTitle: 'Nuclear Medicine | Functional Imaging Palm Beach County | Urgent Care Nuclear Scan',
+    metaDescription: 'Access advanced nuclear medicine imaging at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Hospital-level technology, immediate results, and affordable pricing.',
+    keywords: [
+      'nuclear medicine scan Palm Beach',
+      'nuclear medicine urgent care',
+      'walk-in nuclear medicine',
+      'same day nuclear scan',
+      'nuclear imaging clinic',
+      'bone scan urgent care',
+      'thyroid scan urgent care',
+      'affordable nuclear medicine',
+      'nuclear medicine Palm Beach County'
+    ]
   },
 ];
 const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", description = "Skip the crowded emergency room and get hospital-grade imaging right inside our urgent care center. With a 1.5 T MRI, multi-slice CT scanner, digital X-ray, ultrasound, and nuclear medicine suite all under one roof, we deliver STAT reads within 3 hours and same-day scan results for most studies. Walk in anytime or book a same-day appointment—our board-certified providers give you fast, accurate answers when minutes matter." }: { header?: string, description?: string }) => {
@@ -92,7 +156,7 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
               imageSrc="/HomeCards/Ultrasound.jpg"
               title="Ultrasound"
               description="Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside."
-              slug="Ultrasound"
+              slug="ultrasound"
             />
           <div className="col-span-1 ">
             <AppointmentCard />
@@ -101,7 +165,7 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
             imageSrc="/HomeCards/NuclearMedicine.jpg"
             title="Nuclear Medicine"
             description="Functional imaging to detect thyroid, bone, and cardiac issues—hospital-level tech without the hospital bill."
-            slug="Nuclear-Medicine"
+            slug="nuclear-medicine"
           />
         </div>
       </div>

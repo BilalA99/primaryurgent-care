@@ -9,9 +9,111 @@ import { conditions } from '@/components/conditions';
 import Reveal from '@/components/RevealAnimation';
 import SlidingDiv from '@/components/SlidingAnimation';
 
+export const metadata = {
+  title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+  description:
+    "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
+  keywords: [
+    "urgent injury care",
+    "walk-in injury clinic",
+    "fracture care urgent care",
+    "sprain care urgent care",
+    "laceration care urgent care",
+    "sports injury urgent care",
+    "orthopedic injury clinic",
+    "immediate injury care Palm Beach",
+    "urgent care for broken bone",
+    "urgent care for stitches",
+    "walk-in fracture clinic",
+    "urgent care for burns",
+    "STAT X-ray MRI CT urgent care"
+  ],
+  openGraph: {
+    title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+    description:
+      "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
+    url: "https://primaryurgentcare.com/urgentinjurycare",
+    type: "website",
+    images: [
+      {
+        url: "/urgentcarelanding.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Urgent injury care walk-in clinic Palm Beach County"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+    description:
+      "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
+    images: [
+      "/urgentcarelanding.jpg"
+    ]
+  },
+  alternates: {
+    canonical: "https://primaryurgentcare.com/urgentinjurycare"
+  }
+};
+
+// Structured data for urgent injury care
+const UrgentInjuryCareJsonLd = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'MedicalClinic',
+        name: 'Primary & Urgent Care Centers of Palm Beach County',
+        url: 'https://primaryurgentcare.com/urgentinjurycare',
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: 'Palm Beach County, FL'
+        },
+        medicalSpecialty: [
+          'UrgentCare',
+          'OrthopedicCare',
+          'SportsMedicine',
+          'InjuryCare',
+          'DiagnosticImaging',
+          'WoundCare'
+        ],
+        availableService: [
+          'Sprain & Fracture Care',
+          'Laceration & Stitches',
+          'Burn Treatment',
+          'Sports Injury Care',
+          'Splinting & Bracing',
+          'On-Site X-ray, MRI, CT, Ultrasound',
+          'STAT Imaging Reads',
+          'Same-Day Appointments',
+          'Walk-In Visits',
+          'Pain Management',
+          'Wound Cleaning & Debridement',
+          'Tetanus Shots',
+          'Antibiotics',
+          'Insurance & Self-Pay Accepted'
+        ],
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'See locations page',
+          addressLocality: 'Palm Beach County',
+          addressRegion: 'FL',
+          postalCode: '',
+          addressCountry: 'US'
+        },
+        telephone: '+1-561-555-5555',
+        description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.'
+      })
+    }}
+  />
+);
+
 const UrgentInjuryCarePage = () => {
     return (
         <main className=''>
+            <UrgentInjuryCareJsonLd />
             <section className="relative h-full w-full xl:px-[60px] px-4">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
@@ -98,7 +200,7 @@ const UrgentInjuryCarePage = () => {
                 />
                 <div className="absolute inset-0 bg-black/60 -z-10" />
                 <div className="flex flex-col items-center justify-center w-full h-full text-center">
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Immediate care for injuries</h1>
+                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Immediate care for injuries</h2>
                     <div className="text-lg md:text-xl text-white max-w-2xl mx-auto">
                         On-Site 1.5 T MRI, Digital X-Ray, CT & Ultrasound<br />
                         Walk in or book a same-day appointment our board-certified team delivers STAT MRI reads within 3 hours and same-day results, so treatment starts now, not next week.
