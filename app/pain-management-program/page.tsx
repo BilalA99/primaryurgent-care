@@ -15,9 +15,95 @@ import Reveal from '@/components/RevealAnimation'
 import SlidingDiv from '@/components/SlidingAnimation'
 import PainCareWeTreat  from '@/components/paincarewetreat'
 import Testimonials from '@/components/testimonials'
+
+export const metadata = {
+  title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
+  description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Immediate appointments.",
+  keywords: [
+    "Suboxone treatment Palm Beach", "Suboxone clinic near me", "Suboxone doctor in Palm Beach County", "urgent care Suboxone clinic", "medication-assisted treatment MAT", "opioid detox urgent care", "walk-in Suboxone treatment Royal Palm Beach", "same-day Suboxone appointment Lake Worth", "affordable Suboxone program West Palm Beach", "buprenorphine treatment near me", "outpatient opioid treatment Florida", "pain management clinic Palm Beach", "chronic pain urgent care", "pain management specialist Royal Palm Beach"
+  ],
+  openGraph: {
+    title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
+    description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
+    url: "https://primaryurgentcare.com/pain-management-program",
+    images: [
+      { url: "/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
+    ],
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
+    description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
+    images: [
+      { url: "/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
+    ]
+  },
+  alternates: {
+    canonical: "https://primaryurgentcare.com/pain-management-program"
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/apple-icon.png",
+    apple: "/apple-icon.png"
+  }
+};
+
+function PainManagementJsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalClinic",
+          "name": "Primary & Urgent Care Centers of Palm Beach County",
+          "description": "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+          "url": "https://primaryurgentcare.com/pain-management-program",
+          "image": "https://primaryurgentcare.com/painmanage.jpg",
+          "telephone": "+1-561-204-5111",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Palm Beach County",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
+          ],
+          "medicalSpecialty": [
+            "Pain Management", "Suboxone Treatment", "Medication-Assisted Treatment", "Opioid Detox", "Chronic Pain", "MAT Clinic"
+          ],
+          "availableService": [
+            "Suboxone (buprenorphine/naloxone) treatment",
+            "Medication-assisted therapy (MAT)",
+            "Opioid detox and withdrawal management",
+            "Chronic pain management",
+            "Integrative pain therapies",
+            "Same-day and walk-in appointments",
+            "Confidential addiction treatment"
+          ],
+          "priceRange": "$299 initial Suboxone visit, most insurance accepted",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ]
+        })
+      }}
+    />
+  );
+}
+
 const PainManagementProgramPage = () => {
     return (
         <main className='w-full bg-[#FAFAFA] xl:py-20 py-10 px-4 lg:px-[60px]'>
+            <PainManagementJsonLd />
             
             <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-4 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
@@ -57,7 +143,7 @@ const PainManagementProgramPage = () => {
             </div>
             <section className="w-full bg-white lg:py-20 py-10 px-4 md:px-[60px]">
                     <div className="max-w-7xl mx-auto flex flex-col items-center">
-                        <h1 className="text-5xl md:text-6xl font-bold text-center mb-6">Managing Chronic Pain Effectively</h1>
+                        <h2 className="text-5xl md:text-6xl font-bold text-center mb-6">Managing Chronic Pain Effectively</h2>
                         <p className="text-lg text-gray-700 text-center max-w-3xl mb-12">
                             Are you experiencing chronic pain and seeking immediate relief? At Pain Management NYC, our skilled orthopedic specialists provide tailored pain management and injury-specific care to help you find prompt and effective solutions.
                         </p>

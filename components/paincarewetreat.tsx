@@ -21,6 +21,9 @@ export interface PainCareWeTreatData {
     costAdvantage: string;
     slug: string;
     img? : string;
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
 }
 
 export const PainCareWeTreatData : PainCareWeTreatData[] = [
@@ -36,7 +39,19 @@ export const PainCareWeTreatData : PainCareWeTreatData[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to neck pain evaluation and treatment without the long waits typically associated with emergency rooms or specialist appointments. We can perform on-site diagnostic imaging including X-rays and MRI to quickly identify the cause of neck pain and begin treatment immediately. Our board-certified providers are experienced in managing acute neck pain and whiplash injuries, providing same-day care that can prevent complications and speed recovery. The convenience of urgent care means patients can receive prompt attention for neck pain without lengthy appointment scheduling.",
         costAdvantage: "Receiving neck pain treatment at our urgent care centers offers significant cost savings compared to emergency room visits or specialist consultations. Typical urgent care costs for neck pain evaluation range from $100-300, compared to $500-1,500 for emergency room visits. Our centers accept most insurance plans with lower copays and deductibles, and we can work with patients to establish affordable payment plans. The immediate availability of diagnostic imaging and treatment means patients can avoid multiple appointments and associated costs, while receiving comprehensive care in a single visit.",
         slug: "neck-pain",
-        img : '/neckpain.png'
+        img : '/neckpain.png',
+        metaTitle: "Neck Pain & Whiplash Treatment | Palm Beach County Urgent Care",
+        metaDescription: "Walk-in urgent care for neck pain and whiplash in Palm Beach County. Same-day evaluation, X-ray/MRI, and PIP 14-day rule expertise. No appointment needed. Fast, affordable relief after car accidents or injuries.",
+        keywords: [
+          "neck pain urgent care",
+          "whiplash treatment Palm Beach",
+          "car accident neck injury",
+          "PIP doctor near me",
+          "walk-in neck pain clinic",
+          "neck pain after accident",
+          "urgent care for whiplash",
+          "neck pain Palm Beach County"
+        ]
     },
     {
         title: "Back Pain",
@@ -50,7 +65,18 @@ export const PainCareWeTreatData : PainCareWeTreatData[] = [
         urgentCareAdvantage: "Our urgent care centers offer immediate access to back pain evaluation and treatment without the delays associated with emergency rooms or specialist appointments. We can perform on-site diagnostic imaging including X-rays and MRI to quickly identify the cause of back pain and begin treatment immediately. Our providers are experienced in managing acute back injuries and can provide same-day care that prevents complications and promotes faster recovery. The convenience of urgent care means patients can receive prompt attention for back pain without lengthy appointment scheduling or referral processes.",
         costAdvantage: "Back pain treatment at our urgent care centers provides significant cost savings compared to emergency room visits or specialist consultations. Typical urgent care costs for back pain evaluation range from $150-400, compared to $800-2,000 for emergency room visits. Our centers accept most insurance plans with lower copays and deductibles, and we offer transparent pricing for patients without insurance. The immediate availability of diagnostic imaging and treatment means patients can avoid multiple appointments and associated costs while receiving comprehensive care in a single visit.",
         slug: "back-pain",
-        img : '/backpain.png'
+        img : '/backpain.png',
+        metaTitle: "Back Pain Relief & Injury Care | Palm Beach County Urgent Care",
+        metaDescription: "Get fast relief for back pain and spinal injuries at our Palm Beach County urgent care. Walk-in evaluation, X-ray/MRI, and expert treatment for auto accident, work, or sports injuries. No appointment needed.",
+        keywords: [
+          "back pain urgent care",
+          "back injury clinic Palm Beach",
+          "walk-in back pain doctor",
+          "spinal injury urgent care",
+          "back pain after car accident",
+          "urgent care for back pain",
+          "back pain Palm Beach County"
+        ]
     },
     {
         title: "Hand Pain",
@@ -64,7 +90,18 @@ export const PainCareWeTreatData : PainCareWeTreatData[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to hand pain evaluation and treatment without the long waits typically associated with emergency rooms or specialist appointments. We can perform on-site diagnostic imaging including X-rays and ultrasound to quickly identify the cause of hand pain and begin treatment immediately. Our providers are experienced in managing acute hand injuries and can provide same-day care including splinting, wound care, and pain management. The convenience of urgent care means patients can receive prompt attention for hand pain without lengthy appointment scheduling.",
         costAdvantage: "Hand pain treatment at our urgent care centers offers significant cost savings compared to emergency room visits or specialist consultations. Typical urgent care costs for hand pain evaluation range from $100-300, compared to $500-1,500 for emergency room visits. Our centers accept most insurance plans with lower copays and deductibles, and we can work with patients to establish affordable payment plans. The immediate availability of diagnostic imaging and treatment means patients can avoid multiple appointments and associated costs while receiving comprehensive care in a single visit.",
         slug: "hand-pain",
-        img : '/handpain.png'
+        img : '/handpain.png',
+        metaTitle: "Hand Pain & Injury Treatment | Palm Beach County Urgent Care",
+        metaDescription: "Walk-in urgent care for hand pain, wrist injuries, and fractures in Palm Beach County. Same-day X-ray, splinting, and expert care for work, sports, or accident injuries. No appointment needed.",
+        keywords: [
+          "hand pain urgent care",
+          "wrist injury clinic Palm Beach",
+          "walk-in hand pain doctor",
+          "hand fracture urgent care",
+          "hand pain after accident",
+          "urgent care for hand pain",
+          "hand pain Palm Beach County"
+        ]
     },
     {
         title: "Shoulder Pain",
@@ -78,7 +115,18 @@ export const PainCareWeTreatData : PainCareWeTreatData[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to shoulder pain evaluation and treatment without the long waits typically associated with emergency rooms or specialist appointments. We can perform on-site diagnostic imaging including X-rays and ultrasound to quickly identify the cause of shoulder pain and begin treatment immediately. Our providers are experienced in managing acute shoulder injuries and can provide same-day care including immobilization, pain management, and rehabilitation guidance. The convenience of urgent care means patients can receive prompt attention for shoulder pain without lengthy appointment scheduling.",
         costAdvantage: "Shoulder pain treatment at our urgent care centers offers significant cost savings compared to emergency room visits or specialist consultations. Typical urgent care costs for shoulder pain evaluation range from $150-400, compared to $800-2,000 for emergency room visits. Our centers accept most insurance plans with lower copays and deductibles, and we offer transparent pricing for patients without insurance. The immediate availability of diagnostic imaging and treatment means patients can avoid multiple appointments and associated costs while receiving comprehensive care in a single visit.",
         slug: "shoulder-pain",
-        img : '/shoulderpain.png'
+        img : '/shoulderpain.png',
+        metaTitle: "Shoulder Pain & Injury Care | Palm Beach County Urgent Care",
+        metaDescription: "Get expert care for shoulder pain, rotator cuff injuries, and dislocations at our Palm Beach County urgent care. Walk-in evaluation, X-ray, and same-day relief. No appointment needed.",
+        keywords: [
+          "shoulder pain urgent care",
+          "rotator cuff injury Palm Beach",
+          "walk-in shoulder pain doctor",
+          "shoulder dislocation urgent care",
+          "shoulder pain after accident",
+          "urgent care for shoulder pain",
+          "shoulder pain Palm Beach County"
+        ]
     },
     {
         title: "Knee & Foot Pain",
@@ -92,7 +140,18 @@ export const PainCareWeTreatData : PainCareWeTreatData[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to knee and foot pain evaluation and treatment without the long waits typically associated with emergency rooms or specialist appointments. We can perform on-site diagnostic imaging including X-rays and MRI to quickly identify the cause of pain and begin treatment immediately. Our providers are experienced in managing acute lower extremity injuries and can provide same-day care including bracing, pain management, and rehabilitation guidance. The convenience of urgent care means patients can receive prompt attention for knee and foot pain without lengthy appointment scheduling.",
         costAdvantage: "Knee and foot pain treatment at our urgent care centers offers significant cost savings compared to emergency room visits or specialist consultations. Typical urgent care costs for evaluation range from $150-400, compared to $800-2,000 for emergency room visits. Our centers accept most insurance plans with lower copays and deductibles, and we can work with patients to establish affordable payment plans. The immediate availability of diagnostic imaging and treatment means patients can avoid multiple appointments and associated costs while receiving comprehensive care in a single visit.",
         slug: "knee-foot-pain",
-        img : '/kneepain.png'
+        img : '/kneepain.png',
+        metaTitle: "Knee & Foot Pain Treatment | Palm Beach County Urgent Care",
+        metaDescription: "Walk-in urgent care for knee and foot pain, injuries, and sprains in Palm Beach County. Same-day X-ray, bracing, and expert care for sports, work, or accident injuries. No appointment needed.",
+        keywords: [
+          "knee pain urgent care",
+          "foot pain clinic Palm Beach",
+          "walk-in knee pain doctor",
+          "ankle injury urgent care",
+          "knee pain after accident",
+          "urgent care for foot pain",
+          "knee pain Palm Beach County"
+        ]
     },
     {
         title: "Headaches & Migraines",
@@ -106,7 +165,17 @@ export const PainCareWeTreatData : PainCareWeTreatData[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to headache and migraine evaluation and treatment without the long waits typically associated with emergency rooms or specialist appointments. We can perform rapid evaluation and begin treatment immediately, often providing relief within minutes. Our providers are experienced in managing acute headache and migraine episodes and can provide same-day care that prevents complications and promotes faster recovery. The convenience of urgent care means patients can receive prompt attention for severe headaches without lengthy appointment scheduling.",
         costAdvantage: "Headache and migraine treatment at our urgent care centers offers significant cost savings compared to emergency room visits or specialist consultations. Typical urgent care costs for evaluation and treatment range from $100-300, compared to $500-1,500 for emergency room visits. Our centers accept most insurance plans with lower copays and deductibles, and we offer transparent pricing for patients without insurance. The immediate availability of treatment means patients can avoid multiple appointments and associated costs while receiving comprehensive care in a single visit.",
         slug: "headaches-migraines",
-        img : '/headaches.png'
+        img : '/headaches.png',
+        metaTitle: "Headache & Migraine Relief | Palm Beach County Urgent Care",
+        metaDescription: "Get fast relief for headaches and migraines at our Palm Beach County urgent care. Walk-in evaluation, same-day treatment, and expert care for post-accident or chronic headaches. No appointment needed.",
+        keywords: [
+          "headache urgent care",
+          "migraine clinic Palm Beach",
+          "walk-in headache doctor",
+          "post-accident headache",
+          "urgent care for migraines",
+          "headache relief Palm Beach County"
+        ]
     }
 ];
 const PainCareWeTreat = () => {

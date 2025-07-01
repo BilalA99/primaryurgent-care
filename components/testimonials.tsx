@@ -123,14 +123,14 @@ export default function Testimonials() {
     <div className="bg-gray-50 lg:py-32 py-10 px-4 w-full h-full">
       <div className="mx-auto lg:px-20 px-4 space-y-8">
         <div>
-          <h1
+          <h2
             style={{
               fontFamily: "var(--font-reem-kufi)",
               fontWeight: 500,
             }}
             className="text-black lg:text-5xl sm:text-4xl text-3xl text-left w-full"
           >What Our Patients Say
-          </h1>
+          </h2>
           <div
             style={{
               fontFamily: "var(--font-inter)",
@@ -139,9 +139,9 @@ export default function Testimonials() {
             className=" text-[#5B5F67] mt-[16px] w-full justify-between items-center flex flex-row"
           >
             <div className="lg:w-[45%] w-full">
-              <h1
+              <h2
                 className='text-lg'
-              >Our patients' experiences speak volumes about our urgent care expertise. See their stories below. Real feedback from those who trust us with their health. Hear their thoughts here.</h1>
+              >Our patients' experiences speak volumes about our urgent care expertise. See their stories below. Real feedback from those who trust us with their health. Hear their thoughts here.</h2>
             </div>
           </div>
         </div>
@@ -220,7 +220,7 @@ export default function Testimonials() {
                                 />
                                 <div className="flex-1">
                                   <div className="flex items-center gap-2 mb-1">
-                                    <h4 className="font-semibold text-blue-600 text-sm">{review.name}</h4>
+                                    <span className="font-semibold text-blue-600 text-sm">{review.name}</span>
                                     <Google />
                                   </div>
                                   <p className="text-gray-500 text-xs">{review.timeAgo}</p>

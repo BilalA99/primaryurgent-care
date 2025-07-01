@@ -16,6 +16,56 @@ import SlidingDiv from "@/components/SlidingAnimation";
 import Reveal from "@/components/RevealAnimation";
 import Testimonials from "@/components/testimonials";
 import Reviews from "@/components/Reviews";
+
+export const metadata = {
+  title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
+  description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+  keywords: [
+    'urgent care Palm Beach',
+    'walk-in clinic',
+    'emergency care',
+    'primary care',
+    'urgent care near me',
+    'hospital-level urgent care',
+    'same day doctor',
+    'affordable urgent care',
+    'Palm Beach urgent care',
+    'Royal Palm Beach urgent care',
+    'Lake Worth urgent care',
+    'Palm Springs urgent care',
+    'Lantana urgent care',
+    'no wait urgent care',
+    'X-ray urgent care',
+    'MRI urgent care'
+  ].join(', '),
+  openGraph: {
+    title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
+    description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+    url: 'https://primaryuc.com/',
+    siteName: 'Primary & Urgent Care Centers',
+    images: [
+      {
+        url: '/homelanding.png',
+        width: 1200,
+        height: 630,
+        alt: 'Urgent Care Palm Beach County',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
+    description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+    images: ['/homelanding.png'],
+    site: '@primaryurgentcare',
+  },
+  alternates: {
+    canonical: 'https://primaryuc.com/',
+  },
+};
+
 export default function Home() {
   return (
     <main className="h-full w-full flex flex-col text-white">

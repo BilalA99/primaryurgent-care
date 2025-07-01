@@ -13,9 +13,94 @@ import Reveal from '@/components/RevealAnimation'
 import SlidingDiv from '@/components/SlidingAnimation'
 import PainCareWeTreat from '@/components/paincarewetreat'
 
+export const metadata = {
+  title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
+  description: "Get immediate care for car accident injuries, whiplash, back or neck pain, and personal injury. Seen in under 15 min. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. $69 self-pay. Free records to your attorney.",
+  keywords: [
+    "auto accident urgent care", "car accident clinic", "whiplash treatment urgent care", "PIP urgent care Florida 14-day rule", "personal injury urgent care", "car accident doctor near me", "accident injury clinic", "urgent care for whiplash", "urgent care for car accident injuries Palm Beach", "after accident medical care without ER", "urgent care for back pain", "urgent care for neck pain", "Palm Beach County urgent care", "walk-in accident doctor", "PIP doctor near me", "no-fault injury clinic", "urgent care for seat belt injury"
+  ],
+  openGraph: {
+    title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
+    description: "Immediate care for car accident injuries, whiplash, and back pain. On-site imaging, PIP paperwork, and fast appointments. Serving Palm Beach County.",
+    url: "https://primaryurgentcare.com/paincare",
+    images: [
+      { url: "/paincare.jpg", width: 1200, height: 630, alt: "Auto Accident & Personal Injury Urgent Care" }
+    ],
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
+    description: "Immediate care for car accident injuries, whiplash, and back pain. On-site imaging, PIP paperwork, and fast appointments. Serving Palm Beach County.",
+    images: [
+      { url: "/paincare.jpg", alt: "Auto Accident & Personal Injury Urgent Care" }
+    ]
+  },
+  alternates: {
+    canonical: "https://primaryurgentcare.com/paincare"
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/apple-icon.png",
+    apple: "/apple-icon.png"
+  }
+};
+
+function PainCareJsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalClinic",
+          "name": "Primary & Urgent Care Centers of Palm Beach County",
+          "description": "Immediate care for auto accident injuries, whiplash, back and neck pain, and personal injury. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+          "url": "https://primaryurgentcare.com/paincare",
+          "image": "https://primaryurgentcare.com/paincare.jpg",
+          "telephone": "+1-561-204-5111",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Palm Beach County",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
+          ],
+          "medicalSpecialty": [
+            "Accident & Injury Care", "Whiplash Treatment", "Personal Injury", "PIP 14-Day Rule", "Urgent Care", "Back Pain", "Neck Pain"
+          ],
+          "availableService": [
+            "Auto accident injury treatment",
+            "Whiplash evaluation",
+            "On-site X-ray, CT, MRI",
+            "PIP paperwork & direct billing",
+            "Attorney documentation",
+            "Same-day appointments",
+            "Walk-in care for accident injuries"
+          ],
+          "priceRange": "$69+ self-pay, most insurance accepted",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ]
+        })
+      }}
+    />
+  );
+}
+
 const PainCare = () => {
     return (
         <main>
+            <PainCareJsonLd />
             <section className="relative h-full w-full xl:px-[60px] px-4">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
@@ -80,7 +165,7 @@ const PainCare = () => {
                 />
                 <div className="absolute inset-0 bg-[#570000]/50 -z-10" />
                 <div className="flex flex-col items-center justify-center h-full text-center self-center xl:w-[50%] w-full">
-                    <h1 className="lg:text-5xl md:text-6xl text-4xl font-bold text-white mb-6">Car-Accident Injury Care  Palm Beach County, FL</h1>
+                    <h2 className="lg:text-5xl md:text-6xl text-4xl font-bold text-white mb-6">Car-Accident Injury Care  Palm Beach County, FL</h2>
                     <div className="text-lg md:text-xl text-white max-w-2xl mx-auto">
                         Seen in less then 15 min by a car-accident doctor for whiplash, back or neck pain, and seat-belt injuries. On-site X-ray, CT, MRI with STAT reads (less then 3 hrs) and PIP paperwork filed within Florida's 14-day rule no out-of-pocket surprise.
                     </div>

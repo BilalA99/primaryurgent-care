@@ -1,6 +1,7 @@
 import React from 'react'
 import { services } from '@/components/Services'
 import Image from 'next/image'
+
 const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) => {
   const {slug} = await params
   const service = services.find(service => service.slug === slug)
@@ -49,3 +50,11 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
 }
 
 export default EmergencyRoomPage
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  return {
+    alternates: {
+      canonical: `https://primaryurgentcare.com/emergencyroom/${params.slug}`,
+    },
+  };
+}

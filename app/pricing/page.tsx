@@ -15,6 +15,144 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 
+export const metadata = {
+  title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
+  description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
+  keywords: [
+    'urgent care pricing',
+    'urgent care cost',
+    'urgent care cost near me',
+    'urgent care without insurance',
+    'walk-in clinic prices',
+    'urgent care self-pay price',
+    'urgent care insurance accepted',
+    'urgent care vs ER cost',
+    'affordable urgent care cost near me',
+    'transparent urgent care pricing Palm Beach',
+    'how much is urgent care in Florida without insurance',
+    'urgent care $69 visit Palm Beach County',
+    'cheap urgent care for uninsured in Palm Beach',
+    'urgent care copay vs ER',
+    'urgent care pricing Palm Beach',
+    'no surprise bills urgent care',
+    'Palm Beach County urgent care',
+    'Royal Palm Beach',
+    'Lake Worth',
+    'Palm Springs',
+    'Lantana'
+  ],
+  openGraph: {
+    title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
+    description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
+    url: 'https://primaryurgentcare.com/pricing',
+    type: 'website',
+    images: [
+      {
+        url: 'https://primaryurgentcare.com/insurance.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
+    description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
+    images: ['https://primaryurgentcare.com/insurance.jpg'],
+  },
+  alternates: {
+    canonical: 'https://primaryurgentcare.com/pricing',
+  },
+};
+
+export function PricingJsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'MedicalClinic',
+          name: 'Primary & Urgent Care Centers of Palm Beach County',
+          url: 'https://primaryurgentcare.com/pricing',
+          image: 'https://primaryurgentcare.com/insurance.jpg',
+          description:
+            'Transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+          areaServed: [
+            'Royal Palm Beach FL',
+            'Lake Worth FL',
+            'Palm Springs FL',
+            'Lantana FL',
+            'Palm Beach County FL',
+          ],
+          availableService: [
+            'Office Visit',
+            'MRI',
+            'CT Scan',
+            'Digital X-ray',
+            'Ultrasound',
+            'School Physical',
+            'Immigration Physical',
+            'Suboxone Treatment',
+          ],
+          openingHours: 'Mo-Su 08:00-20:00',
+          priceRange: '$$',
+          telephone: '+1-561-555-1234', // Update to real phone if available
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Urgent Care Pricing',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                itemOffered: 'Office Visit',
+                price: '69.99',
+                priceCurrency: 'USD',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: 'Ultrasound',
+                price: '100.00',
+                priceCurrency: 'USD',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: 'X Ray',
+                price: '50.00',
+                priceCurrency: 'USD',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: 'School Physical',
+                price: '9.99',
+                priceCurrency: 'USD',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: 'Immigration Physical',
+                price: '400.00',
+                priceCurrency: 'USD',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: 'MRI',
+                price: '200.00',
+                priceCurrency: 'USD',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: 'Suboxone (Initial Visit)',
+                price: '299.00',
+                priceCurrency: 'USD',
+              },
+            ],
+          },
+        }),
+      }}
+    />
+  );
+}
+
 export const pricingData = [
     {
         title: 'Office Visit',
@@ -35,7 +173,19 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to office visits without the need for appointments or lengthy waits typically associated with primary care offices. We offer extended hours, including evenings and weekends, making it convenient for patients to receive care when they need it. Our board-certified providers can handle most medical conditions that would otherwise require a primary care visit, and we can perform on-site diagnostic testing for rapid results. The convenience of urgent care means patients can receive prompt medical attention without disrupting their daily schedules or waiting days for an appointment.",
         costAdvantage: "Office visits at our urgent care centers offer significant cost savings compared to emergency room visits, with typical costs of $69.99 compared to $500-1,500 for emergency room evaluations. Our transparent pricing includes the consultation, basic examination, and most diagnostic tests, with no hidden fees or surprise charges. We accept most major insurance plans with lower copays and deductibles compared to emergency room visits, and we offer affordable self-pay options for patients without insurance. The comprehensive nature of our office visits means patients can often avoid multiple appointments and associated costs while receiving complete care in a single visit.",
         slug: "office-visit",
-        img: '/officevisit.png'
+        img: '/officevisit.png',
+        metaTitle: 'Office Visit Cost | Urgent Care Self-Pay Price Palm Beach County',
+        metaDescription: 'Transparent $69.99 office visit at our Palm Beach County urgent care. No insurance needed. Walk-in for same-day care, extended hours, and no surprise bills. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'urgent care office visit',
+          'office visit cost',
+          'walk-in clinic price',
+          'self-pay urgent care',
+          'urgent care without insurance',
+          'Palm Beach County urgent care',
+          'same day doctor visit',
+          'affordable urgent care',
+        ]
     },
     {
         title: 'Ultrasound',
@@ -56,7 +206,18 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to ultrasound imaging without the lengthy appointment scheduling typically associated with hospital-based ultrasound services. We can perform bedside ultrasound examinations that provide real-time diagnostic information, allowing for immediate treatment decisions. Our portable ultrasound equipment means examinations can be performed at the patient's bedside, eliminating the need for patient transfers and reducing the risk of complications for patients with mobility issues or acute medical conditions. The immediate availability of ultrasound technology in our urgent care setting represents a significant advancement in patient care.",
         costAdvantage: "Ultrasound services at our urgent care centers offer significant cost savings compared to hospital-based ultrasound services, with typical costs of $100.00 compared to $400-800 at hospitals. Our transparent pricing includes the examination, interpretation, and immediate results, with no additional facility fees or hidden charges. We accept most major insurance plans with lower copays and deductibles compared to hospital settings, and we offer affordable self-pay options for patients without insurance. The immediate availability and faster turnaround times mean patients can avoid taking time off work or arranging childcare for extended hospital visits.",
         slug: "ultrasound",
-        img: '/ultrasound.png'
+        img: '/ultrasound.png',
+        metaTitle: 'Ultrasound Cost | Walk-In Ultrasound Palm Beach County',
+        metaDescription: 'Get a same-day ultrasound for $100 at our Palm Beach County urgent care. No appointment needed. Fast, affordable imaging for pregnancy, abdominal pain, and more. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'ultrasound cost',
+          'walk-in ultrasound',
+          'urgent care ultrasound',
+          'ultrasound near me',
+          'affordable ultrasound',
+          'Palm Beach County urgent care',
+          'same day ultrasound',
+        ]
     },
     {
         title: 'X Ray',
@@ -77,7 +238,18 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to X-ray imaging without the lengthy appointment scheduling typically associated with hospital-based X-ray services. We can perform X-ray examinations that provide immediate diagnostic information, allowing for prompt treatment decisions. Our digital X-ray technology provides superior image quality and immediate results, eliminating the need for film processing and reducing wait times. The immediate availability of X-ray technology in our urgent care setting ensures that patients with suspected fractures, chest conditions, or other urgent imaging needs can receive prompt evaluation and treatment.",
         costAdvantage: "X-ray services at our urgent care centers offer significant cost savings compared to hospital-based X-ray services, with typical costs of $50.00 compared to $200-400 at hospitals. Our transparent pricing includes the examination, interpretation, and immediate results, with no additional facility fees or hidden charges. We accept most major insurance plans with lower copays and deductibles compared to hospital settings, and we offer affordable self-pay options for patients without insurance. The immediate availability and faster turnaround times mean patients can avoid taking time off work or arranging childcare for extended hospital visits.",
         slug: "x-ray",
-        img: '/x-ray.png'
+        img: '/x-ray.png',
+        metaTitle: 'X-Ray Cost | Walk-In X-Ray Palm Beach County',
+        metaDescription: 'Walk in for a digital X-ray for $50 at our Palm Beach County urgent care. Immediate results for fractures, chest pain, and injuries. No appointment needed. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'x-ray cost',
+          'walk-in x-ray',
+          'urgent care x-ray',
+          'x-ray near me',
+          'affordable x-ray',
+          'Palm Beach County urgent care',
+          'same day x-ray',
+        ]
     },
     {
         title: 'School Physical',
@@ -98,7 +270,18 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to school physicals without the lengthy appointment scheduling typically associated with primary care offices. We offer flexible scheduling, including evenings and weekends, making it convenient for families to complete this requirement. Our comprehensive examinations meet all state and school district requirements, and we provide same-day completion of all necessary documentation. The convenience of urgent care means families can avoid lengthy waits and scheduling conflicts while ensuring their children meet all school health requirements.",
         costAdvantage: "School physicals at our urgent care centers offer exceptional value at just $9.99, significantly less than typical primary care office visit costs of $50-150. Our transparent pricing includes the complete examination, all required screenings, and documentation, with no hidden fees or additional charges. We accept most major insurance plans, and many plans cover school physicals at no cost to families. The affordable pricing and immediate availability make it easy for families to complete this important requirement without financial burden or scheduling difficulties.",
         slug: "school-physical",
-        img: '/schoolphysical.png'
+        img: '/schoolphysical.png',
+        metaTitle: 'School Physical Cost | Walk-In School Physical Palm Beach County',
+        metaDescription: 'School physicals for $9.99 at our Palm Beach County urgent care. Same-day exams, vision and hearing screening, and required forms. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'school physical cost',
+          'walk-in school physical',
+          'urgent care school physical',
+          'school physical near me',
+          'affordable school physical',
+          'Palm Beach County urgent care',
+          'same day school physical',
+        ]
     },
     {
         title: 'Immigration Physical',
@@ -119,7 +302,17 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to immigration physicals without the lengthy appointment scheduling typically associated with specialized medical offices. We offer flexible scheduling, including evenings and weekends, making it convenient for applicants to complete this requirement. Our USCIS-certified civil surgeons ensure all examinations meet federal requirements, and we provide same-day completion of all necessary documentation. The convenience of urgent care means applicants can avoid lengthy waits and scheduling conflicts while ensuring their immigration applications are properly supported.",
         costAdvantage: "Immigration physicals at our urgent care centers offer competitive pricing at $400.00, which includes the complete examination, all required laboratory testing, vaccinations, and documentation. Our transparent pricing includes all USCIS-required services, with no hidden fees or additional charges. We accept most major insurance plans, and many plans provide coverage for immigration physicals. The comprehensive nature of our service ensures applicants receive all required medical evaluations and documentation in a single visit, avoiding multiple appointments and associated costs.",
         slug: "immigration-physical",
-        img: '/immigrationphysical.png'
+        img: '/immigrationphysical.png',
+        metaTitle: 'Immigration Physical Cost | USCIS Exam Palm Beach County',
+        metaDescription: 'USCIS-certified immigration physicals for $400 at our Palm Beach County urgent care. Same-day exams, all forms, and required testing. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'immigration physical cost',
+          'USCIS physical',
+          'immigration exam near me',
+          'urgent care immigration physical',
+          'Palm Beach County urgent care',
+          'same day immigration physical',
+        ]
     },
     {
         title: 'MRI',
@@ -140,7 +333,18 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to MRI imaging without the lengthy appointment scheduling typically associated with hospital-based MRI services. We can perform MRI examinations that provide detailed diagnostic information, allowing for comprehensive treatment planning. Our 1.5 Tesla MRI technology provides exceptional image quality and detailed diagnostic information, ensuring accurate diagnosis and treatment recommendations. The immediate availability of MRI technology in our urgent care setting ensures that patients with complex medical conditions can receive prompt evaluation and treatment.",
         costAdvantage: "MRI services at our urgent care centers offer significant cost savings compared to hospital-based MRI services, with typical costs of $200.00 compared to $1,200-2,500 at hospitals. Our transparent pricing includes the examination, interpretation, and detailed results, with no additional facility fees or hidden charges. We accept most major insurance plans with lower copays and deductibles compared to hospital settings, and we offer affordable self-pay options for patients without insurance. The immediate availability and faster turnaround times mean patients can avoid taking time off work or arranging childcare for extended hospital visits.",
         slug: "mri",
-        img: '/mri.png'
+        img: '/mri.png',
+        metaTitle: 'MRI Cost | Same-Day MRI Scan Palm Beach County',
+        metaDescription: 'Get a same-day MRI for $200 at our Palm Beach County urgent care. Walk-in MRI for spine, brain, and joint injuries. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'MRI cost',
+          'urgent care MRI',
+          'MRI scan near me',
+          'same day MRI',
+          'walk-in MRI',
+          'affordable MRI',
+          'Palm Beach County urgent care',
+        ]
     },
     {
         title: 'Suboxone',
@@ -161,7 +365,17 @@ export const pricingData = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to Suboxone treatment without the lengthy appointment scheduling typically associated with specialized addiction treatment programs. We offer confidential, compassionate care in a supportive environment that prioritizes patient privacy and dignity. Our board-certified providers are experienced in addiction medicine and can provide same-day evaluation and treatment initiation. The convenience of urgent care means patients can receive prompt access to life-saving treatment without lengthy waits or scheduling conflicts.",
         costAdvantage: "Suboxone treatment at our urgent care centers offers competitive pricing at $299.00 for the initial visit, which includes comprehensive evaluation, treatment planning, and medication prescription. Our transparent pricing includes all necessary medical services, with no hidden fees or additional charges. We accept most major insurance plans, and many plans provide coverage for addiction treatment services. The comprehensive nature of our service ensures patients receive all necessary medical evaluations and treatment planning in a single visit, avoiding multiple appointments and associated costs.",
         slug: "suboxone",
-        img: '/suboxone.png'
+        img: '/suboxone.png',
+        metaTitle: 'Suboxone Treatment Cost | Opioid Detox Palm Beach County',
+        metaDescription: 'Suboxone treatment for opioid dependence for $299 at our Palm Beach County urgent care. Confidential, compassionate care. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'suboxone cost',
+          'suboxone doctor near me',
+          'opioid detox Palm Beach',
+          'urgent care suboxone',
+          'Palm Beach County urgent care',
+          'same day suboxone treatment',
+        ]
     },
 ]
 
@@ -201,6 +415,7 @@ const insuranceData = [
 const PricingPage = () => {
     return (
         <main className="w-full bg-[#FAFAFA] lg:space-y-20 space-y-10  flex flex-col items-center px-4 lg:px-[60px] min-h-screen">
+            <PricingJsonLd />
             <section className='w-full h-full lg:py-20 py-10'>
                 <div className="max-w-8xl mx-auto  rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                     {/* Left: Text and Buttons */}
