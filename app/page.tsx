@@ -136,9 +136,9 @@ export default function Home() {
 
           <div className="w-full">
             <GradientImage
-              src="/femaledoctor.jpg"
+              src="/stateoftheart.png"
               alt="Doctor with MRI and X-ray"
-              className="w-full h-[50%] aspect-square sm:block hidden"
+              className="w-full  sm:block hidden"
               priority
             />
           </div>

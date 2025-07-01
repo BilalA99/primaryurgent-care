@@ -61,7 +61,7 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
             </section>
             {/* Why Choose Section */}
             <section className='w-full bg-white py-10 px-4 lg:px-[60px] flex flex-col items-center'>
-                <div className='flex xl:flex-row flex-col self-center max-w-8xl xl:space-y-0 space-y-6 justify-between items-center'>
+                <div className='flex xl:flex-row flex-col self-center max-w-8xl xl:space-y-0 space-y-6 xl:space-x-12 space-x-0 justify-between items-center'>
                     <h2 className="text-4xl xl:w-[50%] w-full lg:text-6xl font-bold ">Why Choose {location?.clinic}</h2>
                     <SlidingDiv className='text-lg xl:w-[50%] w-full text-gray-700' position='right'><p className="">From advanced MRI and CT scans to expert X-rays and ultrasounds, our urgent care services are designed to deliver fast, accurate results when you need them most — all under one roof, with a compassionate touch.</p></SlidingDiv>
                 </div>
