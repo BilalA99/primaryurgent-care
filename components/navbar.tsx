@@ -14,10 +14,11 @@ const navItems = [
         name: 'Services', href: '/service',
         sublinks: [
             { name: 'All Services', href: '/service' },
-            { name: 'Pain Care', href: '/paincare' },
+            { name: 'Accident Care', href: '/paincare' },
             { name: 'Urgent Injury Care', href: '/urgentinjurycare' },
             { name: 'Emergency Room', href: '/emergencyroom' },
-            { name: 'Pain Management Program', href: '/pain-management-program' },
+            { name: 'Pain Management Care', href: '/pain-management-care' },
+            { name: 'DOT Physical', href: '/pricing/dot-physical' },
             { name: 'Lawyers', href: '/lawyers' },
         ]
     },

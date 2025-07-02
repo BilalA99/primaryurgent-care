@@ -1,6 +1,8 @@
 import Services from "@/components/Services";
 import Image from "next/image";
 import Reveal from "@/components/RevealAnimation";
+import AccidentTypesTabs from "@/components/ui/AccidentTypesTabs";
+import PricingGrid from "@/components/PricingGrid";
 
 export const metadata = {
   title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
@@ -153,6 +155,50 @@ const ServicePage = () => {
                 </div>
             </section>
             <Services header="Expert Diagnostic &br Imaging Services" description="From advanced MRI and CT scans to expert X-rays and ultrasounds, our urgent care services are designed to deliver fast, accurate results when you need them most — all under one roof, with a compassionate touch."/>
+        <section className="w-full bg-white lg:py-20 py-10 px-4 lg:px-[60px] relative">
+            <div className="max-w-8xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left: Content */}
+                    <Reveal className="">
+                        <div className="flex flex-col gap-6">
+                          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+                              Seamless Care Coordination
+                          </h2>
+                          <p className="text-lg text-gray-700 leading-relaxed">
+                              If you already have a primary care physician, we communicate your case information to them (with your approval, of course) quickly and easily. In addition, we also have a multitude of connections to some of the finest Primary Care doctors in Palm Beach County, so if you need a referral we are happy to provide you with one to a highly-qualified physician outside of our offices.
+                          </p>
+                          <div className="flex flex-col gap-4 mt-4">
+                              <div className="flex items-center gap-3">
+                                  <div className="w-2 h-2 bg-[#D52128] rounded-full"></div>
+                                  <span className="text-gray-700">Secure patient information sharing</span>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                  <div className="w-2 h-2 bg-[#D52128] rounded-full"></div>
+                                  <span className="text-gray-700">Network of top Palm Beach County physicians</span>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                  <div className="w-2 h-2 bg-[#D52128] rounded-full"></div>
+                                  <span className="text-gray-700">Personalized referral recommendations</span>
+                              </div>
+                          </div>
+                        </div>
+                    </Reveal>
+                    
+                    {/* Right: Image */}
+                    <div className="relative h-96 lg:h-[500px] w-full">
+                        <Image
+                            src="/carecoordination.png"
+                            alt="Care Coordination and Referrals"
+                            fill
+                            className="rounded-2xl object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <AccidentTypesTabs />
+        <div className="w-full bg-white lg:py-20 py-10 px-4 lg:px-[60px] relative"><PricingGrid /></div>
         </main>
     )
 }

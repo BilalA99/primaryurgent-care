@@ -100,6 +100,30 @@ export const services = [
     ]
   },
   {
+    imageSrc: "/diagnostic.png",
+    title: "Diagnostic Imaging",
+    description: "Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside.",
+   "whatItIs": "Our walk-in clinics offer a wide range of diagnostic medical tests and lab services. These services are designed to help you feel prepared for various health concerns. Tests include, but are not limited to: Audio and vision tests, COVID-19/flu combo tests, COVID-19 PCR testing, COVID-19 rapid antigen testing, Cholesterol screening, Comprehensive blood testing, Diabetes screening, Digital X-Ray services, Drug screens, Electrocardiograms, General lab testing, Human immunodeficiency virus (HIV) testing, Mask fit testing, Purified protein derivative (PPD) tests, Pregnancy tests, Respiratory syncytial virus (RSV) tests, Rapid flu, strep throat and mono testing, Sexually transmitted infection (STI) testing, Urinalysis, Vaccinations, Vision acuity testing, and Wound and urine cultures.",
+  "howItWorks": "Our lab services begin with an evaluation of your medical condition. If necessary, we then perform one or more of the relevant tests from our comprehensive list. After testing, you can easily access your lab results and other medical information directly from your personal computer, smartphone, or tablet.",
+  "urgentCareAdvantage": "We provide urgent care for high blood pressure (HBP or hypertension), a condition affecting nearly half of American adults, often without noticeable symptoms. It's crucial to be aware of emergency symptoms such as Aortic dissection, Chest pain, Difficulty concentrating, irritability or loss of consciousness, Heart attack, Impaired pumping of the heart, Memory loss, Personality changes, Pregnancy complications (like preeclampsia or eclampsia), Stroke, and Sudden loss of kidney function. We recommend regular blood pressure screenings to monitor the effectiveness of lifestyle and diet modifications (e.g., increased exercise, reduced alcohol consumption), which may help eliminate or reduce the need for medication. Our care team can also advise you on blood pressure monitors.",
+  "costs": "The cost advantage of receiving diagnostic testing at our urgent care centers is substantial, with typical pricing ranging from $500-1,200 compared to hospital costs of $1,500-3,000 for the same diagnostic procedures. This represents a savings of 60-70% compared to traditional hospital-based diagnostic services, making this advanced diagnostic technology accessible to patients without the financial burden of hospital pricing. Our urgent care centers accept most major insurance plans, and patients typically experience lower copays and deductibles compared to hospital settings. For patients without insurance, we offer transparent, upfront pricing with no hidden fees, and we work with patients to establish affordable payment plans when needed. Most insurance plans are accepted with lower deductibles, ensuring that patients can access this advanced diagnostic technology without facing prohibitive out-of-pocket costs.",
+  "whyChooseUs": "Choose us for our comprehensive diagnostic services and convenient walk-in access. We offer a broad spectrum of medical tests, from routine screenings to specialized diagnostics. Our streamlined process allows for easy access to your lab results and other medical information via your personal devices, ensuring you stay informed and prepared about your health.",
+  slug: 'diagnostic-imaging',
+    metaTitle: 'Diagnostic Testing | Walk-In Lab Tests Palm Beach County | Urgent Care Lab Services Near Me',
+    metaDescription: 'Get comprehensive diagnostic testing at our Palm Beach County urgent care. Walk-in lab tests including blood work, COVID-19 testing, STI screening, and more. No appointment needed. Fast, affordable, and expert lab services with same-day results.',
+    keywords: [
+      'urgent care lab tests',
+      'diagnostic testing near me',
+      'walk-in lab services Palm Beach',
+      'same day blood work',
+      'lab testing without appointment',
+      'affordable diagnostic testing',
+      'urgent care with lab services',
+      'comprehensive lab testing clinic',
+      'diagnostic testing Palm Beach County'
+    ]
+  },
+  {
     imageSrc: "/HomeCards/NuclearMedicine.jpg",
     title: "Nuclear Medicine",
     description: "Functional imaging to detect thyroid, bone, and cardiac issues—hospital-level tech without the hospital bill.",
@@ -124,7 +148,7 @@ export const services = [
     ]
   },
 ];
-const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", description = "Skip the crowded emergency room and get hospital-grade imaging right inside our urgent care center. With a 1.5 T MRI, multi-slice CT scanner, digital X-ray, ultrasound, and nuclear medicine suite all under one roof, we deliver STAT reads within 3 hours and same-day scan results for most studies. Walk in anytime or book a same-day appointment—our board-certified providers give you fast, accurate answers when minutes matter." }: { header?: string, description?: string }) => {
+const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", description = "Skip the crowded emergency room and get hospital-grade imaging right inside our urgent care center. With a 1.5 T MRI, multi-slice CT scanner, digital X-ray, ultrasound, and nuclear medicine suite all under one roof, we deliver STAT reads within 3 hours and same-day scan results for STAT most studies. Walk in anytime or book a same-day appointment—our board-certified providers give you fast, accurate answers when minutes matter." }: { header?: string, description?: string }) => {
   return (
     <section className="py-20 xl:px-[60px] px-6">
       <div className="max-w-8xl mx-auto">
@@ -143,7 +167,7 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
-          {services.slice(0, 3).map((service, index) => (
+          {services.map((service, index) => (
               <ServiceCard
                 key={index}
                 imageSrc={service.imageSrc}
@@ -151,22 +175,10 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
                 description={service.description}
                 slug={service.slug}
               />
-          ))}
-            <ServiceCard
-              imageSrc="/HomeCards/Ultrasound.jpg"
-              title="Ultrasound"
-              description="Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside."
-              slug="ultrasound"
-            />
-          <div className="col-span-1 ">
+          ))}  
+        </div>
+        <div className="w-fit">
             <AppointmentCard />
-          </div>
-          <ServiceCard
-            imageSrc="/HomeCards/NuclearMedicine.jpg"
-            title="Nuclear Medicine"
-            description="Functional imaging to detect thyroid, bone, and cardiac issues—hospital-level tech without the hospital bill."
-            slug="nuclear-medicine"
-          />
         </div>
       </div>
     </section>

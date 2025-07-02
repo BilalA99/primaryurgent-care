@@ -25,7 +25,7 @@ const formSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),
     email: z.string().email('Please enter a valid email address'),
     phone: z.string().min(10, 'Please enter a valid phone number'),
-    type: z.string().min(1, 'Please select an accident type'),
+    type: z.string(),
     message: z.string(),
 });
 
@@ -140,7 +140,7 @@ const BookAppointmentForm = ({
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel className={`font-semibold ${textColor} text-base`}>
-                                    Type of Accident
+                                    Type of Accident <span className="text-xs text-gray-200">(If Applicable)</span>
                                 </FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
@@ -152,6 +152,12 @@ const BookAppointmentForm = ({
                                         <SelectItem value="Workplace Accident">Workplace Accident</SelectItem>
                                         <SelectItem value="Car Accident">Car Accident</SelectItem>
                                         <SelectItem value="Personal Injury">Personal Injury</SelectItem>
+                                        <SelectItem value="Truck Accident">Truck Accident</SelectItem>
+                                        <SelectItem value="Motorcycle Accident">Motorcycle Accident</SelectItem>
+                                        <SelectItem value="Slip and Fall">Slip and Fall Accident</SelectItem>
+                                        <SelectItem value="Pedestrian Accident">Pedestrian Accident</SelectItem>
+                                        <SelectItem value="Workers Compensation">Workers Compensation</SelectItem>
+                                        <SelectItem value="Other">Other</SelectItem>
                                     </SelectContent>
                                 </Select>
                                 <FormMessage />

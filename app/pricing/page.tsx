@@ -323,7 +323,7 @@ export const pricingData = [
             'Non-invasive and radiation-free',
             'Used for brain, spine, and joint diagnostics',
         ],
-        price: '$200.00',
+        price: '$400.00',
         priceNote: '/ one time payment',
         icon: <Polestar />,
         whatItIs: "Magnetic Resonance Imaging (MRI) is an advanced diagnostic technology that uses powerful magnetic fields and radio waves to create detailed, cross-sectional images of internal body structures without any radiation exposure. Our urgent care centers feature state-of-the-art 1.5 Tesla MRI technology that provides exceptional image quality for comprehensive evaluation of the brain, spine, joints, muscles, and internal organs. MRI technology offers superior soft tissue contrast resolution, allowing our board-certified radiologists to detect subtle abnormalities, inflammation, tumors, and structural damage that might be missed by other imaging methods.",
@@ -344,6 +344,37 @@ export const pricingData = [
           'walk-in MRI',
           'affordable MRI',
           'Palm Beach County urgent care',
+        ]
+    },
+    {
+        title: 'DOT Physical',
+        subtitle: 'Federal DOT Physical Exam',
+        description: 'Federal DOT physical examinations for commercial drivers to ensure safety compliance and maintain CDL requirements.',
+        features: [
+            'Federal DOT-certified examinations',
+            'Complete medical evaluation for CDL',
+            'Drug and alcohol testing available',
+        ],
+        price: '$150.00',
+        priceNote: '/ one time payment',
+        icon: <Polestar />,
+        whatItIs: "DOT physicals are federally mandated medical examinations required by the Federal Motor Carrier Safety Administration (FMCSA) for individuals operating commercial motor vehicles (CMVs) and maintaining commercial driver's licenses (CDL). These comprehensive examinations ensure that drivers meet the physical and mental health standards necessary for safely operating commercial vehicles. Our urgent care centers provide DOT-certified physical examinations that meet all federal requirements, including thorough medical evaluations, vision and hearing assessments, and drug and alcohol testing. We ensure all examinations comply with current DOT regulations and provide proper documentation for CDL maintenance.",
+        symptomsTreated: "DOT physicals evaluate overall health status and identify medical conditions that may affect commercial driving safety, including cardiovascular conditions, respiratory problems, vision and hearing impairments, neurological disorders, and musculoskeletal conditions. We assess for conditions such as high blood pressure, diabetes, sleep apnea, and other medical conditions that may require monitoring or treatment for safe commercial driving. The examination also evaluates mental health status and cognitive function to ensure drivers can safely operate commercial vehicles. We provide appropriate medical clearance or recommendations for conditions that may require follow-up care.",
+        conditionsAddressed: "DOT physicals can identify and address numerous health conditions including cardiovascular disease, respiratory disorders, vision and hearing problems, neurological conditions, musculoskeletal issues, and various other medical conditions that may affect commercial driving safety. We also evaluate for conditions such as diabetes, sleep disorders, and mental health conditions that may require monitoring or treatment. The examination includes assessment of physical and mental fitness to ensure drivers meet federal safety standards for commercial vehicle operation. We provide appropriate medical documentation and recommendations for conditions that may require treatment or follow-up care.",
+        treatmentProcess: "The DOT physical process begins with a comprehensive health history review, including current medications, allergies, existing medical conditions, and family medical history. Our DOT-certified medical examiners conduct thorough physical examinations, including cardiovascular, respiratory, musculoskeletal, and neurological assessments. We perform vision and hearing tests, and conduct drug and alcohol testing as required. The examination includes mental health assessment and evaluation of cognitive function. We complete all required DOT forms and provide drivers with proper documentation for CDL maintenance and compliance with federal regulations.",
+        urgentCareAdvantage: "Our urgent care centers provide immediate access to DOT physicals without the lengthy appointment scheduling typically associated with specialized medical offices. We offer flexible scheduling, including evenings and weekends, making it convenient for commercial drivers to complete this federal requirement. Our DOT-certified medical examiners ensure all examinations meet federal requirements, and we provide same-day completion of all necessary documentation. The convenience of urgent care means drivers can avoid lengthy waits and scheduling conflicts while ensuring their CDL compliance is maintained.",
+        costAdvantage: "DOT physicals at our urgent care centers offer competitive pricing at $150.00, which includes the complete examination, all required testing, and documentation. Our transparent pricing includes all DOT-required services, with no hidden fees or additional charges. We accept most major insurance plans, and many plans provide coverage for DOT physicals. The comprehensive nature of our service ensures drivers receive all required medical evaluations and documentation in a single visit, avoiding multiple appointments and associated costs.",
+        slug: "dot-physical",
+        img: '/dotphysical.png',
+        metaTitle: 'DOT Physical Cost | CDL Medical Exam Palm Beach County',
+        metaDescription: 'DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+        keywords: [
+          'DOT physical cost',
+          'CDL medical exam',
+          'DOT physical near me',
+          'urgent care DOT physical',
+          'Palm Beach County urgent care',
+          'same day DOT physical',
         ]
     },
     {
@@ -388,7 +419,6 @@ const insuranceData = [
     "Florida Medicare",
     "Florida Medicaid",
     "UnitedHealthcare",
-    "Humana",
     "Kaiser Permanente",
     "Anthem",
     "Molina Healthcare",
@@ -494,6 +524,7 @@ const PricingPage = () => {
                 {/* Third row */}
                 <PricingCard {...pricingData[5]} />
                 <PricingCard {...pricingData[6]} />
+                <PricingCard {...pricingData[7]} />
             </div>
         </main>
     )

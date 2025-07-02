@@ -69,7 +69,7 @@ const AppointmentPage = () => {
                         <span className="text-[#2563eb] text-sm mb-6 font-[500]">Appointment</span>
                         <h1 className="text-4xl md:text-6xl font-[600] text-black mb-8 ">Same Day Appointments & Guaranteed Walk-Ins</h1>
                         <p className="text-base md:text-lg text-gray-700 mb-4">
-                            At Primary & Urgent Care Centers, we're here for you Monday–Friday, 9 a.m.–6 p.m. Choose a same-day appointment online or simply walk in—either way, you'll be welcomed into clean, comfortable surroundings that deliver emergency-level care without the hospital wait. Appointments are preferred but never required.
+                            At Primary & Urgent Care Centers, we're here for you Monday–Friday, 9am-6pm, Saturday 9am-4pm Choose a same-day appointment online or simply walk in—either way, you'll be welcomed into clean, comfortable surroundings that deliver emergency-level care without the hospital wait. Appointments are preferred but never required.
                         </p>
                         <p className="text-base md:text-lg text-gray-700 mb-4">
                             Most visitors are seen in 15 minutes or less by our board-certified team. With on-site digital X-ray, 1.5 T MRI, CT, ultrasound, and lab analyzers, we deliver hospital-level care using true emergency-room equipment. Expect STAT imaging reads within three hours and same-day scan results for most studies; if you need specialty follow-up or admission, we'll arrange a prompt referral through our trusted consultant network.

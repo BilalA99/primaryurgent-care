@@ -16,6 +16,7 @@ import SlidingDiv from "@/components/SlidingAnimation";
 import Reveal from "@/components/RevealAnimation";
 import Testimonials from "@/components/testimonials";
 import Reviews from "@/components/Reviews";
+import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 
 export const metadata = {
   title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
@@ -84,15 +85,15 @@ export default function Home() {
               Call for any emergency: (561) 204-5111
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">
-              Immediate medical care when you need it most
+              Immediate medical care<br/> when you need it most
             </h1>
             <p className="text-lg w-full md:w-[45%]">
               Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
             </p>
           </div>
 
-          <div className="backdrop-blur-3xl lg:p-8 p-4 rounded-2xl w-full xl:w-[50%]">
-            <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>
+          <div className=" w-full xl:w-[50%]">
+            {/* <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>
             <form className="space-y-5">
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name</label>
@@ -121,7 +122,8 @@ export default function Home() {
               <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
                 Submit
               </button>
-            </form>
+            </form> */}
+            <BookAppointmentForm title="Request an appointment" bgColor="backdrop-blur-3xl lg:p-8 p-4 rounded-2xl" textColor="text-white" />
           </div>
 
         </div>

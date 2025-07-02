@@ -15,7 +15,7 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
         <p className="text-lg text-gray-600 text-center mb-8">
           {service?.description}
         </p>
-        <div className="flex flex-wrap gap-4 w-full self-center items-center justify-center justify-center">
+        <div className="flex flex-wrap gap-4 w-full self-center items-center justify-center">
           <a href="tel:5612045111" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
             Contact Us
           </a>
