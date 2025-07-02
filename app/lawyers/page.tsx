@@ -131,7 +131,6 @@ const LawyersPage = () => {
                                 <span className="text-white ml-1">Lawyers</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 ">Legal Records Request for Attorneys</h1>
-                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 ">Legal Records Request for Attorneys</h2>
                             <p className="text-white lg:text-lg text-base mb-2">
                                 If you are a legal representative seeking patient medical records, please complete the secure form below. This form allows our urgent care staff to connect with your law firm and process your request in compliance with HIPAA regulations. Please provide accurate details regarding the patient, date of service, and the type of records required. For your request to be processed, ensure that all necessary authorizations or subpoenas are uploaded and that the legal acknowledgement is accepted. We are committed to maintaining the confidentiality and security of all Protected Health Information (PHI) throughout the process.
                             </p>
