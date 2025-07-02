@@ -2,7 +2,7 @@ import Phone from '../icons/phone';
 
 const AppointmentCard = ({height = 'h-full'}: {height?: string}) => {
     return (
-        <div className={`bg-[#D52128] rounded-lg shadow-md p-8 flex flex-col justify-between items-start hover:cursor-pointer group ${height} text-white`}>
+        <div className={`bg-[#D52128] rounded-lg shadow-md p-8 flex flex-col justify-between items-center hover:cursor-pointer group ${height} text-white`}>
             <h3 className="font-[600] text-3xl mb-4">Book an appointment to get the best services</h3>
             <div className='flex flex-col justify-center items-start'>
                 <p className="mb-6 text-[#EEA6A9] font-[500] text-sm">

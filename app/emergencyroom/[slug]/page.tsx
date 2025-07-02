@@ -1,6 +1,7 @@
 import React from 'react'
 import { services } from '@/components/Services'
 import Image from 'next/image'
+import Reveal from '@/components/RevealAnimation'
 
 const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) => {
   const {slug} = await params
@@ -22,29 +23,41 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
         </div>
       </div>
       <div className="w-full mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="flex flex-col gap-4 col-span-1">
-          <h2 className="text-xl md:text-2xl font-bold text-black">What is a {service?.title}?</h2>
-          <p className="md:text-lg text-md text-gray-600">{service?.whatItIs}</p>
-        </div>
+        <Reveal className='w-full'>
+          <div className="flex flex-col gap-4 col-span-1">
+            <h2 className="text-xl md:text-2xl font-bold text-black">What is a {service?.title}?</h2>
+            <p className="md:text-lg text-md text-gray-600">{service?.whatItIs}</p>
+          </div>
+        </Reveal>
         <div className='w-full relative rounded-2xl overflow-hidden col-span-1'><Image src={service?.imageSrc || ''} alt={service?.title || ''} fill className='object-cover' /></div>
-        <div className="flex flex-col gap-4 col-span-2 ">
-          <h2 className="text-xl md:text-2xl font-bold text-black">Why choose an {service?.title}?</h2>
-          <p className="md:text-lg text-md text-gray-600">{service?.whyChooseUs}</p>
-        </div>
+        <Reveal className='w-full col-span-2'>
+          <div className="flex flex-col gap-4  ">
+            <h2 className="text-xl md:text-2xl font-bold text-black">Why choose an {service?.title}?</h2>
+            <p className="md:text-lg text-md text-gray-600">{service?.whyChooseUs}</p>
+          </div>
+        </Reveal>
       </div>
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <div className="flex flex-col gap-4 col-span-1 w-full">
-          <h2 className="text-xl md:text-2xl font-bold text-black">How does a {service?.title} work?</h2>
-          <p className="md:text-lg text-md text-gray-600">{service?.howItWorks}</p>
-        </div>
-        <div className="flex flex-col gap-4 col-span-1 w-full">
-          <h2 className="text-xl md:text-2xl font-bold text-black">Why choose Primary & Urgent Care Center for a {service?.title}?</h2>
-          <p className="md:text-lg text-md text-gray-600">{service?.urgentCareAdvantage}</p>
-        </div>
-        <div className='sm:col-span-2 col-span-1 flex flex-col gap-4'>
-          <h2 className='text-xl md:text-2xl font-bold text-black'>Costs at a Primary & Urgent Care Center</h2>
-          <p className='md:text-lg text-md text-gray-600'>{service?.costs}</p>
-        </div>
+
+      <div className="w-full mx-auto grid grid-cols-1 h-full md:grid-cols-2 gap-8 mt-4">
+        <Reveal className='w-full'>
+          <div className="flex flex-col gap-4 col-span-1 w-full">
+            <h2 className="text-xl md:text-2xl font-bold text-black">How does a {service?.title} work?</h2>
+            <p className="md:text-lg text-md text-gray-600">{service?.howItWorks}</p>
+          </div>
+        </Reveal>
+        <Reveal className='w-full'>
+          <div className="flex flex-col gap-4 col-span-1 w-full">
+            <h2 className="text-xl md:text-2xl font-bold text-black">Why choose Primary & Urgent Care Center for a {service?.title}?</h2>
+            <p className="md:text-lg text-md text-gray-600">{service?.urgentCareAdvantage}</p>
+          </div>
+        </Reveal>
+        <div className='w-full relative rounded-2xl overflow-hidden col-span-1 '><Image src={service?.imageSrc2 || ''} alt={service?.title || ''} fill className='object-cover' /></div>
+        <Reveal className='w-full'>
+          <div className='sm:col-span-1 col-span-1 flex flex-col gap-4'>
+            <h2 className='text-xl md:text-2xl font-bold text-black'>Costs at a Primary & Urgent Care Center</h2>
+            <p className='md:text-lg text-md text-gray-600'>{service?.costs}</p>
+          </div>
+        </Reveal>
        </div>
       </main>
   )

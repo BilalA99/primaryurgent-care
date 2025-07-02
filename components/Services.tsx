@@ -5,6 +5,7 @@ import Reveal from './RevealAnimation'
 export const services = [
   {
     imageSrc: "/HomeCards/15TMRI.jpg",
+    imageSrc2: "/15tmri2.png",
     title: "1.5T MRI",
     description: "High-resolution images for spine, brain & joint injuries—in and out in under 30 min.",
     whatItIs: "A 1.5 Tesla Magnetic Resonance Imaging (MRI) machine represents the gold standard in diagnostic imaging technology, utilizing powerful magnetic fields and sophisticated radio wave technology to create exceptionally detailed, cross-sectional images of internal body structures without any harmful radiation exposure. This advanced imaging modality operates at 1.5 Tesla strength, providing the perfect balance between image quality and patient comfort, making it ideal for comprehensive evaluation of the brain, spine, joints, muscles, and internal organs. Unlike traditional X-rays or CT scans, MRI technology offers superior soft tissue contrast resolution, allowing our board-certified radiologists to detect subtle abnormalities, inflammation, tumors, and structural damage that might be missed by other imaging methods. The 1.5T strength provides optimal signal-to-noise ratio, ensuring crisp, clear images that enable precise diagnosis and treatment planning for a wide range of medical conditions.",
@@ -29,6 +30,7 @@ export const services = [
   },
   {
     imageSrc: "/HomeCards/CTScan.jpg",
+    imageSrc2 : '/ctscan2.png',
     title: "CT Scan",
     description: "Fast, low-dose scans for trauma, chest pain, or abdominal concerns—results same day.",
     whatItIs: "Computed Tomography (CT) scanning represents a revolutionary advancement in medical imaging technology that combines sophisticated X-ray technology with advanced computer processing to create detailed, cross-sectional images of the body. Unlike traditional X-rays that provide only 2D images, CT scans generate comprehensive 3D views that can reveal the intricate details of bones, blood vessels, soft tissues, and internal organs with exceptional clarity. Our multi-slice CT scanner utilizes cutting-edge technology to capture hundreds of images in a single rotation, providing radiologists with unprecedented detail for accurate diagnosis of complex medical conditions. The technology is particularly valuable for evaluating trauma cases, detecting internal bleeding, identifying tumors, assessing cardiovascular conditions, and diagnosing a wide range of acute and chronic medical problems. CT scanning has become an essential diagnostic tool in modern medicine, offering the perfect balance between image quality, speed, and patient safety while providing critical information that guides treatment decisions.",
@@ -53,6 +55,7 @@ export const services = [
   },
   {
     imageSrc: "/HomeCards/DigitalXray.jpg",
+    imageSrc2 : '/mri2.png',
     title: "Digital X-Ray",
     description: "Crisp images in seconds to diagnose fractures, pneumonia, and more—no ER visit required.",
     whatItIs: "Digital X-ray technology represents the modern evolution of traditional X-ray imaging, utilizing advanced electronic sensors and sophisticated computer processing to capture high-resolution images of bones, chest, and other body parts with minimal radiation exposure. Unlike traditional film-based X-rays that require chemical processing and can only be viewed after development, digital X-ray systems provide immediate image capture and display, allowing for instant viewing and manipulation by healthcare providers. Our digital X-ray equipment utilizes state-of-the-art flat-panel detectors that convert X-ray energy directly into digital signals, creating images with exceptional detail and clarity that can be enhanced, magnified, and analyzed using advanced computer software. This technology is particularly valuable for diagnosing fractures, detecting pneumonia and other respiratory conditions, evaluating joint problems, and screening for various medical conditions. Digital X-ray systems offer superior image quality compared to traditional film X-rays, with the ability to adjust contrast, brightness, and other parameters to optimize visualization of specific anatomical structures and pathological conditions.",
@@ -77,6 +80,7 @@ export const services = [
   },
   {
     imageSrc: "/HomeCards/Ultrasound.jpg",
+    imageSrc2: '/ultrasound2.png',
     title: "Ultrasound",
     description: "Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside.",
     whatItIs: "Ultrasound imaging represents a revolutionary non-invasive diagnostic technology that utilizes high-frequency sound waves to create real-time images of internal organs, blood vessels, and developing fetuses without any radiation exposure. This advanced imaging modality operates on the principle of sound wave reflection, using sophisticated transducers to send sound waves into the body and capture the returning echoes to create detailed, moving images of internal structures. Our portable bedside ultrasound equipment provides immediate diagnostic capabilities, allowing healthcare providers to evaluate patients at the point of care without the need for lengthy appointments or transfers to specialized imaging departments. Ultrasound technology is particularly valuable for evaluating soft tissue structures, monitoring pregnancy, assessing cardiovascular function, and diagnosing a wide range of medical conditions. The real-time nature of ultrasound imaging allows healthcare providers to observe organ function, blood flow, and structural movement, providing dynamic information that static imaging modalities cannot capture.",
@@ -101,6 +105,7 @@ export const services = [
   },
   {
     imageSrc: "/diagnostic.png",
+    imageSrc2: '/diagnostic2.png',
     title: "Diagnostic Imaging",
     description: "Real-time imaging for soft-tissue, OB/GYN, and vascular evaluations—performed bedside.",
    "whatItIs": "Our walk-in clinics offer a wide range of diagnostic medical tests and lab services. These services are designed to help you feel prepared for various health concerns. Tests include, but are not limited to: Audio and vision tests, COVID-19/flu combo tests, COVID-19 PCR testing, COVID-19 rapid antigen testing, Cholesterol screening, Comprehensive blood testing, Diabetes screening, Digital X-Ray services, Drug screens, Electrocardiograms, General lab testing, Human immunodeficiency virus (HIV) testing, Mask fit testing, Purified protein derivative (PPD) tests, Pregnancy tests, Respiratory syncytial virus (RSV) tests, Rapid flu, strep throat and mono testing, Sexually transmitted infection (STI) testing, Urinalysis, Vaccinations, Vision acuity testing, and Wound and urine cultures.",
@@ -125,6 +130,7 @@ export const services = [
   },
   {
     imageSrc: "/HomeCards/NuclearMedicine.jpg",
+    imageSrc2 : '/nuclear2.png',
     title: "Nuclear Medicine",
     description: "Functional imaging to detect thyroid, bone, and cardiac issues—hospital-level tech without the hospital bill.",
     whatItIs: "Nuclear medicine represents the cutting edge of functional imaging technology, utilizing small amounts of radioactive materials called tracers to evaluate organ function and detect diseases at the cellular level, providing information that other imaging modalities cannot capture. This advanced imaging technology operates on the principle of molecular imaging, allowing healthcare providers to observe how organs and tissues function rather than just their anatomical structure. Our nuclear medicine suite features state-of-the-art gamma cameras and PET-CT technology that can detect metabolic changes, blood flow patterns, and cellular activity long before structural changes become apparent on other imaging studies. Nuclear medicine is particularly valuable for evaluating thyroid function, detecting bone metastases, assessing cardiac perfusion, identifying inflammatory processes, and diagnosing a wide range of oncological and neurological conditions. Unlike traditional imaging modalities that primarily show anatomy, nuclear medicine provides functional information that can reveal disease processes at their earliest stages, often before symptoms develop or structural changes occur.",
@@ -177,7 +183,7 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
               />
           ))}  
         </div>
-        <div className="w-fit self-center mx-auto">
+        <div className="w-full ">
             <AppointmentCard />
         </div>
       </div>
