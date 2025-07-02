@@ -34,6 +34,9 @@ const navItems = [
 
         ]
     },
+    {
+        name : 'Primary Care', href : '/primary-care-doctor'
+    }
 ];
 
 // Inline HamburgerIcon for mobile menu

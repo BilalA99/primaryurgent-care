@@ -131,7 +131,7 @@ const ServicePage = () => {
                         <div className="flex-1 flex flex-col gap-6 justify-center">
                             <div className="w-full mb-4 relative h-100" >
                                 <Image
-                                    src="/docotorgroup.jpg"
+                                    src="/primarycaredoc.png"
                                     alt="Doctor Group"
                                     fill
                                     className="rounded-2xl object-cover w-full "
