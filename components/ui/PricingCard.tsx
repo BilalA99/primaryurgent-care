@@ -15,7 +15,7 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({ icon, title, subtitle, features, price, priceNote, className = '', slug }) => (
-   <Link href={`/pricing/${slug}`} className='w-full'>
+   <Link href={`${title == 'DOT Physical' ? '/service/dot-physical' : '/pricing/${slug}'} `} className='w-full'>
         <Reveal className='w-full overflow-hidden hover:scale-105 transition-all duration-300 '>
             <div className={`rounded-[28px] p-2  bg-[linear-gradient(180deg,#D52128_0%,#fff_70%)] ${className} h-75`}>
                 <div className="bg-white rounded-[24px] p-6 flex flex-col border-[#F4F3F3] border min-w-[300px] h-full">

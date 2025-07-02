@@ -177,7 +177,7 @@ const Services = ({ header = "Hospital-Level Diagnostic & Imaging Services", des
               />
           ))}  
         </div>
-        <div className="w-fit">
+        <div className="w-fit self-center mx-auto">
             <AppointmentCard />
         </div>
       </div>

@@ -18,7 +18,7 @@ const navItems = [
             { name: 'Urgent Injury Care', href: '/urgentinjurycare' },
             { name: 'Emergency Room', href: '/emergencyroom' },
             { name: 'Pain Management Care', href: '/pain-management-care' },
-            { name: 'DOT Physical', href: '/pricing/dot-physical' },
+            { name: 'DOT Physical', href: '/service/dot-physical' },
             { name: 'Lawyers', href: '/lawyers' },
         ]
     },

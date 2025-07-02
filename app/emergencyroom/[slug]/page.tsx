@@ -21,12 +21,13 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
           </a>
         </div>
       </div>
-      <div className="w-full mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="flex flex-col gap-4">
+      <div className="w-full mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-4 col-span-1">
           <h2 className="text-xl md:text-2xl font-bold text-black">What is a {service?.title}?</h2>
           <p className="md:text-lg text-md text-gray-600">{service?.whatItIs}</p>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className='w-full relative rounded-2xl overflow-hidden col-span-1'><Image src={service?.imageSrc || ''} alt={service?.title || ''} fill className='object-cover' /></div>
+        <div className="flex flex-col gap-4 col-span-2 ">
           <h2 className="text-xl md:text-2xl font-bold text-black">Why choose an {service?.title}?</h2>
           <p className="md:text-lg text-md text-gray-600">{service?.whyChooseUs}</p>
         </div>
