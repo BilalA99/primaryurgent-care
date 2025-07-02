@@ -143,9 +143,9 @@ export default function PrimaryCareDoctorPage() {
             </section>
 
             {/* Animated Horizontal Scroll Services Section */}
-            <section className="w-full py-20 px-4 bg-gradient-to-r from-[#A7E3F7]/30 via-[#F7FAFF]/80 to-[#F7FAFF]/100 [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,transparent,black_6rem)]">
+            <section className=" mx-auto py-20 bg-gradient-to-r from-[#A7E3F7]/30 via-[#F7FAFF]/80 to-[#F7FAFF]/100 [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,transparent,black_6rem)]">
                 <h2 className="text-4xl font-bold mb-10 text-center text-gray-900">Primary Care Services</h2>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto w-full max-w-[1440px] px-40 mx-auto">
                     <Marquee pauseOnHover className="flex gap-8 lg:px-40 md:min-w-full [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
                         {primaryCareServices.slice(0, primaryCareServices.length / 2).map((service, idx) => (
                             <Reveal key={service.title} className="min-w-[280px] max-w-xs w-full h-full flex-shrink-0 py-2 items-center justify-center" delay={0.15 + idx * 0.1}>
