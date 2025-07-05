@@ -58,18 +58,16 @@ const BookAppointmentForm = ({
     });
     const [isLoading, setIsLoading] = useState(false);
     const onSubmit = async (data: FormData) => {
-        try {
-            setIsLoading(true);
-            const response = await sendContactEmail({name : data.name, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
-            await sendUserEmail({name : data.name, email : data.email, phone : data.phone});
-            if(response) {
-                setIsLoading(false);
-                //form.reset();
-                redirect('/thank-you');
-            }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-        } 
+        setIsLoading(true);
+        const response = await sendContactEmail({name : data.name, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
+        await sendUserEmail({name : data.name, email : data.email, phone : data.phone});
+        if(response) {
+            setIsLoading(false);
+            form.reset();
+            redirect('/thank-you');
+
+            
+        }
     };
 
     return (
@@ -77,7 +75,7 @@ const BookAppointmentForm = ({
             <h2 className={`text-3xl font-bold ${textColor}`}>{title}</h2>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 h-full w-full overflow-hidden">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 h-full w-full ">
                     <FormField
                         control={form.control}
                         name="name"
