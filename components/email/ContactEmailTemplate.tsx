@@ -43,7 +43,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                     textAlign: 'center',
                 }}>
                     <img
-                        src="https://wpucc.com/logoheart.png"
+                        src="https://wpucc.com/WebsiteLogoTrans.png"
                         alt="Primary & Urgent Care Centers Logo"
                         style={{ width: 64, height: 64, objectFit: 'contain', borderRadius: 12, marginBottom: 8 }}
                     />
@@ -188,7 +188,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                             alignItems: 'center',
                             gap: 8
                         }}>
-                            <img src="https://pwucc.com/logoheart.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+                            <img src="https://pwucc.com/WebsiteLogoTrans.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
                             Our Locations
                         </h3>
                         {LocationsScreens.slice(0, 3).map((clinic) => (

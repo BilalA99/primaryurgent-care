@@ -12,6 +12,7 @@ import Headaches from '@/components/icons/headaches';
 import Reveal from '@/components/RevealAnimation'
 import SlidingDiv from '@/components/SlidingAnimation'
 import PainCareWeTreat from '@/components/paincarewetreat'
+import { Dot } from 'lucide-react'
 
 export const metadata = {
   title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
@@ -142,15 +143,17 @@ const PainCare = () => {
         <SlidingDiv position='right' className='flex flex-col gap-2'>
           <div className=' flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
             <p className='lg:text-6xl text-5xl font-600'>Florida's 14-Day PIP Rule  See a Doctor Fast to Protect Your Claim</p>
-            <p className='text-lg text-[#494647]'>
-              Under Florida's Personal Injury Protection (PIP) law, you must receive medical care within 14 days of your car accident to unlock PIP benefits no matter who was at fault. Miss this window and the insurance carrier can deny payment for treatment, imaging, prescriptions, and lost wages.<br /><br />
-              Even "minor" aches can mask whiplash, internal bleeding, or herniated discs, so book a same-day auto-injury visit or walk in today:
+            <div className='text-lg text-[#494647]'>
+              <p>
+                Under Florida's Personal Injury Protection (PIP) law, you must receive medical care within 14 days of your car accident to unlock PIP benefits no matter who was at fault. Miss this window and the insurance carrier can deny payment for treatment, imaging, prescriptions, and lost wages.<br /><br />
+                Even "minor" aches can mask whiplash, internal bleeding, or herniated discs, so book a same-day auto-injury visit or walk in today:
+              </p>
               <br />
-              <li>On-site digital X-ray, CT & MRI with STAT reads (≤ 3 hrs)</li>
-              <li>Detailed injury documentation for attorneys & insurers</li>
-              <li>Direct PIP billing—no out-of-pocket surprise bills</li>
-              <li>Open extended hours across Palm Beach County</li>
-            </p>
+              <p className='flex flex-row space-x-2 items-center justify-start'><Dot className='w-8 h-8' /> On-site digital X-ray, CT & MRI with STAT reads (≤ 3 hrs)</p>
+              <p className='flex flex-row space-x-2 items-center justify-start'><Dot className='w-8 h-8' /> Detailed injury documentation for attorneys & insurers</p>
+              <p className='flex flex-row space-x-2 items-center justify-start'><Dot className='w-8 h-8' /> Direct PIP billing—no out-of-pocket surprise bills</p>
+              <p className='flex flex-row space-x-2 items-center justify-start'><Dot className='w-8 h-8' /> Open extended hours across Palm Beach County</p>
+            </div>
           </div>
         </SlidingDiv>
       </section>

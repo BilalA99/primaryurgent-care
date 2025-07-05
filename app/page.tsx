@@ -79,7 +79,7 @@ export default function Home() {
           className="-z-10 w-full h-full absolute object-cover object-center"
         />
         <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
-        <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between max-w-8xl w-full xl:px-[60px] px-6">
+        <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
           <div className="flex flex-col justify-center space-y-6">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
               Call for any emergency: (561) 231-0250
@@ -132,20 +132,19 @@ export default function Home() {
       <Services />
 
       {/* State of the Art Technology Section */}
-      <section className="w-full max-w-8xl bg-white mx-auto md:py-10 grid grid-cols-1 lg:gap-12 px-6 lg:px-[60px]">
-        {/* Top row */}
+      <section className="w-full sm:max-w-8xl bg-white mx-auto md:py-10 grid grid-cols-1 lg:gap-12 px-6 lg:px-[60px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-8">
 
-          <div className="w-full">
+          <div className="w-full  sm:block hidden">
             <GradientImage
               src="/stateoftheart.png"
               alt="Doctor with MRI and X-ray"
-              className="w-full  sm:block hidden"
+              className="w-full "
               priority
             />
           </div>
 
-          <SlidingDiv className="w-full" position="right">
+          <SlidingDiv className="w-full overflow-hidden" position="right">
             <div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                 State of the Art Technology,<br className="hidden lg:block" />Right Inside Our Urgent Care
@@ -156,9 +155,9 @@ export default function Home() {
             </div>
           </SlidingDiv>
         </div>
-        {/* Bottom row */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <SlidingDiv className="w-full" position="left">
+          <SlidingDiv className="w-full overflow-hidden" position="left">
             <div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                 Seen in 15 minutes or less!
@@ -168,19 +167,21 @@ export default function Home() {
               </p>
             </div>
           </SlidingDiv>
-          <GradientImage
-            src="/doctorwithpatient.jpg"
-            alt="Doctor with patient"
-            className="w-full sm:block hidden"
-            direction="left"
-            priority={false}
-          />
+          <div className="w-full sm:block hidden">
+            <GradientImage
+              src="/doctorwithpatient.jpg"
+              alt="Doctor with patient"
+              className="w-full "
+              direction="left"
+              priority={false}
+            />
+          </div>
         </div>
       </section>
 
       {/* Urgent, Accident, Emergency Room Care Section */}
       <section className="w-full bg-white py-20 px-4 lg:px-[60px]">
-        <div className="max-w-8xl mx-auto grid grid-cols-1 gap-8">
+        <div className="sm:max-w-8xl mx-auto grid grid-cols-1 gap-8">
           {/* Top row */}
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 items-stretch">
             <div className=" col-span-1">
@@ -220,7 +221,7 @@ export default function Home() {
 
       {/* Accessible Urgent Care Section */}
       <section className="w-full bg-[#FAFAFA] lg:py-24 py-10 px-6 lg:px-[60px]">
-        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div className="sm:max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Left: Text and Cards */}
           <div className="lg:col-span-3 flex flex-col gap-10">
             <div>

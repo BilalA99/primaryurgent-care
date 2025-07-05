@@ -335,7 +335,7 @@ export const pricingData = [
     slug: "mri",
     img: '/mri.png',
     metaTitle: 'MRI Cost | Same-Day MRI Scan Palm Beach County',
-    metaDescription: 'Get a same-day MRI for $200 at our Palm Beach County urgent care. Walk-in MRI for spine, brain, and joint injuries. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Get a same-day MRI for $400 at our Palm Beach County urgent care. Walk-in MRI for spine, brain, and joint injuries. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
     keywords: [
       'MRI cost',
       'urgent care MRI',
@@ -419,16 +419,11 @@ const insuranceData = [
   "Florida Medicare",
   "Florida Medicaid",
   "UnitedHealthcare",
-  "Kaiser Permanente",
   "Anthem",
   "Molina Healthcare",
-  "Ambetter",
-  "Bright Health",
   "Oscar Health",
   "Florida Blue",
   "AvMed",
-  "Tricare",
-  "VA Health Benefits",
   "PIP (Personal Injury Protection)",
   "No-Fault Insurance",
   "Commercial Insurance",
@@ -438,7 +433,6 @@ const insuranceData = [
   "Medicare Advantage",
   "Medicare Supplement",
   "Medicaid Managed Care",
-  "Children's Health Insurance Program (CHIP)",
   "Short-term Health Plans"
 ];
 

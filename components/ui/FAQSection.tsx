@@ -15,7 +15,7 @@ const faqs = [
     },
     {
         question: 'How much does an urgent care visit cost compared with the ER?',
-        answer: 'Urgent care visits offer significant cost savings compared to emergency rooms. Our office visits cost $69.99 compared to $500-1,500 for ER evaluations. Additional services include X-rays ($50), ultrasound ($100), MRI ($200), and CT scans ($300-600). Hospital costs for the same services range from $200-400 for X-rays, $400-800 for ultrasound, $1,200-2,500 for MRI, and $800-1,500 for CT scans. We accept most insurance plans with lower copays and deductibles than ER visits.',
+        answer: 'Urgent care visits offer significant cost savings compared to emergency rooms. Our office visits cost $69.99 compared to $500-1,500 for ER evaluations. Additional services include X-rays ($50), ultrasound ($100), MRI ($400), and CT scans ($300-600). Hospital costs for the same services range from $200-400 for X-rays, $400-800 for ultrasound, $1,200-2,500 for MRI, and $800-1,500 for CT scans. We accept most insurance plans with lower copays and deductibles than ER visits.',
     },
     {
         question: 'How long will I wait to be seen at urgent care?',

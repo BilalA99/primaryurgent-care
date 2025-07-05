@@ -6,7 +6,7 @@ export const LocationsScreens = [
     phone: '(561) 231-0250',
     slug: 'royal-palm-beach-primary-urgent-care-center',
     image: '/royalpalm.jpg',
-    subimg: '/royalpalm2.jpg',
+    subimg: '/doctorgroups.png',
     lat: 26.705703,
     lng: -80.224953,
     link: 'https://www.google.com/maps/place/Primary+%26+Urgent+Care+Center/@26.7054931,-80.2260155,18z/data=!4m5!3m4!1s0x88d92efa73ad003f:0xe7a29477ae5fa157!8m2!3d26.7054883!4d-80.2249158?hl=en&shorturl=1',
