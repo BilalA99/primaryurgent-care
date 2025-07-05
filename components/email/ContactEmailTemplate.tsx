@@ -43,7 +43,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                     textAlign: 'center',
                 }}>
                     <img
-                        src="https://primaryurgentcare.com/logoheart.png"
+                        src="https://wpucc.com/logoheart.png"
                         alt="Primary & Urgent Care Centers Logo"
                         style={{ width: 64, height: 64, objectFit: 'contain', borderRadius: 12, marginBottom: 8 }}
                     />
@@ -188,7 +188,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                             alignItems: 'center',
                             gap: 8
                         }}>
-                            <img src="https://primaryurgentcare.com/logoheart.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+                            <img src="https://pwucc.com/logoheart.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
                             Our Locations
                         </h3>
                         {LocationsScreens.slice(0, 3).map((clinic) => (
@@ -200,7 +200,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                                 <p style={{ color: '#374151', fontSize: 14, margin: '2px 0 0 0' }}><span style={{ fontWeight: 500 }}>Hours:</span> Mon-Fri: 8am-5pm</p>
                             </div>
                         ))}
-                        <a href="https://primaryurgentcare.com/locations" style={{
+                        <a href="https://pwucc.com/locations" style={{
                             background: '#FFF5F5',
                             padding: '12px 16px',
                             display: 'block',
@@ -230,8 +230,8 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                 }}>
                     <p style={{ marginBottom: 8, color: '#fff' }}>© {new Date().getFullYear()} Primary & Urgent Care Centers. All rights reserved.</p>
                     <div style={{ marginBottom: 0 }}>
-                        <a href="https://primaryurgentcare.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
-                        <a href="https://primaryurgentcare.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
+                        <a href="https://wpucc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
+                        <a href="https://wpucc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
                         <a href="tel:5612310250‬" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
                     </div>
                 </div>
