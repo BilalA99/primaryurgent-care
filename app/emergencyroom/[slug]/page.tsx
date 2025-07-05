@@ -3,8 +3,8 @@ import { services } from '@/components/Services'
 import Image from 'next/image'
 import Reveal from '@/components/RevealAnimation'
 
-const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) => {
-  const {slug} = await params
+const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params
   const service = services.find(service => service.slug === slug)
   return (
     <main className="w-full bg-[#FAFAFA] min-h-screen lg:py-20 py-10 max-w-8xl mx-auto lg:px-[60px] px-6">
@@ -17,7 +17,7 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
           {service?.description}
         </p>
         <div className="flex flex-wrap gap-4 w-full self-center items-center justify-center">
-          <a href="tel:5612045111" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+          <a href="tel:5612310250‬" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
             Contact Us
           </a>
         </div>
@@ -58,8 +58,8 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
             <p className='md:text-lg text-md text-gray-600'>{service?.costs}</p>
           </div>
         </Reveal>
-       </div>
-      </main>
+      </div>
+    </main>
   )
 }
 

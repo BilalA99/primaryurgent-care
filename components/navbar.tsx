@@ -35,7 +35,7 @@ const navItems = [
         ]
     },
     {
-        name : 'Primary Care', href : '/primary-care-doctor'
+        name: 'Primary Care', href: '/primary-care-doctor'
     }
 ];
 
@@ -98,10 +98,10 @@ const NavBar = () => {
                         </nav>
 
                         {/* Desktop Call Button */}
-                        <button className="hidden xl:flex items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                        <a href="tel:5612310250" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                             <Phone fill="white" />
-                            <span>(561) 204-5111</span>
-                        </button>
+                            <span>(561) 231-0250</span>
+                        </a>
 
                         {/* Hamburger Button (Mobile) */}
                         <button
@@ -185,7 +185,7 @@ const NavBar = () => {
                             )}
                         </div>
                     ))}
-                    <a href="tel:5612045111"
+                    <a href="tel:5612310250‬"
                         className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#D52128] text-white text-[15px] font-semibold"
                         onClick={closeSidebar}
                     >

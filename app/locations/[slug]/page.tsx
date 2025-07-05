@@ -48,7 +48,7 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                             Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
                         </p>
                         <div className="flex flex-wrap gap-4 w-full">
-                            <a href="tel:5612045111" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                            <a href="tel:5612310250‬" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                                 Contact Us
                             </a>
                         </div>
@@ -113,9 +113,9 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                             <Reveal className='bg-white rounded-b-2xl flex flex-col gap-2 col-span-2'>
                                 <div className="p-6 flex flex-col gap-2">
                                     <div className="font-bold flex flex-row justify-between items-center">
-                                      <p className='lg:text-xl text-lg'>  Explore our Emergency care</p>
-                                      <ShieldUser />
-                                     </div>
+                                        <p className='lg:text-xl text-lg'>  Explore our Emergency care</p>
+                                        <ShieldUser />
+                                    </div>
                                     <div className="text-gray-600 lg:text-lg text-sm">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</div>
                                 </div>
                             </Reveal>
@@ -130,7 +130,7 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                 </div>
             </section>
             <div className='max-w-8xl mx-auto xl:px-[60px] py-10 px-4'>
-                <ClinicsMap startingClinic={location}/>
+                <ClinicsMap startingClinic={location} />
             </div>
             <Testimonials />
         </main>
@@ -140,21 +140,21 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
 export default LocationPage
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const location = LocationsScreens.find((x) => x.slug === params.slug);
-  return {
-    title: location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-    description: location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
-    keywords: location?.keywords || [
-      'urgent care Palm Beach County',
-      'walk-in clinic Palm Beach',
-      'medical clinic Palm Beach',
-      'emergency care Palm Beach',
-      'primary care Palm Beach',
-      'family doctor Palm Beach',
-      'same day doctor appointment Palm Beach'
-    ],
-    alternates: {
-      canonical: `https://primaryurgentcare.com/locations/${params.slug}`,
-    },
-  };
+    const location = LocationsScreens.find((x) => x.slug === params.slug);
+    return {
+        title: location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+        description: location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+        keywords: location?.keywords || [
+            'urgent care Palm Beach County',
+            'walk-in clinic Palm Beach',
+            'medical clinic Palm Beach',
+            'emergency care Palm Beach',
+            'primary care Palm Beach',
+            'family doctor Palm Beach',
+            'same day doctor appointment Palm Beach'
+        ],
+        alternates: {
+            canonical: `https://primaryurgentcare.com/locations/${params.slug}`,
+        },
+    };
 }

@@ -4,7 +4,7 @@ import { pricingData } from '@/app/pricing/page';
 import { conditions } from '@/components/conditions';
 import { services } from '@/components/Services';
 
-const BASE_URL = 'https://primaryurgentcare.com';
+const BASE_URL = 'https://wpucc.com';
 
 export async function GET() {
   // Static routes

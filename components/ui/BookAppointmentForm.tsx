@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import {
     Form,
     FormControl,
+    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -16,10 +17,15 @@ import { Textarea } from '@/components/ui/textarea';
 import {
     Select,
     SelectContent,
+    SelectGroup,
     SelectItem,
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { useState } from 'react';
+import { Loader2 } from 'lucide-react';
+import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
+import { redirect } from 'next/navigation';
 
 const formSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -50,20 +56,20 @@ const BookAppointmentForm = ({
             message: '',
         },
     });
-
+    const [isLoading, setIsLoading] = useState(false);
     const onSubmit = async (data: FormData) => {
         try {
-            console.log('Form data:', data);
-            // Here you would typically send the data to your API
-            // await submitForm(data);
-
-            // Reset form after successful submission
-            form.reset();
-            alert('Appointment request submitted successfully!');
+            setIsLoading(true);
+            const response = await sendContactEmail({name : data.name, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
+            await sendUserEmail({name : data.name, email : data.email, phone : data.phone});
+            if(response) {
+                setIsLoading(false);
+                //form.reset();
+                redirect('/thank-you');
+            }
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert('There was an error submitting your request. Please try again.');
-        }
+        } 
     };
 
     return (
@@ -71,7 +77,7 @@ const BookAppointmentForm = ({
             <h2 className={`text-3xl font-bold ${textColor}`}>{title}</h2>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 h-full w-full overflow-hidden">
                     <FormField
                         control={form.control}
                         name="name"
@@ -138,28 +144,30 @@ const BookAppointmentForm = ({
                         control={form.control}
                         name="type"
                         render={({ field }) => (
-                            <FormItem>
+                            <FormItem className='w-full h-full overflow-hidden pb-5'>
                                 <FormLabel className={`font-semibold ${textColor} text-base`}>
                                     Type of Accident <span className="text-xs text-gray-200">(If Applicable)</span>
                                 </FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
+                                <FormControl >
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <SelectTrigger className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none">
                                             <SelectValue placeholder="Select" />
                                         </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        <SelectItem value="Workplace Accident">Workplace Accident</SelectItem>
-                                        <SelectItem value="Car Accident">Car Accident</SelectItem>
-                                        <SelectItem value="Personal Injury">Personal Injury</SelectItem>
-                                        <SelectItem value="Truck Accident">Truck Accident</SelectItem>
-                                        <SelectItem value="Motorcycle Accident">Motorcycle Accident</SelectItem>
-                                        <SelectItem value="Slip and Fall">Slip and Fall Accident</SelectItem>
-                                        <SelectItem value="Pedestrian Accident">Pedestrian Accident</SelectItem>
-                                        <SelectItem value="Workers Compensation">Workers Compensation</SelectItem>
-                                        <SelectItem value="Other">Other</SelectItem>
-                                    </SelectContent>
-                                </Select>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                <SelectItem value="Workplace Accident">Workplace Accident</SelectItem>
+                                                <SelectItem value="Car Accident">Car Accident</SelectItem>
+                                                <SelectItem value="Personal Injury">Personal Injury</SelectItem>
+                                                <SelectItem value="Truck Accident">Truck Accident</SelectItem>
+                                                <SelectItem value="Motorcycle Accident">Motorcycle Accident</SelectItem>
+                                                <SelectItem value="Slip and Fall">Slip and Fall Accident</SelectItem>
+                                                <SelectItem value="Pedestrian Accident">Pedestrian Accident</SelectItem>
+                                                <SelectItem value="Workers Compensation">Workers Compensation</SelectItem>
+                                                <SelectItem value="Other">Other</SelectItem>
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
+                                </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -188,9 +196,10 @@ const BookAppointmentForm = ({
                     <Button
                         type="submit"
                         className="w-full bg-[#D52128] hover:bg-[#b81b22] text-white font-bold py-3 px-4 rounded-xl text-lg transition duration-300 mt-2"
-                        disabled={form.formState.isSubmitting}
+                        disabled={isLoading}
                     >
-                        {form.formState.isSubmitting ? 'Submitting...' : 'Submit'}
+                        {isLoading ? 'Submitting...' : 'Submit'}
+                        {isLoading && <Loader2 className="w-4 h-4 ml-2 animate-spin" />}
                     </Button>
                 </form>
             </Form>

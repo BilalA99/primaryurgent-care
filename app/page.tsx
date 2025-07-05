@@ -82,17 +82,17 @@ export default function Home() {
         <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between max-w-8xl w-full xl:px-[60px] px-6">
           <div className="flex flex-col justify-center space-y-6">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
-              Call for any emergency: (561) 204-5111
+              Call for any emergency: (561) 231-0250
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">
-              Immediate medical care<br/> when you need it most
+              Immediate medical care<br /> when you need it most
             </h1>
             <p className="text-lg w-full md:w-[45%]">
               Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
             </p>
           </div>
 
-          <div className=" w-full xl:w-[50%]">
+          <div className=" w-full h-full xl:w-[50%]">
             {/* <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>
             <form className="space-y-5">
               <div>
@@ -216,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <Testimonials/>
+      <Testimonials />
 
       {/* Accessible Urgent Care Section */}
       <section className="w-full bg-[#FAFAFA] lg:py-24 py-10 px-6 lg:px-[60px]">
@@ -233,45 +233,45 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-16 gap-10">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:col-span-2 col-span-1 ">
                 {/* Top left card */}
-                  <div className="w-full overflow-hidden bg-[#F2F6FC] rounded-tl-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
-                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                      <Ambulance />
-                    </div>
-                    <Reveal className="w-full overflow-hidden">
-                     <div className="w-full overflow-hidden">
-                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Urgent Care</h3>
-                        <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
-                     </div>
-                    </Reveal>
+                <div className="w-full overflow-hidden bg-[#F2F6FC] rounded-tl-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <Ambulance />
                   </div>
+                  <Reveal className="w-full overflow-hidden">
+                    <div className="w-full overflow-hidden">
+                      <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Urgent Care</h3>
+                      <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
+                    </div>
+                  </Reveal>
+                </div>
                 {/* Top right card */}
-                  <div className="w-full overflow-hidden bg-[#FDF4F4] rounded-tr-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
-                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                      <Waittimes />
-                    </div>
-                   <Reveal className="w-full overflow-hidden">
-                      <div className="w-full overflow-hidden">
-                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Short Wait Times</h3>
-                        <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
-                      </div>
-                   </Reveal>
+                <div className="w-full overflow-hidden bg-[#FDF4F4] rounded-tr-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <Waittimes />
                   </div>
+                  <Reveal className="w-full overflow-hidden">
+                    <div className="w-full overflow-hidden">
+                      <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Short Wait Times</h3>
+                      <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
+                    </div>
+                  </Reveal>
+                </div>
                 {/* Bottom card (spans both columns) */}
-                  <div className="bg-white rounded-b-2xl lg:p-8 p-6 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
-                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                      <ShieldUser />
-                    </div>
-                    <Reveal className="w-full overflow-hidden">
-                      <div className="w-full overflow-hidden">
-                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8 md:w-full w-[80%]">Most Insurance Accepted</h3>
-                        <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
-                      </div>
-                    </Reveal>
+                <div className="bg-white rounded-b-2xl lg:p-8 p-6 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <ShieldUser />
                   </div>
+                  <Reveal className="w-full overflow-hidden">
+                    <div className="w-full overflow-hidden">
+                      <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8 md:w-full w-[80%]">Most Insurance Accepted</h3>
+                      <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
+                    </div>
+                  </Reveal>
+                </div>
               </div>
               {/* Right: Map Placeholder */}
               <div className="w-full h-full col-span-2 bg-gray-200 rounded-2xl flex items-center justify-center">
-                <ClinicsMap zoom={11}/>
+                <ClinicsMap zoom={11} />
               </div>
             </div>
 

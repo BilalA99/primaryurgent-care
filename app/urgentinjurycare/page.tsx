@@ -10,104 +10,104 @@ import Reveal from '@/components/RevealAnimation';
 import SlidingDiv from '@/components/SlidingAnimation';
 
 export const metadata = {
-  title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
-  description:
-    "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
-  keywords: [
-    "urgent injury care",
-    "walk-in injury clinic",
-    "fracture care urgent care",
-    "sprain care urgent care",
-    "laceration care urgent care",
-    "sports injury urgent care",
-    "orthopedic injury clinic",
-    "immediate injury care Palm Beach",
-    "urgent care for broken bone",
-    "urgent care for stitches",
-    "walk-in fracture clinic",
-    "urgent care for burns",
-    "STAT X-ray MRI CT urgent care"
-  ],
-  openGraph: {
     title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
     description:
-      "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
-    url: "https://primaryurgentcare.com/urgentinjurycare",
-    type: "website",
-    images: [
-      {
-        url: "/urgentcarelanding.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Urgent injury care walk-in clinic Palm Beach County"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
-    description:
-      "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
-    images: [
-      "/urgentcarelanding.jpg"
-    ]
-  },
-  alternates: {
-    canonical: "https://primaryurgentcare.com/urgentinjurycare"
-  }
+        "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
+    keywords: [
+        "urgent injury care",
+        "walk-in injury clinic",
+        "fracture care urgent care",
+        "sprain care urgent care",
+        "laceration care urgent care",
+        "sports injury urgent care",
+        "orthopedic injury clinic",
+        "immediate injury care Palm Beach",
+        "urgent care for broken bone",
+        "urgent care for stitches",
+        "walk-in fracture clinic",
+        "urgent care for burns",
+        "STAT X-ray MRI CT urgent care"
+    ],
+    openGraph: {
+        title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+        description:
+            "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
+        url: "https://primaryurgentcare.com/urgentinjurycare",
+        type: "website",
+        images: [
+            {
+                url: "/urgentcarelanding.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Urgent injury care walk-in clinic Palm Beach County"
+            }
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+        description:
+            "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
+        images: [
+            "/urgentcarelanding.jpg"
+        ]
+    },
+    alternates: {
+        canonical: "https://primaryurgentcare.com/urgentinjurycare"
+    }
 };
 
 // Structured data for urgent injury care
 const UrgentInjuryCareJsonLd = () => (
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'MedicalClinic',
-        name: 'Primary & Urgent Care Centers of Palm Beach County',
-        url: 'https://primaryurgentcare.com/urgentinjurycare',
-        areaServed: {
-          '@type': 'AdministrativeArea',
-          name: 'Palm Beach County, FL'
-        },
-        medicalSpecialty: [
-          'UrgentCare',
-          'OrthopedicCare',
-          'SportsMedicine',
-          'InjuryCare',
-          'DiagnosticImaging',
-          'WoundCare'
-        ],
-        availableService: [
-          'Sprain & Fracture Care',
-          'Laceration & Stitches',
-          'Burn Treatment',
-          'Sports Injury Care',
-          'Splinting & Bracing',
-          'On-Site X-ray, MRI, CT, Ultrasound',
-          'STAT Imaging Reads',
-          'Same-Day Appointments',
-          'Walk-In Visits',
-          'Pain Management',
-          'Wound Cleaning & Debridement',
-          'Tetanus Shots',
-          'Antibiotics',
-          'Insurance & Self-Pay Accepted'
-        ],
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'See locations page',
-          addressLocality: 'Palm Beach County',
-          addressRegion: 'FL',
-          postalCode: '',
-          addressCountry: 'US'
-        },
-        telephone: '+1-561-555-5555',
-        description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.'
-      })
-    }}
-  />
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'MedicalClinic',
+                name: 'Primary & Urgent Care Centers of Palm Beach County',
+                url: 'https://primaryurgentcare.com/urgentinjurycare',
+                areaServed: {
+                    '@type': 'AdministrativeArea',
+                    name: 'Palm Beach County, FL'
+                },
+                medicalSpecialty: [
+                    'UrgentCare',
+                    'OrthopedicCare',
+                    'SportsMedicine',
+                    'InjuryCare',
+                    'DiagnosticImaging',
+                    'WoundCare'
+                ],
+                availableService: [
+                    'Sprain & Fracture Care',
+                    'Laceration & Stitches',
+                    'Burn Treatment',
+                    'Sports Injury Care',
+                    'Splinting & Bracing',
+                    'On-Site X-ray, MRI, CT, Ultrasound',
+                    'STAT Imaging Reads',
+                    'Same-Day Appointments',
+                    'Walk-In Visits',
+                    'Pain Management',
+                    'Wound Cleaning & Debridement',
+                    'Tetanus Shots',
+                    'Antibiotics',
+                    'Insurance & Self-Pay Accepted'
+                ],
+                address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'See locations page',
+                    addressLocality: 'Palm Beach County',
+                    addressRegion: 'FL',
+                    postalCode: '',
+                    addressCountry: 'US'
+                },
+                telephone: '+1-561-555-5555',
+                description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.'
+            })
+        }}
+    />
 );
 
 const UrgentInjuryCarePage = () => {
@@ -138,8 +138,8 @@ const UrgentInjuryCarePage = () => {
                         </p>
                         <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
                             <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
-                                <Phone className="w-6 h-6" /> (561) 204-5111
+                            <a href="tel:5612310250‬" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                                <Phone className="w-6 h-6" /> (561) 231-0250‬
                             </a>
                         </div>
                     </div>
@@ -151,13 +151,13 @@ const UrgentInjuryCarePage = () => {
             </section>
             <section className='grid xl:grid-cols-2 xl:gap-14 gap-10 h-full xl:px-[60px] px-4 lg:py-20 py-10'>
                 <div className='w-full xl:h-full overflow-hidden h-100 relative rounded-2xl sm:block hidden  '><Image src="/rapidinjurycare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square w-full h-full' /></div>
-               <SlidingDiv position='right' className='w-full overflow-hidden'>
+                <SlidingDiv position='right' className='w-full overflow-hidden'>
                     <div className=' flex items-start justify-center xl:py-32 py-10 space-y-6 flex-col'>
                         <p className='text-6xl font-600'>Walk in NOW for Rapid Injury Care</p>
                         <p className='text-2xl font-600'>Sprains, Strains, Fractures & More</p>
                         <p className='text-lg text-[#494647]'>Twisted ankle? Possible fracture? Cut that needs stitches? Skip the ER line and head straight to Primary & Urgent Care Centers for hospital-level injury treatment in under 15 minutes. Our board-certified team splints sprains, reduces dislocations, repairs lacerations, and delivers on-the-spot digital X-ray, CT, and ultrasound—with STAT reads in three hours and same-day results. Book a same-day urgent care appointment or simply walk in; most insurance accepted and $69 self-pay visits keep costs predictable. Get moving again—fast, safe, affordable.</p>
                     </div>
-               </SlidingDiv>
+                </SlidingDiv>
             </section>
             {/* Our Specialities Section */}
             <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px]">

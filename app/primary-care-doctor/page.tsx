@@ -5,6 +5,7 @@ import Reveal from '@/components/RevealAnimation';
 import Polestar from '@/components/icons/polestar';
 import { Marquee } from '@/components/magicui/marquee';
 import Link from 'next/link';
+import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 const primaryCareServices = [
     {
@@ -109,8 +110,10 @@ export default function PrimaryCareDoctorPage() {
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">Your Family's Health Starts Here</h1>
                     <p className="text-lg md:text-xl text-[#494647] mb-8">From sniffles to checkups, our caring doctors are here for every stage of life. Walk in, book online, or bring the whole family—no appointment needed!</p>
                     <div className="flex flex-col md:flex-row gap-4 w-full">
-                        <a href="/appointment" className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</a>
-                        <a href="tel:5612045111" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 204-5111</a>
+                        <BookAnAppointmentPopup>
+                            <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>
+                        </BookAnAppointmentPopup>
+                        <a href="tel:5612310250‬" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 231-0250‬</a>
                     </div>
                 </div>
                 <div className="justify-center items-center relative mt-10 md:mt-0">
