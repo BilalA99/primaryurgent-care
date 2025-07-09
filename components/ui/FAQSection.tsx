@@ -35,7 +35,7 @@ const faqs = [
     },
     {
         question: 'What if I have more questions?',
-        answer: 'For any questions about our services, insurance, or to schedule an appointment, call us at (561) 231-0250‬. We have four convenient locations across Palm Beach County in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Our staff is available to answer questions about services, costs, insurance coverage, and help you determine if urgent care is right for your medical needs.',
+        answer: 'For any questions about our services, insurance, or to schedule an appointment, call us at (561) 433-1700‬. We have four convenient locations across Palm Beach County in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Our staff is available to answer questions about services, costs, insurance coverage, and help you determine if urgent care is right for your medical needs.',
     },
 ];
 

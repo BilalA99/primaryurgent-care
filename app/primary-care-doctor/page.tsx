@@ -115,7 +115,7 @@ export default function PrimaryCareDoctorPage() {
                         <BookAnAppointmentPopup>
                             <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>
                         </BookAnAppointmentPopup>
-                        <a href="tel:5612310250" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 231-0250‬</a>
+                        <a href="tel:5614331700" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 433-1700‬</a>
                     </div>
                 </div>
                 <div className="justify-center items-center relative mt-10 md:mt-0">
@@ -199,7 +199,7 @@ export default function PrimaryCareDoctorPage() {
                                 <div className='flex flex-col gap-4'>
                                     <p className='text-2xl font-bold text-gray-900 mb-4'>All Services</p>
                                     {primaryCareServices.map((service) => (
-                                      <Link href={`/primary-care-doctor/${service.slug}`} className=" h-full items-center justify-center">
+                                        <Link href={`/primary-care-doctor/${service.slug}`} className=" h-full items-center justify-center">
                                             <div className={`bg-white rounded-3xl shadow-sm h-64 p-0 flex flex-col items-center justify-center text-center border border-[#F4F3F3] hover:shadow-md transition-all duration-300 overflow-hidden`}>
                                                 <div className="mb-2">{service.icon}</div>
                                                 <h3 className="text-xl font-bold text-gray-900 mb-1 hover:text-[#2563eb] transition-colors">{service.title}</h3>

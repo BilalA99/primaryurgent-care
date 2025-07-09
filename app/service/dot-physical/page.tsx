@@ -78,7 +78,7 @@ export default function DotPhysicalPage() {
                         <p className="text-lg md:text-xl text-[#494647] mb-8">Stay compliant and on the road with fast, federally certified DOT physicals. Same-day results, walk-ins welcome, and all documentation provided on the spot.</p>
                         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start w-full">
                             <a href="/appointment" className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</a>
-                            <a href="tel:5612310250‬" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-gray-100 transition border border-[#D52128]">Call (561) 231-0250‬</a>
+                            <a href="tel:5614331700‬" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-gray-100 transition border border-[#D52128]">Call (561) 433-1700‬</a>
                         </div>
                     </div>
                     <div className="flex-1 flex justify-center items-center max-w-md relative h-full aspect-square w-full mt-10 md:mt-0">
