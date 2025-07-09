@@ -412,7 +412,6 @@ export const pricingData = [
 
 const insuranceData = [
   "Motor Vehicle Accidents",
-  "Workers Compensation",
   "Aetna",
   "Cigna",
   "BlueCross Blue Shield",
@@ -448,7 +447,7 @@ const PricingPage = () => {
               <p className='text-black text-sm'>Home/<span className="text-[#2563eb] text-sm mb-1 font-[500]"> Pricing</span></p>
               <h1 className="text-4xl md:text-6xl font-[600] text-black mb-2 ">Payment &<br />Insurance Information</h1>
               <p className="text-base md:text-xl font-[500] text-[#494647]">
-                Need hospital-level urgent care in Palm Beach County minus ER pricing? Primary & Urgent Care Centers accepts most insurance (Aetna, BCBS, Cigna, Medicare, Medicaid, workers' comp, PIP) and quotes every cost up front. No coverage? A flat $69 self-pay urgent care visit keeps care affordable, with low, posted rates for X-ray, labs, CT, MRI, and ultrasound. Book a same-day appointment or walk in and be seen in under 15 minutes. Honest, transparent pricing and no-surprise bills that's why patients searching "urgent care cost near me" choose us.
+                Need hospital-level urgent care in Palm Beach County minus ER pricing? Primary & Urgent Care Centers accepts most insurance (Aetna, BCBS, Cigna, Medicare, Medicaid, workers' comp, PIP) and quotes every cost up front. No coverage? We offer affordable self-pay options with clear, posted rates for urgent care visits, X-ray, labs, CT, MRI, and ultrasound. Book a same-day appointment or walk in and be seen in under 15 minutes. Honest, transparent pricing and no-surprise bills—that's why patients searching "urgent care cost near me" choose us.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mt-2">

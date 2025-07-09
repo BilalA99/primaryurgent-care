@@ -15,48 +15,48 @@ import Link from 'next/link';
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
-  title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-  description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, $69 self-pay.',
-  keywords: [
-    'urgent care appointment',
-    'book urgent care',
-    'same day doctor',
-    'walk-in clinic Palm Beach',
-    'urgent care near me',
-    'fast check-in urgent care',
-    'Palm Beach urgent care',
-    'affordable urgent care',
-    'insurance urgent care',
-    '$69 urgent care',
-    'same day urgent care',
-    'online urgent care booking'
-  ].join(', '),
-  openGraph: {
     title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, $69 self-pay.',
-    url: 'https://primaryuc.com/appointment',
-    siteName: 'Primary & Urgent Care Centers',
-    images: [
-      {
-        url: '/appointment.png',
-        width: 1200,
-        height: 630,
-        alt: 'Book Urgent Care Appointment Palm Beach',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, $69 self-pay.',
-    images: ['/appointment.png'],
-    site: '@primaryurgentcare',
-  },
-  alternates: {
-    canonical: 'https://primaryuc.com/appointment',
-  },
+    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+    keywords: [
+        'urgent care appointment',
+        'book urgent care',
+        'same day doctor',
+        'walk-in clinic Palm Beach',
+        'urgent care near me',
+        'fast check-in urgent care',
+        'Palm Beach urgent care',
+        'affordable urgent care',
+        'insurance urgent care',
+        '$69 urgent care',
+        'same day urgent care',
+        'online urgent care booking'
+    ].join(', '),
+    openGraph: {
+        title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
+        description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+        url: 'https://primaryuc.com/appointment',
+        siteName: 'Primary & Urgent Care Centers',
+        images: [
+            {
+                url: '/appointment.png',
+                width: 1200,
+                height: 630,
+                alt: 'Book Urgent Care Appointment Palm Beach',
+            },
+        ],
+        locale: 'en_US',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
+        description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+        images: ['/appointment.png'],
+        site: '@primaryurgentcare',
+    },
+    alternates: {
+        canonical: 'https://primaryuc.com/appointment',
+    },
 };
 
 const AppointmentPage = () => {

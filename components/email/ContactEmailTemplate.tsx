@@ -43,7 +43,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                     textAlign: 'center',
                 }}>
                     <img
-                        src="https://wpucc.com/WebsiteLogoTrans.png"
+                        src="https://primaryuc.com/WebsiteLogoTrans.png"
                         alt="Primary & Urgent Care Centers Logo"
                         style={{ width: 64, height: 64, objectFit: 'contain', borderRadius: 12, marginBottom: 8 }}
                     />
@@ -230,8 +230,8 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                 }}>
                     <p style={{ marginBottom: 8, color: '#fff' }}>© {new Date().getFullYear()} Primary & Urgent Care Centers. All rights reserved.</p>
                     <div style={{ marginBottom: 0 }}>
-                        <a href="https://wpucc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
-                        <a href="https://wpucc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
+                        <a href="https://primaryuc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
+                        <a href="https://primaryuc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
                         <a href="tel:5612310250‬" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
                     </div>
                 </div>

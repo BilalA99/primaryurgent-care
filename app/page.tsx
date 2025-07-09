@@ -42,7 +42,7 @@ export const metadata = {
   openGraph: {
     title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
     description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
-    url: 'https://wpucc.com/',
+    url: 'https://primaryuc.com/',
     siteName: 'Primary & Urgent Care Centers',
     images: [
       {
@@ -63,7 +63,7 @@ export const metadata = {
     site: '@primaryurgentcare',
   },
   alternates: {
-    canonical: 'https://wpucc.com/',
+    canonical: 'https://primaryuc.com/',
   },
 };
 

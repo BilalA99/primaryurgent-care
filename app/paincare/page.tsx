@@ -16,7 +16,7 @@ import { Dot } from 'lucide-react'
 
 export const metadata = {
   title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
-  description: "Get immediate care for car accident injuries, whiplash, back or neck pain, and personal injury. Seen in under 15 min. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. $69 self-pay. Free records to your attorney.",
+  description: "Get immediate care for car accident injuries, whiplash, back or neck pain, and personal injury. Seen in under 15 min. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.  Free records to your attorney.",
   keywords: [
     "auto accident urgent care", "car accident clinic", "whiplash treatment urgent care", "PIP urgent care Florida 14-day rule", "personal injury urgent care", "car accident doctor near me", "accident injury clinic", "urgent care for whiplash", "urgent care for car accident injuries Palm Beach", "after accident medical care without ER", "urgent care for back pain", "urgent care for neck pain", "Palm Beach County urgent care", "walk-in accident doctor", "PIP doctor near me", "no-fault injury clinic", "urgent care for seat belt injury"
   ],
@@ -122,7 +122,7 @@ const PainCare = () => {
             </div>
             <h1 className="md:text-5xl xl:text-6xl text-4xl font-600 mb-6 leading-tight text-center">Auto-Accident & Personal-Injury Urgent Care Book Same-Day</h1>
             <p className="text-lg mb-8 max-w-2xl text-center">
-              Whiplash, back or neck pain, headaches, seat-belt bruises? Get hospital-level imaging, doctor documentation. Seen in less then 15 min, on-site X-ray & MRI with STAT reads (less then 3 hrs), most insurance accepted, $69 self-pay.<br /><br />Free medical records & bills sent to your attorney within 24 hrs.
+              Whiplash, back or neck pain, headaches, seat-belt bruises? Get hospital-level imaging, doctor documentation. Seen in less then 15 min, on-site X-ray & MRI with STAT reads (less then 3 hrs), most insurance accepted, <br /><br />Free medical records & bills sent to your attorney within 24 hrs.
             </p>
             <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>

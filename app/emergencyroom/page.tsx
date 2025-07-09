@@ -172,7 +172,7 @@ const EmergencyRoomPage = () => {
             </div>
             <h1 className="text-5xl md:text-6xl font-600 mb-6 leading-tight text-center">Emergency Room Services</h1>
             <p className="text-lg mb-8 max-w-2xl text-center">
-              Skip the crowded ER and get the same MRI, CT, digital X-ray, ultrasound, and QUICK lab work right inside our urgent-care clinic. Average wait: less then 15 min. Flat $69 self-pay, direct insurance & PIP billing, detailed records for your doctor or attorney.
+              Skip the crowded ER and get the same MRI, CT, digital X-ray, ultrasound, and QUICK lab work right inside our urgent-care clinic. Average wait: less then 15 min. Flat  direct insurance & PIP billing, detailed records for your doctor or attorney.
             </p>
             <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
@@ -240,7 +240,7 @@ const EmergencyRoomPage = () => {
                 <li>Board-certified physicians & ER-trained teams</li>
                 <li>On-site digital X-ray, CT, MRI & ultrasound for same-day answers</li>
                 <li>STAT in-house lab testing CBC, CMP, D-dimer, and more</li>
-                <li>$69 self-pay visits & direct insurance / PIP billing</li>
+                <li>direct insurance / PIP billing</li>
                 <li>Friendly bilingual staff who keep your wait under 15 minutes</li>
               </p>
               <p className="text-lg text-[#494647] font-500">By merging hospital-level diagnostics with neighborly care and pricing you can trust Primary & Urgent Care Centers set a new standard for walk-in medicine in Palm Beach County.</p>

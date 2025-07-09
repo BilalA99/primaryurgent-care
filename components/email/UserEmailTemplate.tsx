@@ -35,7 +35,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                     textAlign: 'center',
                 }}>
                     <img
-                        src="https://wpucc.com/WebsiteLogoTrans.png"
+                        src="https://primaryuc.com/WebsiteLogoTrans.png"
                         alt="Primary & Urgent Care Centers Logo"
                         style={{ width: 64, height: 64, objectFit: 'contain', borderRadius: 12, marginBottom: 8 }}
                     />
@@ -92,7 +92,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                             alignItems: 'center',
                             gap: 8
                         }}>
-                            <img src="https://wpucc.com/WebsiteLogoTrans.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+                            <img src="https://primaryuc.com/WebsiteLogoTrans.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
                             Our Locations
                         </h3>
                         {LocationsScreens.slice(0, 3).map((clinic) => (
@@ -104,7 +104,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                                 <p style={{ color: '#374151', fontSize: 14, margin: '2px 0 0 0' }}><span style={{ fontWeight: 500 }}>Hours:</span> Mon-Fri: 8am-5pm</p>
                             </div>
                         ))}
-                        <a href="https://wpucc.com/locations" style={{
+                        <a href="https://primaryuc.com/locations" style={{
                             background: '#FFF5F5',
                             padding: '12px 16px',
                             display: 'block',
@@ -134,8 +134,8 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                 }}>
                     <p style={{ marginBottom: 8, color: '#fff' }}>© {new Date().getFullYear()} Primary & Urgent Care Centers. All rights reserved.</p>
                     <div style={{ marginBottom: 0 }}>
-                        <a href="https://wpucc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
-                        <a href="https://wpucc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
+                        <a href="https://primaryuc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
+                        <a href="https://primaryuc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
                         <a href="tel:5612310250" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
                     </div>
                 </div>
