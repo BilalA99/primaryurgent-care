@@ -15,6 +15,7 @@ const textSizes = {
     xl: { fontSize: '20px', lineHeight: '28px' },
     '2xl': { fontSize: '24px', lineHeight: '32px' },
 };
+// +1 (561) 223-8024
 
 export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, email, phone }) => {
     return (
@@ -76,7 +77,8 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                     </div>
 
                     <p style={{ color: '#374151', marginBottom: 16 }}>
-                        <b>Need care right away?</b> Call us at <a href="tel:5616602465" style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>(561) 660-2465‬</a> for immediate assistance, or simply walk in during business hours.
+                        <b>Need care right away?</b> Call us at <a href="tel:5612238024" style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>(561) 223-8024
+                            </a> for immediate assistance, or simply walk in during business hours.
                     </p>
 
                     <hr style={{ borderColor: '#e5e7eb', margin: '24px 0' }} />
@@ -136,7 +138,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                     <div style={{ marginBottom: 0 }}>
                         <a href="https://primaryuc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
                         <a href="https://primaryuc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
-                        <a href="tel:5616602465" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
+                        <a href="tel:5612238024" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
                     </div>
                 </div>
             </div>

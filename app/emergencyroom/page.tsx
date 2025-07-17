@@ -176,8 +176,9 @@ const EmergencyRoomPage = () => {
             </p>
             <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-              <a href="tel:5616602465‬" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
-                <Phone /> (561) 660-2465‬
+              <a href="tel:5612238024" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                <Phone /> (561) 223-8024
+          
               </a>
             </div>
           </div>

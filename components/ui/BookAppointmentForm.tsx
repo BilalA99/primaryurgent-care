@@ -161,6 +161,7 @@ const BookAppointmentForm = ({
                                                 <SelectItem value="Slip and Fall">Slip and Fall Accident</SelectItem>
                                                 <SelectItem value="Pedestrian Accident">Pedestrian Accident</SelectItem>
                                                 {/* <SelectItem value="Workers Compensation">Workers Compensation</SelectItem> */}
+                                                <SelectItem value="No Accident">No Accident</SelectItem>
                                                 <SelectItem value="Other">Other</SelectItem>
                                             </SelectGroup>
                                         </SelectContent>

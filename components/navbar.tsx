@@ -99,15 +99,15 @@ const NavBar = () => {
                         </nav>
 
                         {/* Desktop Call Button */}
-                        {/* <a href="tel:5616602465" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                        <a href="tel:56122380247" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                             <Phone fill="white" />
-                            <span>(561) 660-2465</span>
-                        </a> */}
-                        <BookAnAppointmentPopup>
+                            <span>(561) 223-8024</span>
+                        </a>
+                        {/* <BookAnAppointmentPopup>
                             <button className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                                 Contact Us
                             </button>
-                        </BookAnAppointmentPopup>
+                        </BookAnAppointmentPopup> */}
 
                         {/* Hamburger Button (Mobile) */}
                         <button
@@ -191,7 +191,7 @@ const NavBar = () => {
                             )}
                         </div>
                     ))}
-                    {/* <a href="tel:5616602465‬"
+                    {/* <a href="tel:5612473237‬"
                         className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#D52128] text-white text-[15px] font-semibold"
                         onClick={closeSidebar}
                     >
