@@ -48,7 +48,7 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                             Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
                         </p>
                         <div className="flex flex-wrap gap-4 w-full">
-                            <a href="tel:5614331700‬" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                            <a href="tel:5616602465‬" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                                 Contact Us
                             </a>
                         </div>

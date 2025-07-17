@@ -8,9 +8,9 @@ const AppointmentCard = ({ height = 'h-full' }: { height?: string }) => {
                 <p className="mb-6 text-[#EEA6A9] font-[500] text-sm">
                     Fast, reliable care, 24/7. Our expert team is here to handle your urgent health needs, anytime.
                 </p>
-                <a href="tel:5614331700" className="w-full bg-white text-gray-800 font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
+                <a href="tel:5616602465" className="w-full bg-white text-gray-800 font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
                     <div className='group-hover:-translate-x-2 transition-transform duration-300'><Phone /></div>
-                    <span className='text-[#D52128] font-[500] '> (561) 433-1700</span>
+                    <span className='text-[#D52128] font-[500] '> (561) 660-2465</span>
                 </a>
             </div>
         </div>

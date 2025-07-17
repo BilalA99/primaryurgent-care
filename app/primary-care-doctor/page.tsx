@@ -115,7 +115,7 @@ export default function PrimaryCareDoctorPage() {
                         <BookAnAppointmentPopup>
                             <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>
                         </BookAnAppointmentPopup>
-                        <a href="tel:5614331700" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 433-1700‬</a>
+                        <a href="tel:5616602465" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 660-2465‬</a>
                     </div>
                 </div>
                 <div className="justify-center items-center relative mt-10 md:mt-0">
