@@ -32,7 +32,7 @@ export const metadata = {
         title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
         description:
             "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait,  most insurance accepted. Serving Palm Beach County.",
-        url: "https://primaryurgentcare.com/urgentinjurycare",
+        url: "https://primaryuc.com/urgentinjurycare",
         type: "website",
         images: [
             {
@@ -53,7 +53,7 @@ export const metadata = {
         ]
     },
     alternates: {
-        canonical: "https://primaryurgentcare.com/urgentinjurycare"
+        canonical: "https://primaryuc.com/urgentinjurycare"
     }
 };
 
@@ -66,7 +66,7 @@ const UrgentInjuryCareJsonLd = () => (
                 '@context': 'https://schema.org',
                 '@type': 'MedicalClinic',
                 name: 'Primary & Urgent Care Centers of Palm Beach County',
-                url: 'https://primaryurgentcare.com/urgentinjurycare',
+                url: 'https://primaryuc.com/urgentinjurycare',
                 areaServed: {
                     '@type': 'AdministrativeArea',
                     name: 'Palm Beach County, FL'

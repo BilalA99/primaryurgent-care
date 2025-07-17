@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
     description: "Immediate care for car accident injuries, whiplash, and back pain. On-site imaging, PIP paperwork, and fast appointments. Serving Palm Beach County.",
-    url: "https://primaryurgentcare.com/paincare",
+    url: "https://primaryuc.com/paincare",
     images: [
       { url: "/paincare.jpg", width: 1200, height: 630, alt: "Auto Accident & Personal Injury Urgent Care" }
     ],
@@ -38,7 +38,7 @@ export const metadata = {
     ]
   },
   alternates: {
-    canonical: "https://primaryurgentcare.com/paincare"
+    canonical: "https://primaryuc.com/paincare"
   },
   icons: {
     icon: "/favicon.ico",
@@ -57,8 +57,8 @@ function PainCareJsonLd() {
           "@type": "MedicalClinic",
           "name": "Primary & Urgent Care Centers of Palm Beach County",
           "description": "Immediate care for auto accident injuries, whiplash, back and neck pain, and personal injury. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
-          "url": "https://primaryurgentcare.com/paincare",
-          "image": "https://primaryurgentcare.com/paincare.jpg",
+          "url": "https://primaryuc.com/paincare",
+          "image": "https://primaryuc.com/paincare.jpg",
           "telephone": "+1-561-204-5111",
           "address": {
             "@type": "PostalAddress",

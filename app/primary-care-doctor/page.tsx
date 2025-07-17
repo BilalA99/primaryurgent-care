@@ -101,7 +101,7 @@ export default function PrimaryCareDoctorPage() {
                 <title>Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County</title>
                 <meta name="description" content="See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic." />
                 <meta name="keywords" content="primary care doctor, family medicine, walk-in clinic, sick visit, annual physical, preventive care, Palm Beach County, urgent care" />
-                <link rel="canonical" href="https://primaryurgentcare.com/primary-care-doctor" />
+                <link rel="canonical" href="https://primaryuc.com/primary-care-doctor" />
             </Head>
             {/* Split Hero Section with Overlapping Card */}
             <section className="relative w-full flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:gap-10 py-16 px-4 bg-gradient-to-br from-[#D52128]/90 via-[#F7FAFF]/60 to-[#A7E3F7]/60 overflow-hidden

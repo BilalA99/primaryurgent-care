@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ]
   },
   alternates: {
-    canonical: "https://primaryurgentcare.com"
+    canonical: "https://primaryuc.com"
   },
   icons: {
     icon: [

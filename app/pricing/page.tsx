@@ -44,11 +44,11 @@ export const metadata = {
   openGraph: {
     title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
     description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
-    url: 'https://primaryurgentcare.com/pricing',
+    url: 'https://primaryuc.com/pricing',
     type: 'website',
     images: [
       {
-        url: 'https://primaryurgentcare.com/insurance.jpg',
+        url: 'https://primaryuc.com/insurance.jpg',
         width: 1200,
         height: 630,
         alt: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
@@ -59,10 +59,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
     description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
-    images: ['https://primaryurgentcare.com/insurance.jpg'],
+    images: ['https://primaryuc.com/insurance.jpg'],
   },
   alternates: {
-    canonical: 'https://primaryurgentcare.com/pricing',
+    canonical: 'https://primaryuc.com/pricing',
   },
 };
 
@@ -75,8 +75,8 @@ export function PricingJsonLd() {
           '@context': 'https://schema.org',
           '@type': 'MedicalClinic',
           name: 'Primary & Urgent Care Centers of Palm Beach County',
-          url: 'https://primaryurgentcare.com/pricing',
-          image: 'https://primaryurgentcare.com/insurance.jpg',
+          url: 'https://primaryuc.com/pricing',
+          image: 'https://primaryuc.com/insurance.jpg',
           description:
             'Transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
           areaServed: [

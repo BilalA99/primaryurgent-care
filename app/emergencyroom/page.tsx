@@ -70,7 +70,7 @@ export const metadata = {
     title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
     description:
       "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
-    url: "https://primaryurgentcare.com/emergencyroom",
+    url: "https://primaryuc.com/emergencyroom",
     type: "website",
     images: [
       {
@@ -91,7 +91,7 @@ export const metadata = {
     ]
   },
   alternates: {
-    canonical: "https://primaryurgentcare.com/emergencyroom"
+    canonical: "https://primaryuc.com/emergencyroom"
   }
 };
 
@@ -104,7 +104,7 @@ const EmergencyRoomJsonLd = () => (
         '@context': 'https://schema.org',
         '@type': 'MedicalClinic',
         name: 'Primary & Urgent Care Centers of Palm Beach County',
-        url: 'https://primaryurgentcare.com/emergencyroom',
+        url: 'https://primaryuc.com/emergencyroom',
         areaServed: {
           '@type': 'AdministrativeArea',
           name: 'Palm Beach County, FL'
@@ -178,7 +178,7 @@ const EmergencyRoomPage = () => {
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
               <a href="tel:5612238024" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                 <Phone /> (561) 223-8024
-          
+
               </a>
             </div>
           </div>

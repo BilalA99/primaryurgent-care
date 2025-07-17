@@ -68,7 +68,7 @@ export default EmergencyRoomPage
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   return {
     alternates: {
-      canonical: `https://primaryurgentcare.com/emergencyroom/${params.slug}`,
+      canonical: `https://primaryuc.com/emergencyroom/${params.slug}`,
     },
   };
 }

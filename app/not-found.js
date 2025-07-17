@@ -22,7 +22,7 @@ export const metadata = {
         title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
         description:
             "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
-        url: "https://primaryurgentcare.com/404",
+        url: "https://primaryuc.com/404",
         type: "website",
         images: [
             {
@@ -43,7 +43,7 @@ export const metadata = {
         ]
     },
     alternates: {
-        canonical: "https://primaryurgentcare.com/404"
+        canonical: "https://primaryuc.com/404"
     }
 };
 
@@ -56,7 +56,7 @@ const NotFoundJsonLd = () => (
                 '@context': 'https://schema.org',
                 '@type': 'MedicalClinic',
                 name: 'Primary & Urgent Care Centers of Palm Beach County',
-                url: 'https://primaryurgentcare.com',
+                url: 'https://primaryuc.com',
                 areaServed: {
                     '@type': 'AdministrativeArea',
                     name: 'Palm Beach County, FL'

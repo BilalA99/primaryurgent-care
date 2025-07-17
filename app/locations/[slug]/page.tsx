@@ -154,7 +154,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             'same day doctor appointment Palm Beach'
         ],
         alternates: {
-            canonical: `https://primaryurgentcare.com/locations/${params.slug}`,
+            canonical: `https://primaryuc.com/locations/${params.slug}`,
         },
     };
 }

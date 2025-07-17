@@ -65,7 +65,7 @@ export default function DotPhysicalPage() {
                 <title>DOT Physical Exam | CDL Medical Exam Palm Beach County</title>
                 <meta name="description" content="DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana." />
                 <meta name="keywords" content="DOT physical, CDL medical exam, DOT physical near me, urgent care DOT physical, Palm Beach County urgent care, same day DOT physical, FMCSA, commercial driver exam" />
-                <link rel="canonical" href="https://primaryurgentcare.com/service/dot-physical" />
+                <link rel="canonical" href="https://primaryuc.com/service/dot-physical" />
             </Head>
             {/* Hero Section */}
             <section className="relative w-full flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-br from-[#D52128]/90 via-[#fff]/60 to-[#FDF4F4]/80 text-center">
