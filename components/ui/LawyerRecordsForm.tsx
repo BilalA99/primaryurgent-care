@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import { trackEvent } from '../../lib/gtag';
 
 interface FormData {
     lawFirm: string;
@@ -57,6 +58,8 @@ export default function LawyerRecordsForm() {
         }
         setError('');
         setSubmitted(true);
+        // Google Analytics event
+        trackEvent({ action: 'form_submit', category: 'engagement', label: 'LawyerRecordsForm' });
         // Here you would handle the actual submission (API call, etc)
     }
 

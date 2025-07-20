@@ -60,8 +60,96 @@ export const metadata = {
 };
 
 const AppointmentPage = () => {
+    // Structured data for appointment page
+    const AppointmentJsonLd = () => (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'MedicalClinic',
+            name: 'Primary & Urgent Care Centers of Palm Beach County',
+            url: 'https://primaryuc.com/appointment',
+            image: 'https://primaryuc.com/appointment.png',
+            description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted.',
+            areaServed: [
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Royal Palm Beach, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Lake Worth, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Palm Springs, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Lantana, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Palm Beach County, FL'
+              }
+            ],
+            medicalSpecialty: [
+              'UrgentCare',
+              'PrimaryCare',
+              'EmergencyCare',
+              'DiagnosticImaging',
+              'InjuryCare',
+              'PediatricCare'
+            ],
+            availableService: [
+              'Same-day Appointments',
+              'Walk-in Urgent Care',
+              'Online Booking',
+              'Fast Check-in',
+              'Short Wait Times',
+              'Insurance Accepted',
+              'Self-pay Options',
+              'Hospital-level Care',
+              'Advanced Imaging',
+              'On-site Lab Testing'
+            ],
+            openingHours: [
+              'Mo-Fr 09:00-18:00',
+              'Sa 09:00-16:00'
+            ],
+            priceRange: '$$',
+            telephone: '+1-561-223-8024',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Palm Beach County',
+              addressRegion: 'FL',
+              addressCountry: 'US'
+            },
+            potentialAction: {
+              '@type': 'ReserveAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate: 'https://primaryuc.com/appointment',
+                inLanguage: 'en-US',
+                actionPlatform: [
+                  'http://schema.org/DesktopWebPlatform',
+                  'http://schema.org/MobileWebPlatform'
+                ]
+              },
+              result: {
+                '@type': 'MedicalClinic',
+                name: 'Primary & Urgent Care Centers'
+              }
+            }
+          })
+        }}
+      />
+    );
+
     return (
         <main className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-4 lg:px-[60px] min-h-screen">
+            <AppointmentJsonLd />
             <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
                 <Reveal className="w-full overflow-hidden">

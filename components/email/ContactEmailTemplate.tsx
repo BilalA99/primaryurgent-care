@@ -191,7 +191,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                             alignItems: 'center',
                             gap: 8
                         }}>
-                            <img src="https://primaryuc.com.com/WebsiteLogoTrans.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+                            <img src="https://primaryuc.com/WebsiteLogoTrans.png" alt="Location" style={{ width: 20, height: 20, objectFit: 'contain' }} />
                             Our Locations
                         </h3>
                         {LocationsScreens.slice(0, 3).map((clinic) => (
@@ -203,7 +203,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                                 <p style={{ color: '#374151', fontSize: 14, margin: '2px 0 0 0' }}><span style={{ fontWeight: 500 }}>Hours:</span> Mon-Fri: 8am-5pm</p>
                             </div>
                         ))}
-                        <a href="https://primaryuc.com.com/locations" style={{
+                        <a href="https://primaryuc.com/locations" style={{
                             background: '#FFF5F5',
                             padding: '12px 16px',
                             display: 'block',

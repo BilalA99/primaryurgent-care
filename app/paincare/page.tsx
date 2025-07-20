@@ -13,6 +13,8 @@ import Reveal from '@/components/RevealAnimation'
 import SlidingDiv from '@/components/SlidingAnimation'
 import PainCareWeTreat from '@/components/paincarewetreat'
 import { Dot } from 'lucide-react'
+import { trackEvent } from '../../lib/gtag';
+import CallButton from '../../components/CallButton';
 
 export const metadata = {
   title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
@@ -126,10 +128,10 @@ const PainCare = () => {
             </p>
             <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-              <a href="tel:5612238024" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+              <CallButton label="paincare_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                 <Phone /> (561) 223-8024
                 ‬
-              </a>
+              </CallButton>
             </div>
           </div>
           {/* Right: Form in blurred card */}

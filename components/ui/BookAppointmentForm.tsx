@@ -26,6 +26,7 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
 import { redirect } from 'next/navigation';
+import { trackEvent } from '../../lib/gtag';
 
 const formSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -64,9 +65,8 @@ const BookAppointmentForm = ({
         if(response) {
             setIsLoading(false);
             form.reset();
+            // Removed Google Analytics event tracking here
             redirect('/thank-you');
-
-            
         }
     };
 
