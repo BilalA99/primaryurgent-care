@@ -366,7 +366,27 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       images: [condition_details.img || '/rapidinjurycare.jpg']
     },
     alternates: {
-      canonical: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+      canonical: url,
+    },
+    openGraph: {
+      title: condition_details?.metaTitle || `Urgent Injury Care | Palm Beach County Urgent Care`,
+      description: condition_details?.metaDescription || `Walk-in urgent care for injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
+      url,
+      type: 'article',
+      images: [
+        {
+          url: condition_details?.img ? `${baseUrl}${condition_details.img}` : `${baseUrl}/urgentcarelanding.jpg`,
+          width: 1200,
+          height: 630,
+          alt: condition_details?.title || 'Urgent Injury Care',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: condition_details?.metaTitle || `Urgent Injury Care | Palm Beach County Urgent Care`,
+      description: condition_details?.metaDescription || `Walk-in urgent care for injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
+      images: [condition_details?.img ? `${baseUrl}${condition_details.img}` : `${baseUrl}/urgentcarelanding.jpg`],
     },
   };
 }

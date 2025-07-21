@@ -76,7 +76,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/hospitalcare.jpg",
+        url: "https://wpucc.com/hospitalcare.jpg",
         width: 1200,
         height: 630,
         alt: "Hospital-level emergency care urgent care Palm Beach County"
@@ -89,7 +89,7 @@ export const metadata = {
     description:
       "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
     images: [
-      "/hospitalcare.jpg"
+      "https://wpucc.com/hospitalcare.jpg"
     ]
   },
   alternates: {
@@ -135,14 +135,44 @@ const EmergencyRoomJsonLd = () => (
           'Same-Day Appointments',
           'Direct Insurance & PIP Billing'
         ],
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'See locations page',
-          addressLocality: 'Palm Beach County',
-          addressRegion: 'FL',
-          postalCode: '',
-          addressCountry: 'US'
-        },
+        address: [
+          {
+            '@type': 'PostalAddress',
+            streetAddress: '11476 Okeechobee Blvd.',
+            addressLocality: 'Royal Palm Beach',
+            addressRegion: 'FL',
+            postalCode: '33411',
+            addressCountry: 'US',
+            name: 'Royal Palm Beach Primary & Urgent Care Center'
+          },
+          {
+            '@type': 'PostalAddress',
+            streetAddress: '6447 Lake Worth Road',
+            addressLocality: 'Lake Worth',
+            addressRegion: 'FL',
+            postalCode: '33463',
+            addressCountry: 'US',
+            name: 'Lake Worth Primary & Urgent Care Center'
+          },
+          {
+            '@type': 'PostalAddress',
+            streetAddress: '3696 S. Congress Ave.',
+            addressLocality: 'Palm Springs',
+            addressRegion: 'FL',
+            postalCode: '33461',
+            addressCountry: 'US',
+            name: 'Palm Springs Primary & Urgent Care Center'
+          },
+          {
+            '@type': 'PostalAddress',
+            streetAddress: '6169 S Jog Road, Unit 4B',
+            addressLocality: 'Lantana',
+            addressRegion: 'FL',
+            postalCode: '33467',
+            addressCountry: 'US',
+            name: 'Lantana Primary & Urgent Care Center'
+          }
+        ],
         telephone: '+1-561-555-5555',
         description: 'Hospital-level emergency care and walk-in ER alternative with advanced imaging, board-certified doctors, and affordable pricing. Less than 15 min wait. Serving Palm Beach County.'
       })

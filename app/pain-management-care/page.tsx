@@ -27,7 +27,7 @@ export const metadata = {
     description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
     url: "https://primaryuc.com/pain-management-program",
     images: [
-      { url: "/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
+      { url: "https://wpucc.com/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
     ],
     type: "website"
   },
@@ -36,7 +36,7 @@ export const metadata = {
     title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
     description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
     images: [
-      { url: "/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
+      { url: "https://wpucc.com/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
     ]
   },
   alternates: {
@@ -62,12 +62,44 @@ function PainManagementJsonLd() {
           "url": "https://primaryuc.com/pain-management-program",
           "image": "https://primaryuc.com/painmanage.jpg",
           "telephone": "+1-561-204-5111",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Palm Beach County",
-            "addressRegion": "FL",
-            "addressCountry": "US"
-          },
+          "address": [
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '11476 Okeechobee Blvd.',
+              addressLocality: 'Royal Palm Beach',
+              addressRegion: 'FL',
+              postalCode: '33411',
+              addressCountry: 'US',
+              name: 'Royal Palm Beach Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '6447 Lake Worth Road',
+              addressLocality: 'Lake Worth',
+              addressRegion: 'FL',
+              postalCode: '33463',
+              addressCountry: 'US',
+              name: 'Lake Worth Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '3696 S. Congress Ave.',
+              addressLocality: 'Palm Springs',
+              addressRegion: 'FL',
+              postalCode: '33461',
+              addressCountry: 'US',
+              name: 'Palm Springs Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '6169 S Jog Road, Unit 4B',
+              addressLocality: 'Lantana',
+              addressRegion: 'FL',
+              postalCode: '33467',
+              addressCountry: 'US',
+              name: 'Lantana Primary & Urgent Care Center'
+            }
+          ],
           "areaServed": [
             "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
           ],

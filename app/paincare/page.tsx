@@ -27,7 +27,7 @@ export const metadata = {
     description: "Immediate care for car accident injuries, whiplash, and back pain. On-site imaging, PIP paperwork, and fast appointments. Serving Palm Beach County.",
     url: "https://primaryuc.com/paincare",
     images: [
-      { url: "/paincare.jpg", width: 1200, height: 630, alt: "Auto Accident & Personal Injury Urgent Care" }
+      { url: "https://primaryuc.com/paincare.jpg", width: 1200, height: 630, alt: "Auto Accident & Personal Injury Urgent Care" }
     ],
     type: "website"
   },
@@ -36,7 +36,7 @@ export const metadata = {
     title: "Auto Accident & Personal Injury Urgent Care | PIP 14-Day Rule | Palm Beach County, FL",
     description: "Immediate care for car accident injuries, whiplash, and back pain. On-site imaging, PIP paperwork, and fast appointments. Serving Palm Beach County.",
     images: [
-      { url: "/paincare.jpg", alt: "Auto Accident & Personal Injury Urgent Care" }
+      { url: "https://primaryuc.com/paincare.jpg", alt: "Auto Accident & Personal Injury Urgent Care" }
     ]
   },
   alternates: {
@@ -62,12 +62,44 @@ function PainCareJsonLd() {
           "url": "https://primaryuc.com/paincare",
           "image": "https://primaryuc.com/paincare.jpg",
           "telephone": "+1-561-204-5111",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Palm Beach County",
-            "addressRegion": "FL",
-            "addressCountry": "US"
-          },
+          "address": [
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '11476 Okeechobee Blvd.',
+              addressLocality: 'Royal Palm Beach',
+              addressRegion: 'FL',
+              postalCode: '33411',
+              addressCountry: 'US',
+              name: 'Royal Palm Beach Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '6447 Lake Worth Road',
+              addressLocality: 'Lake Worth',
+              addressRegion: 'FL',
+              postalCode: '33463',
+              addressCountry: 'US',
+              name: 'Lake Worth Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '3696 S. Congress Ave.',
+              addressLocality: 'Palm Springs',
+              addressRegion: 'FL',
+              postalCode: '33461',
+              addressCountry: 'US',
+              name: 'Palm Springs Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '6169 S Jog Road, Unit 4B',
+              addressLocality: 'Lantana',
+              addressRegion: 'FL',
+              postalCode: '33467',
+              addressCountry: 'US',
+              name: 'Lantana Primary & Urgent Care Center'
+            }
+          ],
           "areaServed": [
             "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
           ],

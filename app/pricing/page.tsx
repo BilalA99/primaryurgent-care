@@ -147,6 +147,44 @@ export function PricingJsonLd() {
               },
             ],
           },
+          address: [
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '11476 Okeechobee Blvd.',
+              addressLocality: 'Royal Palm Beach',
+              addressRegion: 'FL',
+              postalCode: '33411',
+              addressCountry: 'US',
+              name: 'Royal Palm Beach Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '6447 Lake Worth Road',
+              addressLocality: 'Lake Worth',
+              addressRegion: 'FL',
+              postalCode: '33463',
+              addressCountry: 'US',
+              name: 'Lake Worth Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '3696 S. Congress Ave.',
+              addressLocality: 'Palm Springs',
+              addressRegion: 'FL',
+              postalCode: '33461',
+              addressCountry: 'US',
+              name: 'Palm Springs Primary & Urgent Care Center'
+            },
+            {
+              '@type': 'PostalAddress',
+              streetAddress: '6169 S Jog Road, Unit 4B',
+              addressLocality: 'Lantana',
+              addressRegion: 'FL',
+              postalCode: '33467',
+              addressCountry: 'US',
+              name: 'Lantana Primary & Urgent Care Center'
+            }
+          ],
         }),
       }}
     />
