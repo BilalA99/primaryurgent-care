@@ -113,7 +113,7 @@ const LawyersJsonLd = () => (
               name: 'Lantana Primary & Urgent Care Center'
             }
           ],
-          telephone: '+1-561-555-5555'
+          telephone: '+1-561-223-8024'
         },
         audience: [
           {

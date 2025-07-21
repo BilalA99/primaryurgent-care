@@ -191,8 +191,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       'affordable urgent care',
     ],
     alternates: {
-<<<<<<< HEAD
-      canonical: url,
+      canonical: `https://primaryuc.com/pricing/${params.slug}`,
     },
     openGraph: {
       title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
@@ -213,9 +212,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
       description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
       images: [pricing?.img ? `${baseUrl}${pricing.img}` : `${baseUrl}/insurance.jpg`],
-=======
-      canonical: `https://primaryuc.com/pricing/${params.slug}`,
->>>>>>> TemurDev
     },
   };
 }

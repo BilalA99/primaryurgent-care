@@ -82,7 +82,7 @@ const NotFoundJsonLd = () => (
                     postalCode: '',
                     addressCountry: 'US'
                 },
-                telephone: '+1-561-555-5555',
+                telephone: '+1-561-223-80245',
                 description: 'Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.'
             })
         }}

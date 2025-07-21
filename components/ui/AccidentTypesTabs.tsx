@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import BookAnAppointmentPopup from '../BookAnAppointmentPopup';
 
 const accidentTypes = [
     {
@@ -93,7 +94,7 @@ const AccidentTypesTabs = () => {
                     <h3 className="text-4xl font-bold ">{activeType.title}</h3>
                     <p className="text-lg text-[#494647]">{activeType.topDescription}</p>
                     <p className="text-lg text-[#494647]">{activeType.description}</p>
-                    <button className="bg-[#D52128] text-white font-semibold px-7 py-4 rounded-xl w-fit text-lg shadow hover:bg-[#b81b22] transition">{activeType.button}</button>
+                    <BookAnAppointmentPopup><button className="bg-[#D52128] text-white font-semibold px-7 py-4 rounded-xl w-fit text-lg shadow hover:bg-[#b81b22] transition">{activeType.button}</button></BookAnAppointmentPopup>
                 </div>
                 <div className="flex-1  flex justify-center items-center">
                     <div className="w-full rounded-2xl overflow-hidden relative xl:h-150 h-100">

@@ -61,7 +61,7 @@ function PainCareJsonLd() {
           "description": "Immediate care for auto accident injuries, whiplash, back and neck pain, and personal injury. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
           "url": "https://primaryuc.com/paincare",
           "image": "https://primaryuc.com/paincare.jpg",
-          "telephone": "+1-561-204-5111",
+          "telephone": "+1-561-223-8024",
           "address": [
             {
               '@type': 'PostalAddress',

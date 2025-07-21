@@ -256,85 +256,85 @@ export default function PrimaryCareServicePage({ params }: { params: { slug: str
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "MedicalClinic",
-                    "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
-                    "image": `https://wpucc.com${service.image}`,
-                    "@id": `https://wpucc.com/primary-care-doctor/${service.slug}`,
-                    "url": `https://wpucc.com/primary-care-doctor/${service.slug}`,
-                    "telephone": "+1-561-204-5111",
-                    "address": [
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "11476 Okeechobee Blvd.",
-                        "addressLocality": "Royal Palm Beach",
-                        "addressRegion": "FL",
-                        "postalCode": "33411",
-                        "addressCountry": "US",
-                        "name": "Royal Palm Beach Primary & Urgent Care Center"
-                      },
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "6447 Lake Worth Road",
-                        "addressLocality": "Lake Worth",
-                        "addressRegion": "FL",
-                        "postalCode": "33463",
-                        "addressCountry": "US",
-                        "name": "Lake Worth Primary & Urgent Care Center"
-                      },
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "3696 S. Congress Ave.",
-                        "addressLocality": "Palm Springs",
-                        "addressRegion": "FL",
-                        "postalCode": "33461",
-                        "addressCountry": "US",
-                        "name": "Palm Springs Primary & Urgent Care Center"
-                      },
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "6169 S Jog Road, Unit 4B",
-                        "addressLocality": "Lantana",
-                        "addressRegion": "FL",
-                        "postalCode": "33467",
-                        "addressCountry": "US",
-                        "name": "Lantana Primary & Urgent Care Center"
-                      }
-                    ],
-                    "geo": {
-                      "@type": "GeoCoordinates",
-                      "latitude": 26.7153,
-                      "longitude": -80.0534
-                    },
-                    "openingHoursSpecification": [{
-                      "@type": "OpeningHoursSpecification",
-                      "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday",
-                        "Sunday"
-                      ],
-                      "opens": "08:00",
-                      "closes": "20:00"
-                    }],
-                    "sameAs": [
-                      "https://www.facebook.com/wpucc",
-                      "https://www.instagram.com/wpucc"
-                    ],
-                    "makesOffer": {
-                      "@type": "Offer",
-                      "itemOffered": {
-                        "@type": "Service",
-                        "name": service.title,
-                        "description": service.metaDescription || service.description,
-                        "url": `https://wpucc.com/primary-care-doctor/${service.slug}`
-                      }
-                    }
-                  })
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "MedicalClinic",
+                        "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
+                        "image": `https://wpucc.com${service.image}`,
+                        "@id": `https://wpucc.com/primary-care-doctor/${service.slug}`,
+                        "url": `https://wpucc.com/primary-care-doctor/${service.slug}`,
+                        "telephone": "+1-561-223-8024",
+                        "address": [
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "11476 Okeechobee Blvd.",
+                                "addressLocality": "Royal Palm Beach",
+                                "addressRegion": "FL",
+                                "postalCode": "33411",
+                                "addressCountry": "US",
+                                "name": "Royal Palm Beach Primary & Urgent Care Center"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "6447 Lake Worth Road",
+                                "addressLocality": "Lake Worth",
+                                "addressRegion": "FL",
+                                "postalCode": "33463",
+                                "addressCountry": "US",
+                                "name": "Lake Worth Primary & Urgent Care Center"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "3696 S. Congress Ave.",
+                                "addressLocality": "Palm Springs",
+                                "addressRegion": "FL",
+                                "postalCode": "33461",
+                                "addressCountry": "US",
+                                "name": "Palm Springs Primary & Urgent Care Center"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "6169 S Jog Road, Unit 4B",
+                                "addressLocality": "Lantana",
+                                "addressRegion": "FL",
+                                "postalCode": "33467",
+                                "addressCountry": "US",
+                                "name": "Lantana Primary & Urgent Care Center"
+                            }
+                        ],
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": 26.7153,
+                            "longitude": -80.0534
+                        },
+                        "openingHoursSpecification": [{
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday",
+                                "Saturday",
+                                "Sunday"
+                            ],
+                            "opens": "08:00",
+                            "closes": "20:00"
+                        }],
+                        "sameAs": [
+                            "https://www.facebook.com/wpucc",
+                            "https://www.instagram.com/wpucc"
+                        ],
+                        "makesOffer": {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": service.title,
+                                "description": service.metaDescription || service.description,
+                                "url": `https://wpucc.com/primary-care-doctor/${service.slug}`
+                            }
+                        }
+                    })
                 }}
             />
             {/* Hero Section */}

@@ -98,7 +98,7 @@ export function PricingJsonLd() {
           ],
           openingHours: 'Mo-Su 08:00-20:00',
           priceRange: '$$',
-          telephone: '+1-561-555-1234', // Update to real phone if available
+          telephone: '+1-561-223-8024', // Update to real phone if available
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Urgent Care Pricing',

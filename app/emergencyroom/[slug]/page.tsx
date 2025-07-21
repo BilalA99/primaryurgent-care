@@ -146,27 +146,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       images: [service.imageSrc || '/hospitalcare.jpg']
     },
     alternates: {
-      canonical: url,
+      canonical: `https://primaryuc.com/emergencyroom/${params.slug}`,
     },
-    openGraph: {
-      title: erService?.metaTitle || 'Emergency Room Level Care | Palm Beach County Urgent Care',
-      description: erService?.metaDescription || 'Get emergency room level care for injuries and illnesses at our Palm Beach County urgent care clinics. Fast, affordable, and expert care. No appointment needed.',
-      url,
-      type: 'article',
-      images: [
-        {
-          url: erService?.imageSrc ? `${baseUrl}${erService.imageSrc}` : `${baseUrl}/emergencyroomlevelcare.jpg`,
-          width: 1200,
-          height: 630,
-          alt: erService?.title || 'Emergency Room Service',
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: erService?.metaTitle || 'Emergency Room Level Care | Palm Beach County Urgent Care',
-      description: erService?.metaDescription || 'Get emergency room level care for injuries and illnesses at our Palm Beach County urgent care clinics. Fast, affordable, and expert care. No appointment needed.',
-      images: [erService?.imageSrc ? `${baseUrl}${erService.imageSrc}` : `${baseUrl}/emergencyroomlevelcare.jpg`],
-    },
+   
   };
 }

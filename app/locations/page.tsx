@@ -69,7 +69,7 @@ function LocationsJsonLd() {
                 "postalCode": "33411",
                 "addressCountry": "US"
               },
-              "telephone": "+1-561-204-5111"
+              "telephone": "+1-561-223-8024"
             },
             {
               "@type": "MedicalClinic",

@@ -61,7 +61,7 @@ function PainManagementJsonLd() {
           "description": "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
           "url": "https://primaryuc.com/pain-management-program",
           "image": "https://primaryuc.com/painmanage.jpg",
-          "telephone": "+1-561-204-5111",
+          "telephone": "+1-561-223-8024",
           "address": [
             {
               '@type': 'PostalAddress',

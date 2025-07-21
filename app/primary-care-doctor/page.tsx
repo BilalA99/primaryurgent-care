@@ -97,117 +97,117 @@ const visitSteps = [
 ];
 
 export const metadata = {
-  title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
-  description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
-  keywords: [
-    "primary care doctor",
-    "family medicine",
-    "walk-in clinic",
-    "sick visit",
-    "annual physical",
-    "preventive care",
-    "Palm Beach County",
-    "urgent care"
-  ],
-  alternates: {
-    canonical: "https://wpucc.com/primary-care-doctor"
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
     title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
     description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
-    url: "https://wpucc.com/primary-care-doctor",
-    type: "website",
-    images: [
-      "https://wpucc.com/doctorwithpatient.jpg"
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
-    description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
-    images: ["https://wpucc.com/doctorwithpatient.jpg"],
-    site: "@wpucc"
-  }
+    keywords: [
+        "primary care doctor",
+        "family medicine",
+        "walk-in clinic",
+        "sick visit",
+        "annual physical",
+        "preventive care",
+        "Palm Beach County",
+        "urgent care"
+    ],
+    alternates: {
+        canonical: "https://wpucc.com/primary-care-doctor"
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    openGraph: {
+        title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
+        description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
+        url: "https://wpucc.com/primary-care-doctor",
+        type: "website",
+        images: [
+            "https://wpucc.com/doctorwithpatient.jpg"
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
+        description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
+        images: ["https://wpucc.com/doctorwithpatient.jpg"],
+        site: "@wpucc"
+    }
 };
 
 export default function PrimaryCareDoctorPage() {
     // Structured data for primary care doctor page
     const PrimaryCareJsonLd = () => (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'MedicalClinic',
-            name: 'Primary & Urgent Care Centers of Palm Beach County',
-            url: 'https://primaryuc.com/primary-care-doctor',
-            image: 'https://primaryuc.com/doctorwithpatient.jpg',
-            description: 'See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.',
-            areaServed: [
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Royal Palm Beach, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Lake Worth, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Palm Springs, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Lantana, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Palm Beach County, FL'
-              }
-            ],
-            medicalSpecialty: [
-              'PrimaryCare',
-              'FamilyMedicine',
-              'PediatricCare',
-              'PreventiveCare',
-              'ChronicDiseaseManagement',
-              'WomenHealth',
-              'MensHealth'
-            ],
-            availableService: [
-              'Sick Visits',
-              'Fever & Cough Treatment',
-              'Preventive Care',
-              'Annual Physicals',
-              'Chronic Disease Management',
-              'Women\'s & Men\'s Health',
-              'Pediatric Care',
-              'Vaccinations',
-              'Same-Day Appointments',
-              'Walk-in Availability',
-              'Family Medicine',
-              'Wellness Exams',
-              'Health Screenings'
-            ],
-            openingHours: [
-              'Mo-Fr 09:00-18:00',
-              'Sa 09:00-16:00'
-            ],
-            priceRange: '$$',
-            telephone: '+1-561-223-8024',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Palm Beach County',
-              addressRegion: 'FL',
-              addressCountry: 'US'
-            }
-          })
-        }}
-      />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'MedicalClinic',
+                    name: 'Primary & Urgent Care Centers of Palm Beach County',
+                    url: 'https://primaryuc.com/primary-care-doctor',
+                    image: 'https://primaryuc.com/doctorwithpatient.jpg',
+                    description: 'See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.',
+                    areaServed: [
+                        {
+                            '@type': 'AdministrativeArea',
+                            name: 'Royal Palm Beach, FL'
+                        },
+                        {
+                            '@type': 'AdministrativeArea',
+                            name: 'Lake Worth, FL'
+                        },
+                        {
+                            '@type': 'AdministrativeArea',
+                            name: 'Palm Springs, FL'
+                        },
+                        {
+                            '@type': 'AdministrativeArea',
+                            name: 'Lantana, FL'
+                        },
+                        {
+                            '@type': 'AdministrativeArea',
+                            name: 'Palm Beach County, FL'
+                        }
+                    ],
+                    medicalSpecialty: [
+                        'PrimaryCare',
+                        'FamilyMedicine',
+                        'PediatricCare',
+                        'PreventiveCare',
+                        'ChronicDiseaseManagement',
+                        'WomenHealth',
+                        'MensHealth'
+                    ],
+                    availableService: [
+                        'Sick Visits',
+                        'Fever & Cough Treatment',
+                        'Preventive Care',
+                        'Annual Physicals',
+                        'Chronic Disease Management',
+                        'Women\'s & Men\'s Health',
+                        'Pediatric Care',
+                        'Vaccinations',
+                        'Same-Day Appointments',
+                        'Walk-in Availability',
+                        'Family Medicine',
+                        'Wellness Exams',
+                        'Health Screenings'
+                    ],
+                    openingHours: [
+                        'Mo-Fr 09:00-18:00',
+                        'Sa 09:00-16:00'
+                    ],
+                    priceRange: '$$',
+                    telephone: '+1-561-223-8024',
+                    address: {
+                        '@type': 'PostalAddress',
+                        addressLocality: 'Palm Beach County',
+                        addressRegion: 'FL',
+                        addressCountry: 'US'
+                    }
+                })
+            }}
+        />
     );
 
     return (
@@ -217,76 +217,76 @@ export default function PrimaryCareDoctorPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "MedicalClinic",
-                    "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
-                    "image": "https://wpucc.com/doctorwithpatient.jpg",
-                    "@id": "https://wpucc.com/primary-care-doctor",
-                    "url": "https://wpucc.com/primary-care-doctor",
-                    "telephone": "+1-561-204-5111",
-                    "address": [
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "11476 Okeechobee Blvd.",
-                        "addressLocality": "Royal Palm Beach",
-                        "addressRegion": "FL",
-                        "postalCode": "33411",
-                        "addressCountry": "US",
-                        "name": "Royal Palm Beach Primary & Urgent Care Center"
-                      },
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "6447 Lake Worth Road",
-                        "addressLocality": "Lake Worth",
-                        "addressRegion": "FL",
-                        "postalCode": "33463",
-                        "addressCountry": "US",
-                        "name": "Lake Worth Primary & Urgent Care Center"
-                      },
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "3696 S. Congress Ave.",
-                        "addressLocality": "Palm Springs",
-                        "addressRegion": "FL",
-                        "postalCode": "33461",
-                        "addressCountry": "US",
-                        "name": "Palm Springs Primary & Urgent Care Center"
-                      },
-                      {
-                        "@type": "PostalAddress",
-                        "streetAddress": "6169 S Jog Road, Unit 4B",
-                        "addressLocality": "Lantana",
-                        "addressRegion": "FL",
-                        "postalCode": "33467",
-                        "addressCountry": "US",
-                        "name": "Lantana Primary & Urgent Care Center"
-                      }
-                    ],
-                    "geo": {
-                      "@type": "GeoCoordinates",
-                      "latitude": 26.7153,
-                      "longitude": -80.0534
-                    },
-                    "openingHoursSpecification": [{
-                      "@type": "OpeningHoursSpecification",
-                      "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday",
-                        "Sunday"
-                      ],
-                      "opens": "08:00",
-                      "closes": "20:00"
-                    }],
-                    "sameAs": [
-                      "https://www.facebook.com/wpucc",
-                      "https://www.instagram.com/wpucc"
-                    ]
-                  })
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "MedicalClinic",
+                        "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
+                        "image": "https://wpucc.com/doctorwithpatient.jpg",
+                        "@id": "https://wpucc.com/primary-care-doctor",
+                        "url": "https://wpucc.com/primary-care-doctor",
+                        "telephone": "+1-561-223-8024",
+                        "address": [
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "11476 Okeechobee Blvd.",
+                                "addressLocality": "Royal Palm Beach",
+                                "addressRegion": "FL",
+                                "postalCode": "33411",
+                                "addressCountry": "US",
+                                "name": "Royal Palm Beach Primary & Urgent Care Center"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "6447 Lake Worth Road",
+                                "addressLocality": "Lake Worth",
+                                "addressRegion": "FL",
+                                "postalCode": "33463",
+                                "addressCountry": "US",
+                                "name": "Lake Worth Primary & Urgent Care Center"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "3696 S. Congress Ave.",
+                                "addressLocality": "Palm Springs",
+                                "addressRegion": "FL",
+                                "postalCode": "33461",
+                                "addressCountry": "US",
+                                "name": "Palm Springs Primary & Urgent Care Center"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "6169 S Jog Road, Unit 4B",
+                                "addressLocality": "Lantana",
+                                "addressRegion": "FL",
+                                "postalCode": "33467",
+                                "addressCountry": "US",
+                                "name": "Lantana Primary & Urgent Care Center"
+                            }
+                        ],
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": 26.7153,
+                            "longitude": -80.0534
+                        },
+                        "openingHoursSpecification": [{
+                            "@type": "OpeningHoursSpecification",
+                            "dayOfWeek": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday",
+                                "Saturday",
+                                "Sunday"
+                            ],
+                            "opens": "08:00",
+                            "closes": "20:00"
+                        }],
+                        "sameAs": [
+                            "https://www.facebook.com/wpucc",
+                            "https://www.instagram.com/wpucc"
+                        ]
+                    })
                 }}
             />
             <Head>

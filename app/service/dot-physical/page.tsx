@@ -4,6 +4,7 @@ import Reveal from '@/components/RevealAnimation';
 import Head from 'next/head';
 import Image from 'next/image';
 import CallButton from '@/components/CallButton';
+import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 const dotPhysicalSteps = [
     {
@@ -77,7 +78,7 @@ export default function DotPhysicalPage() {
                         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">Federal DOT Physicals for Commercial Drivers</h1>
                         <p className="text-lg md:text-xl text-[#494647] mb-8">Stay compliant and on the road with fast, federally certified DOT physicals. Same-day results, walk-ins welcome, and all documentation provided on the spot.</p>
                         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start w-full">
-                            <a href="/appointment" className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</a>
+                            <BookAnAppointmentPopup><div className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</div></BookAnAppointmentPopup>
                             <CallButton label="dot_physical_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-gray-100 transition border border-[#D52128]">
                                 Call (561) 223-8024
                             </CallButton>
