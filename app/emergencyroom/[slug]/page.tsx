@@ -3,8 +3,8 @@ import { services } from '@/components/Services'
 import Image from 'next/image'
 import Reveal from '@/components/RevealAnimation'
 
-const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) => {
-  const {slug} = await params
+const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params
   const service = services.find(service => service.slug === slug)
   return (
     <main className="w-full bg-[#FAFAFA] min-h-screen lg:py-20 py-10 max-w-8xl mx-auto lg:px-[60px] px-6">
@@ -17,7 +17,7 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
           {service?.description}
         </p>
         <div className="flex flex-wrap gap-4 w-full self-center items-center justify-center">
-          <a href="tel:5612045111" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+          <a href="tel:5612238024" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
             Contact Us
           </a>
         </div>
@@ -58,8 +58,8 @@ const EmergencyRoomPage = async ({params}: {params: Promise<{slug: string}>}) =>
             <p className='md:text-lg text-md text-gray-600'>{service?.costs}</p>
           </div>
         </Reveal>
-       </div>
-      </main>
+      </div>
+    </main>
   )
 }
 
@@ -67,7 +67,7 @@ export default EmergencyRoomPage
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const erService = services.find((x) => x.slug === params.slug);
-  const baseUrl = 'https://wpucc.com';
+  const baseUrl = 'https://primaryuc.com';
   const url = `${baseUrl}/emergencyroom/${params.slug}`;
   return {
     title: erService?.metaTitle || 'Emergency Room Level Care | Palm Beach County Urgent Care',
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'article',
       images: [
         {
-          url: erService?.image ? `${baseUrl}${erService.image}` : `${baseUrl}/emergencyroomlevelcare.jpg`,
+          url: erService?.imageSrc ? `${baseUrl}${erService.imageSrc}` : `${baseUrl}/emergencyroomlevelcare.jpg`,
           width: 1200,
           height: 630,
           alt: erService?.title || 'Emergency Room Service',
@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       card: 'summary_large_image',
       title: erService?.metaTitle || 'Emergency Room Level Care | Palm Beach County Urgent Care',
       description: erService?.metaDescription || 'Get emergency room level care for injuries and illnesses at our Palm Beach County urgent care clinics. Fast, affordable, and expert care. No appointment needed.',
-      images: [erService?.image ? `${baseUrl}${erService.image}` : `${baseUrl}/emergencyroomlevelcare.jpg`],
+      images: [erService?.imageSrc ? `${baseUrl}${erService.imageSrc}` : `${baseUrl}/emergencyroomlevelcare.jpg`],
     },
   };
 }

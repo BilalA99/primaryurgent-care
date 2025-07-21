@@ -4,89 +4,89 @@ import Link from 'next/link'
 import { Phone, MapPin, Clock, ArrowLeft, Home, User, Calendar } from 'lucide-react'
 
 export const metadata = {
-  title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
-  description:
-    "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
-  keywords: [
-    "404 not found",
-    "urgent care Palm Beach County",
-    "walk-in clinic Palm Beach",
-    "book urgent care appointment",
-    "urgent care near me",
-    "find urgent care location",
-    "board-certified urgent care",
-    "quick care Palm Beach",
-    "emergency care Palm Beach County"
-  ],
-  openGraph: {
     title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
     description:
-      "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
-    url: "https://primaryurgentcare.com/404",
-    type: "website",
-    images: [
-      {
-        url: "/doctorwithpatient.jpg",
-        width: 1200,
-        height: 630,
-        alt: "404 urgent care not found Palm Beach County"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
-    description:
-      "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
-    images: [
-      "/doctorwithpatient.jpg"
-    ]
-  },
-  alternates: {
-    canonical: "https://primaryurgentcare.com/404"
-  }
+        "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
+    keywords: [
+        "404 not found",
+        "urgent care Palm Beach County",
+        "walk-in clinic Palm Beach",
+        "book urgent care appointment",
+        "urgent care near me",
+        "find urgent care location",
+        "board-certified urgent care",
+        "quick care Palm Beach",
+        "emergency care Palm Beach County"
+    ],
+    openGraph: {
+        title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
+        description:
+            "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
+        url: "https://primaryuc.com/404",
+        type: "website",
+        images: [
+            {
+                url: "/doctorwithpatient.jpg",
+                width: 1200,
+                height: 630,
+                alt: "404 urgent care not found Palm Beach County"
+            }
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
+        description:
+            "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
+        images: [
+            "/doctorwithpatient.jpg"
+        ]
+    },
+    alternates: {
+        canonical: "https://primaryuc.com/404"
+    }
 };
 
 // Structured data for 404 page (site-wide urgent care info)
 const NotFoundJsonLd = () => (
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'MedicalClinic',
-        name: 'Primary & Urgent Care Centers of Palm Beach County',
-        url: 'https://primaryurgentcare.com',
-        areaServed: {
-          '@type': 'AdministrativeArea',
-          name: 'Palm Beach County, FL'
-        },
-        medicalSpecialty: [
-          'UrgentCare',
-          'WalkInClinic',
-          'EmergencyCare'
-        ],
-        availableService: [
-          'Same-Day Appointments',
-          'Walk-In Visits',
-          'Board-Certified Providers',
-          'Multiple Locations',
-          'Quick Care (Seen in 15 Minutes)',
-          'Insurance & Self-Pay Accepted'
-        ],
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'See locations page',
-          addressLocality: 'Palm Beach County',
-          addressRegion: 'FL',
-          postalCode: '',
-          addressCountry: 'US'
-        },
-        telephone: '+1-561-555-5555',
-        description: 'Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.'
-      })
-    }}
-  />
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'MedicalClinic',
+                name: 'Primary & Urgent Care Centers of Palm Beach County',
+                url: 'https://primaryuc.com',
+                areaServed: {
+                    '@type': 'AdministrativeArea',
+                    name: 'Palm Beach County, FL'
+                },
+                medicalSpecialty: [
+                    'UrgentCare',
+                    'WalkInClinic',
+                    'EmergencyCare'
+                ],
+                availableService: [
+                    'Same-Day Appointments',
+                    'Walk-In Visits',
+                    'Board-Certified Providers',
+                    'Multiple Locations',
+                    'Quick Care (Seen in 15 Minutes)',
+                    'Insurance & Self-Pay Accepted'
+                ],
+                address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'See locations page',
+                    addressLocality: 'Palm Beach County',
+                    addressRegion: 'FL',
+                    postalCode: '',
+                    addressCountry: 'US'
+                },
+                telephone: '+1-561-555-5555',
+                description: 'Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.'
+            })
+        }}
+    />
 );
 
 const NotFound = () => {
@@ -98,7 +98,8 @@ const NotFound = () => {
                 <div className="bg-red-600 text-white py-2 px-6">
                     <div className="max-w-8xl mx-auto flex items-center justify-center space-x-4 text-sm">
                         <Phone className="w-4 h-4" />
-                        <span>Emergency: Call (561) 204-5111</span>
+                        <span>Emergency: Call (561) 223-8024
+                            ‬</span>
                         <span>•</span>
                         <span>Open 7 days a week</span>
                     </div>
@@ -182,7 +183,8 @@ const NotFound = () => {
                                 </p>
                                 <div className="flex items-center space-x-2 text-red-700">
                                     <Phone className="w-4 h-4" />
-                                    <span className="font-semibold">(561) 204-5111</span>
+                                    <span className="font-semibold">(561) 223-8024
+                                        ‬</span>
                                 </div>
                             </div>
                         </div>

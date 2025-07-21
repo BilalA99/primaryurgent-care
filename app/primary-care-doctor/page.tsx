@@ -5,6 +5,9 @@ import Reveal from '@/components/RevealAnimation';
 import Polestar from '@/components/icons/polestar';
 import { Marquee } from '@/components/magicui/marquee';
 import Link from 'next/link';
+import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { ChevronRight } from 'lucide-react';
 
 export const primaryCareServices = [
     {
@@ -208,8 +211,14 @@ export default function PrimaryCareDoctorPage() {
                   })
                 }}
             />
+            <Head>
+                <title>Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County</title>
+                <meta name="description" content="See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic." />
+                <meta name="keywords" content="primary care doctor, family medicine, walk-in clinic, sick visit, annual physical, preventive care, Palm Beach County, urgent care" />
+                <link rel="canonical" href="https://primaryuc.com/primary-care-doctor" />
+            </Head>
             {/* Split Hero Section with Overlapping Card */}
-            <section className="relative w-full flex flex-col md:flex-row items-center justify-center gap-40 py-16 px-4 bg-gradient-to-br from-[#D52128]/90 via-[#F7FAFF]/60 to-[#A7E3F7]/60 overflow-hidden
+            <section className="relative w-full flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:gap-10 py-16 px-4 bg-gradient-to-br from-[#D52128]/90 via-[#F7FAFF]/60 to-[#A7E3F7]/60 overflow-hidden
             [mask-composite:intersect] [mask-image:linear-gradient(to_top,transparent,black_6rem)]
             ">
                 <div className="flex-1 flex flex-col items-start z-10 max-w-xl">
@@ -217,8 +226,10 @@ export default function PrimaryCareDoctorPage() {
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">Your Family's Health Starts Here</h1>
                     <p className="text-lg md:text-xl text-[#494647] mb-8">From sniffles to checkups, our caring doctors are here for every stage of life. Walk in, book online, or bring the whole family—no appointment needed!</p>
                     <div className="flex flex-col md:flex-row gap-4 w-full">
-                        <a href="/appointment" className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</a>
-                        <a href="tel:5612045111" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 204-5111</a>
+                        <BookAnAppointmentPopup>
+                            <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>
+                        </BookAnAppointmentPopup>
+                        <a href="tel:5612238024" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 223-8024</a>
                     </div>
                 </div>
                 <div className="justify-center items-center relative mt-10 md:mt-0">
@@ -253,7 +264,7 @@ export default function PrimaryCareDoctorPage() {
             {/* Animated Horizontal Scroll Services Section */}
             <section className=" mx-auto py-20 bg-gradient-to-r from-[#A7E3F7]/30 via-[#F7FAFF]/80 to-[#F7FAFF]/100 [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,transparent,black_6rem)]">
                 <h2 className="text-4xl font-bold mb-10 text-center text-gray-900">Primary Care Services</h2>
-                <div className="overflow-x-auto w-full max-w-[1440px] px-40 mx-auto">
+                <div className="overflow-x-auto w-full max-w-[1440px] lg:px-40 mx-auto">
                     <Marquee pauseOnHover className="flex gap-8 lg:px-40 md:min-w-full [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]">
                         {primaryCareServices.slice(0, primaryCareServices.length / 2).map((service, idx) => (
                             <Reveal key={service.title} className="min-w-[280px] max-w-xs w-full h-full flex-shrink-0 py-2 items-center justify-center" delay={0.15 + idx * 0.1}>
@@ -293,6 +304,27 @@ export default function PrimaryCareDoctorPage() {
                         </Reveal>
                         ))}
                     </div> */}
+                    <div className=' mt-4 w-full flex items-center justify-center'>
+                        <Dialog>
+                            <DialogTrigger>
+                                <p className='text-lg flex flex-row items-center justify-center gap-2 w-full text-center text-gray-400'>View All Services <ChevronRight className='w-4 h-4' /></p>
+                            </DialogTrigger>
+                            <DialogContent className='w-full max-h-[85vh]  overflow-y-auto'>
+                                <div className='flex flex-col gap-4'>
+                                    <p className='text-2xl font-bold text-gray-900 mb-4'>All Services</p>
+                                    {primaryCareServices.map((service) => (
+                                        <Link href={`/primary-care-doctor/${service.slug}`} className=" h-full items-center justify-center">
+                                            <div className={`bg-white rounded-3xl shadow-sm h-64 p-0 flex flex-col items-center justify-center text-center border border-[#F4F3F3] hover:shadow-md transition-all duration-300 overflow-hidden`}>
+                                                <div className="mb-2">{service.icon}</div>
+                                                <h3 className="text-xl font-bold text-gray-900 mb-1 hover:text-[#2563eb] transition-colors">{service.title}</h3>
+                                                <p className="text-base text-[#494647] px-2">{service.description}</p>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </DialogContent>
+                        </Dialog>
+                    </div>
                 </div>
             </section>
 

@@ -31,14 +31,14 @@ const reviews = [
     rating: 5,
     text: "My son needed stitches after a fall. The staff was so gentle with him and the whole process took maybe 20 minutes. The doctor even called to check on him the next day. This is how healthcare should be!",
   },
-  {
-    id: 4,
-    name: "Robert Chen",
-    avatar: "https://mynaui.com//avatars/avatar-05.jpg",
-    timeAgo: "1 month ago",
-    rating: 5,
-    text: "Work injury - they handled everything including workers comp paperwork. Got my CT scan done immediately and the results were ready in hours, not days. The staff really knows what they're doing.",
-  },
+  // {
+  //   id: 4,
+  //   name: "Robert Chen",
+  //   avatar: "https://mynaui.com//avatars/avatar-05.jpg",
+  //   timeAgo: "1 month ago",
+  //   rating: 5,
+  //   text: "Work injury - they handled everything including workers comp paperwork. Got my CT scan done immediately and the results were ready in hours, not days. The staff really knows what they're doing.",
+  // },
   {
     id: 5,
     name: "Amanda Thompson",

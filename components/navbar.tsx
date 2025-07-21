@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import Phone from './icons/phone';
+import BookAnAppointmentPopup from './BookAnAppointmentPopup';
 
 const navItems = [
     { name: 'Home', href: '/' },
@@ -14,9 +15,9 @@ const navItems = [
         name: 'Services', href: '/service',
         sublinks: [
             { name: 'All Services', href: '/service' },
-            { name: 'Accident Care', href: '/paincare' },
             { name: 'Urgent Injury Care', href: '/urgentinjurycare' },
             { name: 'Emergency Room', href: '/emergencyroom' },
+            { name: 'Accident Care', href: '/paincare' },
             { name: 'Pain Management Care', href: '/pain-management-care' },
             { name: 'DOT Physical', href: '/service/dot-physical' },
             { name: 'Lawyers', href: '/lawyers' },
@@ -35,7 +36,7 @@ const navItems = [
         ]
     },
     {
-        name : 'Primary Care', href : '/primary-care-doctor'
+        name: 'Primary Care', href: '/primary-care-doctor'
     }
 ];
 
@@ -60,8 +61,8 @@ const NavBar = () => {
 
     return (
         <div className='fixed top-0 left-0 right-0 z-50 flex w-full'>
-            <div className="bg-white  p-4 font-sans w-full">
-                <div className=" mx-auto bg-[#FAFAFA] rounded-xl p-3">
+            <div className="bg-white p-4 font-sans w-full border">
+                <div className=" bg-[#FAFAFA] rounded-xl p-3">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex items-center space-x-3">
                             <Image src="/logoheart.png" alt="Logo" width={40} height={40} className="" />
@@ -98,10 +99,15 @@ const NavBar = () => {
                         </nav>
 
                         {/* Desktop Call Button */}
-                        <button className="hidden xl:flex items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                        <a href="tel:56122380247" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                             <Phone fill="white" />
-                            <span>(561) 204-5111</span>
-                        </button>
+                            <span>(561) 223-8024</span>
+                        </a>
+                        {/* <BookAnAppointmentPopup>
+                            <button className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                                Contact Us
+                            </button>
+                        </BookAnAppointmentPopup> */}
 
                         {/* Hamburger Button (Mobile) */}
                         <button
@@ -185,7 +191,7 @@ const NavBar = () => {
                             )}
                         </div>
                     ))}
-                    <a href="tel:5612045111"
+                    {/* <a href="tel:5612473237‬"
                         className="w-full mt-6 group hover:cursor-pointer max-h-[40px] h-full px-[20px] py-2 rounded-[62px] flex items-center justify-center bg-[#D52128] text-white text-[15px] font-semibold"
                         onClick={closeSidebar}
                     >
@@ -193,7 +199,7 @@ const NavBar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12" fill="none" className="pl-2">
                             <path d="M12.3982 0.768483C12.0402 0.410504 11.4598 0.410506 11.1018 0.768488C10.7438 1.12647 10.7438 1.70687 11.1018 2.06485L14.1203 5.08333H1.66667C1.16041 5.08333 0.75 5.49374 0.75 6C0.75 6.50626 1.16041 6.91667 1.66667 6.91667H14.1203L11.1018 9.93516C10.7439 10.2931 10.7439 10.8735 11.1019 11.2315C11.4598 11.5895 12.0402 11.5895 12.3982 11.2315L16.9766 6.65303C16.9935 6.63637 17.0098 6.61905 17.0254 6.60112C17.0873 6.52997 17.1365 6.45154 17.1728 6.36885C17.2221 6.25677 17.2496 6.13294 17.25 6.00273L17.25 6C17.25 5.99717 17.25 5.99434 17.25 5.99152C17.2489 5.87623 17.2266 5.76602 17.1867 5.66463C17.142 5.55068 17.0736 5.44387 16.9815 5.35178L12.3982 0.768483Z" fill="#E5F6FF" />
                         </svg>
-                    </a>
+                    </a> */}
                 </nav>
             </aside>
         </div>

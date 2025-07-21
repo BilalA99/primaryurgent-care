@@ -18,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "Urgent Care Locations Near You | Palm Beach County Walk-In Clinics | Primary & Urgent Care Centers",
     description: "Find a Primary & Urgent Care Center near you in Palm Beach County. Walk-in clinics in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Short wait times, most insurance accepted, and hospital-level care.",
-    url: "https://wpucc.com/locations",
+    url: "https://primaryuc.com/locations",
     images: [
       { url: "https://wpucc.com/servicelanding.jpg", width: 1200, height: 630, alt: "Urgent Care Locations Palm Beach County" }
     ],
@@ -33,7 +33,7 @@ export const metadata = {
     ]
   },
   alternates: {
-    canonical: "https://wpucc.com/locations"
+    canonical: "https://primaryuc.com/locations"
   },
   icons: {
     icon: "/favicon.ico",
@@ -52,8 +52,8 @@ function LocationsJsonLd() {
           "@type": "MedicalClinic",
           "name": "Primary & Urgent Care Centers of Palm Beach County",
           "description": "Walk-in urgent care clinics in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Short wait times, most insurance accepted, and hospital-level care.",
-          "url": "https://primaryurgentcare.com/locations",
-          "image": "https://primaryurgentcare.com/servicelanding.jpg",
+          "url": "https://primaryuc.com/locations",
+          "image": "https://primaryuc.com/servicelanding.jpg",
           "areaServed": [
             "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
           ],
@@ -155,8 +155,8 @@ const LocationsPage = () => {
         ))}
       </div>
 
-        {/* Feature cards section */}
-        <div className="max-w-8xl items-stretch   mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:py-20 py-10">
+      {/* Feature cards section */}
+      <div className="max-w-8xl items-stretch   mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:py-20 py-10">
         <LocationFeatureCard
           icon={<Ambulance />}
           title="Urgent Care"

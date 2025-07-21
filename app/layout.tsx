@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ]
   },
   alternates: {
-    canonical: "https://primaryurgentcare.com"
+    canonical: "https://primaryuc.com"
   },
   icons: {
     icon: [
@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={interTight.className}>
       <body
-        className={`${interTight.variable} antialiased`}
+        className={`${interTight.variable} antialiased overscroll-none`}
       >
         <MapProvider>
           <NavBar />

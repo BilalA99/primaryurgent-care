@@ -10,51 +10,51 @@ import Reveal from '@/components/RevealAnimation';
 import SlidingDiv from '@/components/SlidingAnimation';
 
 export const metadata = {
-  title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
-  description:
-    "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
-  keywords: [
-    "urgent injury care",
-    "walk-in injury clinic",
-    "fracture care urgent care",
-    "sprain care urgent care",
-    "laceration care urgent care",
-    "sports injury urgent care",
-    "orthopedic injury clinic",
-    "immediate injury care Palm Beach",
-    "urgent care for broken bone",
-    "urgent care for stitches",
-    "walk-in fracture clinic",
-    "urgent care for burns",
-    "STAT X-ray MRI CT urgent care"
-  ],
-  openGraph: {
     title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
     description:
-      "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
-    url: "https://wpucc.com/urgentinjurycare",
-    type: "website",
-    images: [
-      {
-        url: "https://wpucc.com/urgentcarelanding.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Urgent injury care walk-in clinic Palm Beach County"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
-    description:
-      "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.",
-    images: [
-      "https://wpucc.com/urgentcarelanding.jpg"
-    ]
-  },
-  alternates: {
-    canonical: "https://wpucc.com/urgentinjurycare"
-  }
+        "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait,  most insurance accepted. Serving Palm Beach County.",
+    keywords: [
+        "urgent injury care",
+        "walk-in injury clinic",
+        "fracture care urgent care",
+        "sprain care urgent care",
+        "laceration care urgent care",
+        "sports injury urgent care",
+        "orthopedic injury clinic",
+        "immediate injury care Palm Beach",
+        "urgent care for broken bone",
+        "urgent care for stitches",
+        "walk-in fracture clinic",
+        "urgent care for burns",
+        "STAT X-ray MRI CT urgent care"
+    ],
+    openGraph: {
+        title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+        description:
+            "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait,  most insurance accepted. Serving Palm Beach County.",
+        url: "https://primaryuc.com/urgentinjurycare",
+        type: "website",
+        images: [
+            {
+                url: "/urgentcarelanding.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Urgent injury care walk-in clinic Palm Beach County"
+            }
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+        description:
+            "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait,  most insurance accepted. Serving Palm Beach County.",
+        images: [
+            "/urgentcarelanding.jpg"
+        ]
+    },
+    alternates: {
+        canonical: "https://primaryuc.com/urgentinjurycare"
+    }
 };
 
 // Structured data for urgent injury care
@@ -164,12 +164,13 @@ const UrgentInjuryCarePage = () => {
                         </div>
                         <h1 className="text-5xl md:text-6xl font-600 mb-6 leading-tight text-center">Fast Injury Care<br />Walk In or Book Now</h1>
                         <p className="text-lg mb-8 max-w-2xl text-center">
-                            Sprain, fracture, cut, or burn? Skip the ER. Walk in or book a same-day slot and see a board-certified provider in less then 15 min. On-site X-ray, CT, MRI, and labs with STAT reads (less then 3 hrs), same-day results, splints, stitches, and pain relief at a fraction of ER cost. Most insurance accepted; $69 self-pay.
+                            Sprain, fracture, cut, or burn? Skip the ER. Walk in or book a same-day slot and see a board-certified provider in less then 15 min. On-site X-ray, CT, MRI, and labs with STAT reads (less then 3 hrs), same-day results, splints, stitches, and pain relief at a fraction of ER cost. Most insurance accepted;
                         </p>
                         <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
                             <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
-                            <a href="tel:5612045111" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
-                                <Phone className="w-6 h-6" /> (561) 204-5111
+                            <a href="tel:5612238024" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                                <Phone className="w-6 h-6" /> (561) 223-8024
+                                ‬
                             </a>
                         </div>
                     </div>
@@ -181,13 +182,13 @@ const UrgentInjuryCarePage = () => {
             </section>
             <section className='grid xl:grid-cols-2 xl:gap-14 gap-10 h-full xl:px-[60px] px-4 lg:py-20 py-10'>
                 <div className='w-full xl:h-full overflow-hidden h-100 relative rounded-2xl sm:block hidden  '><Image src="/rapidinjurycare.jpg" alt="Urgent Injury Care" fill className='object-cover aspect-square w-full h-full' /></div>
-               <SlidingDiv position='right' className='w-full overflow-hidden'>
+                <SlidingDiv position='right' className='w-full overflow-hidden'>
                     <div className=' flex items-start justify-center xl:py-32 py-10 space-y-6 flex-col'>
                         <p className='text-6xl font-600'>Walk in NOW for Rapid Injury Care</p>
                         <p className='text-2xl font-600'>Sprains, Strains, Fractures & More</p>
-                        <p className='text-lg text-[#494647]'>Twisted ankle? Possible fracture? Cut that needs stitches? Skip the ER line and head straight to Primary & Urgent Care Centers for hospital-level injury treatment in under 15 minutes. Our board-certified team splints sprains, reduces dislocations, repairs lacerations, and delivers on-the-spot digital X-ray, CT, and ultrasound—with STAT reads in three hours and same-day results. Book a same-day urgent care appointment or simply walk in; most insurance accepted and $69 self-pay visits keep costs predictable. Get moving again—fast, safe, affordable.</p>
+                        <p className='text-lg text-[#494647]'>Twisted ankle? Possible fracture? Cut that needs stitches? Skip the ER line and head straight to Primary & Urgent Care Centers for hospital-level injury treatment in under 15 minutes. Our board-certified team splints sprains, reduces dislocations, repairs lacerations, and delivers on-the-spot digital X-ray, CT, and ultrasound—with STAT reads in three hours and same-day results. Book a same-day urgent care appointment or simply walk in; most insurance accepted and affordable self-pay options available for those without coverage. Get moving again—fast, safe, affordable.</p>
                     </div>
-               </SlidingDiv>
+                </SlidingDiv>
             </section>
             {/* Our Specialities Section */}
             <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px]">
@@ -334,7 +335,7 @@ const UrgentInjuryCarePage = () => {
                         <li>Workers' Comp & Workplace Injury Care – OSHA notes and return-to-work paperwork</li>
                         <li>Weekend Sports Injuries – sideline assessment, rapid imaging, PT / ortho referral</li>
                     </ul>
-                    <div className="text-base text-gray-500 text-left mt-4">Most insurance accepted • $69 self-pay visit • seen in &lt; 15 minutes — book a same-day appointment or walk in now.</div>
+                    <div className="text-base text-gray-500 text-left mt-4">Most insurance accepted seen in &lt; 15 minutes — book a same-day appointment or walk in now.</div>
                 </div>
             </section>
 
