@@ -16,8 +16,42 @@ export default async function ConditionDetails({
       notFound()
     )
   }
+  // Structured data for urgent injury care conditions
+  const UrgentInjuryCareJsonLd = () => (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'MedicalProcedure',
+          name: condition_details?.title || 'Urgent Injury Care',
+          description: condition_details?.description || 'Comprehensive urgent care treatment for injuries and medical conditions',
+          url: `https://primaryuc.com/urgentinjurycare/${slug}`,
+          provider: {
+            '@type': 'MedicalClinic',
+            name: 'Primary & Urgent Care Centers of Palm Beach County',
+            url: 'https://primaryuc.com',
+            areaServed: {
+              '@type': 'AdministrativeArea',
+              name: 'Palm Beach County, FL'
+            }
+          },
+          medicalSpecialty: 'UrgentCare',
+          availableService: condition_details?.title || 'Urgent Injury Care',
+          cost: 'Varies by service and insurance',
+          areaServed: {
+            '@type': 'AdministrativeArea',
+            name: 'Palm Beach County, FL'
+          },
+          description: condition_details?.description || 'Get immediate treatment for injuries and medical conditions at our urgent care centers. Walk in or book online. Expert care, fast diagnosis, and comprehensive treatment.'
+        })
+      }}
+    />
+  );
+
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      <UrgentInjuryCareJsonLd />
       {/* Landing */}
       {/* <section className="w-full h-full flex flex-col relative overflow-hidden" >
         <div 
@@ -37,12 +71,12 @@ export default async function ConditionDetails({
             />
 
 <div className=' px-6 xl:px-[80px] z-[2]'>
-            <div className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
+            <nav aria-label="Breadcrumb" className=' mt-[220px] flex flex-row space-x-[4px] rounded-[62px] w-fit xl:w-[20%] items-center justify-center px-[20px] py-[10px]'
             style={{
                 background : 'rgba(255, 255, 255, 0.50)'
             }}
             >
-                <h1
+                <span
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
@@ -50,9 +84,9 @@ export default async function ConditionDetails({
                 className="text-[#022968]"
                 >
                     Condition
-                </h1>
+                </span>
     
-                <h1
+                <span
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
@@ -60,9 +94,9 @@ export default async function ConditionDetails({
                 className="text-[#022968]"
                 >
                     /
-                </h1>
+                </span>
     
-                <h1
+                <span
                 style={{
                     fontFamily: "var(--font-reem-kufi)",
                     fontWeight: 400,
@@ -70,11 +104,11 @@ export default async function ConditionDetails({
                 className="text-[#2358AC]"
                 >
                     Condition Details
-                </h1>
-            </div>
+                </span>
+            </nav>
         </div>
         <div className="px-6 xl:px-[80px] z-[2] flex flex-row space-x-[20px] items-center justify-start mt-[12px] w-[85%] lg:w-[62%] xl:w-[55%]">
-            <h1
+            <span
               style={{
                   fontFamily: "var(--font-reem-kufi)",
                   fontWeight: 400,
@@ -82,7 +116,7 @@ export default async function ConditionDetails({
               className="text-[#022968] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
                 {condition_details.title}
-            </h1>
+            </span>
         </div>
 
         <div className="z-[2] px-6 xl:px-[80px] mt-[24px]  lg:w-[55%] pb-8">
@@ -259,27 +293,78 @@ export default async function ConditionDetails({
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const condition_details = conditions.find((x) => x.slug === params.slug);
-  const baseUrl = 'https://primaryuc.com';
-  const url = `${baseUrl}/urgentinjurycare/${params.slug}`;
+  const condition_details = conditions.find(condition => condition.slug === params.slug);
+  
+  if (!condition_details) {
+    return {
+      title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
+      description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
+      keywords: [
+        'urgent injury care',
+        'walk-in medical care',
+        'Palm Beach County urgent care',
+        'immediate medical attention',
+        'injury treatment',
+        'illness treatment'
+      ],
+      openGraph: {
+        title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
+        description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
+        url: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+        type: 'website',
+        images: [
+          {
+            url: '/rapidinjurycare.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Urgent injury care Palm Beach County'
+          }
+        ]
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
+        description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
+        images: ['/rapidinjurycare.jpg']
+      },
+      alternates: {
+        canonical: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+      },
+    };
+  }
+
   return {
-    title: condition_details?.metaTitle || `Urgent Injury Care | Palm Beach County Urgent Care`,
-    description: condition_details?.metaDescription || `Walk-in urgent care for injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
-    keywords: condition_details?.keywords || [
-      'injury care urgent care',
-      'walk-in injury clinic',
-      'fracture care urgent care',
-      'sprain care urgent care',
-      'laceration care urgent care',
-      'sports injury urgent care',
-      'orthopedic injury clinic',
-      'immediate injury care Palm Beach',
-      'urgent care for broken bone',
-      'urgent care for stitches',
-      'walk-in fracture clinic',
-      'urgent care for burns',
-      'STAT X-ray MRI CT urgent care'
+    title: condition_details.metaTitle || `${condition_details.title} | Urgent Care Treatment Palm Beach County`,
+    description: condition_details.metaDescription || `Get immediate treatment for ${condition_details.title.toLowerCase()} at our urgent care centers. Walk in or book online. Expert care, fast diagnosis, and comprehensive treatment. Serving Palm Beach County.`,
+    keywords: condition_details.keywords || [
+      condition_details.title.toLowerCase(),
+      'urgent care treatment',
+      'walk-in medical care',
+      'Palm Beach County urgent care',
+      'immediate medical attention',
+      'injury treatment',
+      'illness treatment'
     ],
+    openGraph: {
+      title: condition_details.metaTitle || `${condition_details.title} | Urgent Care Treatment Palm Beach County`,
+      description: condition_details.metaDescription || `Get immediate treatment for ${condition_details.title.toLowerCase()} at our urgent care centers. Walk in or book online. Expert care, fast diagnosis, and comprehensive treatment. Serving Palm Beach County.`,
+      url: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+      type: 'website',
+      images: [
+        {
+          url: condition_details.img || '/rapidinjurycare.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${condition_details.title} - Urgent care treatment Palm Beach County`
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: condition_details.metaTitle || `${condition_details.title} | Urgent Care Treatment Palm Beach County`,
+      description: condition_details.metaDescription || `Get immediate treatment for ${condition_details.title.toLowerCase()} at our urgent care centers. Walk in or book online. Expert care, fast diagnosis, and comprehensive treatment. Serving Palm Beach County.`,
+      images: [condition_details.img || '/rapidinjurycare.jpg']
+    },
     alternates: {
       canonical: url,
     },

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Starred from '@/components/icons/starred';
 import Phone from './icons/phone';
 import BookAnAppointmentPopup from './BookAnAppointmentPopup';
+import { trackEvent } from '../lib/gtag';
+import CallButton from './CallButton';
 const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'Appointment', href: '#' },
@@ -24,15 +26,13 @@ const Footer = () => (
             <p className="text-lg text-white max-w-3xl mb-8">
                 More than 70 % of emergency-room visits could be safely treated at an urgent care center like ours, according to Truven Health Analytics. Skip the ER wait and head to Primary & Urgent Care Centers for rapid relief—from colds, flu, and strep throat to on-site X-rays, labs, immunizations, pediatrics, and occupational health. Same-day appointments, walk-ins welcome.
             </p>
-            <a
-                href="tel:5612238024
-"
+            <CallButton
+                label="footer"
                 className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16"
             >
                 <div className='group-hover:scale-[1.2] transition-all duration-300'><Phone /></div>
                 Call Now  (561) 223-8024
-
-            </a>
+            </CallButton>
             {/* <BookAnAppointmentPopup>
                 <button className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16">
                     Contact Us

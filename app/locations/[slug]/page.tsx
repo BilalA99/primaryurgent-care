@@ -17,6 +17,8 @@ import ClinicsMap from '@/components/clinicsmap'
 import SlidingDiv from '@/components/SlidingAnimation'
 import Reveal from '@/components/RevealAnimation'
 import Testimonials from '@/components/testimonials'
+import { trackEvent } from '../../../lib/gtag';
+import CallButton from '../../../components/CallButton';
 
 const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const { slug } = await params
@@ -48,9 +50,9 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                             Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
                         </p>
                         <div className="flex flex-wrap gap-4 w-full">
-                            <a href="tel:5612238024" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
+                            <CallButton label="locations_slug_page" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
                                 Contact Us
-                            </a>
+                            </CallButton>
                         </div>
                     </div>
                     {/* Right: Form in blurred card */}

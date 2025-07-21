@@ -2,12 +2,22 @@
 import { CheckCircle, Mail, Users, Share2, Instagram, Phone, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useEffect } from 'react';
+import { trackEvent } from '../../lib/gtag';
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 export default function ThankYouPage() {
+    useEffect(() => {
+        trackEvent({
+            action: 'form_submit',
+            category: 'engagement',
+            label: 'BookAppointmentForm_ThankYou'
+        });
+    }, []);
+
     return (
         <div className="lg:py-[80px] py-[40px] w-full bg-gradient-to-br from-red-50 to-slate-50">
             <div className="container mx-auto px-4 py-12">

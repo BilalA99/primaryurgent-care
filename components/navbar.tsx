@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import Phone from './icons/phone';
 import BookAnAppointmentPopup from './BookAnAppointmentPopup';
+import { trackEvent } from '../lib/gtag';
+import CallButton from './CallButton';
 
 const navItems = [
     { name: 'Home', href: '/' },
@@ -99,10 +101,10 @@ const NavBar = () => {
                         </nav>
 
                         {/* Desktop Call Button */}
-                        <a href="tel:56122380247" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                        <CallButton label="navbar" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                             <Phone fill="white" />
                             <span>(561) 223-8024</span>
-                        </a>
+                        </CallButton>
                         {/* <BookAnAppointmentPopup>
                             <button className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                                 Contact Us

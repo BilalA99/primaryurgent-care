@@ -8,6 +8,8 @@ import Link from 'next/link';
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ChevronRight } from 'lucide-react';
+import { trackEvent } from '../../lib/gtag';
+import CallButton from '../../components/CallButton';
 
 export const primaryCareServices = [
     {
@@ -133,8 +135,84 @@ export const metadata = {
 };
 
 export default function PrimaryCareDoctorPage() {
+    // Structured data for primary care doctor page
+    const PrimaryCareJsonLd = () => (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'MedicalClinic',
+            name: 'Primary & Urgent Care Centers of Palm Beach County',
+            url: 'https://primaryuc.com/primary-care-doctor',
+            image: 'https://primaryuc.com/doctorwithpatient.jpg',
+            description: 'See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.',
+            areaServed: [
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Royal Palm Beach, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Lake Worth, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Palm Springs, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Lantana, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Palm Beach County, FL'
+              }
+            ],
+            medicalSpecialty: [
+              'PrimaryCare',
+              'FamilyMedicine',
+              'PediatricCare',
+              'PreventiveCare',
+              'ChronicDiseaseManagement',
+              'WomenHealth',
+              'MensHealth'
+            ],
+            availableService: [
+              'Sick Visits',
+              'Fever & Cough Treatment',
+              'Preventive Care',
+              'Annual Physicals',
+              'Chronic Disease Management',
+              'Women\'s & Men\'s Health',
+              'Pediatric Care',
+              'Vaccinations',
+              'Same-Day Appointments',
+              'Walk-in Availability',
+              'Family Medicine',
+              'Wellness Exams',
+              'Health Screenings'
+            ],
+            openingHours: [
+              'Mo-Fr 09:00-18:00',
+              'Sa 09:00-16:00'
+            ],
+            priceRange: '$$',
+            telephone: '+1-561-223-8024',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Palm Beach County',
+              addressRegion: 'FL',
+              addressCountry: 'US'
+            }
+          })
+        }}
+      />
+    );
+
     return (
         <main className="bg-[#F7FAFF] min-h-screen">
+            <PrimaryCareJsonLd />
             {/* JSON-LD Structured Data for LocalBusiness */}
             <script
                 type="application/ld+json"
@@ -215,7 +293,6 @@ export default function PrimaryCareDoctorPage() {
                 <title>Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County</title>
                 <meta name="description" content="See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic." />
                 <meta name="keywords" content="primary care doctor, family medicine, walk-in clinic, sick visit, annual physical, preventive care, Palm Beach County, urgent care" />
-                <link rel="canonical" href="https://primaryuc.com/primary-care-doctor" />
             </Head>
             {/* Split Hero Section with Overlapping Card */}
             <section className="relative w-full flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:gap-10 py-16 px-4 bg-gradient-to-br from-[#D52128]/90 via-[#F7FAFF]/60 to-[#A7E3F7]/60 overflow-hidden
@@ -229,7 +306,9 @@ export default function PrimaryCareDoctorPage() {
                         <BookAnAppointmentPopup>
                             <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>
                         </BookAnAppointmentPopup>
-                        <a href="tel:5612238024" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">Call (561) 223-8024</a>
+                        <CallButton label="primary_care_doctor_page" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">
+                            Call (561) 223-8024
+                        </CallButton>
                     </div>
                 </div>
                 <div className="justify-center items-center relative mt-10 md:mt-0">
@@ -238,8 +317,8 @@ export default function PrimaryCareDoctorPage() {
                             src="/doctorwithpatient.jpg"
                             alt="Primary Care Doctor with Patient"
                             fill
-                            className="rounded-3xl shadow-2xl object-cover border-4 border-white"
                             priority
+                            className="rounded-3xl shadow-2xl object-cover border-4 border-white"
                         />
                         {/* Overlapping Card */}
                         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border border-[#A7E3F7] z-20 animate-fade-in-up">

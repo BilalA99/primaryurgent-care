@@ -67,8 +67,90 @@ export const metadata = {
 };
 
 export default function Home() {
+  // Structured data for homepage
+  const HomepageJsonLd = () => (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'MedicalClinic',
+          name: 'Primary & Urgent Care Centers of Palm Beach County',
+          url: 'https://primaryuc.com',
+          logo: 'https://primaryuc.com/logo.png',
+          image: 'https://primaryuc.com/homelanding.png',
+          description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+          areaServed: [
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Royal Palm Beach, FL'
+            },
+            {
+              '@type': 'AdministrativeArea', 
+              name: 'Lake Worth, FL'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Palm Springs, FL'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Lantana, FL'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Palm Beach County, FL'
+            }
+          ],
+          medicalSpecialty: [
+            'UrgentCare',
+            'PrimaryCare',
+            'EmergencyCare',
+            'DiagnosticImaging',
+            'InjuryCare',
+            'PediatricCare',
+            'FamilyMedicine'
+          ],
+          availableService: [
+            'Walk-in Urgent Care',
+            'Same-day Appointments',
+            'Hospital-level Imaging (MRI, CT, X-ray, Ultrasound)',
+            'On-site Lab Testing',
+            'Board-certified Doctors',
+            'Pediatric Care',
+            'Primary Care',
+            'Physicals & Screenings',
+            'Vaccinations',
+            'Chronic Disease Management',
+            'Women\'s & Men\'s Health',
+            'Telemedicine',
+            'Insurance & Self-pay Options'
+          ],
+          openingHours: [
+            'Mo-Fr 09:00-18:00',
+            'Sa 09:00-16:00'
+          ],
+          priceRange: '$$',
+          telephone: '+1-561-223-8024',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Palm Beach County',
+            addressRegion: 'FL',
+            addressCountry: 'US'
+          },
+          sameAs: [
+            'https://primaryuc.com/appointment',
+            'https://primaryuc.com/locations',
+            'https://primaryuc.com/service'
+          ]
+        })
+      }}
+    />
+  );
+
   return (
     <main className="h-full w-full flex flex-col text-white">
+      <HomepageJsonLd />
       <section className="flex items-center w-full h-full justify-center relative lg:py-20 py-10">
         <Image
           src={'/homelanding.png'}
