@@ -17,7 +17,7 @@ import Reveal from "@/components/RevealAnimation";
 import Testimonials from "@/components/testimonials";
 import Reviews from "@/components/Reviews";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
-
+import { LanguageSwitcher } from "@/components/language-switcher";
 export const metadata = {
   title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
   description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
@@ -173,6 +173,7 @@ export default function Home() {
               Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
             </p>
           </div>
+          <LanguageSwitcher />
 
           <div className=" w-full h-full xl:w-[50%]">
             {/* <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>

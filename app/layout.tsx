@@ -5,6 +5,7 @@ import NavBar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import BookAppointmentSection from "@/components/BookAppointmentSection";
 import { MapProvider } from "@/providers/map-provider";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Primary and Urgent Care Centers of Florida",
@@ -93,7 +94,13 @@ export default function RootLayout({
             gtag('config', 'G-2BKMKZM043');
           `,
         }} />
+        <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
+        <Script src="/assets/translation.js" strategy="beforeInteractive" />
+        <Script src="//translate.google.com/translate_a/element.js?cb=TranslateInit" strategy="afterInteractive" />
+        {/* Hide all iframes globally */}
+        <style>{`iframe { display: none !important; visibility: hidden !important; }`}</style>
       </head>
+
       <body
         className={`${interTight.variable} antialiased overscroll-none`}
       >
