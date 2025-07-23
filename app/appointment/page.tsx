@@ -15,52 +15,141 @@ import Link from 'next/link';
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
-  title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-  description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, $69 self-pay.',
-  keywords: [
-    'urgent care appointment',
-    'book urgent care',
-    'same day doctor',
-    'walk-in clinic Palm Beach',
-    'urgent care near me',
-    'fast check-in urgent care',
-    'Palm Beach urgent care',
-    'affordable urgent care',
-    'insurance urgent care',
-    '$69 urgent care',
-    'same day urgent care',
-    'online urgent care booking'
-  ].join(', '),
-  openGraph: {
     title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, $69 self-pay.',
-    url: 'https://wpucc.com/appointment',
-    siteName: 'Primary & Urgent Care Centers',
-    images: [
-      {
-        url: '/appointment.png',
-        width: 1200,
-        height: 630,
-        alt: 'Book Urgent Care Appointment Palm Beach',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, $69 self-pay.',
-    images: ['/appointment.png'],
-  },
-  alternates: {
-    canonical: 'https://wpucc.com/appointment',
-  },
+    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+    keywords: [
+        'urgent care appointment',
+        'book urgent care',
+        'same day doctor',
+        'walk-in clinic Palm Beach',
+        'urgent care near me',
+        'fast check-in urgent care',
+        'Palm Beach urgent care',
+        'affordable urgent care',
+        'insurance urgent care',
+        '$69 urgent care',
+        'same day urgent care',
+        'online urgent care booking'
+    ].join(', '),
+    openGraph: {
+        title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
+        description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+        url: 'https://primaryuc.com/appointment',
+        siteName: 'Primary & Urgent Care Centers',
+        images: [
+            {
+                url: '/appointment.png',
+                width: 1200,
+                height: 630,
+                alt: 'Book Urgent Care Appointment Palm Beach',
+            },
+        ],
+        locale: 'en_US',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
+        description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+        images: ['/appointment.png'],
+        site: '@primaryurgentcare',
+    },
+    alternates: {
+        canonical: 'https://primaryuc.com/appointment',
+    },
 };
 
 const AppointmentPage = () => {
+    // Structured data for appointment page
+    const AppointmentJsonLd = () => (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'MedicalClinic',
+            name: 'Primary & Urgent Care Centers of Palm Beach County',
+            url: 'https://primaryuc.com/appointment',
+            image: 'https://primaryuc.com/appointment.png',
+            description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted.',
+            areaServed: [
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Royal Palm Beach, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Lake Worth, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Palm Springs, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Lantana, FL'
+              },
+              {
+                '@type': 'AdministrativeArea',
+                name: 'Palm Beach County, FL'
+              }
+            ],
+            medicalSpecialty: [
+              'UrgentCare',
+              'PrimaryCare',
+              'EmergencyCare',
+              'DiagnosticImaging',
+              'InjuryCare',
+              'PediatricCare'
+            ],
+            availableService: [
+              'Same-day Appointments',
+              'Walk-in Urgent Care',
+              'Online Booking',
+              'Fast Check-in',
+              'Short Wait Times',
+              'Insurance Accepted',
+              'Self-pay Options',
+              'Hospital-level Care',
+              'Advanced Imaging',
+              'On-site Lab Testing'
+            ],
+            openingHours: [
+              'Mo-Fr 09:00-18:00',
+              'Sa 09:00-16:00'
+            ],
+            priceRange: '$$',
+            telephone: '+1-561-223-8024',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Palm Beach County',
+              addressRegion: 'FL',
+              addressCountry: 'US'
+            },
+            potentialAction: {
+              '@type': 'ReserveAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate: 'https://primaryuc.com/appointment',
+                inLanguage: 'en-US',
+                actionPlatform: [
+                  'http://schema.org/DesktopWebPlatform',
+                  'http://schema.org/MobileWebPlatform'
+                ]
+              },
+              result: {
+                '@type': 'MedicalClinic',
+                name: 'Primary & Urgent Care Centers'
+              }
+            }
+          })
+        }}
+      />
+    );
+
     return (
         <main className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-4 lg:px-[60px] min-h-screen">
+            <AppointmentJsonLd />
             <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
                 {/* Left: Text and Buttons */}
                 <Reveal className="w-full overflow-hidden">

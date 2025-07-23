@@ -5,7 +5,7 @@ import { conditions } from '@/components/conditions';
 import { services } from '@/components/Services';
 import { primaryCareServices } from '@/app/primary-care-doctor/page';
 
-const BASE_URL = 'https://wpucc.com';
+const BASE_URL = 'https://primaryuc.com';
 
 export async function GET() {
   // Static routes

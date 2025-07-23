@@ -67,8 +67,90 @@ export const metadata = {
 };
 
 export default function Home() {
+  // Structured data for homepage
+  const HomepageJsonLd = () => (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'MedicalClinic',
+          name: 'Primary & Urgent Care Centers of Palm Beach County',
+          url: 'https://primaryuc.com',
+          logo: 'https://primaryuc.com/logo.png',
+          image: 'https://primaryuc.com/homelanding.png',
+          description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+          areaServed: [
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Royal Palm Beach, FL'
+            },
+            {
+              '@type': 'AdministrativeArea', 
+              name: 'Lake Worth, FL'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Palm Springs, FL'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Lantana, FL'
+            },
+            {
+              '@type': 'AdministrativeArea',
+              name: 'Palm Beach County, FL'
+            }
+          ],
+          medicalSpecialty: [
+            'UrgentCare',
+            'PrimaryCare',
+            'EmergencyCare',
+            'DiagnosticImaging',
+            'InjuryCare',
+            'PediatricCare',
+            'FamilyMedicine'
+          ],
+          availableService: [
+            'Walk-in Urgent Care',
+            'Same-day Appointments',
+            'Hospital-level Imaging (MRI, CT, X-ray, Ultrasound)',
+            'On-site Lab Testing',
+            'Board-certified Doctors',
+            'Pediatric Care',
+            'Primary Care',
+            'Physicals & Screenings',
+            'Vaccinations',
+            'Chronic Disease Management',
+            'Women\'s & Men\'s Health',
+            'Telemedicine',
+            'Insurance & Self-pay Options'
+          ],
+          openingHours: [
+            'Mo-Fr 09:00-18:00',
+            'Sa 09:00-16:00'
+          ],
+          priceRange: '$$',
+          telephone: '+1-561-223-8024',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Palm Beach County',
+            addressRegion: 'FL',
+            addressCountry: 'US'
+          },
+          sameAs: [
+            'https://primaryuc.com/appointment',
+            'https://primaryuc.com/locations',
+            'https://primaryuc.com/service'
+          ]
+        })
+      }}
+    />
+  );
+
   return (
     <main className="h-full w-full flex flex-col text-white">
+      <HomepageJsonLd />
       <section className="flex items-center w-full h-full justify-center relative lg:py-20 py-10">
         <Image
           src={'/homelanding.png'}
@@ -78,20 +160,21 @@ export default function Home() {
           className="-z-10 w-full h-full absolute object-cover object-center"
         />
         <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
-        <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between max-w-8xl w-full xl:px-[60px] px-6">
+        <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
           <div className="flex flex-col justify-center space-y-6">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
-              Call for any emergency: (561) 204-5111
+              Call for any emergency: (561) 223-8024
+
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">
-              Immediate medical care<br/> when you need it most
+              Immediate medical care<br /> when you need it most
             </h1>
             <p className="text-lg w-full md:w-[45%]">
               Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
             </p>
           </div>
 
-          <div className=" w-full xl:w-[50%]">
+          <div className=" w-full h-full xl:w-[50%]">
             {/* <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>
             <form className="space-y-5">
               <div>
@@ -131,20 +214,19 @@ export default function Home() {
       <Services />
 
       {/* State of the Art Technology Section */}
-      <section className="w-full max-w-8xl bg-white mx-auto md:py-10 grid grid-cols-1 lg:gap-12 px-6 lg:px-[60px]">
-        {/* Top row */}
+      <section className="w-full sm:max-w-8xl bg-white mx-auto md:py-10 grid grid-cols-1 lg:gap-12 px-6 lg:px-[60px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-8">
 
-          <div className="w-full">
+          <div className="w-full  sm:block hidden">
             <GradientImage
               src="/stateoftheart.png"
               alt="Doctor with MRI and X-ray"
-              className="w-full  sm:block hidden"
+              className="w-full "
               priority
             />
           </div>
 
-          <SlidingDiv className="w-full" position="right">
+          <SlidingDiv className="w-full overflow-hidden" position="right">
             <div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                 State of the Art Technology,<br className="hidden lg:block" />Right Inside Our Urgent Care
@@ -155,9 +237,9 @@ export default function Home() {
             </div>
           </SlidingDiv>
         </div>
-        {/* Bottom row */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <SlidingDiv className="w-full" position="left">
+          <SlidingDiv className="w-full overflow-hidden" position="left">
             <div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                 Seen in 15 minutes or less!
@@ -167,19 +249,21 @@ export default function Home() {
               </p>
             </div>
           </SlidingDiv>
-          <GradientImage
-            src="/doctorwithpatient.jpg"
-            alt="Doctor with patient"
-            className="w-full sm:block hidden"
-            direction="left"
-            priority={false}
-          />
+          <div className="w-full sm:block hidden">
+            <GradientImage
+              src="/doctorwithpatient.jpg"
+              alt="Doctor with patient"
+              className="w-full "
+              direction="left"
+              priority={false}
+            />
+          </div>
         </div>
       </section>
 
       {/* Urgent, Accident, Emergency Room Care Section */}
       <section className="w-full bg-white py-20 px-4 lg:px-[60px]">
-        <div className="max-w-8xl mx-auto grid grid-cols-1 gap-8">
+        <div className="sm:max-w-8xl mx-auto grid grid-cols-1 gap-8">
           {/* Top row */}
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 items-stretch">
             <div className=" col-span-1">
@@ -215,11 +299,11 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <Testimonials/>
+      <Testimonials />
 
       {/* Accessible Urgent Care Section */}
       <section className="w-full bg-[#FAFAFA] lg:py-24 py-10 px-6 lg:px-[60px]">
-        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div className="sm:max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Left: Text and Cards */}
           <div className="lg:col-span-3 flex flex-col gap-10">
             <div>
@@ -232,45 +316,45 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-16 gap-10">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:col-span-2 col-span-1 ">
                 {/* Top left card */}
-                  <div className="w-full overflow-hidden bg-[#F2F6FC] rounded-tl-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
-                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                      <Ambulance />
-                    </div>
-                    <Reveal className="w-full overflow-hidden">
-                     <div className="w-full overflow-hidden">
-                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Urgent Care</h3>
-                        <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
-                     </div>
-                    </Reveal>
+                <div className="w-full overflow-hidden bg-[#F2F6FC] rounded-tl-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <Ambulance />
                   </div>
+                  <Reveal className="w-full overflow-hidden">
+                    <div className="w-full overflow-hidden">
+                      <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Urgent Care</h3>
+                      <p className="text-gray-700 text-lg">Primary & Urgent Care Centers deliver local, personal treatment for everything from colds to fractures—no referral needed.</p>
+                    </div>
+                  </Reveal>
+                </div>
                 {/* Top right card */}
-                  <div className="w-full overflow-hidden bg-[#FDF4F4] rounded-tr-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
-                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                      <Waittimes />
-                    </div>
-                   <Reveal className="w-full overflow-hidden">
-                      <div className="w-full overflow-hidden">
-                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Short Wait Times</h3>
-                        <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
-                      </div>
-                   </Reveal>
+                <div className="w-full overflow-hidden bg-[#FDF4F4] rounded-tr-2xl lg:p-8 p-6 flex flex-col space-y-20 py-10 relative pb-20">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <Waittimes />
                   </div>
+                  <Reveal className="w-full overflow-hidden">
+                    <div className="w-full overflow-hidden">
+                      <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8">Short Wait Times</h3>
+                      <p className="text-gray-700 text-lg">Our digital queue guarantees you'll be seen in 15 minutes or less. Book a same-day appointment or walk in anytime.</p>
+                    </div>
+                  </Reveal>
+                </div>
                 {/* Bottom card (spans both columns) */}
-                  <div className="bg-white rounded-b-2xl lg:p-8 p-6 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
-                    <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
-                      <ShieldUser />
-                    </div>
-                    <Reveal className="w-full overflow-hidden">
-                      <div className="w-full overflow-hidden">
-                        <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8 md:w-full w-[80%]">Most Insurance Accepted</h3>
-                        <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
-                      </div>
-                    </Reveal>
+                <div className="bg-white rounded-b-2xl lg:p-8 p-6 flex flex-col space-y-20 md:col-span-2 justify-between  relative">
+                  <div className="absolute top-6 right-6 bg-white rounded-full p-3 ">
+                    <ShieldUser />
                   </div>
+                  <Reveal className="w-full overflow-hidden">
+                    <div className="w-full overflow-hidden">
+                      <h3 className="lg:text-4xl text-3xl font-bold text-black mb-8 md:w-full w-[80%]">Most Insurance Accepted</h3>
+                      <p className="text-gray-700 text-lg">Our co-pays are less than hospital emergency room fees and we will work with you to process your insurance</p>
+                    </div>
+                  </Reveal>
+                </div>
               </div>
               {/* Right: Map Placeholder */}
               <div className="w-full h-full col-span-2 bg-gray-200 rounded-2xl flex items-center justify-center">
-                <ClinicsMap zoom={11}/>
+                <ClinicsMap zoom={11} />
               </div>
             </div>
 
