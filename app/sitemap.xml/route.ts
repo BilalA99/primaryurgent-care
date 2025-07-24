@@ -28,8 +28,8 @@ export async function GET() {
   const painCareRoutes: string[] = PainCareWeTreatData.map(item => `/paincare/${item.slug}`);
   const pricingRoutes: string[] = pricingData.map(item => `/pricing/${item.slug}`);
   const urgentInjuryCareRoutes: string[] = conditions.map(item => `/urgentinjurycare/${item.slug}`);
-  const serviceRoutes: string[] = services.map(item => `/service/${item.slug}`);
-
+  // Remove serviceRoutes, add emergencyRoomServiceRoutes
+  const emergencyRoomServiceRoutes: string[] = services.map(item => `/emergencyroom/${item.slug}`);
   // Add dynamic routes for primary-care-doctor/[slug]
   const primaryCareDoctorRoutes: string[] = primaryCareServices.map((item: { slug: string }) => `/primary-care-doctor/${item.slug}`);
 
@@ -39,7 +39,7 @@ export async function GET() {
     ...painCareRoutes,
     ...pricingRoutes,
     ...urgentInjuryCareRoutes,
-    ...serviceRoutes,
+    ...emergencyRoomServiceRoutes,
     ...primaryCareDoctorRoutes,
   ];
 

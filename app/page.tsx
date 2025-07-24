@@ -19,18 +19,16 @@ import Reviews from "@/components/Reviews";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 import { LanguageSwitcher } from "@/components/language-switcher";
 export const metadata = {
-  title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
-  description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+  title: 'Injury Doctor & Accident Clinic in Palm Beach County | PrimaryUC',
+  description: 'Immediate care for car accident, slip & fall, and work injuries in West Palm Beach, Lake Worth & Royal Palm Beach. We handle PIP claims & provide medical reports for attorneys.',
   keywords: [
+    'car accident doctor west palm beach',
+    'personal injury clinic',
+    'urgent injury care',
+    'florida pip doctor',
+    'slip and fall doctor palm beach county',
+    'walk-in injury clinic',
     'urgent care Palm Beach',
-    'walk-in clinic',
-    'emergency care',
-    'primary care',
-    'urgent care near me',
-    'hospital-level urgent care',
-    'same day doctor',
-    'affordable urgent care',
-    'Palm Beach urgent care',
     'Royal Palm Beach urgent care',
     'Lake Worth urgent care',
     'Palm Springs urgent care',
@@ -46,7 +44,7 @@ export const metadata = {
     siteName: 'Primary & Urgent Care Centers',
     images: [
       {
-        url: '/homelanding.png',
+        url: '/HomepageIMG.png',
         width: 1200,
         height: 630,
         alt: 'Urgent Care Palm Beach County',
@@ -59,7 +57,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
     description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
-    images: ['/homelanding.png'],
+    images: ['/HomepageIMG.png'],
   },
   alternates: {
     canonical: 'https://wpucc.com/',
@@ -78,7 +76,7 @@ export default function Home() {
           name: 'Primary & Urgent Care Centers of Palm Beach County',
           url: 'https://primaryuc.com',
           logo: 'https://primaryuc.com/logo.png',
-          image: 'https://primaryuc.com/homelanding.png',
+          image: 'https://primaryuc.com/HomepageIMG.png',
           description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
           areaServed: [
             {
@@ -170,7 +168,7 @@ export default function Home() {
               Immediate medical care<br /> when you need it most
             </h1>
             <p className="text-lg w-full md:w-[45%]">
-              Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
+              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue.
             </p>
           </div>
           <LanguageSwitcher />
@@ -271,7 +269,7 @@ export default function Home() {
               <CareCard
                 imageSrc="/urgent.jpg"
                 title="Injury Care"
-                description="From sprains, strains, and simple fractures to minor burns and cuts, our clinicians deliver rapid treatment using hospital-grade splints and on-site X-ray—no referral, no delay."
+                description="From sprains, strains, and simple fractures to minor burns and cuts, our clinicians deliver rapid treatment using hospital-grade splints and on-site X-ray—no referral, no delay. Specializing in accident and injury care for car accidents, slip & falls, and work injuries."
                 buttonText="Explore Urgent Care"
                 buttonLink="/urgentinjurycare"
               />
@@ -280,7 +278,7 @@ export default function Home() {
               <CareCard
                 imageSrc="/accident.jpg"
                 title="Comprehensive Accident & Pain Care"
-                description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait."
+                description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait. Get your injury documented for insurance or legal claims."
                 buttonText="Explore Pain care"
                 buttonLink="/paincare"
               />
@@ -290,7 +288,7 @@ export default function Home() {
           <CareCard
             imageSrc="/emergencyroomlevelcare.jpg"
             title="Emergency Room Level Care"
-            description="Why battle long waits at a hospital ER? Our urgent care centers deliver true hospital-level care with emergency-room equipment from on-site imaging so you get the right treatment fast. For non-life- or limb-threatening emergencies, simply walk in or book a same-day appointment and be seen in 15 minutes or less. Enjoy STAT imaging reads within 3 hours and same-day scan results."
+            description="Why battle long waits at a hospital ER? Our urgent care centers deliver true hospital-level care with emergency-room equipment from on-site imaging so you get the right treatment fast. For non-life- or limb-threatening emergencies, simply walk in or book a same-day appointment and be seen in 15 minutes or less. Enjoy STAT imaging reads within 3 hours and same-day scan results. We work with your auto insurance or attorney to provide all necessary documentation."
             buttonText="Explore Emergency Care"
             horizontal
             className=""
@@ -310,7 +308,7 @@ export default function Home() {
             <div>
               <h2 className="lg:text-6xl text-4xl font-bold text-black mb-6 leading-tight">Accessible Urgent Care Across Palm Beach County</h2>
               <p className="text-md text-gray-700 mb-10">
-                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana— we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location.
+                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana—we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location. If you’ve been in an accident, it’s critical to seek care within 14 days to comply with Florida’s PIP rule and protect your right to insurance benefits.
               </p>
             </div>
 

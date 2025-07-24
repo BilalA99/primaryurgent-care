@@ -16,8 +16,45 @@ export default async function ConditionDetails({
       notFound()
     )
   }
+  // MedicalCondition and MedicalProcedure JSON-LD schema
+  const ConditionJsonLd = () => (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalCondition",
+            "name": condition_details.title,
+            "description": condition_details.description,
+            "image": condition_details.img ? `https://primaryuc.com${condition_details.img}` : undefined,
+            "url": `https://primaryuc.com/paincare/${condition_details.slug}`,
+            "possibleTreatment": condition_details.treatment,
+            "cause": condition_details.causes,
+            "signOrSymptom": condition_details.symptoms
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "name": condition_details.title + ' Treatment',
+            "description": condition_details.treatment,
+            "image": condition_details.img ? `https://primaryuc.com${condition_details.img}` : undefined,
+            "url": `https://primaryuc.com/paincare/${condition_details.slug}`,
+            "howPerformed": condition_details.treatment,
+            "indication": condition_details.description
+          })
+        }}
+      />
+    </>
+  );
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      <ConditionJsonLd />
       {/* Landing */}
       <div className="w-full mx-auto flex flex-col items-center mt-20">
         <div className="text-sm mb-2">

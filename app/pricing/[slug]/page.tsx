@@ -9,8 +9,54 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   if (!pricing) {
     return notFound()
   }
+  // Offer and Service JSON-LD schema
+  const PricingJsonLd = () => (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": pricing.title,
+            "description": pricing.description,
+            "image": pricing.img ? `https://primaryuc.com${pricing.img}` : undefined,
+            "url": `https://primaryuc.com/pricing/${pricing.slug}`,
+            "provider": {
+              "@type": "MedicalClinic",
+              "name": "Primary & Urgent Care Centers of Palm Beach County",
+              "url": "https://primaryuc.com"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": pricing.title,
+              "description": pricing.description
+            },
+            "price": pricing.price ? pricing.price.replace(/[^\d.]/g, '') : undefined,
+            "priceCurrency": "USD",
+            "url": `https://primaryuc.com/pricing/${pricing.slug}`,
+            "seller": {
+              "@type": "MedicalClinic",
+              "name": "Primary & Urgent Care Centers of Palm Beach County",
+              "url": "https://primaryuc.com"
+            }
+          })
+        }}
+      />
+    </>
+  );
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      <PricingJsonLd />
       {/* Landing */}
       <div className="w-full mx-auto flex flex-col items-center mt-20">
         <div className="text-sm mb-2">

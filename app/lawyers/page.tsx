@@ -3,10 +3,16 @@ import React from 'react'
 import LawyerRecordsForm from '@/components/ui/LawyerRecordsForm'
 
 export const metadata = {
-  title: "Legal Records Request for Attorneys | Auto Accident & Personal Injury Medical Records Palm Beach County",
+  title: "Medical Reports & Documentation for PI Lawyers | PrimaryUC",
   description:
-    "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County. Immediate access to documentation for car accident, whiplash, and injury claims.",
+    "We provide timely, detailed medical evaluations & reports for personal injury attorneys in Florida. We work on a letter of protection (LOP) / medical lien basis.",
   keywords: [
+    "doctor report for attorney florida",
+    "medical documentation for injury",
+    "medical lien doctor florida",
+    "doctor that accepts letter of protection",
+    "personal injury medical examination",
+    "EMC doctor florida",
     "legal records request",
     "attorney medical records",
     "auto accident medical records",
@@ -162,7 +168,7 @@ const LawyersPage = () => {
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 ">Legal Records Request for Attorneys</h1>
               <p className="text-white lg:text-lg text-base mb-2">
-                If you are a legal representative seeking patient medical records, please complete the secure form below. This form allows our urgent care staff to connect with your law firm and process your request in compliance with HIPAA regulations. Please provide accurate details regarding the patient, date of service, and the type of records required. For your request to be processed, ensure that all necessary authorizations or subpoenas are uploaded and that the legal acknowledgement is accepted. We are committed to maintaining the confidentiality and security of all Protected Health Information (PHI) throughout the process.
+                We provide Independent Medical Exams (IMEs), detailed injury documentation, EMC (Emergency Medical Condition) diagnosis for PIP claims, and work on Letters of Protection (LOPs) or medical liens. Our team delivers timely, attorney-ready medical reports for personal injury cases, ensuring you have the documentation needed for insurance and legal claims.
               </p>
               <p className="text-white lg:text-lg text-base mb-2">
                 To help us process your request without delays, please fill in all required information, including your firm or attorney name, contact details, and the patient's full name and date of birth. Indicate the approximate date of service and specify which records are needed—whether the full chart, imaging only, or billing only—using the dropdown provided. Additionally, upload a secure file containing the signed authorization or subpoena relevant to the case.

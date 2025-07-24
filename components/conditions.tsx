@@ -91,18 +91,18 @@ export const conditions: ConditionInfoProp[] = [
     },
     {
         title: "Work Injuries & Workers' Comp",
-        description: "Specialized care for workplace injuries and workers' compensation cases",
-        whatItIs: "Work injuries can occur in any workplace and may include musculoskeletal injuries, cuts, burns, eye injuries, respiratory problems, and other conditions related to occupational hazards. Workers' compensation is a form of insurance that provides medical care and wage replacement for employees injured on the job. Our urgent care centers are experienced in treating work-related injuries and navigating the workers' compensation process.",
+        description: "Authorized workers' compensation doctor and work injury clinic serving Palm Beach County employees. Immediate care, documentation, and treatment for on-the-job injuries.",
+        whatItIs: "Work injuries can occur in any workplace and may include musculoskeletal injuries, cuts, burns, eye injuries, respiratory problems, and other conditions related to occupational hazards. Our urgent care centers are authorized workers' compensation providers for Palm Beach County, serving employees from construction, warehouse, hospitality, and other major industries. We bill your employer directly and help you navigate the workers' comp process.",
         symptoms: "Work injury symptoms vary depending on the type of injury and may include pain, swelling, bruising, limited range of motion, difficulty performing work tasks, and psychological stress. Injuries may be acute (sudden) or develop gradually over time due to repetitive stress or exposure to workplace hazards. Proper documentation of symptoms is crucial for workers' compensation claims.",
         whenToSeekCare: "Seek immediate medical attention for any work-related injury, regardless of severity, to ensure proper documentation and treatment. Early evaluation can prevent complications and ensure proper workers' compensation coverage. Our urgent care centers can provide same-day evaluation and treatment for work injuries, with experience in workers' compensation documentation.",
         treatment: "Treatment depends on the specific injury and may include medications, physical therapy, occupational therapy, or referral to specialists. Our providers can provide appropriate treatment and ensure proper documentation for workers' compensation claims. We work with employers and insurance companies to facilitate the claims process.",
         prevention: "Prevention strategies include proper training, use of personal protective equipment, ergonomic workplace design, and regular safety training. Employers should provide appropriate safety equipment and training to prevent workplace injuries. Our urgent care centers can provide education on workplace safety and injury prevention.",
-        urgentCareAdvantage: "Our urgent care centers provide convenient access to work injury treatment with experience in workers' compensation documentation. We can provide immediate evaluation and treatment while ensuring proper documentation for insurance claims. Our providers are experienced in managing work-related injuries and navigating the workers' compensation process.",
+        urgentCareAdvantage: "Our urgent care centers provide convenient access to work injury treatment with experience in workers' compensation documentation. We are an authorized workers' compensation provider for Palm Beach County, offering immediate evaluation, treatment, and all necessary paperwork. We bill your employer directly and help you return to work safely.",
         slug: "work-injuries-workers-comp",
         img: '/work.png',
-        metaTitle: "Work Injuries & Workers' Comp - Urgent Care Palm Beach County",
-        metaDescription: "Learn about workplace injuries and workers' compensation cases, and how our urgent care centers can provide specialized care and experience in navigating the claims process.",
-        keywords: ["work injuries", "workers' compensation", "urgent care", "Palm Beach County"]
+        metaTitle: "Authorized Workers' Comp Doctor in Palm Beach County, FL",
+        metaDescription: "Injured at work? Our workers' compensation doctors provide immediate care, documentation, and treatment. We handle all workers' comp paperwork.",
+        keywords: ["workers comp doctor palm beach county", "work injury clinic", "workers compensation clinic", "find a workers comp doctor near me", "on the job injury clinic", "doctor for work injury", "authorized workers compensation doctor"]
     },
     {
         title: "UTIs & Women's Health",
