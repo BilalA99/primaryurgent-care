@@ -24,8 +24,70 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
     const { slug } = await params
     const location = LocationsScreens.find((location) => location.slug === slug)
     if (!location) return <p>Location not found</p>
+    // MedicalClinic JSON-LD schema
+    const LocationJsonLd = () => (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalClinic",
+            "name": location.clinic,
+            "image": `https://primaryuc.com${location.image}`,
+            "url": `https://primaryuc.com/locations/${location.slug}`,
+            "telephone": location.phone,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": location.address.split(',')[0],
+              "addressLocality": location.address.split(',')[1]?.trim() || '',
+              "addressRegion": location.address.split(',')[2]?.split(' ')[1] || 'FL',
+              "postalCode": location.address.split(',')[2]?.split(' ')[2] || '',
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": location.lat,
+              "longitude": location.lng
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                ],
+                "opens": "08:00",
+                "closes": "20:00"
+              }
+            ]
+          })
+        }}
+      />
+    );
+    const citySeo = {
+      'royal-palm-beach-primary-urgent-care-center': {
+        title: 'Car Accident & Injury Doctor in Royal Palm Beach | PrimaryUC',
+        description: 'Need a doctor after an accident in Royal Palm Beach? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+        intro: 'PrimaryUC is the leading injury clinic and urgent care center in Royal Palm Beach, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Royal Palm Beach businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Royal Palm Beach.'
+      },
+      'lake-worth-primary-urgent-care-center': {
+        title: 'Car Accident & Injury Doctor in Lake Worth | PrimaryUC',
+        description: 'Need a doctor after an accident in Lake Worth? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+        intro: 'PrimaryUC is the leading injury clinic and urgent care center in Lake Worth, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lake Worth businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Lake Worth.'
+      },
+      'palm-springs-primary-urgent-care-center': {
+        title: 'Car Accident & Injury Doctor in Palm Springs | PrimaryUC',
+        description: 'Need a doctor after an accident in Palm Springs? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+        intro: 'PrimaryUC is the leading injury clinic and urgent care center in Palm Springs, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Palm Springs businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Palm Springs.'
+      },
+      'lantana-primary-urgent-care-center': {
+        title: 'Car Accident & Injury Doctor in Lantana | PrimaryUC',
+        description: 'Need a doctor after an accident in Lantana? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+        intro: 'PrimaryUC is the leading injury clinic and urgent care center in Lantana, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lantana businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Lantana.'
+      }
+    };
     return (
         <main className=''>
+            <LocationJsonLd />
             <section className="relative h-full w-full xl:px-[60px] px-2">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
@@ -47,7 +109,7 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
                         </div>
                         <h1 className="sm:text-4xl text-3xl md:text-6xl font-600 mb-6 leading-tight text-left">Welcome to {location?.clinic}</h1>
                         <p className="text-lg mb-8 lg:w-[55%] w-full text-left">
-                            Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
+                          {citySeo[location.slug]?.intro || 'Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.'}
                         </p>
                         <div className="flex flex-wrap gap-4 w-full">
                             <CallButton label="locations_slug_page" className="bg-white text-[black] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex lg:w-[40%] sm:w-fit w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
@@ -145,9 +207,27 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const location = LocationsScreens.find((x) => x.slug === params.slug);
   const baseUrl = 'https://wpucc.com';
   const url = `${baseUrl}/locations/${params.slug}`;
+  const citySeo = {
+    'royal-palm-beach-primary-urgent-care-center': {
+      title: 'Car Accident & Injury Doctor in Royal Palm Beach | PrimaryUC',
+      description: 'Need a doctor after an accident in Royal Palm Beach? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+    },
+    'lake-worth-primary-urgent-care-center': {
+      title: 'Car Accident & Injury Doctor in Lake Worth | PrimaryUC',
+      description: 'Need a doctor after an accident in Lake Worth? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+    },
+    'palm-springs-primary-urgent-care-center': {
+      title: 'Car Accident & Injury Doctor in Palm Springs | PrimaryUC',
+      description: 'Need a doctor after an accident in Palm Springs? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+    },
+    'lantana-primary-urgent-care-center': {
+      title: 'Car Accident & Injury Doctor in Lantana | PrimaryUC',
+      description: 'Need a doctor after an accident in Lantana? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+    }
+  };
   return {
-    title: location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-    description: location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+    title: citySeo[params.slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+    description: citySeo[params.slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
     keywords: location?.keywords || [
       'urgent care Palm Beach County',
       'walk-in clinic Palm Beach',
@@ -161,8 +241,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       canonical: url,
     },
     openGraph: {
-      title: location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-      description: location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+      title: citySeo[params.slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+      description: citySeo[params.slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
       url,
       type: 'article',
       images: [
@@ -176,8 +256,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
     twitter: {
       card: 'summary_large_image',
-      title: location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-      description: location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+      title: citySeo[params.slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+      description: citySeo[params.slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
       images: [location?.image ? `${baseUrl}${location.image}` : `${baseUrl}/servicelanding.jpg`],
     },
   };
