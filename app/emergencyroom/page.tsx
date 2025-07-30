@@ -19,7 +19,7 @@ const accordionSections = [
         <li>Primary & Family Care</li>
         <li>Advanced Imaging — Digital X-ray • CT • MRI • Ultrasound</li>
         <li>On-Site Lab Testing & Rapid Panels</li>
-        <li>Annual, School/Sports, DOT & Immigration Physicals</li>
+                        <li>Annual, School/Sports & DOT Physicals</li>
         <li>Vaccinations & Travel Medicine (flu, tetanus, yellow-fever)</li>
         <li>Allergy & Asthma Treatments</li>
         <li>Women's & Men's Health Visits</li>
@@ -250,7 +250,7 @@ const EmergencyRoomPage = () => {
                 At Primary Urgent Care, you won't spend hours in a waiting room. In fact, most patients are seen by a provider within 15 minutes of arrival—a huge relief compared to hospital ERs, where wait times can often stretch to several hours. Getting care faster means you start feeling better sooner, instead of sitting in pain or discomfort.
               </p>
               <p className="text-lg text-[#494647]">
-                Urgent care is also much easier on your wallet. Our visits typically cost only a fraction of an ER bill—primaryuc.com. For example, a standard visit at Primary Urgent Care is just $69.99, with X-rays around $50, and even MRI imaging for about $200 (self-pay)—all while delivering the same high-quality care. We accept most major insurance plans, but even if you're uninsured, you're welcome here. The bottom line: you get top-tier medical care without the sky-high ER expense.
+                Urgent care is also much easier on your wallet. Our visits typically cost only a fraction of an ER bill—primaryuc.com. For example, a standard visit at Primary Urgent Care is just $89.99, with X-rays around $70, and MRI imaging for about $300 (self-pay)—all while delivering the same high-quality care. We accept most major insurance plans, but even if you're uninsured, you're welcome here. The bottom line: you get top-tier medical care without the sky-high ER expense.
               </p>
             </div>
             <div>

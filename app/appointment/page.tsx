@@ -27,7 +27,7 @@ export const metadata = {
         'Palm Beach urgent care',
         'affordable urgent care',
         'insurance urgent care',
-        '$69 urgent care',
+        '$89 urgent care',
         'same day urgent care',
         'online urgent care booking'
     ].join(', '),

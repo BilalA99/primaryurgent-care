@@ -133,7 +133,7 @@ const UrgentInjuryCareJsonLd = () => (
                     }
                 ],
                 telephone: '+1-561-223-80245',
-                description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $69 self-pay, most insurance accepted. Serving Palm Beach County.'
+                description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $89 self-pay, most insurance accepted. Serving Palm Beach County.'
             })
         }}
     />

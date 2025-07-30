@@ -115,7 +115,7 @@ function PainCareJsonLd() {
             "Same-day appointments",
             "Walk-in care for accident injuries"
           ],
-          "priceRange": "$69+ self-pay, most insurance accepted",
+          "priceRange": "$89+ self-pay, most insurance accepted",
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
