@@ -169,7 +169,8 @@ export default function Home() {
               Immediate medical care<br /> when you need it most
             </h1>
             <p className="text-lg w-full ">
-              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue.
+              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue. <br/>
+              Office visits are <strong>$89.99</strong>.
             </p>
           </div>
 
