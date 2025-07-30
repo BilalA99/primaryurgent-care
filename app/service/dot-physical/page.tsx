@@ -7,13 +7,13 @@ import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
   title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-  description: "DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+  description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
   keywords: [
     "DOT physical", "CDL medical exam", "DOT physical near me", "urgent care DOT physical", "Palm Beach County urgent care", "same day DOT physical", "FMCSA", "commercial driver exam"
   ],
   openGraph: {
     title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-    description: "DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
     url: "https://primaryuc.com/service/dot-physical",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-    description: "DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
     images: [
       "https://primaryuc.com/dotphysical.png"
     ]
@@ -84,7 +84,7 @@ const faqs = [
     },
     {
         q: 'How much does a DOT physical cost?',
-        a: 'Our DOT physicals are $150, including all required testing and documentation. We offer transparent pricing with no hidden fees.'
+        a: 'Our DOT physicals are $90, including all required testing and documentation. We offer transparent pricing with no hidden fees.'
     },
     {
         q: 'Do you provide same-day results and documentation?',
@@ -107,7 +107,7 @@ function DotPhysicalJsonLd() {
           "name": "Primary & Urgent Care Centers of Palm Beach County",
           "url": "https://primaryuc.com/service/dot-physical",
           "image": "https://primaryuc.com/dotphysical.png",
-          "description": "DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+          "description": "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
           "areaServed": [
             "Royal Palm Beach FL",
             "Lake Worth FL",
@@ -189,7 +189,7 @@ export default function DotPhysicalPage() {
                 <ul className="list-disc pl-6 text-lg text-[#494647] mb-4">
                     <li>Immediate access—walk-ins welcome, flexible scheduling</li>
                     <li>DOT-certified medical examiners</li>
-                    <li>Transparent pricing: $150, no hidden fees</li>
+                    <li>Transparent pricing: $90, no hidden fees</li>
                     <li>Convenient locations across Palm Beach County</li>
                     <li>Friendly, bilingual staff</li>
                 </ul>

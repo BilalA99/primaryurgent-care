@@ -16,6 +16,8 @@ const PricingGrid = () => {
         <PricingCard {...pricingData[5]} />
         <PricingCard {...pricingData[6]} />
         <PricingCard {...pricingData[7]} />
+        {/* Fourth row */}
+        <PricingCard {...pricingData[8]} />
     </div>
     )
 }

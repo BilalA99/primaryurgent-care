@@ -11,7 +11,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ imageSrc, title, description, slug }) => {
     return (
-            <Link href={`/emergencyroom/${slug}`} className="w-full overflow-hidden bg-[#F4F3F3] rounded-lg md:h-90 shadow-md hover:scale-105 transition-transform duration-300">
+            <Link href={`/emergencyroom/${slug}`} className="w-full overflow-hidden bg-[#F4F3F3] rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
                 <div className="relative h-48">
                     <Image
                         src={imageSrc}

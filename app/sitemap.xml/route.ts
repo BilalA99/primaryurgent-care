@@ -32,6 +32,12 @@ export async function GET() {
   const emergencyRoomServiceRoutes: string[] = services.map(item => `/emergencyroom/${item.slug}`);
   // Add dynamic routes for primary-care-doctor/[slug]
   const primaryCareDoctorRoutes: string[] = primaryCareServices.map((item: { slug: string }) => `/primary-care-doctor/${item.slug}`);
+  // Add individual service pages
+  const individualServiceRoutes: string[] = [
+    '/service/ct-scan',
+    '/service/nuclear-scans',
+    '/service/dot-physical'
+  ];
 
   const allRoutes: string[] = [
     ...staticRoutes,
@@ -41,6 +47,7 @@ export async function GET() {
     ...urgentInjuryCareRoutes,
     ...emergencyRoomServiceRoutes,
     ...primaryCareDoctorRoutes,
+    ...individualServiceRoutes,
   ];
 
   const urls = allRoutes.map(

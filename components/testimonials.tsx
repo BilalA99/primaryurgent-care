@@ -61,7 +61,7 @@ const reviews = [
     avatar: "https://mynaui.com//avatars/avatar-02.jpg",
     timeAgo: "1 month ago",
     rating: 5,
-    text: "My daughter needed a school physical last minute. They got us in same day and completed all the paperwork. Only $9.99! Other places wanted $150. The staff was so friendly and efficient.",
+    text: "My daughter needed a school physical last minute. They got us in same day and completed all the paperwork. Only $9.99! Other places wanted **over $200**. The staff was so friendly and efficient.",
   },
   {
     id: 8,
