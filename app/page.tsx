@@ -149,6 +149,7 @@ export default function Home() {
   return (
     <main className="h-full w-full flex flex-col text-white">
       <HomepageJsonLd />
+      <LanguageSwitcher />
       <section className="flex items-center w-full h-full justify-center relative lg:py-20 py-10">
         <Image
           src={'/homelanding.png'}
@@ -159,7 +160,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
         <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
-          <div className="flex flex-col justify-center space-y-6">
+          <div className="flex flex-col justify-center space-y-6 w-fit">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
               Call for any emergency: (561) 223-8024
 
@@ -167,43 +168,12 @@ export default function Home() {
             <h1 className="lg:text-6xl text-4xl font-bold ">
               Immediate medical care<br /> when you need it most
             </h1>
-            <p className="text-lg w-full md:w-[45%]">
+            <p className="text-lg w-full ">
               Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue.
             </p>
           </div>
-          <LanguageSwitcher />
 
-          <div className=" w-full h-full xl:w-[50%]">
-            {/* <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name</label>
-                <input type="text" id="fullName" placeholder="Enter your full name" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none" />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter your phone number" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none" />
-              </div>
-              <div>
-                <label htmlFor="accidentType" className="block text-sm font-medium mb-2">Type of Accident</label>
-                <div className="relative">
-                  <select id="accidentType" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg appearance-none">
-                    <option>Select</option>
-                    <option>Workplace Accident</option>
-                    <option>Car Accident</option>
-                    <option>Personal Injury</option>
-                  </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                <textarea id="message" placeholder="Write your message" rows={4} className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none"></textarea>
-              </div>
-              <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                Submit
-              </button>
-            </form> */}
+          <div className=" w-full h-full ">
             <BookAppointmentForm title="Request an appointment" bgColor="backdrop-blur-3xl lg:p-8 p-4 rounded-2xl" textColor="text-white" />
           </div>
 
