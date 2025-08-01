@@ -19,7 +19,7 @@ const accordionSections = [
         <li>Primary & Family Care</li>
         <li>Advanced Imaging — Digital X-ray • CT • MRI • Ultrasound</li>
         <li>On-Site Lab Testing & Rapid Panels</li>
-                        <li>Annual, School/Sports & DOT Physicals</li>
+        <li>Annual, School/Sports & DOT Physicals</li>
         <li>Vaccinations & Travel Medicine (flu, tetanus, yellow-fever)</li>
         <li>Allergy & Asthma Treatments</li>
         <li>Women's & Men's Health Visits</li>
@@ -209,7 +209,7 @@ const EmergencyRoomPage = () => {
             <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
               <CallButton label="emergencyroom_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
-                <Phone /> (561) 223-8024
+                <Phone /> 561-433-1700
               </CallButton>
             </div>
           </div>

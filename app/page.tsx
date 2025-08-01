@@ -84,7 +84,7 @@ export default function Home() {
               name: 'Royal Palm Beach, FL'
             },
             {
-              '@type': 'AdministrativeArea', 
+              '@type': 'AdministrativeArea',
               name: 'Lake Worth, FL'
             },
             {
@@ -162,14 +162,14 @@ export default function Home() {
         <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
           <div className="flex flex-col justify-center space-y-6 w-fit">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
-              Call for any emergency: (561) 223-8024
+              Call for any emergency: 561-433-1700
 
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">
               Immediate medical care<br /> when you need it most
             </h1>
             <p className="text-lg w-full ">
-              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue. <br/>
+              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue. <br />
               Office visits are <strong>$89.99</strong>.
             </p>
           </div>

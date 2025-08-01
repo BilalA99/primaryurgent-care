@@ -31,7 +31,7 @@ const Footer = () => (
                 className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16"
             >
                 <div className='group-hover:scale-[1.2] transition-all duration-300'><Phone /></div>
-                Call Now  (561) 223-8024
+                Call Now  561-433-1700
             </CallButton>
             {/* <BookAnAppointmentPopup>
                 <button className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-16">
