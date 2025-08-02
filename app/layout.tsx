@@ -96,7 +96,11 @@ export default function RootLayout({
         }} />
         <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
         <Script src="/assets/translation.js" strategy="beforeInteractive" />
-        <Script src="//translate.google.com/translate_a/element.js?cb=TranslateInit" strategy="afterInteractive" />
+        <Script
+          src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
+          strategy="afterInteractive"
+         
+        />
         {/* Hide all iframes globally */}
         <style>{`iframe { display: none !important; visibility: hidden !important; }`}</style>
       </head>
