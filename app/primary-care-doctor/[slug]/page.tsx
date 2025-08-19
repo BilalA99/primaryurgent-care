@@ -208,8 +208,9 @@ const primaryCareServices = [
     }
 ]
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const service = primaryCareServices.find(s => s.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const service = primaryCareServices.find(s => s.slug === slug);
     if (!service) return {};
     const baseUrl = 'https://wpucc.com';
     const url = `${baseUrl}/primary-care-doctor/${service.slug}`;
@@ -243,8 +244,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
-export default function PrimaryCareServicePage({ params }: { params: { slug: string } }) {
-    const service = primaryCareServices.find(s => s.slug === params.slug);
+export default async function PrimaryCareServicePage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const service = primaryCareServices.find(s => s.slug === slug);
     if (!service) {
         return (
             notFound()

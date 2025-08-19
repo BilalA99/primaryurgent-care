@@ -8,6 +8,7 @@ import { MapProvider } from "@/providers/map-provider";
 import Script from "next/script";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://primaryuc.com'),
   title: "Primary and Urgent Care Centers of Florida",
   description: "Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.",
   openGraph: {
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://primaryuc.com"
+  },
+  verification: {
+    google: 'Idh-hqSzlxK9HgbSvASoNLMQXq70-x_ZhWaqfDFCs6g',
   },
   icons: {
     icon: [
@@ -58,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={interTight.className}>
+    <html lang="en" className={interTight.className} suppressHydrationWarning={true}>
       <head>
         {/* Google Tag Manager */}
         <script
@@ -84,7 +88,7 @@ export default function RootLayout({
           }}
         />
         {/* End Ahrefs Analytics */}
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) - Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BKMKZM043"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -94,11 +98,19 @@ export default function RootLayout({
             gtag('config', 'G-2BKMKZM043');
           `,
         }} />
+        {/* Google tag (gtag.js) - Google Ads Conversion Tracking */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17373488028"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17373488028');
+          `,
+        }} />
         <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
         <Script src="/assets/translation.js" strategy="beforeInteractive" />
         <Script src="//translate.google.com/translate_a/element.js?cb=TranslateInit" strategy="afterInteractive" />
-        {/* Hide all iframes globally */}
-        <style>{`iframe { display: none !important; visibility: hidden !important; }`}</style>
       </head>
 
       <body
