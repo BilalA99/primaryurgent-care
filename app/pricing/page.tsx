@@ -563,7 +563,7 @@ const PricingPage = () => {
                       <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                         <p className="text-sm text-blue-800">
                           <strong>Don't see your insurance?</strong> We work with many additional plans.
-                          Call us at 561-433-1700
+                          Call us at 561-223-8024
                           ‬ to verify your coverage or discuss our affordable self-pay options.
                         </p>
                       </div>
