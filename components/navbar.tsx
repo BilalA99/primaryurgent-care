@@ -19,8 +19,8 @@ interface LanguageDescriptor {
 }
 
 declare global {
-    namespace globalThis {
-        var __GOOGLE_TRANSLATION_CONFIG__: {
+    interface Window {
+        __GOOGLE_TRANSLATION_CONFIG__: {
             languages: LanguageDescriptor[];
             defaultLanguage: string;
         };
@@ -96,28 +96,57 @@ const NavBar = () => {
 
     // Initialize translation engine
     useEffect(() => {
-        const cookies = parseCookies();
-        const existingLanguageCookieValue = cookies[COOKIE_NAME];
-        let languageValue;
-        if (existingLanguageCookieValue) {
-            const sp = existingLanguageCookieValue.split('/');
-            if (sp.length > 2) {
-                languageValue = sp[2];
+        const initializeLanguage = () => {
+            const cookies = parseCookies();
+            const existingLanguageCookieValue = cookies[COOKIE_NAME];
+            let languageValue;
+
+            if (existingLanguageCookieValue) {
+                const sp = existingLanguageCookieValue.split('/');
+                if (sp.length > 2) {
+                    languageValue = sp[2];
+                }
             }
-        }
-        if (global.__GOOGLE_TRANSLATION_CONFIG__ && !languageValue) {
-            languageValue = global.__GOOGLE_TRANSLATION_CONFIG__.defaultLanguage;
-        }
-        if (languageValue) {
-            setCurrentLanguage(languageValue);
-        }
-        if (global.__GOOGLE_TRANSLATION_CONFIG__) {
-            setLanguageConfig(global.__GOOGLE_TRANSLATION_CONFIG__);
+
+            // Use window instead of global for browser environment
+            if (typeof window !== 'undefined' && window.__GOOGLE_TRANSLATION_CONFIG__) {
+                if (!languageValue) {
+                    languageValue = window.__GOOGLE_TRANSLATION_CONFIG__.defaultLanguage;
+                }
+                setLanguageConfig(window.__GOOGLE_TRANSLATION_CONFIG__);
+            }
+
+            if (languageValue) {
+                setCurrentLanguage(languageValue);
+            }
+        };
+
+        // Try to initialize immediately
+        initializeLanguage();
+
+        // If config is not available, wait for it to load
+        if (typeof window !== 'undefined' && !window.__GOOGLE_TRANSLATION_CONFIG__) {
+            const checkConfig = setInterval(() => {
+                if (window.__GOOGLE_TRANSLATION_CONFIG__) {
+                    clearInterval(checkConfig);
+                    initializeLanguage();
+                }
+            }, 100);
+
+            // Clear interval after 5 seconds to prevent infinite checking
+            setTimeout(() => clearInterval(checkConfig), 5000);
         }
     }, []);
 
     const switchLanguage = (lang: string) => {
-        setCookie(null, COOKIE_NAME, '/auto/' + lang);
+        // Set cookie with proper domain and path
+        setCookie(null, COOKIE_NAME, '/auto/' + lang, {
+            path: '/',
+            maxAge: 30 * 24 * 60 * 60, // 30 days
+            sameSite: 'lax'
+        });
+
+        // Force reload to apply translation
         window.location.reload();
     };
 
@@ -172,7 +201,7 @@ const NavBar = () => {
                         {/* Desktop Call Button */}
                         <CallButton label="navbar" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                             <Phone fill="white" />
-                            <span>(561) 223-8024</span>
+                            <span>561-433-1700</span>
                         </CallButton>
 
                         {/* Desktop Language Switcher */}

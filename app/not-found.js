@@ -98,7 +98,7 @@ const NotFound = () => {
                 <div className="bg-red-600 text-white py-2 px-6">
                     <div className="max-w-8xl mx-auto flex items-center justify-center space-x-4 text-sm">
                         <Phone className="w-4 h-4" />
-                        <span>Emergency: Call (561) 223-8024
+                        <span>Emergency: Call 561-433-1700
                             ‬</span>
                         <span>•</span>
                         <span>Open 7 days a week</span>
@@ -183,7 +183,7 @@ const NotFound = () => {
                                 </p>
                                 <div className="flex items-center space-x-2 text-red-700">
                                     <Phone className="w-4 h-4" />
-                                    <span className="font-semibold">(561) 223-8024
+                                    <span className="font-semibold">561-433-1700
                                         ‬</span>
                                 </div>
                             </div>

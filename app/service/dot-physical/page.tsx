@@ -6,40 +6,40 @@ import CallButton from '@/components/CallButton';
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
-  title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-  description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
-  keywords: [
-    "DOT physical", "CDL medical exam", "DOT physical near me", "urgent care DOT physical", "Palm Beach County urgent care", "same day DOT physical", "FMCSA", "commercial driver exam"
-  ],
-  openGraph: {
     title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
-    url: "https://primaryuc.com/service/dot-physical",
-    images: [
-      {
-        url: "https://primaryuc.com/dotphysical.png",
-        width: 1200,
-        height: 630,
-        alt: "DOT Physical Exam - Doctor with Patient"
-      }
+    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+    keywords: [
+        "DOT physical", "CDL medical exam", "DOT physical near me", "urgent care DOT physical", "Palm Beach County urgent care", "same day DOT physical", "FMCSA", "commercial driver exam"
     ],
-    type: "article"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
-    images: [
-      "https://primaryuc.com/dotphysical.png"
-    ]
-  },
-  alternates: {
-    canonical: "https://primaryuc.com/service/dot-physical"
-  },
-  robots: {
-    index: true,
-    follow: true
-  }
+    openGraph: {
+        title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
+        description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+        url: "https://primaryuc.com/service/dot-physical",
+        images: [
+            {
+                url: "https://primaryuc.com/dotphysical.png",
+                width: 1200,
+                height: 630,
+                alt: "DOT Physical Exam - Doctor with Patient"
+            }
+        ],
+        type: "article"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
+        description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+        images: [
+            "https://primaryuc.com/dotphysical.png"
+        ]
+    },
+    alternates: {
+        canonical: "https://primaryuc.com/service/dot-physical"
+    },
+    robots: {
+        index: true,
+        follow: true
+    }
 };
 
 const dotPhysicalSteps = [
@@ -97,33 +97,33 @@ const faqs = [
 ];
 
 function DotPhysicalJsonLd() {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "MedicalClinic",
-          "name": "Primary & Urgent Care Centers of Palm Beach County",
-          "url": "https://primaryuc.com/service/dot-physical",
-          "image": "https://primaryuc.com/dotphysical.png",
-          "description": "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
-          "areaServed": [
-            "Royal Palm Beach FL",
-            "Lake Worth FL",
-            "Palm Springs FL",
-            "Lantana FL"
-          ],
-          "availableService": [
-            "DOT Physical Exam",
-            "CDL Medical Exam"
-          ],
-          "priceRange": "$$",
-          "telephone": "+1-561-223-8024"
-        })
-      }}
-    />
-  );
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "MedicalClinic",
+                    "name": "Primary & Urgent Care Centers of Palm Beach County",
+                    "url": "https://primaryuc.com/service/dot-physical",
+                    "image": "https://primaryuc.com/dotphysical.png",
+                    "description": "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+                    "areaServed": [
+                        "Royal Palm Beach FL",
+                        "Lake Worth FL",
+                        "Palm Springs FL",
+                        "Lantana FL"
+                    ],
+                    "availableService": [
+                        "DOT Physical Exam",
+                        "CDL Medical Exam"
+                    ],
+                    "priceRange": "$$",
+                    "telephone": "+1-561-223-8024"
+                })
+            }}
+        />
+    );
 }
 
 export default function DotPhysicalPage() {
@@ -142,7 +142,7 @@ export default function DotPhysicalPage() {
                         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start w-full">
                             <BookAnAppointmentPopup><div className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</div></BookAnAppointmentPopup>
                             <CallButton label="dot_physical_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-gray-100 transition border border-[#D52128]">
-                                Call (561) 223-8024
+                                Call 561-433-1700
                             </CallButton>
                         </div>
                     </div>
