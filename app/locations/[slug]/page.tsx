@@ -203,10 +203,11 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
 
 export default LocationPage
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const location = LocationsScreens.find((x) => x.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const location = LocationsScreens.find((x) => x.slug === slug);
   const baseUrl = 'https://wpucc.com';
-  const url = `${baseUrl}/locations/${params.slug}`;
+  const url = `${baseUrl}/locations/${slug}`;
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
       title: 'Car Accident & Injury Doctor in Royal Palm Beach | PrimaryUC',
@@ -226,8 +227,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
   };
   return {
-    title: citySeo[params.slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-    description: citySeo[params.slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+    title: citySeo[slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+    description: citySeo[slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
     keywords: location?.keywords || [
       'urgent care Palm Beach County',
       'walk-in clinic Palm Beach',
@@ -241,8 +242,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       canonical: url,
     },
     openGraph: {
-      title: citySeo[params.slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-      description: citySeo[params.slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+      title: citySeo[slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+      description: citySeo[slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
       url,
       type: 'article',
       images: [
@@ -256,8 +257,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
     twitter: {
       card: 'summary_large_image',
-      title: citySeo[params.slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
-      description: citySeo[params.slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
+      title: citySeo[slug]?.title || location?.metaTitle || 'Urgent Care Palm Beach County | Walk-In Clinic & Primary Care',
+      description: citySeo[slug]?.description || location?.metaDescription || 'Palm Beach County urgent care and walk-in clinics. Fast, affordable care for injuries, illness, and physicals. No appointment needed. Four convenient locations.',
       images: [location?.image ? `${baseUrl}${location.image}` : `${baseUrl}/servicelanding.jpg`],
     },
   };
