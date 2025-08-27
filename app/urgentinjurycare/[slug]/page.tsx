@@ -291,8 +291,9 @@ export default async function ConditionDetails({
   )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const condition_details = conditions.find(condition => condition.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const condition_details = conditions.find(condition => condition.slug === slug);
   
   if (!condition_details) {
     return {
@@ -309,7 +310,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       openGraph: {
         title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
         description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
-        url: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+        url: `https://primaryuc.com/urgentinjurycare/${slug}`,
         type: 'website',
         images: [
           {
@@ -327,7 +328,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         images: ['/rapidinjurycare.jpg']
       },
       alternates: {
-        canonical: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+        canonical: `https://primaryuc.com/urgentinjurycare/${slug}`,
       },
     };
   }
@@ -351,12 +352,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       images: [condition_details.img || '/rapidinjurycare.jpg']
     },
     alternates: {
-      canonical: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+      canonical: `https://primaryuc.com/urgentinjurycare/${slug}`,
     },
     openGraph: {
       title: condition_details?.metaTitle || `Urgent Injury Care | Palm Beach County Urgent Care`,
       description: condition_details?.metaDescription || `Walk-in urgent care for injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
-      url: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+      url: `https://primaryuc.com/urgentinjurycare/${slug}`,
       type: 'article',
       images: [
         {
