@@ -82,7 +82,7 @@ const NotFoundJsonLd = () => (
                     postalCode: '',
                     addressCountry: 'US'
                 },
-                telephone: '+1-561-555-5555',
+                telephone: '+1-561-223-80245',
                 description: 'Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.'
             })
         }}
@@ -98,7 +98,7 @@ const NotFound = () => {
                 <div className="bg-red-600 text-white py-2 px-6">
                     <div className="max-w-8xl mx-auto flex items-center justify-center space-x-4 text-sm">
                         <Phone className="w-4 h-4" />
-                        <span>Emergency: Call (561) 223-8024
+                        <span>Emergency: Call 561-433-1700
                             ‬</span>
                         <span>•</span>
                         <span>Open 7 days a week</span>
@@ -183,7 +183,7 @@ const NotFound = () => {
                                 </p>
                                 <div className="flex items-center space-x-2 text-red-700">
                                     <Phone className="w-4 h-4" />
-                                    <span className="font-semibold">(561) 223-8024
+                                    <span className="font-semibold">561-433-1700
                                         ‬</span>
                                 </div>
                             </div>

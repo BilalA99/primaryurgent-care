@@ -17,20 +17,18 @@ import Reveal from "@/components/RevealAnimation";
 import Testimonials from "@/components/testimonials";
 import Reviews from "@/components/Reviews";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
-
+import { LanguageSwitcher } from "@/components/language-switcher";
 export const metadata = {
-  title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
-  description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+  title: 'Injury Doctor & Accident Clinic in Palm Beach County | PrimaryUC',
+  description: 'Immediate care for car accident, slip & fall, and work injuries in West Palm Beach, Lake Worth & Royal Palm Beach. We handle PIP claims & provide medical reports for attorneys.',
   keywords: [
+    'car accident doctor west palm beach',
+    'personal injury clinic',
+    'urgent injury care',
+    'florida pip doctor',
+    'slip and fall doctor palm beach county',
+    'walk-in injury clinic',
     'urgent care Palm Beach',
-    'walk-in clinic',
-    'emergency care',
-    'primary care',
-    'urgent care near me',
-    'hospital-level urgent care',
-    'same day doctor',
-    'affordable urgent care',
-    'Palm Beach urgent care',
     'Royal Palm Beach urgent care',
     'Lake Worth urgent care',
     'Palm Springs urgent care',
@@ -46,7 +44,7 @@ export const metadata = {
     siteName: 'Primary & Urgent Care Centers',
     images: [
       {
-        url: '/homelanding.png',
+        url: '/HomepageIMG.png',
         width: 1200,
         height: 630,
         alt: 'Urgent Care Palm Beach County',
@@ -59,7 +57,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
     description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
-    images: ['/homelanding.png'],
+    images: ['/HomepageIMG.png'],
   },
   alternates: {
     canonical: 'https://wpucc.com/',
@@ -78,7 +76,7 @@ export default function Home() {
           name: 'Primary & Urgent Care Centers of Palm Beach County',
           url: 'https://primaryuc.com',
           logo: 'https://primaryuc.com/logo.png',
-          image: 'https://primaryuc.com/homelanding.png',
+          image: 'https://primaryuc.com/HomepageIMG.png',
           description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
           areaServed: [
             {
@@ -86,7 +84,7 @@ export default function Home() {
               name: 'Royal Palm Beach, FL'
             },
             {
-              '@type': 'AdministrativeArea', 
+              '@type': 'AdministrativeArea',
               name: 'Lake Worth, FL'
             },
             {
@@ -151,6 +149,7 @@ export default function Home() {
   return (
     <main className="h-full w-full flex flex-col text-white">
       <HomepageJsonLd />
+      <LanguageSwitcher />
       <section className="flex items-center w-full h-full justify-center relative lg:py-20 py-10">
         <Image
           src={'/homelanding.png'}
@@ -161,50 +160,21 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
         <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
-          <div className="flex flex-col justify-center space-y-6">
+          <div className="flex flex-col justify-center space-y-6 w-fit">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
-              Call for any emergency: (561) 223-8024
+              Call for any emergency: 561-433-1700
 
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">
               Immediate medical care<br /> when you need it most
             </h1>
-            <p className="text-lg w-full md:w-[45%]">
-              Fast, reliable care. Our expert team is here to handle your urgent health needs, anytime.
+            <p className="text-lg w-full ">
+              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue. <br />
+              Office visits are <strong>$89.99</strong>.
             </p>
           </div>
 
-          <div className=" w-full h-full xl:w-[50%]">
-            {/* <h2 className="lg:text-3xl text-2xl font-bold mb-6">Request an appointment</h2>
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name</label>
-                <input type="text" id="fullName" placeholder="Enter your full name" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none" />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter your phone number" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none" />
-              </div>
-              <div>
-                <label htmlFor="accidentType" className="block text-sm font-medium mb-2">Type of Accident</label>
-                <div className="relative">
-                  <select id="accidentType" className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg appearance-none">
-                    <option>Select</option>
-                    <option>Workplace Accident</option>
-                    <option>Car Accident</option>
-                    <option>Personal Injury</option>
-                  </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                <textarea id="message" placeholder="Write your message" rows={4} className="w-full bg-white text-gray-800 px-4 py-3 rounded-lg border-none"></textarea>
-              </div>
-              <button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                Submit
-              </button>
-            </form> */}
+          <div className=" w-full h-full ">
             <BookAppointmentForm title="Request an appointment" bgColor="backdrop-blur-3xl lg:p-8 p-4 rounded-2xl" textColor="text-white" />
           </div>
 
@@ -270,7 +240,7 @@ export default function Home() {
               <CareCard
                 imageSrc="/urgent.jpg"
                 title="Injury Care"
-                description="From sprains, strains, and simple fractures to minor burns and cuts, our clinicians deliver rapid treatment using hospital-grade splints and on-site X-ray—no referral, no delay."
+                description="From sprains, strains, and simple fractures to minor burns and cuts, our clinicians deliver rapid treatment using hospital-grade splints and on-site X-ray—no referral, no delay. Specializing in accident and injury care for car accidents, slip & falls, and work injuries."
                 buttonText="Explore Urgent Care"
                 buttonLink="/urgentinjurycare"
               />
@@ -279,7 +249,7 @@ export default function Home() {
               <CareCard
                 imageSrc="/accident.jpg"
                 title="Comprehensive Accident & Pain Care"
-                description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait."
+                description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait. Get your injury documented for insurance or legal claims."
                 buttonText="Explore Pain care"
                 buttonLink="/paincare"
               />
@@ -289,7 +259,7 @@ export default function Home() {
           <CareCard
             imageSrc="/emergencyroomlevelcare.jpg"
             title="Emergency Room Level Care"
-            description="Why battle long waits at a hospital ER? Our urgent care centers deliver true hospital-level care with emergency-room equipment from on-site imaging so you get the right treatment fast. For non-life- or limb-threatening emergencies, simply walk in or book a same-day appointment and be seen in 15 minutes or less. Enjoy STAT imaging reads within 3 hours and same-day scan results."
+            description="Why battle long waits at a hospital ER? Our urgent care centers deliver true hospital-level care with emergency-room equipment from on-site imaging so you get the right treatment fast. For non-life- or limb-threatening emergencies, simply walk in or book a same-day appointment and be seen in 15 minutes or less. Enjoy STAT imaging reads within 3 hours and same-day scan results. We work with your auto insurance or attorney to provide all necessary documentation."
             buttonText="Explore Emergency Care"
             horizontal
             className=""
@@ -309,7 +279,7 @@ export default function Home() {
             <div>
               <h2 className="lg:text-6xl text-4xl font-bold text-black mb-6 leading-tight">Accessible Urgent Care Across Palm Beach County</h2>
               <p className="text-md text-gray-700 mb-10">
-                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana— we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location.
+                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana—we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location. If you’ve been in an accident, it’s critical to seek care within 14 days to comply with Florida’s PIP rule and protect your right to insurance benefits.
               </p>
             </div>
 

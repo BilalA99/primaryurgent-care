@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { conditions, ConditionInfoProp } from '@/components/conditions';
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
 import Image from 'next/image';
-
+const baseUrl = 'https://primaryuc.com';
 export default async function ConditionDetails({
   params,
 }: {
@@ -25,8 +25,7 @@ export default async function ConditionDetails({
           '@context': 'https://schema.org',
           '@type': 'MedicalProcedure',
           name: condition_details?.title || 'Urgent Injury Care',
-          description: condition_details?.description || 'Comprehensive urgent care treatment for injuries and medical conditions',
-          url: `https://primaryuc.com/urgentinjurycare/${slug}`,
+          url: `https://primaryuc.com/urgentinjurycare/${conditionSlug}`,
           provider: {
             '@type': 'MedicalClinic',
             name: 'Primary & Urgent Care Centers of Palm Beach County',
@@ -292,8 +291,9 @@ export default async function ConditionDetails({
   )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const condition_details = conditions.find(condition => condition.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const condition_details = conditions.find(condition => condition.slug === slug);
   
   if (!condition_details) {
     return {
@@ -310,7 +310,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       openGraph: {
         title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
         description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
-        url: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+        url: `https://primaryuc.com/urgentinjurycare/${slug}`,
         type: 'website',
         images: [
           {
@@ -328,7 +328,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         images: ['/rapidinjurycare.jpg']
       },
       alternates: {
-        canonical: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
+        canonical: `https://primaryuc.com/urgentinjurycare/${slug}`,
       },
     };
   }
@@ -345,20 +345,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       'injury treatment',
       'illness treatment'
     ],
-    openGraph: {
-      title: condition_details.metaTitle || `${condition_details.title} | Urgent Care Treatment Palm Beach County`,
-      description: condition_details.metaDescription || `Get immediate treatment for ${condition_details.title.toLowerCase()} at our urgent care centers. Walk in or book online. Expert care, fast diagnosis, and comprehensive treatment. Serving Palm Beach County.`,
-      url: `https://primaryuc.com/urgentinjurycare/${params.slug}`,
-      type: 'website',
-      images: [
-        {
-          url: condition_details.img || '/rapidinjurycare.jpg',
-          width: 1200,
-          height: 630,
-          alt: `${condition_details.title} - Urgent care treatment Palm Beach County`
-        }
-      ]
-    },
     twitter: {
       card: 'summary_large_image',
       title: condition_details.metaTitle || `${condition_details.title} | Urgent Care Treatment Palm Beach County`,
@@ -366,12 +352,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       images: [condition_details.img || '/rapidinjurycare.jpg']
     },
     alternates: {
-      canonical: url,
+      canonical: `https://primaryuc.com/urgentinjurycare/${slug}`,
     },
     openGraph: {
       title: condition_details?.metaTitle || `Urgent Injury Care | Palm Beach County Urgent Care`,
       description: condition_details?.metaDescription || `Walk-in urgent care for injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
-      url,
+      url: `https://primaryuc.com/urgentinjurycare/${slug}`,
       type: 'article',
       images: [
         {
@@ -381,12 +367,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
           alt: condition_details?.title || 'Urgent Injury Care',
         },
       ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: condition_details?.metaTitle || `Urgent Injury Care | Palm Beach County Urgent Care`,
-      description: condition_details?.metaDescription || `Walk-in urgent care for injuries in Palm Beach County. Same-day evaluation, imaging, and expert treatment. No appointment needed.`,
-      images: [condition_details?.img ? `${baseUrl}${condition_details.img}` : `${baseUrl}/urgentcarelanding.jpg`],
     },
   };
 }

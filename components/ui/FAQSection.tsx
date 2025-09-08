@@ -15,7 +15,7 @@ const faqs = [
     },
     {
         question: 'How much does an urgent care visit cost compared with the ER?',
-        answer: 'Urgent care visits offer significant cost savings compared to emergency rooms. Our office visits cost $69.99 compared to $500-1,500 for ER evaluations. Additional services include X-rays ($50), ultrasound ($100), MRI ($400), and CT scans ($300-600). Hospital costs for the same services range from $200-400 for X-rays, $400-800 for ultrasound, $1,200-2,500 for MRI, and $800-1,500 for CT scans. We accept most insurance plans with lower copays and deductibles than ER visits.',
+        answer: 'Urgent care visits offer significant cost savings compared to emergency rooms. Our office visits cost $89.99 compared to $500-1,500 for ER evaluations. Additional services include X-rays ($70), ultrasound ($150), MRI ($300), and CT scans ($200). Hospital costs for the same services range from $200-400 for X-rays, $400-800 for ultrasound, $1,200-2,500 for MRI, and $800-1,500 for CT scans. We accept most insurance plans with lower copays and deductibles than ER visits.',
     },
     {
         question: 'How long will I wait to be seen at urgent care?',
@@ -27,7 +27,7 @@ const faqs = [
     },
     {
         question: 'What services are offered at urgent care centers?',
-        answer: 'Our urgent care centers offer comprehensive services including immediate medical care, hospital-level diagnostic imaging (1.5T MRI, CT scans, digital X-rays, ultrasound, nuclear medicine), laboratory testing, wound care, fracture treatment, school physicals, immigration physicals, and medication-assisted treatment. We provide STAT imaging reads within 3 hours and same-day scan results for most studies. All services are available on a walk-in basis or by same-day appointment.',
+        answer: 'Our urgent care centers offer comprehensive services including immediate medical care, hospital-level diagnostic imaging (1.5T MRI, CT scans, digital X-rays, ultrasound, nuclear medicine), laboratory testing, wound care, fracture treatment, school physicals, and medication-assisted treatment. We provide STAT imaging reads within 3 hours and same-day scan results for most studies. All services are available on a walk-in basis or by same-day appointment.',
     },
     {
         question: "What's the difference between urgent care and the emergency room(ER)?",
@@ -35,7 +35,7 @@ const faqs = [
     },
     {
         question: 'What if I have more questions?',
-        answer: 'For any questions about our services, insurance, or to schedule an appointment, call us at (561) 223-8024. We have four convenient locations across Palm Beach County in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.Our staff is available to answer questions about services, costs, insurance coverage, and help you determine if urgent care is right for your medical needs.',
+        answer: 'For any questions about our services, insurance, or to schedule an appointment, call us at 561-433-1700. We have four convenient locations across Palm Beach County in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.Our staff is available to answer questions about services, costs, insurance coverage, and help you determine if urgent care is right for your medical needs.',
     },
 ];
 

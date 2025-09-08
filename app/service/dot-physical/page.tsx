@@ -1,9 +1,46 @@
 import React from 'react';
 import Polestar from '@/components/icons/polestar';
 import Reveal from '@/components/RevealAnimation';
-import Head from 'next/head';
 import Image from 'next/image';
 import CallButton from '@/components/CallButton';
+import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
+
+export const metadata = {
+    title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
+    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+    keywords: [
+        "DOT physical", "CDL medical exam", "DOT physical near me", "urgent care DOT physical", "Palm Beach County urgent care", "same day DOT physical", "FMCSA", "commercial driver exam"
+    ],
+    openGraph: {
+        title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
+        description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+        url: "https://primaryuc.com/service/dot-physical",
+        images: [
+            {
+                url: "https://primaryuc.com/dotphysical.png",
+                width: 1200,
+                height: 630,
+                alt: "DOT Physical Exam - Doctor with Patient"
+            }
+        ],
+        type: "article"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
+        description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+        images: [
+            "https://primaryuc.com/dotphysical.png"
+        ]
+    },
+    alternates: {
+        canonical: "https://primaryuc.com/service/dot-physical"
+    },
+    robots: {
+        index: true,
+        follow: true
+    }
+};
 
 const dotPhysicalSteps = [
     {
@@ -47,7 +84,7 @@ const faqs = [
     },
     {
         q: 'How much does a DOT physical cost?',
-        a: 'Our DOT physicals are $150, including all required testing and documentation. We offer transparent pricing with no hidden fees.'
+        a: 'Our DOT physicals are $90, including all required testing and documentation. We offer transparent pricing with no hidden fees.'
     },
     {
         q: 'Do you provide same-day results and documentation?',
@@ -59,14 +96,40 @@ const faqs = [
     },
 ];
 
+function DotPhysicalJsonLd() {
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "MedicalClinic",
+                    "name": "Primary & Urgent Care Centers of Palm Beach County",
+                    "url": "https://primaryuc.com/service/dot-physical",
+                    "image": "https://primaryuc.com/dotphysical.png",
+                    "description": "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online.",
+                    "areaServed": [
+                        "Royal Palm Beach FL",
+                        "Lake Worth FL",
+                        "Palm Springs FL",
+                        "Lantana FL"
+                    ],
+                    "availableService": [
+                        "DOT Physical Exam",
+                        "CDL Medical Exam"
+                    ],
+                    "priceRange": "$$",
+                    "telephone": "+1-561-223-8024"
+                })
+            }}
+        />
+    );
+}
+
 export default function DotPhysicalPage() {
     return (
         <main className="bg-[#FAFAFA] min-h-screen">
-            <Head>
-                <title>DOT Physical Exam | CDL Medical Exam Palm Beach County</title>
-                <meta name="description" content="DOT physical for CDL drivers for $150 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana." />
-                <meta name="keywords" content="DOT physical, CDL medical exam, DOT physical near me, urgent care DOT physical, Palm Beach County urgent care, same day DOT physical, FMCSA, commercial driver exam" />
-            </Head>
+            <DotPhysicalJsonLd />
             {/* Hero Section */}
             <section className="relative w-full flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-br from-[#D52128]/90 via-[#fff]/60 to-[#FDF4F4]/80 text-center">
                 <div className="max-w-6xl mx-auto z-10 flex flex-col md:flex-row items-center gap-10">
@@ -77,9 +140,9 @@ export default function DotPhysicalPage() {
                         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">Federal DOT Physicals for Commercial Drivers</h1>
                         <p className="text-lg md:text-xl text-[#494647] mb-8">Stay compliant and on the road with fast, federally certified DOT physicals. Same-day results, walk-ins welcome, and all documentation provided on the spot.</p>
                         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start w-full">
-                            <a href="/appointment" className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</a>
+                            <BookAnAppointmentPopup><div className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</div></BookAnAppointmentPopup>
                             <CallButton label="dot_physical_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-gray-100 transition border border-[#D52128]">
-                                Call (561) 223-8024
+                                Call 561-433-1700
                             </CallButton>
                         </div>
                     </div>
@@ -93,7 +156,7 @@ export default function DotPhysicalPage() {
                         />
                     </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full -z-10 bg-[url('/dotphysical.png')] bg-cover bg-center opacity-10" />
+                <div className="absolute inset-0 w-full h-full -z-10 bg-[url('/dotphysical.png')] bg-cover bg-center opacity-10" aria-hidden="true" />
             </section>
 
             {/* Animated Cards Section */}
@@ -126,7 +189,7 @@ export default function DotPhysicalPage() {
                 <ul className="list-disc pl-6 text-lg text-[#494647] mb-4">
                     <li>Immediate access—walk-ins welcome, flexible scheduling</li>
                     <li>DOT-certified medical examiners</li>
-                    <li>Transparent pricing: $150, no hidden fees</li>
+                    <li>Transparent pricing: $90, no hidden fees</li>
                     <li>Convenient locations across Palm Beach County</li>
                     <li>Friendly, bilingual staff</li>
                 </ul>

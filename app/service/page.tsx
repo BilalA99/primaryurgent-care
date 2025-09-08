@@ -56,82 +56,83 @@ export const metadata = {
 
 // Add JSON-LD structured data for MedicalClinic
 export function ServiceJsonLd() {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'MedicalClinic',
-          name: 'Primary & Urgent Care Centers of Palm Beach County',
-          url: 'https://primaryuc.com/service',
-          image: 'https://primaryuc.com/servicelanding.jpg',
-          description:
-            'Hospital-grade imaging and diagnostic services including MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine. Walk-in or book same-day appointments at our urgent care centers in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
-          areaServed: [
-            'Royal Palm Beach FL',
-            'Lake Worth FL',
-            'Palm Springs FL',
-            'Lantana FL',
-            'Palm Beach County FL',
-          ],
-          availableService: [
-            'MRI',
-            'CT Scan',
-            'Digital X-ray',
-            'Ultrasound',
-            'Nuclear Medicine',
-          ],
-          openingHours: 'Mo-Su 08:00-20:00',
-          priceRange: '$$',
-          telephone: '+1-561-555-1234', // Update to real phone if available
-          address: [
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '11476 Okeechobee Blvd.',
-              addressLocality: 'Royal Palm Beach',
-              addressRegion: 'FL',
-              postalCode: '33411',
-              addressCountry: 'US',
-              name: 'Royal Palm Beach Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '6447 Lake Worth Road',
-              addressLocality: 'Lake Worth',
-              addressRegion: 'FL',
-              postalCode: '33463',
-              addressCountry: 'US',
-              name: 'Lake Worth Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '3696 S. Congress Ave.',
-              addressLocality: 'Palm Springs',
-              addressRegion: 'FL',
-              postalCode: '33461',
-              addressCountry: 'US',
-              name: 'Palm Springs Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '6169 S Jog Road, Unit 4B',
-              addressLocality: 'Lantana',
-              addressRegion: 'FL',
-              postalCode: '33467',
-              addressCountry: 'US',
-              name: 'Lantana Primary & Urgent Care Center'
-            }
-          ],
-        }),
-      }}
-    />
-  );
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'MedicalClinic',
+                    name: 'Primary & Urgent Care Centers of Palm Beach County',
+                    url: 'https://primaryuc.com/service',
+                    image: 'https://primaryuc.com/servicelanding.jpg',
+                    description:
+                        'Hospital-grade imaging and diagnostic services including MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine. Walk-in or book same-day appointments at our urgent care centers in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+                    areaServed: [
+                        'Royal Palm Beach FL',
+                        'Lake Worth FL',
+                        'Palm Springs FL',
+                        'Lantana FL',
+                        'Palm Beach County FL',
+                    ],
+                    availableService: [
+                        'MRI',
+                        'CT Scan',
+                        'Digital X-ray',
+                        'Ultrasound',
+                        'Nuclear Medicine',
+                    ],
+                    openingHours: 'Mo-Su 08:00-20:00',
+                    priceRange: '$$',
+                    telephone: '+1-561-223-8024', // Update to real phone if available
+                    address: [
+                        {
+                            '@type': 'PostalAddress',
+                            streetAddress: '11476 Okeechobee Blvd.',
+                            addressLocality: 'Royal Palm Beach',
+                            addressRegion: 'FL',
+                            postalCode: '33411',
+                            addressCountry: 'US',
+                            name: 'Royal Palm Beach Primary & Urgent Care Center'
+                        },
+                        {
+                            '@type': 'PostalAddress',
+                            streetAddress: '6447 Lake Worth Road',
+                            addressLocality: 'Lake Worth',
+                            addressRegion: 'FL',
+                            postalCode: '33463',
+                            addressCountry: 'US',
+                            name: 'Lake Worth Primary & Urgent Care Center'
+                        },
+                        {
+                            '@type': 'PostalAddress',
+                            streetAddress: '3696 S. Congress Ave.',
+                            addressLocality: 'Palm Springs',
+                            addressRegion: 'FL',
+                            postalCode: '33461',
+                            addressCountry: 'US',
+                            name: 'Palm Springs Primary & Urgent Care Center'
+                        },
+                        {
+                            '@type': 'PostalAddress',
+                            streetAddress: '6169 S Jog Road, Unit 4B',
+                            addressLocality: 'Lantana',
+                            addressRegion: 'FL',
+                            postalCode: '33467',
+                            addressCountry: 'US',
+                            name: 'Lantana Primary & Urgent Care Center'
+                        }
+                    ],
+                }),
+            }}
+        />
+    );
 }
 
 const ServicePage = () => {
     return (
         <main className="w-full h-full">
+            <ServiceJsonLd />
             <section className="relative h-fullw-full items-center justify-center flex">
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full -z-10">
@@ -158,7 +159,7 @@ const ServicePage = () => {
                                     Having Primary Care services available to you is a very powerful combination with our Urgent Care. Why? Because this combination affords you the highest level of communication and continuity of treatment for you between your entire Primary UC "Care Team". Your Care Team communicates with each other before, after and, if needed, during your visit in order to provide you with the safest and highest quality care.
                                 </p>
                                 <p className="text-gray-700 text-lg mb-2">
-                                    Our team of board certified Family Doctors, Emergency Medicine Specialist, and Pediatricians work with you and each other to provide evaluation and treatment of common ailments and other medical problems for an affordable fee of $69.99 for the initial medical consultation.
+                                    Our team of board certified Family Doctors, Emergency Medicine Specialist, and Pediatricians work with you and each other to provide evaluation and treatment of common ailments and other medical problems for an affordable fee of $89.99 for the initial medical consultation.
                                 </p>
                                 <p className="text-gray-700 text-lg mb-2">
                                     If you already have a primary care physician, we communicate your case information to them (with your approval, of course) quickly and easily. In addition, we also have a multitude of connections to some of the finest Primary Care doctors in Palm Beach County, so if you need a referral we are happy to provide you with one to a highly-qualified physician outside of our offices.
@@ -192,7 +193,9 @@ const ServicePage = () => {
                     </div>
                 </div>
             </section>
-            <Services header="Expert Diagnostic &br Imaging Services" description="From advanced MRI and CT scans to expert X-rays and ultrasounds, our urgent care services are designed to deliver fast, accurate results when you need them most — all under one roof, with a compassionate touch." />
+            <div className="w-full">
+                <Services header="Expert Diagnostic &br Imaging Services" description="From advanced MRI and CT scans to expert X-rays and ultrasounds, our urgent care services are designed to deliver fast, accurate results when you need them most — all under one roof, with a compassionate touch." />
+            </div>
             <section className="w-full bg-white lg:py-20 py-10 px-4 lg:px-[60px] relative">
                 <div className="max-w-8xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">

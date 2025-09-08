@@ -61,7 +61,7 @@ function PainCareJsonLd() {
           "description": "Immediate care for auto accident injuries, whiplash, back and neck pain, and personal injury. On-site X-ray, MRI, and direct PIP billing. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
           "url": "https://primaryuc.com/paincare",
           "image": "https://primaryuc.com/paincare.jpg",
-          "telephone": "+1-561-204-5111",
+          "telephone": "+1-561-223-8024",
           "address": [
             {
               '@type': 'PostalAddress',
@@ -115,7 +115,7 @@ function PainCareJsonLd() {
             "Same-day appointments",
             "Walk-in care for accident injuries"
           ],
-          "priceRange": "$69+ self-pay, most insurance accepted",
+          "priceRange": "$89+ self-pay, most insurance accepted",
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
@@ -161,7 +161,7 @@ const PainCare = () => {
             <div className="flex xl:flex-wrap xl:flex-row flex-col gap-4 w-full justify-center">
               <button className="bg-[#D52128] text-white font-semibold px-8 py-4 xl:w-[40%] w-full justify-center rounded-xl xl:text-lg text-base shadow hover:bg-[#b81b22] transition">Find a Clinic</button>
               <CallButton label="paincare_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl xl:text-lg text-base shadow flex xl:w-[40%] w-full justify-center items-center gap-3 hover:bg-gray-100 transition">
-                <Phone /> (561) 223-8024
+                <Phone /> 561-433-1700
                 ‬
               </CallButton>
             </div>

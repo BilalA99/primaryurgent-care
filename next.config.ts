@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+const nextTranslate = require('next-translate-plugin')
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -23,6 +24,11 @@ const nextConfig: NextConfig = {
         hostname: 'mynaui.com/**',
       }
     ],
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '5mb',
+    },
   },
 };
 

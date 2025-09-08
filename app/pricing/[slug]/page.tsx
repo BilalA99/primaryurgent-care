@@ -9,8 +9,54 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   if (!pricing) {
     return notFound()
   }
+  // Offer and Service JSON-LD schema
+  const PricingJsonLd = () => (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": pricing.title,
+            "description": pricing.description,
+            "image": pricing.img ? `https://primaryuc.com${pricing.img}` : undefined,
+            "url": `https://primaryuc.com/pricing/${pricing.slug}`,
+            "provider": {
+              "@type": "MedicalClinic",
+              "name": "Primary & Urgent Care Centers of Palm Beach County",
+              "url": "https://primaryuc.com"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": pricing.title,
+              "description": pricing.description
+            },
+            "price": pricing.price ? pricing.price.replace(/[^\d.]/g, '') : undefined,
+            "priceCurrency": "USD",
+            "url": `https://primaryuc.com/pricing/${pricing.slug}`,
+            "seller": {
+              "@type": "MedicalClinic",
+              "name": "Primary & Urgent Care Centers of Palm Beach County",
+              "url": "https://primaryuc.com"
+            }
+          })
+        }}
+      />
+    </>
+  );
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
+      <PricingJsonLd />
       {/* Landing */}
       <div className="w-full mx-auto flex flex-col items-center mt-20">
         <div className="text-sm mb-2">
@@ -175,13 +221,14 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const pricing = pricingData.find((x) => x.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const pricing = pricingData.find((x) => x.slug === slug);
   const baseUrl = 'https://wpucc.com';
-  const url = `${baseUrl}/pricing/${params.slug}`;
+  const url = `${baseUrl}/pricing/${slug}`;
   return {
     title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
-    description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
     keywords: pricing?.keywords || [
       'urgent care pricing',
       'urgent care cost',
@@ -191,12 +238,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       'affordable urgent care',
     ],
     alternates: {
-<<<<<<< HEAD
-      canonical: url,
+      canonical: `https://primaryuc.com/pricing/${slug}`,
     },
     openGraph: {
       title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
-      description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+      description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
       url,
       type: 'article',
       images: [
@@ -211,11 +257,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     twitter: {
       card: 'summary_large_image',
       title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
-      description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $69.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+      description: pricing?.metaDescription || 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
       images: [pricing?.img ? `${baseUrl}${pricing.img}` : `${baseUrl}/insurance.jpg`],
-=======
-      canonical: `https://primaryuc.com/pricing/${params.slug}`,
->>>>>>> TemurDev
     },
   };
 }
