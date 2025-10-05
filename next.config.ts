@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-const nextTranslate = require('next-translate-plugin')
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -22,8 +21,27 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'mynaui.com/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hznieioyzvcrfqcvyikc.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'primaryuc.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.primaryuc.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.b-cdn.net',
       }
     ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
   },
   experimental: {
     serverActions: {

@@ -12,6 +12,7 @@ export async function GET() {
   const staticRoutes: string[] = [
     '',
     '/appointment',
+    '/blog',
     '/emergencyroom',
     '/lawyers',
     '/locations',
@@ -38,6 +39,9 @@ export async function GET() {
     '/service/nuclear-scans',
     '/service/dot-physical'
   ];
+  
+  // Blog post routes will be added when Supabase integration is complete
+  const blogPostRoutes: string[] = [];
 
   const allRoutes: string[] = [
     ...staticRoutes,
@@ -48,6 +52,7 @@ export async function GET() {
     ...emergencyRoomServiceRoutes,
     ...primaryCareDoctorRoutes,
     ...individualServiceRoutes,
+    ...blogPostRoutes,
   ];
 
   const urls = allRoutes.map(
