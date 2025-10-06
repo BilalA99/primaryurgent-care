@@ -1,9 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Calendar, MapPin } from 'lucide-react';
-import Reveal from '@/components/RevealAnimation';
-import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 import CallButton from '@/components/CallButton';
 import BlogGrid from '@/components/blog/BlogGrid';
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -85,61 +80,126 @@ const BlogPage = async () => {
     <main className="w-full bg-[#FAFAFA] min-h-screen">
       <BlogIndexJsonLd />
       
-      {/* Hero Section */}
-      <section className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-4 lg:px-[60px]">
-        <div className="max-w-8xl mx-auto rounded-2xl bg-[#F2F6FC] grid grid-cols-1 xl:grid-cols-2 gap-0 md:gap-20 p-8 md:p-12 items-center shadow-sm">
-          {/* Left: Text and Buttons */}
-          <Reveal className="w-full overflow-hidden">
-            <div className="flex flex-col justify-center h-full">
-              <span className="text-[#2563eb] text-sm mb-6 font-[500]">Blog</span>
-              <h1 className="text-4xl md:text-6xl font-[600] text-black mb-8">
-                Health Tips & Urgent Care Insights
-              </h1>
-              <p className="text-base md:text-lg text-gray-700 mb-4">
-                Stay informed with expert health advice, urgent care guidance, and wellness tips from our medical team. 
-                From <Link href="/urgentinjurycare" className="text-[#D52128] hover:underline">accident care</Link> to <Link href="/primary-care-doctor" className="text-[#D52128] hover:underline">preventive health</Link>, we're here to help you make informed decisions about your health.
-              </p>
-              <p className="text-base md:text-lg text-gray-700 mb-4">
-                Our <Link href="/emergencyroom" className="text-[#D52128] hover:underline">hospital-level urgent care</Link> centers provide advanced imaging, 
-                <Link href="/paincare" className="text-[#D52128] hover:underline"> pain management</Link>, and comprehensive medical services across Palm Beach County.
-              </p>
-              <p className="text-base md:text-lg text-gray-700 mb-8">
-                Need immediate care? Our <Link href="/locations" className="text-[#D52128] hover:underline">walk-in clinics</Link> are ready to help with same-day appointments and expert medical attention.
-              </p>
-              <div className="flex flex-wrap gap-3 mt-2">
-                <BookAnAppointmentPopup>
-                  <button className="bg-[#D52128] text-white font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base hover:bg-[#b81b22] transition gap-2">
-                    <Calendar /> Book a Visit
-                  </button>
-                </BookAnAppointmentPopup>
-                <Link href="/locations" className="bg-[#2563eb] text-white font-medium px-5 py-3 rounded-lg flex items-center justify-center text-base hover:bg-[#174ea6] transition gap-2">
-                  <MapPin /> Find a Location
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-          
-          {/* Right: Image */}
-          <div className="flex justify-center relative items-center w-full xl:h-full mt-8 md:mt-0 lg:h-200 h-100">
-            <Image
-              src="/doctorwithpatient.jpg"
-              alt="Doctor reading medical information"
-              fill
-              className="rounded-2xl object-cover w-full xl:h-[420px]"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Blog Posts Section */}
-      <section className="w-full bg-white py-20 px-4 lg:px-[60px]">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative w-full bg-white py-20 px-4 lg:px-[60px] overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Medical Cross Pattern */}
+          <div className="absolute top-20 left-10 w-16 h-16 opacity-5">
+            <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#2563eb]">
+              <path d="M12 2L12 22M2 12L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <div className="absolute top-40 right-20 w-12 h-12 opacity-5">
+            <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#D52128]">
+              <path d="M12 2L12 22M2 12L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <div className="absolute top-60 left-1/4 w-8 h-8 opacity-5">
+            <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#2563eb]">
+              <path d="M12 2L12 22M2 12L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <div className="absolute top-32 right-12 w-10 h-10 opacity-5">
+            <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#D52128]">
+              <path d="M12 2L12 22M2 12L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+          
+          {/* Heartbeat Pattern */}
+          <div className="absolute top-32 right-1/3 w-20 h-8 opacity-5">
+            <svg viewBox="0 0 100 20" fill="none" className="w-full h-full text-[#D52128]">
+              <path d="M5 10L15 2L25 10L35 2L45 10L55 2L65 10L75 2L85 10L95 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <div className="absolute top-80 left-1/3 w-16 h-6 opacity-5">
+            <svg viewBox="0 0 100 20" fill="none" className="w-full h-full text-[#2563eb]">
+              <path d="M5 10L15 2L25 10L35 2L45 10L55 2L65 10L75 2L85 10L95 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <div className="absolute top-16 left-1/2 w-14 h-5 opacity-5">
+            <svg viewBox="0 0 100 20" fill="none" className="w-full h-full text-[#2563eb]">
+              <path d="M5 10L15 2L25 10L35 2L45 10L55 2L65 10L75 2L85 10L95 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          
+          {/* Stethoscope Pattern */}
+          <div className="absolute top-24 right-1/4 w-24 h-12 opacity-5">
+            <svg viewBox="0 0 100 50" fill="none" className="w-full h-full text-[#2563eb]">
+              <path d="M20 25C20 25 30 15 40 25C50 35 60 25 60 25M60 25V35M60 35C60 35 70 35 80 35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="80" cy="35" r="8" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          <div className="absolute top-72 left-16 w-20 h-10 opacity-5">
+            <svg viewBox="0 0 100 50" fill="none" className="w-full h-full text-[#D52128]">
+              <path d="M20 25C20 25 30 15 40 25C50 35 60 25 60 25M60 25V35M60 35C60 35 70 35 80 35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="80" cy="35" r="8" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          
+          {/* Medical Pill Pattern */}
+          <div className="absolute top-48 left-8 w-12 h-6 opacity-5">
+            <svg viewBox="0 0 100 50" fill="none" className="w-full h-full text-[#2563eb]">
+              <ellipse cx="50" cy="25" rx="40" ry="20" stroke="currentColor" strokeWidth="2"/>
+              <line x1="30" y1="25" x2="70" y2="25" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          <div className="absolute top-88 right-8 w-10 h-5 opacity-5">
+            <svg viewBox="0 0 100 50" fill="none" className="w-full h-full text-[#D52128]">
+              <ellipse cx="50" cy="25" rx="40" ry="20" stroke="currentColor" strokeWidth="2"/>
+              <line x1="30" y1="25" x2="70" y2="25" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          
+          {/* Bandage Pattern */}
+          <div className="absolute top-56 right-1/5 w-16 h-8 opacity-5">
+            <svg viewBox="0 0 100 50" fill="none" className="w-full h-full text-[#2563eb]">
+              <rect x="20" y="15" width="60" height="20" rx="10" stroke="currentColor" strokeWidth="2"/>
+              <line x1="40" y1="15" x2="40" y2="35" stroke="currentColor" strokeWidth="2"/>
+              <line x1="60" y1="15" x2="60" y2="35" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          
+          {/* Thermometer Pattern */}
+          <div className="absolute top-36 left-1/5 w-6 h-16 opacity-5">
+            <svg viewBox="0 0 30 80" fill="none" className="w-full h-full text-[#D52128]">
+              <rect x="10" y="5" width="10" height="60" rx="5" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="15" cy="70" r="8" stroke="currentColor" strokeWidth="2"/>
+              <line x1="15" y1="15" x2="15" y2="65" stroke="currentColor" strokeWidth="1"/>
+            </svg>
+          </div>
+          
+          {/* Syringe Pattern */}
+          <div className="absolute top-64 right-16 w-14 h-6 opacity-5">
+            <svg viewBox="0 0 100 50" fill="none" className="w-full h-full text-[#2563eb]">
+              <rect x="10" y="20" width="60" height="10" rx="5" stroke="currentColor" strokeWidth="2"/>
+              <rect x="5" y="22" width="8" height="6" rx="3" stroke="currentColor" strokeWidth="2"/>
+              <line x1="70" y1="25" x2="85" y2="25" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          
+          {/* Medical Bag Pattern */}
+          <div className="absolute top-44 left-1/3 w-18 h-12 opacity-5">
+            <svg viewBox="0 0 100 60" fill="none" className="w-full h-full text-[#D52128]">
+              <path d="M20 20L20 50C20 55 25 60 30 60L70 60C75 60 80 55 80 50L80 20L70 20L70 10C70 5 65 0 60 0L40 0C35 0 30 5 30 10L30 20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="30" y1="20" x2="70" y2="20" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          
+          {/* Subtle Gradient Overlays */}
+          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#F2F6FC]/30 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-[#FDF4F4]/20 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-32 bg-gradient-to-t from-[#F2F6FC]/20 to-transparent"></div>
+          <div className="absolute top-1/2 left-0 w-32 h-full bg-gradient-to-r from-[#FDF4F4]/15 to-transparent"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Latest Health Insights
-            </h2>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Health Tips & Urgent Care Insights
+            </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Expert advice and tips from our medical team to help you stay healthy and informed.
+              Expert medical advice, urgent care guidance, and wellness tips from our board-certified doctors to help you stay healthy and make informed healthcare decisions.
             </p>
           </div>
           
@@ -150,12 +210,13 @@ const BlogPage = async () => {
       </section>
 
       {/* Did You Know Section */}
-      <section className="w-full bg-[#1B1819] py-20 px-4 lg:px-[60px]">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex flex-col items-center justify-center text-center px-4 pt-8"
-            style={{
-              background: 'linear-gradient(180deg, #D52128 0%, #1B1819 100%)',
-            }}
+      <section className="relative w-full py-20 px-4 lg:px-[60px]"
+        style={{
+          background: 'linear-gradient(180deg, #ffffff 0%, #2563eb 100%)',
+        }}
+      >
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="flex flex-col items-center justify-center text-center px-4 pt-8 bg-[#D52128] rounded-2xl shadow-lg"
           >
             <h2 className="text-5xl font-bold text-white mb-6">Did You Know?</h2>
             <p className="text-lg text-white max-w-3xl mb-8">
@@ -168,11 +229,12 @@ const BlogPage = async () => {
               label="blog_footer"
               className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-8"
             >
-              Call Now 561-433-1700
+              Call Now 561-223-8024
             </CallButton>
           </div>
         </div>
       </section>
+
     </main>
   );
 };

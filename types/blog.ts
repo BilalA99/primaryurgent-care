@@ -3,7 +3,8 @@ export interface BlogPost {
   title: string
   slug: string
   summary: string
-  content_md: string
+  content_html: string
+  content_md?: string // Temporary backward compatibility
   thumbnail_url: string
   og_image_url: string
   cdn_images?: string[]

@@ -7,7 +7,7 @@ type CallButtonProps = React.ComponentProps<'a'> & {
 };
 
 const CallButton = React.forwardRef<HTMLAnchorElement, CallButtonProps>(
-  ({ label, onClick, href = "tel:5614331700", ...props }, ref) => {
+  ({ label, onClick, href = "tel:5612238024", ...props }, ref) => {
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       trackEvent({ action: 'call_click', category: 'engagement', label });
       if (onClick) onClick(e);

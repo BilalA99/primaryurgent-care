@@ -216,7 +216,7 @@ const NavBar = () => {
                         {/* Desktop Call Button */}
                         <CallButton label="navbar" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                             <Phone fill="white" />
-                            <span>561-433-1700</span>
+                            <span>561-223-8024</span>
                         </CallButton>
 
                         {/* Desktop Language Switcher */}

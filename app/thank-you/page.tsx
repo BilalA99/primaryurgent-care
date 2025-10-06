@@ -81,7 +81,7 @@ export default function ThankYouPage() {
                                         <div className="space-y-3">
                                             <div className="flex items-center gap-3">
                                                 <Phone className="h-5 w-5 text-[#D52128]" />
-                                                <span className="text-gray-700">Call us at <a href="tel:5614331700" className="text-[#D52128] font-semibold hover:underline">561-433-1700
+                                                <span className="text-gray-700">Call us at <a href="tel:5612238024" className="text-[#D52128] font-semibold hover:underline">561-223-8024
                                                 </a></span>
                                             </div>
                                             <div className="flex items-center gap-3">

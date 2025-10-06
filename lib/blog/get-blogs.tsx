@@ -3,6 +3,12 @@ import { BlogPost, BlogPostPreview } from '@/types/blog'
 
 export async function GetBlogs(): Promise<BlogPostPreview[]> {
   try {
+    // Check if Supabase client is properly initialized
+    if (!supabase) {
+      console.error('Supabase client not initialized')
+      return []
+    }
+
     const { data, error } = await supabase
       .from('posts')
       .select(`
@@ -21,7 +27,12 @@ export async function GetBlogs(): Promise<BlogPostPreview[]> {
       .order('date_published', { ascending: false })
 
     if (error) {
-      console.error('Error fetching blogs:', error)
+      console.error('Error fetching blogs:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      })
       return []
     }
 
@@ -34,6 +45,12 @@ export async function GetBlogs(): Promise<BlogPostPreview[]> {
 
 export async function GetBlogInfo(slug: string): Promise<BlogPost | null> {
   try {
+    // Check if Supabase client is properly initialized
+    if (!supabase) {
+      console.error('Supabase client not initialized')
+      return null
+    }
+
     const { data, error } = await supabase
       .from('posts')
       .select('*')
@@ -45,7 +62,12 @@ export async function GetBlogInfo(slug: string): Promise<BlogPost | null> {
       if (error.code === 'PGRST116') {
         return null // Post not found
       }
-      console.error('Error fetching blog info:', error)
+      console.error('Error fetching blog info:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      })
       return null
     }
 

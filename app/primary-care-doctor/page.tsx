@@ -307,7 +307,7 @@ export default function PrimaryCareDoctorPage() {
                             <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>
                         </BookAnAppointmentPopup>
                         <CallButton label="primary_care_doctor_page" className="bg-white text-[#2563eb] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-blue-100 transition border border-[#2563eb]">
-                            Call 561-433-1700
+                            Call 561-223-8024
                         </CallButton>
                     </div>
                 </div>

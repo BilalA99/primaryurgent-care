@@ -16,7 +16,16 @@ export function formatDate(dateString: string): string {
 
 export function calculateReadingTime(content: string): number {
   const wordsPerMinute = 200
-  const words = content.trim().split(/\s+/).length
+  if (!content) return 0
+  
+  // Strip HTML tags and decode HTML entities for accurate word count
+  const textContent = content
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .replace(/&[a-zA-Z0-9#]+;/g, ' ') // Replace HTML entities with spaces
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim()
+  
+  const words = textContent.split(/\s+/).filter(word => word.length > 0).length
   return Math.ceil(words / wordsPerMinute)
 }
 

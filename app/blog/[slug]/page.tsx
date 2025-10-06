@@ -3,8 +3,6 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import { BlogPost } from '@/types/blog'
 import { GetBlogInfo } from '@/lib/blog/get-blogs'
 import { generateBlogPostMeta, generateBlogPostJsonLd } from '@/lib/seo'
@@ -19,12 +17,26 @@ type Params = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   try {
+    // Check if we're in a build environment and have the necessary env vars
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.log('Supabase environment variables not available during static generation')
+      return []
+    }
+    
     const { GetBlogs } = await import('@/lib/blog/get-blogs')
     const posts = await GetBlogs()
     
+    // Return empty array if no posts, which is fine for dynamic routes
+    if (!posts || posts.length === 0) {
+      console.log('No blog posts found for static generation')
+      return []
+    }
+    
+    console.log(`Generating static params for ${posts.length} blog posts`)
     return posts.map((post) => ({ slug: post.slug }))
   } catch (error) {
     console.error('Error generating static params:', error)
+    // Return empty array to allow dynamic rendering
     return []
   }
 }
@@ -79,14 +91,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Params) {
   const { slug } = await params
   
-  const post = await GetBlogInfo(slug)
+  try {
+    const post = await GetBlogInfo(slug)
 
-  if (!post) {
-    notFound()
-  }
+    if (!post) {
+      notFound()
+    }
 
-  const meta = generateBlogPostMeta(post)
-  const jsonLd = generateBlogPostJsonLd(post)
+    const meta = generateBlogPostMeta(post)
+    const jsonLd = generateBlogPostJsonLd(post)
 
   // Generate JSON-LD scripts
   const BlogPostJsonLd = () => (
@@ -203,45 +216,24 @@ export default async function BlogPostPage({ params }: Params) {
         </header>
 
         {/* Key Takeaways */}
-        {post.key_takeaways && post.key_takeaways.length > 0 && (
+        {post.key_takeaways && Array.isArray(post.key_takeaways) && post.key_takeaways.length > 0 && (
           <KeyTakeaways takeaways={post.key_takeaways} className="mb-8" />
         )}
 
         {/* Content */}
         <div className="prose prose-lg max-w-none mb-8">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-4 mt-8">{children}</h1>,
-              h2: ({ children }) => <h2 className="text-2xl font-bold text-gray-900 mb-3 mt-6">{children}</h2>,
-              h3: ({ children }) => <h3 className="text-xl font-bold text-gray-900 mb-2 mt-4">{children}</h3>,
-              p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
-              ul: ({ children }) => <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">{children}</ul>,
-              ol: ({ children }) => <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-1">{children}</ol>,
-              li: ({ children }) => <li className="text-gray-700">{children}</li>,
-              blockquote: ({ children }) => (
-                <blockquote className="border-l-4 border-[#D52128] pl-4 italic text-gray-600 my-4">
-                  {children}
-                </blockquote>
-              ),
-              code: ({ children }) => (
-                <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800">
-                  {children}
-                </code>
-              ),
-              pre: ({ children }) => (
-                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto my-4">
-                  {children}
-                </pre>
-              ),
+          <div 
+            dangerouslySetInnerHTML={{ 
+              __html: (post.content_html && post.content_html.trim() !== '') 
+                ? post.content_html 
+                : post.content_md || '<p>Content not available.</p>' 
             }}
-          >
-            {post.content_md}
-          </ReactMarkdown>
+            className="blog-content"
+          />
         </div>
 
         {/* CDN Images Gallery */}
-        {post.cdn_images && post.cdn_images.length > 0 && (
+        {post.cdn_images && Array.isArray(post.cdn_images) && post.cdn_images.length > 0 && (
           <CdnImageGallery 
             images={post.cdn_images} 
             postTitle={post.title}
@@ -250,7 +242,7 @@ export default async function BlogPostPage({ params }: Params) {
         )}
 
         {/* FAQ Section */}
-        {post.faq && post.faq.length > 0 && (
+        {post.faq && Array.isArray(post.faq) && post.faq.length > 0 && (
           <FAQAccordion faqs={post.faq} className="mb-8" />
         )}
 
@@ -271,11 +263,33 @@ export default async function BlogPostPage({ params }: Params) {
               label="blog_post_cta" 
               className="bg-transparent text-white font-semibold px-6 py-3 rounded-lg border-2 border-white hover:bg-white hover:text-[#D52128] transition-colors"
             >
-              Call 561-433-1700
+              Call 561-223-8024
             </CallButton>
           </div>
         </div>
       </article>
     </main>
   )
+  } catch (error) {
+    console.error('Error rendering blog post:', error)
+    return (
+      <main className="w-full bg-[#FAFAFA] min-h-screen">
+        <article className="max-w-4xl mx-auto px-4 py-12 md:px-6">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Error Loading Blog Post</h1>
+            <p className="text-lg text-gray-600 mb-8">
+              Sorry, there was an error loading this blog post. Please try again later.
+            </p>
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center gap-2 text-[#2563eb] hover:text-[#174ea6] transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Blog
+            </Link>
+          </div>
+        </article>
+      </main>
+    )
+  }
 }
