@@ -26,7 +26,7 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
 import { redirect } from 'next/navigation';
-import { trackEvent } from '../../lib/gtag';
+import { trackFormSubmission } from '../../lib/gtag';
 
 const formSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -65,7 +65,16 @@ const BookAppointmentForm = ({
         if(response) {
             setIsLoading(false);
             form.reset();
-            // Removed Google Analytics event tracking here
+            
+            // Track form submission for both Google Analytics and Google Ads
+            trackFormSubmission({
+                formName: 'BookAppointmentForm',
+                conversionId: 'AW-17373488028', // Your Google Ads account ID
+                conversionLabel: 'form_submit', // Your conversion label
+                value: 1, // You can set a specific value if needed
+                currency: 'USD'
+            });
+            
             redirect('/thank-you');
         }
     };

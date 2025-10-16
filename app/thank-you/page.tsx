@@ -3,7 +3,7 @@ import { CheckCircle, Mail, Users, Share2, Instagram, Phone, MapPin, Clock } fro
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect } from 'react';
-import { trackEvent } from '../../lib/gtag';
+import { trackFormSubmission } from '../../lib/gtag';
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -11,10 +11,13 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 
 export default function ThankYouPage() {
     useEffect(() => {
-        trackEvent({
-            action: 'form_submit',
-            category: 'engagement',
-            label: 'BookAppointmentForm_ThankYou'
+        // Track conversion on thank you page (backup tracking)
+        trackFormSubmission({
+            formName: 'BookAppointmentForm_ThankYou',
+            conversionId: 'AW-17373488028', // Your Google Ads account ID
+            conversionLabel: 'form_submit', // Your conversion label
+            value: 1,
+            currency: 'USD'
         });
     }, []);
 

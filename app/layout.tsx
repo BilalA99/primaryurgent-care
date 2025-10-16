@@ -98,6 +98,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={interTight.className} suppressHydrationWarning={true}>
       <head>
+        {/* Favicon Links - Critical for Google Search Results */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon0.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/manifest.json" />
+        
         {/* MedicalClinic Structured Data */}
         <script
           type="application/ld+json"
