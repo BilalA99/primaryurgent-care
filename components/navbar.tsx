@@ -81,6 +81,35 @@ const NavBar = () => {
     const toggleSidebar = () => setSidebarOpen((v) => !v);
     const closeSidebar = () => setSidebarOpen(false);
 
+    // Function to clear conflicting cookies
+    const clearConflictingCookies = () => {
+        if (typeof window !== 'undefined') {
+            const cookies = document.cookie.split(';');
+            const googtransCookies = cookies.filter(cookie =>
+                cookie.trim().startsWith('googtrans=')
+            );
+
+            // If there are multiple googtrans cookies, clear them all
+            if (googtransCookies.length > 1) {
+                const domains = [
+                    '', // current domain
+                    '.primaryuc.com',
+                    'primaryuc.com',
+                    '.www.primaryuc.com',
+                    'www.primaryuc.com'
+                ];
+
+                domains.forEach(domain => {
+                    ['/', '/auto', '/en', '/es', '/fr', '/pt', '/ur', '/pa'].forEach(path => {
+                        document.cookie = `googtrans=; domain=${domain}; path=${path}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+                    });
+                });
+
+                console.log('Cleared conflicting googtrans cookies');
+            }
+        }
+    };
+
     // Close language dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -97,6 +126,9 @@ const NavBar = () => {
 
     // Initialize translation engine
     useEffect(() => {
+        // Clear conflicting cookies first
+        clearConflictingCookies();
+
         const initializeLanguage = () => {
             const cookies = parseCookies();
             const existingLanguageCookieValue = cookies[COOKIE_NAME];
@@ -140,7 +172,26 @@ const NavBar = () => {
     }, []);
 
     const switchLanguage = (lang: string) => {
-        // Set cookie with proper domain and path
+        // Clear all existing googtrans cookies first
+        if (typeof window !== 'undefined') {
+            // Clear cookies for different domain variations
+            const domains = [
+                '', // current domain
+                '.primaryuc.com',
+                'primaryuc.com',
+                '.www.primaryuc.com',
+                'www.primaryuc.com'
+            ];
+
+            domains.forEach(domain => {
+                // Clear with different path variations
+                ['/', '/auto', '/en', '/es', '/fr', '/pt', '/ur', '/pa'].forEach(path => {
+                    document.cookie = `googtrans=; domain=${domain}; path=${path}; expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+                });
+            });
+        }
+
+        // Set new cookie with proper domain and path
         setCookie(null, COOKIE_NAME, '/auto/' + lang, {
             path: '/',
             maxAge: 30 * 24 * 60 * 60, // 30 days
