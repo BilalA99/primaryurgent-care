@@ -2,7 +2,11 @@ import BookAppointmentForm from "./ui/BookAppointmentForm";
 
 const BookAppointmentSection = () => {
   return (
-    <section className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-6 lg:px-[60px] relative">
+    <section className="w-full lg:py-20 py-10 px-6 lg:px-[60px] relative"
+      style={{
+        background: 'linear-gradient(180deg, #2563eb 0%, #FAFAFA 100%)',
+      }}
+    >
         <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start relative z-10">
           {/* Left: Heading, subheading, image */}
           <div className="flex flex-col gap-4 justify-start">

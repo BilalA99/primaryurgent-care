@@ -2,8 +2,12 @@ export function GET() {
   return new Response(
     [
       'User-agent: *',
+      'Allow: /',
+      'Allow: /blog',
+      'Allow: /blog/*',
       'Disallow: /thank-you',
       'Disallow: /admin',
+      'Disallow: /cms',
       'Disallow: /*.js$',
       'Disallow: /*.mjs$',
       'Disallow: /*.ts$',
@@ -16,9 +20,9 @@ export function GET() {
       'Disallow: /*.svg$',
       'Disallow: /*.webp$',
       'Disallow: /*.ico$',
-      'Allow: /',
       '',
       'Sitemap: https://primaryuc.com/sitemap.xml',
+      'Sitemap: https://primaryuc.com/sitemap-blog.xml',
     ].join('\n'),
     {
       headers: {

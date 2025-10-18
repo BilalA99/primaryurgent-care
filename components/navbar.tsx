@@ -56,7 +56,8 @@ const navItems = [
     },
     {
         name: 'Primary Care', href: '/primary-care-doctor'
-    }
+    },
+    { name: 'Blogs', href: '/blog' }
 ];
 
 // Inline HamburgerIcon for mobile menu
@@ -229,7 +230,21 @@ const NavBar = () => {
                             <ul className="flex items-center space-x-8">
                                 {navItems.map((item, idx) => (
                                     <li key={item.name} className="relative group">
-                                        <Link href={item.href} className={`text-gray-600 font-medium text-base hover:text-red-500 ${pathname === item.href ? 'bg-red-100 text-red-600 px-4 py-2 rounded-lg' : 'px-4 py-2'}`}>{item.name}</Link>
+                                        <Link 
+                                            href={item.href} 
+                                            className={`text-gray-600 font-medium text-base hover:text-red-500 ${pathname === item.href ? 'bg-red-100 text-red-600 px-4 py-2 rounded-lg' : 'px-4 py-2'}`}
+                                            onClick={() => {
+                                                if (item.name === 'Blogs') {
+                                                    window?.dataLayer?.push({ 
+                                                        event: 'nav_click', 
+                                                        link_text: 'Blogs', 
+                                                        link_url: '/blog' 
+                                                    });
+                                                }
+                                            }}
+                                        >
+                                            {item.name}
+                                        </Link>
                                         {item.sublinks && (
                                             <ul className="absolute left-0 top-full mt-2 min-w-[220px] bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all z-20 border border-gray-100">
                                                 {item.sublinks.map((sub) => (
@@ -367,7 +382,16 @@ const NavBar = () => {
                                 <Link
                                     href={item.href}
                                     className={`block text-gray-700 font-semibold text-lg rounded-lg px-4 py-3 transition-colors ${pathname === item.href ? 'bg-red-100 text-red-600' : 'hover:bg-gray-100'}`}
-                                    onClick={closeSidebar}
+                                    onClick={() => {
+                                        closeSidebar();
+                                        if (item.name === 'Blogs') {
+                                            window?.dataLayer?.push({ 
+                                                event: 'nav_click', 
+                                                link_text: 'Blogs', 
+                                                link_url: '/blog' 
+                                            });
+                                        }
+                                    }}
                                 >
                                     {item.name}
                                 </Link>

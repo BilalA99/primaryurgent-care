@@ -11,23 +11,57 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://primaryuc.com'),
   title: "Primary and Urgent Care Centers of Florida",
   description: "Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.",
+  keywords: [
+    'urgent care Palm Beach County',
+    'walk-in clinic Palm Beach',
+    'emergency care Palm Beach',
+    'injury care Palm Beach',
+    'pain management Palm Beach',
+    'hospital-level urgent care',
+    'same-day appointments',
+    'board-certified doctors',
+    'advanced imaging',
+    'MRI CT X-ray Palm Beach'
+  ].join(', '),
   openGraph: {
     title: "Primary and Urgent Care Centers of Florida",
     description: "Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.",
+    url: "https://primaryuc.com",
+    siteName: "Primary & Urgent Care Centers",
     images: [
       {
-        url: "/websitelogo.png",
+        url: "https://primaryuc.com/websitelogo.png",
         width: 512,
         height: 512,
         alt: "Primary & Urgent Care Centers Logo"
       }
-    ]
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Primary and Urgent Care Centers of Florida",
+    description: "Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.",
+    images: ['https://primaryuc.com/websitelogo.png'],
+    site: '@primaryurgentcare',
   },
   alternates: {
     canonical: "https://primaryuc.com"
   },
   verification: {
     google: 'Idh-hqSzlxK9HgbSvASoNLMQXq70-x_ZhWaqfDFCs6g',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: [
@@ -64,6 +98,92 @@ export default function RootLayout({
   return (
     <html lang="en" className={interTight.className} suppressHydrationWarning={true}>
       <head>
+        {/* Favicon Links - Critical for Google Search Results */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon0.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* MedicalClinic Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'MedicalClinic',
+              name: 'Primary & Urgent Care Centers of Palm Beach County',
+              url: 'https://primaryuc.com',
+              logo: 'https://primaryuc.com/logo.png',
+              image: 'https://primaryuc.com/websitelogo.png',
+              description: 'Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.',
+              areaServed: [
+                {
+                  '@type': 'AdministrativeArea',
+                  name: 'Royal Palm Beach, FL'
+                },
+                {
+                  '@type': 'AdministrativeArea',
+                  name: 'Lake Worth, FL'
+                },
+                {
+                  '@type': 'AdministrativeArea',
+                  name: 'Palm Springs, FL'
+                },
+                {
+                  '@type': 'AdministrativeArea',
+                  name: 'Lantana, FL'
+                },
+                {
+                  '@type': 'AdministrativeArea',
+                  name: 'Palm Beach County, FL'
+                }
+              ],
+              medicalSpecialty: [
+                'UrgentCare',
+                'PrimaryCare',
+                'EmergencyCare',
+                'DiagnosticImaging',
+                'InjuryCare',
+                'PediatricCare',
+                'FamilyMedicine'
+              ],
+              availableService: [
+                'Walk-in Urgent Care',
+                'Same-day Appointments',
+                'Hospital-level Imaging (MRI, CT, X-ray, Ultrasound)',
+                'On-site Lab Testing',
+                'Board-certified Doctors',
+                'Pediatric Care',
+                'Primary Care',
+                'Physicals & Screenings',
+                'Vaccinations',
+                'Chronic Disease Management',
+                'Women\'s & Men\'s Health',
+                'Telemedicine',
+                'Insurance & Self-pay Options'
+              ],
+              openingHours: [
+                'Mo-Fr 09:00-18:00',
+                'Sa 09:00-16:00'
+              ],
+              priceRange: '$$',
+              telephone: '+1-561-223-8024',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Palm Beach County',
+                addressRegion: 'FL',
+                addressCountry: 'US'
+              },
+              sameAs: [
+                'https://primaryuc.com/appointment',
+                'https://primaryuc.com/locations',
+                'https://primaryuc.com/service',
+                'https://primaryuc.com/blog'
+              ]
+            })
+          }}
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

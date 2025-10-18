@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
-import { trackEvent } from '../../lib/gtag';
+import { trackFormSubmission } from '../../lib/gtag';
 import { sendLawyerRecordsEmail, sendLawyerRecordsThankYouEmail } from '../email/SendEmail';
 
 interface FormData {
@@ -130,9 +130,15 @@ export default function LawyerRecordsForm() {
             confirm: false,
             files: [],
         })
-        // Google Analytics event
-        trackEvent({ action: 'form_submit', category: 'engagement', label: 'LawyerRecordsForm' });
-        // Here you would handle the actual submission (API call, etc)
+        
+        // Track form submission for both Google Analytics and Google Ads
+        trackFormSubmission({
+            formName: 'LawyerRecordsForm',
+            conversionId: 'AW-17373488028', // Your Google Ads account ID
+            conversionLabel: 'lawyer_records_submit', // Different conversion label for lawyer records
+            value: 1,
+            currency: 'USD'
+        });
     }
 
     return (
