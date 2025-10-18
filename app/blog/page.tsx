@@ -212,7 +212,7 @@ const BlogPage = async () => {
       {/* Did You Know Section */}
       <section className="relative w-full py-20 px-4 lg:px-[60px]"
         style={{
-          background: 'linear-gradient(180deg, #ffffff 0%, #2563eb 100%)',
+          background: 'white',
         }}
       >
         <div className="max-w-7xl mx-auto text-center relative z-10">
