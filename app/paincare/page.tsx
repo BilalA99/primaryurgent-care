@@ -1,6 +1,7 @@
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm'
 import Phone from '@/components/icons/phone'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import AccidentTypesTabs from '@/components/ui/AccidentTypesTabs'
 import NeckPain from '@/components/icons/neckpain';
@@ -211,6 +212,22 @@ const PainCare = () => {
       </section>
       {/* Pain & Injuries We Treat After Accidents Section */}
       <PainCareWeTreat />
+
+      {/* Related Services Section */}
+      <section className="w-full bg-[#FAFAFA] py-16 px-4 lg:px-[60px]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-black mb-6">Related Services</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Need more specific information about car accident care? Visit our dedicated car accident hub for comprehensive resources.
+          </p>
+          <Link 
+            href="/car-accident-injury-clinic" 
+            className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#174ea6] transition inline-block"
+          >
+            Visit Car Accident Care Hub
+          </Link>
+        </div>
+      </section>
 
     </main>
   )

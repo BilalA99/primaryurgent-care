@@ -36,6 +36,17 @@ const navItems = [
             { name: 'All Services', href: '/service' },
             { name: 'Urgent Injury Care', href: '/urgentinjurycare' },
             { name: 'Emergency Room', href: '/emergencyroom' },
+            { 
+                name: 'Car Accident Care', 
+                href: '/car-accident-injury-clinic',
+                sublinks: [
+                    { name: 'Car Accident Hub', href: '/car-accident-injury-clinic' },
+                    { name: 'Royal Palm Beach', href: '/car-accident/royal-palm-beach' },
+                    { name: 'Lake Worth', href: '/car-accident/lake-worth' },
+                    { name: 'Palm Springs', href: '/car-accident/palm-springs' },
+                    { name: 'Lantana', href: '/car-accident/lantana' }
+                ]
+            },
             { name: 'Accident Care', href: '/paincare' },
             { name: 'Pain Management Care', href: '/pain-management-care' },
             { name: 'DOT Physical', href: '/service/dot-physical' },
@@ -248,13 +259,27 @@ const NavBar = () => {
                                         {item.sublinks && (
                                             <ul className="absolute left-0 top-full mt-2 min-w-[220px] bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all z-20 border border-gray-100">
                                                 {item.sublinks.map((sub) => (
-                                                    <li key={sub.name}>
+                                                    <li key={sub.name} className="relative group/sub">
                                                         <Link
                                                             href={sub.href}
                                                             className={`block px-5 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === sub.href ? 'bg-red-100 text-red-600' : ''}`}
                                                         >
                                                             {sub.name}
                                                         </Link>
+                                                        {sub.sublinks && (
+                                                            <ul className="absolute left-full top-0 ml-1 min-w-[200px] bg-white shadow-lg rounded-lg opacity-0 group-hover/sub:opacity-100 group-hover/sub:visible invisible transition-all z-30 border border-gray-100">
+                                                                {sub.sublinks.map((subsub) => (
+                                                                    <li key={subsub.name}>
+                                                                        <Link
+                                                                            href={subsub.href}
+                                                                            className={`block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === subsub.href ? 'bg-red-100 text-red-600' : ''}`}
+                                                                        >
+                                                                            {subsub.name}
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
                                                     </li>
                                                 ))}
                                             </ul>

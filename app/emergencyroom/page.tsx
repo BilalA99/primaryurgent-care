@@ -320,6 +320,22 @@ const EmergencyRoomPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Related Services Section */}
+      <section className="w-full bg-[#FAFAFA] py-16 px-4 lg:px-[60px]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-black mb-6">Car Accident Care</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            For car accident injuries, visit our dedicated car accident care hub for specialized treatment, documentation, and PIP services.
+          </p>
+          <Link 
+            href="/car-accident-injury-clinic" 
+            className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#174ea6] transition inline-block"
+          >
+            Visit Car Accident Care Hub
+          </Link>
+        </div>
+      </section>
     </main>
   );
 };
