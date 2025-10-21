@@ -45,7 +45,7 @@ export const metadata = {
     siteName: 'Primary & Urgent Care Centers',
     images: [
       {
-        url: '/HomepageIMG.png',
+        url: '/Homepage25.png',
         width: 1200,
         height: 630,
         alt: 'Urgent Care Palm Beach County',
@@ -58,7 +58,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
     description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
-    images: ['/HomepageIMG.png'],
+    images: ['/Homepage25.png'],
   },
   alternates: {
     canonical: 'https://wpucc.com/',
@@ -77,7 +77,7 @@ export default function Home() {
           name: 'Primary & Urgent Care Centers of Palm Beach County',
           url: 'https://primaryuc.com',
           logo: 'https://primaryuc.com/logo.png',
-          image: 'https://primaryuc.com/HomepageIMG.png',
+          image: 'https://primaryuc.com/Homepage25.png',
           description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
           areaServed: [
             {
