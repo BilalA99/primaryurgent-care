@@ -301,7 +301,7 @@ export default function PrimaryCareDoctorPage() {
                 <div className="flex-1 flex flex-col items-start z-10 max-w-xl">
                     <span className="inline-flex items-center gap-2 bg-white/90 px-6 py-2 rounded-xl shadow text-[#D52128] font-semibold text-lg mb-4"><Polestar /> Primary Care for All Ages</span>
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">Your Family's Health Starts Here</h1>
-                    <p className="text-lg md:text-xl text-[#494647] mb-8">From sniffles to checkups, our caring doctors are here for every stage of life. Walk in, book online, or bring the whole family—no appointment needed!</p>
+                    <p className="text-lg md:text-xl text-[#494647] mb-8">From sniffles to checkups, our caring doctors are here for every stage of life. Walk in, book online, or bring the whole family—no appointment needed!<br />Office visits are <strong>$89.99</strong>.</p>
                     <div className="flex flex-col md:flex-row gap-4 w-full">
                         <BookAnAppointmentPopup>
                             <div className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#174ea6] transition">Book a Visit</div>

@@ -16,8 +16,9 @@ import SlidingDiv from "@/components/SlidingAnimation";
 import Reveal from "@/components/RevealAnimation";
 import Testimonials from "@/components/testimonials";
 import Reviews from "@/components/Reviews";
-import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import Link from "next/link";
+import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 export const metadata = {
   title: 'Injury Doctor & Accident Clinic in Palm Beach County | PrimaryUC',
   description: 'Immediate care for car accident, slip & fall, and work injuries in West Palm Beach, Lake Worth & Royal Palm Beach. We handle PIP claims & provide medical reports for attorneys.',
@@ -152,11 +153,11 @@ export default function Home() {
       <LanguageSwitcher />
       <section className="flex items-center w-full h-full justify-center relative lg:py-20 py-10">
         <Image
-          src={'/homelanding.png'}
+          src={'/primary-uc-nurse-care.jpg'}
           alt="Hero background"
           priority
           fill
-          className="-z-10 w-full h-full absolute object-cover object-center"
+          className="-z-10 w-full h-full absolute object-cover object-top"
         />
         <div className="absolute inset-0 bg-[#1B1819]/60 -z-10 "></div>
         <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
@@ -166,10 +167,10 @@ export default function Home() {
 
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">
-              Immediate medical care<br /> when you need it most
+              Welcome To Primary & Urgent Care Centers
             </h1>
             <p className="text-lg w-full ">
-              Fast, reliable care specializing in accident and injury care. Get your injury documented for insurance, legal, or personal needs—our expert team ensures you get the care and paperwork you need after a car accident, slip & fall, work injury, or any urgent health issue. <br />
+              Fast, reliable urgent care for all your health needs. From routine check-ups and primary care to accident and injury care—our expert medical team provides comprehensive healthcare services with same-day appointments and walk-ins welcome. <br />
               Office visits are <strong>$89.99</strong>.
             </p>
           </div>
