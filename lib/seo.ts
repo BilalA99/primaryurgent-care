@@ -108,3 +108,7 @@ export function generateMetaTitle(title: string, maxLength: number = 60): string
 export function generateMetaDescription(description: string, maxLength: number = 160): string {
   return truncateText(description, maxLength)
 }
+
+export function toJsonLd(obj: Record<string, any>) {
+  return { __html: JSON.stringify(obj) };
+}

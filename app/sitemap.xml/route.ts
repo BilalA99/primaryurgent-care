@@ -42,6 +42,19 @@ export async function GET() {
   
   // Blog post routes will be added when Supabase integration is complete
   const blogPostRoutes: string[] = [];
+  
+  // Car accident routes
+  const accidentRoutes: string[] = [
+    '/car-accident-injury-clinic',
+    '/car-accident/royal-palm-beach',
+    '/car-accident/lake-worth',
+    '/car-accident/palm-springs',
+    '/car-accident/lantana',
+    '/car-accident/whiplash',
+    '/car-accident/back-neck-pain',
+    '/car-accident/documentation-pip',
+    '/car-accident/urgent-care-vs-er'
+  ];
 
   const allRoutes: string[] = [
     ...staticRoutes,
@@ -53,6 +66,7 @@ export async function GET() {
     ...primaryCareDoctorRoutes,
     ...individualServiceRoutes,
     ...blogPostRoutes,
+    ...accidentRoutes,
   ];
 
   const urls = allRoutes.map(

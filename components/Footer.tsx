@@ -6,11 +6,12 @@ import BookAnAppointmentPopup from './BookAnAppointmentPopup';
 import { trackEvent } from '../lib/gtag';
 import CallButton from './CallButton';
 const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Appointment', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Pricing', href: '#' },
-    { name: 'Locations', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'Appointment', href: '/appointment' },
+    { name: 'Services', href: '/service' },
+    { name: 'Car Accident Care', href: '/car-accident-injury-clinic' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Locations', href: '/locations' },
 ];
 
 const Footer = () => (

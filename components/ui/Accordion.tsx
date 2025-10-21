@@ -26,11 +26,15 @@ const Accordion: React.FC<AccordionProps> = ({ sections, defaultOpen = 0 }) => {
                         <span>{section.title}</span>
                         <span className={`transition-transform duration-200 ${open === i ? 'rotate-90' : ''}`}>▶</span>
                     </button>
-                    {open === i && (
-                        <div className="pb-4 text-base text-gray-700 animate-fade-in">
+                    <div 
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                            open === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                    >
+                        <div className="pb-4 text-base text-gray-700">
                             {section.content}
                         </div>
-                    )}
+                    </div>
                 </div>
             ))}
         </div>
