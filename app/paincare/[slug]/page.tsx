@@ -221,7 +221,7 @@ export default async function ConditionDetails({
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const condition_details = PainCareWeTreatData.find((x) => x.slug === slug);
-  const baseUrl = 'https://wpucc.com';
+  const baseUrl = 'https://primaryuc.com';
   const url = `${baseUrl}/paincare/${slug}`;
   return {
     title: condition_details?.metaTitle || `Pain & Injury Care | Palm Beach County Urgent Care`,

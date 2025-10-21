@@ -110,7 +110,7 @@ export const metadata = {
         "urgent care"
     ],
     alternates: {
-        canonical: "https://wpucc.com/primary-care-doctor"
+        canonical: "https://primaryuc.com/primary-care-doctor"
     },
     robots: {
         index: true,
@@ -119,18 +119,18 @@ export const metadata = {
     openGraph: {
         title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
         description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
-        url: "https://wpucc.com/primary-care-doctor",
+        url: "https://primaryuc.com/primary-care-doctor",
         type: "website",
         images: [
-            "https://wpucc.com/doctorwithpatient.jpg"
+            "https://primaryuc.com/doctorwithpatient.jpg"
         ]
     },
     twitter: {
         card: "summary_large_image",
         title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
         description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
-        images: ["https://wpucc.com/doctorwithpatient.jpg"],
-        site: "@wpucc"
+        images: ["https://primaryuc.com/doctorwithpatient.jpg"],
+        site: "@primaryuc"
     }
 };
 
@@ -221,9 +221,9 @@ export default function PrimaryCareDoctorPage() {
                         "@context": "https://schema.org",
                         "@type": "MedicalClinic",
                         "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
-                        "image": "https://wpucc.com/doctorwithpatient.jpg",
-                        "@id": "https://wpucc.com/primary-care-doctor",
-                        "url": "https://wpucc.com/primary-care-doctor",
+                        "image": "https://primaryuc.com/doctorwithpatient.jpg",
+                        "@id": "https://primaryuc.com/primary-care-doctor",
+                        "url": "https://primaryuc.com/primary-care-doctor",
                         "telephone": "+1-561-223-8024",
                         "address": [
                             {
@@ -283,8 +283,8 @@ export default function PrimaryCareDoctorPage() {
                             "closes": "20:00"
                         }],
                         "sameAs": [
-                            "https://www.facebook.com/wpucc",
-                            "https://www.instagram.com/wpucc"
+                            "https://www.facebook.com/primaryuc",
+                            "https://www.instagram.com/primaryuc"
                         ]
                     })
                 }}

@@ -65,7 +65,7 @@ const UrgentInjuryCareJsonLd = () => (
                 '@context': 'https://schema.org',
                 '@type': 'MedicalClinic',
                 name: 'Primary & Urgent Care Centers of Palm Beach County',
-                url: 'https://wpucc.com/urgentinjurycare',
+                url: 'https://primaryuc.com/urgentinjurycare',
                 areaServed: {
                     '@type': 'AdministrativeArea',
                     name: 'Palm Beach County, FL'

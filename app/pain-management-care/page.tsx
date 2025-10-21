@@ -27,7 +27,7 @@ export const metadata = {
     description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
     url: "https://primaryuc.com/pain-management-program",
     images: [
-      { url: "https://wpucc.com/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
+      { url: "https://primaryuc.com/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
     ],
     type: "website"
   },
@@ -36,7 +36,7 @@ export const metadata = {
     title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
     description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
     images: [
-      { url: "https://wpucc.com/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
+      { url: "https://primaryuc.com/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
     ]
   },
   alternates: {

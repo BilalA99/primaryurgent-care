@@ -76,7 +76,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://wpucc.com/hospitalcare.jpg",
+        url: "https://primaryuc.com/hospitalcare.jpg",
         width: 1200,
         height: 630,
         alt: "Hospital-level emergency care urgent care Palm Beach County"
@@ -89,7 +89,7 @@ export const metadata = {
     description:
       "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
     images: [
-      "https://wpucc.com/hospitalcare.jpg"
+      "https://primaryuc.com/hospitalcare.jpg"
     ]
   },
   alternates: {

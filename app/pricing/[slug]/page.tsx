@@ -224,7 +224,7 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const pricing = pricingData.find((x) => x.slug === slug);
-  const baseUrl = 'https://wpucc.com';
+  const baseUrl = 'https://primaryuc.com';
   const url = `${baseUrl}/pricing/${slug}`;
   return {
     title: pricing?.metaTitle || 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
