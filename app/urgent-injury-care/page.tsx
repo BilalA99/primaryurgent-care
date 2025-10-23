@@ -12,9 +12,9 @@ import { trackEvent } from '../../lib/gtag';
 import CallButton from '../../components/CallButton';
 
 export const metadata = {
-    title: "Urgent Injury Care for Accidents & Falls | PrimaryUC Florida",
+    title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
     description:
-        "Get immediate medical attention for acute injuries from accidents, falls, and workplace incidents. On-site X-rays, stitches, and fracture care available.",
+        "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Lantana.",
     keywords: [
         "urgent injury care florida",
         "accident injury clinic",
@@ -28,10 +28,10 @@ export const metadata = {
         "work injury clinic"
     ],
     openGraph: {
-        title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+        title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
         description:
-            "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait,  most insurance accepted. Serving Palm Beach County.",
-        url: "https://primaryuc.com/urgentinjurycare",
+            "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Lantana.",
+        url: "https://primaryuc.com/urgent-injury-care",
         type: "website",
         images: [
             {
@@ -44,15 +44,15 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Urgent Injury Care | Walk-In Fracture, Sprain, Laceration & Sports Injury Clinic Palm Beach County | Primary & Urgent Care Centers",
+        title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
         description:
-            "Walk in for rapid injury care: sprains, fractures, cuts, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait,  most insurance accepted. Serving Palm Beach County.",
+            "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Lantana.",
         images: [
             "/urgentcarelanding.jpg"
         ]
     },
     alternates: {
-        canonical: "https://primaryuc.com/urgentinjurycare"
+        canonical: "https://primaryuc.com/urgent-injury-care"
     }
 };
 
@@ -65,7 +65,7 @@ const UrgentInjuryCareJsonLd = () => (
                 '@context': 'https://schema.org',
                 '@type': 'MedicalClinic',
                 name: 'Primary & Urgent Care Centers of Palm Beach County',
-                url: 'https://wpucc.com/urgentinjurycare',
+                url: 'https://primaryuc.com/urgent-injury-care',
                 areaServed: {
                     '@type': 'AdministrativeArea',
                     name: 'Palm Beach County, FL'
@@ -195,7 +195,7 @@ const UrgentInjuryCarePage = () => {
                 <h2 className="text-5xl font-bold text-center mb-14">Our specialities</h2>
                 <div className="flex flex-wrap justify-center gap-6">
                     {conditions.slice(0, 7).map((item, i) => (
-                        <Link href={`/urgentinjurycare/${item.slug}`}
+                        <Link href={`/urgent-injury-care/${item.slug}`}
                             key={i}
                             className="bg-[#FDF4F4] rounded-3xl lg:px-10 px-4 lg:py-8 py-4 lg:text-2xl text-xl font-600 text-black text-center cursor-pointer transition-transform duration-200 hover:scale-105"
                             style={{ minWidth: '280px', flex: i === 5 ? '1 1 420px' : undefined }}
@@ -213,7 +213,7 @@ const UrgentInjuryCarePage = () => {
                 <div className="text-base text-black mb-12">Our specialists provide care for a variety of minor injuries, including:</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {conditions.slice(7, 20).map((item, i) => (
-                        <Link href={`/urgentinjurycare/${item.slug}`} key={i} className="flex group items-center bg-[#F7F7F7] rounded-[20px] px-8 py-5 text-2xl font-bold text-black gap-4">
+                        <Link href={`/urgent-injury-care/${item.slug}`} key={i} className="flex group items-center bg-[#F7F7F7] rounded-[20px] px-8 py-5 text-2xl font-bold text-black gap-4">
                             <span className="flex-shrink-0 group-hover:scale-120 transition-all duration-300"><Star2 /></span>
                             <span className='group-hover:text-[#D52128] transition-all duration-300'>{item.title}</span>
                         </Link>
@@ -261,27 +261,27 @@ const UrgentInjuryCarePage = () => {
                     <p className="text-lg text-[#494647] mb-6">We provide comprehensive wound care services, including sutures and medications, to avoid infections. With 43 locations in Florida and extended hours, we ensure convenient access to care.</p>
                     <p className="text-lg text-[#494647] mb-10">Our team will develop a tailored treatment plan based on your injury's specifics.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <Link href={`/urgentinjurycare/abrasions-road-rash`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/abrasions-road-rash`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Abrasions / Road Rash</div>
                             <div className="text-base text-[#494647]">Surface scrapes need deep cleaning to prevent infection and scarring.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/avulsions-crush-injuries`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/avulsions-crush-injuries`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Avulsions & Crush Injuries</div>
                             <div className="text-base text-[#494647]">Skin or tissue torn away; rapid closure controls bleeding and preserves tissue.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/chronic-pain-issues`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/chronic-pain-issues`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Chronic wounds</div>
                             <div className="text-base text-[#494647]">Individuals with conditions like diabetes may experience slow healing and require specialized care, including debridement and advanced treatments.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/cuts-lacerations-stitches`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/cuts-lacerations-stitches`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Lacerations</div>
                             <div className="text-base text-[#494647]">Jagged or straight cuts often need stitches or staples for proper healing.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/wounds-abrasions-burns`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/wounds-abrasions-burns`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Burns & Scalds</div>
                             <div className="text-base text-[#494647]">Minor to moderate thermal injuries; debride, dress, and manage pain.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/bites-domestic-animals`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/bites-domestic-animals`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Animal & Human Bites</div>
                             <div className="text-base text-[#494647]">High-infection wounds; thorough irrigation and preventive antibiotics.</div>
                         </Link>
@@ -299,19 +299,19 @@ const UrgentInjuryCarePage = () => {
                     <p className="text-lg text-[#494647] mb-2">We offer a variety of wound care services, including sutures and medications, to prevent infections. With 43 locations in Florida and extended hours, we provide convenient access to care.</p>
                     <p className="text-lg text-[#494647] mb-10">Our team will create a personalized treatment plan based on your injury.</p>
                     <div className="flex flex-col gap-6">
-                        <Link href={`/urgentinjurycare/simple-stress-fractures`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/simple-stress-fractures`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Simple & Stress Fractures</div>
                             <div className="text-base text-[#494647]">Digital X-ray on site; splinting and STAT radiology reads in less then 4 3 hrs. Referral for casting or surgery when needed.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/fractures-dislocations`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/fractures-dislocations`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Shoulder Dislocation / Subluxation</div>
                             <div className="text-base text-[#494647]">We reduce the joint, numb pain, immobilize, and order follow-up MRI if labrum or rotator cuff damage is suspected.</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/sprains-strains-fractures`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/sprains-strains-fractures`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Ankle & Wrist Sprains / Strains</div>
                             <div className="text-base text-[#494647]">Rapid swelling or inability to bear weight? Rule out fracture, apply supportive brace, RICE, and anti-inflammatory meds</div>
                         </Link>
-                        <Link href={`/urgentinjurycare/tendon-ligament-tears`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
+                        <Link href={`/urgent-injury-care/tendon-ligament-tears`} className="bg-white hover:bg-[#FAFAFA] transition-all duration-300 rounded-2xl p-6">
                             <div className="text-xl font-bold mb-2">Tendon & Ligament Tears (ACL, MCL, Achilles)</div>
                             <div className="text-base text-[#494647]">Point-of-care ultrasound screens major tears; 1.5 T MRI confirms extent so ortho referral is seamless.</div>
                         </Link>
@@ -341,6 +341,22 @@ const UrgentInjuryCarePage = () => {
 
             {/* Locations Row Section */}
             <LocationsRow />
+
+            {/* Related Services Section */}
+            <section className="w-full bg-[#FAFAFA] py-16 px-4 lg:px-[60px]">
+                <div className="max-w-7xl mx-auto text-center">
+                    <h2 className="text-3xl font-bold text-black mb-6">Car Accident Specific Care</h2>
+                    <p className="text-lg text-gray-600 mb-8">
+                        For car accident injuries specifically, visit our dedicated car accident care hub for specialized treatment and documentation.
+                    </p>
+                    <Link 
+                        href="/car-accident-injury-clinic" 
+                        className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#174ea6] transition inline-block"
+                    >
+                        Visit Car Accident Care Hub
+                    </Link>
+                </div>
+            </section>
         </main>
     )
 }

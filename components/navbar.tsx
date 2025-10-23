@@ -24,6 +24,7 @@ declare global {
             languages: LanguageDescriptor[];
             defaultLanguage: string;
         };
+        dataLayer: any[];
     }
 }
 
@@ -34,9 +35,23 @@ const navItems = [
         name: 'Services', href: '/service',
         sublinks: [
             { name: 'All Services', href: '/service' },
-            { name: 'Urgent Injury Care', href: '/urgentinjurycare' },
-            { name: 'Emergency Room', href: '/emergencyroom' },
-            { name: 'Accident Care', href: '/paincare' },
+            { name: 'Urgent Injury Care', href: '/urgent-injury-care' },
+            { name: 'Emergency Room', href: '/emergency-room' },
+            { 
+                name: 'Car Accident Care', 
+                href: null,
+                sublinks: [
+                    { name: 'Car Accident Hub', href: '/car-accident-injury-clinic' },
+                    { name: 'Royal Palm Beach', href: '/car-accident/royal-palm-beach' },
+                    { name: 'Lake Worth', href: '/car-accident/lake-worth' },
+                    { name: 'Palm Springs', href: '/car-accident/palm-springs' },
+                    { name: 'Lantana', href: '/car-accident/lantana' },
+                    { name: 'Whiplash Treatment', href: '/car-accident/whiplash' },
+                    { name: 'Back & Neck Pain', href: '/car-accident/back-neck-pain' },
+                    { name: 'PIP Documentation', href: '/car-accident/documentation-pip' },
+                    { name: 'Urgent Care vs ER', href: '/car-accident/urgent-care-vs-er' }
+                ]
+            },
             { name: 'Pain Management Care', href: '/pain-management-care' },
             { name: 'DOT Physical', href: '/service/dot-physical' },
             { name: 'Lawyers', href: '/lawyers' },
@@ -72,7 +87,8 @@ const HamburgerIcon = ({ open }: { open: boolean }) => (
 const NavBar = () => {
     const pathname = usePathname();
     const [isSidebarOpen, setSidebarOpen] = useState(false);
-    const [openSidebarIndex, setOpenSidebarIndex] = useState<number | null>(null); // for mobile accordion
+    const [openSidebarIndex, setOpenSidebarIndex] = useState<number | string | null>(null); // for mobile accordion
+    const [openNestedIndex, setOpenNestedIndex] = useState<string | null>(null); // for nested submenus
     const [currentLanguage, setCurrentLanguage] = useState<string>();
     const [languageConfig, setLanguageConfig] = useState<any>();
     const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -248,13 +264,33 @@ const NavBar = () => {
                                         {item.sublinks && (
                                             <ul className="absolute left-0 top-full mt-2 min-w-[220px] bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all z-20 border border-gray-100">
                                                 {item.sublinks.map((sub) => (
-                                                    <li key={sub.name}>
-                                                        <Link
-                                                            href={sub.href}
-                                                            className={`block px-5 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === sub.href ? 'bg-red-100 text-red-600' : ''}`}
-                                                        >
-                                                            {sub.name}
-                                                        </Link>
+                                                    <li key={sub.name} className="relative group/sub">
+                                                        {sub.href ? (
+                                                            <Link
+                                                                href={sub.href}
+                                                                className={`block px-5 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === sub.href ? 'bg-red-100 text-red-600' : ''}`}
+                                                            >
+                                                                {sub.name}
+                                                            </Link>
+                                                        ) : (
+                                                            <div className="block px-5 py-3 text-gray-700 cursor-pointer whitespace-nowrap">
+                                                                {sub.name}
+                                                            </div>
+                                                        )}
+                                                        {sub.sublinks && (
+                                                            <ul className="absolute left-full top-0 ml-1 min-w-[200px] bg-white shadow-lg rounded-lg opacity-0 group-hover/sub:opacity-100 group-hover/sub:visible invisible transition-all z-30 border border-gray-100">
+                                                                {sub.sublinks.map((subsub) => (
+                                                                    <li key={subsub.name}>
+                                                                        <Link
+                                                                            href={subsub.href}
+                                                                            className={`block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === subsub.href ? 'bg-red-100 text-red-600' : ''}`}
+                                                                        >
+                                                                            {subsub.name}
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -336,7 +372,7 @@ const NavBar = () => {
                 className={`fixed top-0 right-0 h-full w-full sm:w-[65%] bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
                 aria-hidden={!isSidebarOpen}
             >
-                <div className="p-6 flex justify-end">
+                <div className="pt-6 px-6 flex justify-end">
                     <button
                         className="xl:hidden text-[#D52128] flex p-2 z-50 ml-auto bg-white rounded-xl backdrop-blur-3xl"
                         onClick={toggleSidebar}
@@ -347,34 +383,67 @@ const NavBar = () => {
                         <HamburgerIcon open={isSidebarOpen} />
                     </button>
                 </div>
-                <nav className="mt-8 flex flex-col space-y-2 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]">
+                <nav className="mt-8 flex flex-col space-y-2 px-6 overflow-y-auto max-h-[calc(100vh-120px)]">
                     {navItems.map((item, idx) => (
                         <div key={item.name}>
                             {item.sublinks ? (
                                 <>
                                     <button
-                                        className={`w-full flex items-center justify-between text-gray-700 font-semibold text-lg rounded-lg px-4 py-3 transition-colors ${openSidebarIndex === idx ? 'bg-red-100 text-red-600' : 'hover:bg-gray-100'}`}
+                                        className={`w-full flex items-center justify-between text-gray-700 font-semibold text-lg rounded-lg px-4 py-4 transition-colors touch-manipulation ${openSidebarIndex === idx ? 'bg-red-100 text-red-600' : 'hover:bg-gray-100'}`}
                                         onClick={() => setOpenSidebarIndex(openSidebarIndex === idx ? null : idx)}
                                         aria-expanded={openSidebarIndex === idx}
                                         aria-controls={`sidebar-sublinks-${idx}`}
                                     >
                                         <span>{item.name}</span>
-                                        <ChevronRight className={`ml-2 w-4 h-4 transition-transform ${openSidebarIndex === idx ? 'rotate-90 text-red-600' : 'text-gray-400'}`} />
+                                        <ChevronRight className={`ml-2 w-5 h-5 transition-transform ${openSidebarIndex === idx ? 'rotate-90 text-red-600' : 'text-gray-400'}`} />
                                     </button>
                                     <div
                                         id={`sidebar-sublinks-${idx}`}
-                                        className={`pl-4 border-l border-gray-100 overflow-hidden transition-all ${openSidebarIndex === idx ? 'max-h-96 py-1' : 'max-h-0 py-0'} duration-300`}
+                                        className={`pl-4 border-l border-gray-100 overflow-hidden transition-all ${openSidebarIndex === idx ? 'max-h-[800px] py-1 overflow-y-auto' : 'max-h-0 py-0'} duration-300`}
                                         style={{ transitionProperty: 'max-height, padding' }}
                                     >
-                                        {item.sublinks.map((sub) => (
-                                            <Link
-                                                key={sub.name}
-                                                href={sub.href}
-                                                className={`block px-3 py-2 text-gray-600 rounded-lg hover:bg-red-50 hover:text-red-600 text-base ${pathname === sub.href ? 'bg-red-100 text-red-600' : ''}`}
-                                                onClick={closeSidebar}
-                                            >
-                                                {sub.name}
-                                            </Link>
+                                        {item.sublinks.map((sub, subIdx) => (
+                                            <div key={sub.name}>
+                                                {sub.sublinks ? (
+                                                    <>
+                                                        <button
+                                                            className={`w-full flex items-center justify-between text-gray-600 text-base rounded-lg px-3 py-3 hover:bg-red-50 hover:text-red-600 transition-colors touch-manipulation ${openNestedIndex === `${idx}-${subIdx}` ? 'bg-red-100 text-red-600' : ''}`}
+                                                            onClick={(e) => {
+                                                                e.preventDefault();
+                                                                e.stopPropagation();
+                                                                setOpenNestedIndex(openNestedIndex === `${idx}-${subIdx}` ? null : `${idx}-${subIdx}`);
+                                                            }}
+                                                            aria-expanded={openNestedIndex === `${idx}-${subIdx}`}
+                                                        >
+                                                            <span className="font-medium">{sub.name}</span>
+                                                            <ChevronRight className={`ml-2 w-4 h-4 transition-transform ${openNestedIndex === `${idx}-${subIdx}` ? 'rotate-90 text-red-600' : 'text-gray-400'}`} />
+                                                        </button>
+                                                        <div
+                                                            className={`pl-4 border-l-2 border-red-200 overflow-hidden transition-all duration-300 ease-in-out ${openNestedIndex === `${idx}-${subIdx}` ? 'max-h-[600px] py-2 overflow-y-auto' : 'max-h-0 py-0'}`}
+                                                        >
+                                                            {sub.sublinks.map((subsub) => (
+                                                                <Link
+                                                                    key={subsub.name}
+                                                                    href={subsub.href}
+                                                                    className={`block px-4 py-3 text-sm text-gray-600 rounded-lg hover:bg-red-50 hover:text-red-600 touch-manipulation transition-colors ${pathname === subsub.href ? 'bg-red-100 text-red-600 font-medium' : ''}`}
+                                                                    onClick={closeSidebar}
+                                                                >
+                                                                    {subsub.name}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </>
+                                                ) : sub.href ? (
+                                                    <Link
+                                                        key={sub.name}
+                                                        href={sub.href}
+                                                        className={`block px-3 py-3 text-gray-600 rounded-lg hover:bg-red-50 hover:text-red-600 text-base touch-manipulation transition-colors ${pathname === sub.href ? 'bg-red-100 text-red-600 font-medium' : ''}`}
+                                                        onClick={closeSidebar}
+                                                    >
+                                                        {sub.name}
+                                                    </Link>
+                                                ) : null}
+                                            </div>
                                         ))}
                                     </div>
                                 </>

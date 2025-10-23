@@ -35,7 +35,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://wpucc.com/lawyers.jpg",
+        url: "https://primaryuc.com/lawyers.jpg",
         width: 1200,
         height: 630,
         alt: "Lawyers requesting urgent care medical records Palm Beach County"
@@ -48,7 +48,7 @@ export const metadata = {
     description:
       "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County.",
     images: [
-      "https://wpucc.com/lawyers.jpg"
+      "https://primaryuc.com/lawyers.jpg"
     ]
   },
   alternates: {

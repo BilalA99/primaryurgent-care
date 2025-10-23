@@ -8,6 +8,40 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/paincare',
+        destination: '/car-accident-injury-clinic',
+        permanent: true, // 301 redirect
+      },
+      {
+        source: '/paincare/:slug',
+        destination: '/urgent-injury-care/:slug',
+        permanent: true,
+      },
+      {
+        source: '/urgentinjurycare',
+        destination: '/urgent-injury-care',
+        permanent: true,
+      },
+      {
+        source: '/urgentinjurycare/:slug',
+        destination: '/urgent-injury-care/:slug',
+        permanent: true,
+      },
+      {
+        source: '/emergencyroom',
+        destination: '/emergency-room',
+        permanent: true,
+      },
+      {
+        source: '/emergencyroom/:slug',
+        destination: '/emergency-room/:slug',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

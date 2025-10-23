@@ -18,7 +18,7 @@ const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }>
           '@type': 'MedicalProcedure',
           name: service?.title || 'Emergency Room Service',
           description: service?.description || 'Hospital-level emergency care service',
-          url: `https://primaryuc.com/emergencyroom/${slug}`,
+          url: `https://primaryuc.com/emergency-room/${slug}`,
           provider: {
             '@type': 'MedicalClinic',
             name: 'Primary & Urgent Care Centers of Palm Beach County',

@@ -17,30 +17,30 @@ import PainCareWeTreat from '@/components/paincarewetreat'
 import Testimonials from '@/components/testimonials'
 
 export const metadata = {
-  title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
-  description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Immediate appointments.",
+  title: "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
+  description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
   keywords: [
     "Suboxone treatment Palm Beach", "Suboxone clinic near me", "Suboxone doctor in Palm Beach County", "urgent care Suboxone clinic", "medication-assisted treatment MAT", "opioid detox urgent care", "walk-in Suboxone treatment Royal Palm Beach", "same-day Suboxone appointment Lake Worth", "affordable Suboxone program West Palm Beach", "buprenorphine treatment near me", "outpatient opioid treatment Florida", "pain management clinic Palm Beach", "chronic pain urgent care", "pain management specialist Royal Palm Beach"
   ],
   openGraph: {
-    title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
-    description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
-    url: "https://primaryuc.com/pain-management-program",
+    title: "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
+    description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
+    url: "https://primaryuc.com/pain-management-care",
     images: [
-      { url: "https://wpucc.com/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
+      { url: "https://primaryuc.com/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
     ],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suboxone Treatment & Pain Management Clinic | MAT & Opioid Detox | Palm Beach County, FL",
-    description: "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Palm Beach County.",
+    title: "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
+    description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
     images: [
-      { url: "https://wpucc.com/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
+      { url: "https://primaryuc.com/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
     ]
   },
   alternates: {
-    canonical: "https://primaryuc.com/pain-management-program"
+    canonical: "https://primaryuc.com/pain-management-care"
   },
   icons: {
     icon: "/favicon.ico",
@@ -185,7 +185,7 @@ const PainManagementProgramPage = () => {
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">Pain Management & Urgent Care Facility</h2>
                 <p className="text-base md:text-lg text-gray-800 mb-8">
-                  Our urgent care centers specialize in pain management, offering a variety of treatments such as medications, physical therapy, sports medicine, and primary care. We aim to reduce inflammation and alleviate pain while enhancing mobility. Patients can receive comprehensive care on-site, minimizing the need for multiple visits. Our orthopedic clinic is ready to assist both new and returning patients, and we can easily schedule follow-up appointments.
+                  Our urgent care centers specialize in pain management, offering a variety of treatments such as medications, sports medicine, and primary care. We aim to reduce inflammation and alleviate pain while enhancing mobility. Patients can receive comprehensive care on-site, minimizing the need for multiple visits. Our orthopedic clinic is ready to assist both new and returning patients, and we can easily schedule follow-up appointments.
                 </p>
                 <h3 className="text-xl md:text-2xl font-bold mb-2">Further Details</h3>
                 <p className="text-base md:text-lg text-gray-800">

@@ -75,30 +75,36 @@ const AccidentTypesTabs = () => {
     const activeType = accidentTypes[active];
 
     return (
-        <section className="w-full xl:py-20 py-10 px-4 xl:px-[60px] flex flex-col space-y-14">
-            <h2 className="text-5xl md:text-6xl font-bold">Accident Types We Treat<br />in Palm Beach County, FL</h2>
-            <div className="text-lg text-[#494647] ">From fender-benders to workplace falls, our board-certified team documents injuries, bills direct to PIP or workers' comp, and gets you seen in 15 minutes.</div>
-            <div className="flex flex-wrap gap-4 mb-10">
+        <section className="w-full xl:py-20 py-6 sm:py-10 px-4 xl:px-[60px] flex flex-col space-y-6 sm:space-y-8 lg:space-y-14">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Accident Types We Treat<br />in Palm Beach County, FL</h2>
+            <div className="text-base sm:text-lg text-[#494647]">From fender-benders to workplace falls, our board-certified team documents injuries, bills direct to PIP or workers' comp, and gets you seen in 15 minutes.</div>
+            <div className="flex flex-wrap gap-2 sm:gap-4 mb-6 sm:mb-10">
                 {accidentTypes.map((type, i) => (
                     <button
                         key={type.label}
-                        className={`px-7 py-3 rounded-full text-lg font-semibold transition-colors ${i === active ? 'bg-[#2563eb] text-white' : 'bg-[#FDF4F4] text-black hover:bg-[#ececec]'}`}
+                        className={`px-4 sm:px-7 py-2 sm:py-3 rounded-full text-sm sm:text-lg font-semibold transition-colors touch-manipulation ${i === active ? 'bg-[#2563eb] text-white' : 'bg-[#FDF4F4] text-black hover:bg-[#ececec]'}`}
                         onClick={() => setActive(i)}
                     >
                         {type.label}
                     </button>
                 ))}
             </div>
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 items-start ">
-                <div className=" flex flex-col space-y-10">
-                    <h3 className="text-4xl font-bold ">{activeType.title}</h3>
-                    <p className="text-lg text-[#494647]">{activeType.topDescription}</p>
-                    <p className="text-lg text-[#494647]">{activeType.description}</p>
-                    <BookAnAppointmentPopup><button className="bg-[#D52128] text-white font-semibold px-7 py-4 rounded-xl w-fit text-lg shadow hover:bg-[#b81b22] transition">{activeType.button}</button></BookAnAppointmentPopup>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
+                <div className="flex flex-col space-y-4 sm:space-y-6 lg:space-y-10">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{activeType.title}</h3>
+                    <p className="text-base sm:text-lg text-[#494647]">{activeType.topDescription}</p>
+                    <p className="text-base sm:text-lg text-[#494647]">{activeType.description}</p>
+                    <BookAnAppointmentPopup>
+                        <button className="bg-[#D52128] text-white font-semibold px-6 sm:px-7 py-3 sm:py-4 rounded-xl w-full sm:w-fit text-base sm:text-lg shadow hover:bg-[#b81b22] transition touch-manipulation">
+                            {activeType.button}
+                        </button>
+                    </BookAnAppointmentPopup>
                 </div>
-                <div className="flex-1  flex justify-center items-center">
-                    <div className="w-full rounded-2xl overflow-hidden relative xl:h-150 h-100">
-                        <Image src={activeType.image} alt={activeType.title} fill className=" w-full object-cover rounded-2xl" />
+                
+                {/* Hide image on mobile, show on desktop */}
+                <div className="hidden lg:flex flex-1 justify-center items-center">
+                    <div className="w-full rounded-2xl overflow-hidden relative h-96">
+                        <Image src={activeType.image} alt={activeType.title} fill className="object-cover rounded-2xl" />
                     </div>
                 </div>
             </div>

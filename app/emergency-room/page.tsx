@@ -50,9 +50,9 @@ const accordionSections = [
 ];
 
 export const metadata = {
-  title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
+  title: "ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care",
   description:
-    "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
+    "ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.",
   keywords: [
     "emergency room alternative",
     "walk-in ER Palm Beach County",
@@ -69,14 +69,14 @@ export const metadata = {
     "board-certified ER doctors urgent care"
   ],
   openGraph: {
-    title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
+    title: "ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care",
     description:
-      "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
-    url: "https://primaryuc.com/emergencyroom",
+      "ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.",
+    url: "https://primaryuc.com/emergency-room",
     type: "website",
     images: [
       {
-        url: "https://wpucc.com/hospitalcare.jpg",
+        url: "https://primaryuc.com/hospitalcare.jpg",
         width: 1200,
         height: 630,
         alt: "Hospital-level emergency care urgent care Palm Beach County"
@@ -85,15 +85,15 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hospital-Level Emergency Room Services | Walk-In ER Alternative Palm Beach County | Primary & Urgent Care Centers",
+    title: "ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care",
     description:
-      "Skip the crowded ER. Get hospital-level emergency care, advanced imaging (MRI, CT, X-ray), and board-certified doctors at Primary & Urgent Care Centers. Walk-in, less than 15 min wait, affordable pricing, and direct insurance/PIP billing in Palm Beach County.",
+      "ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.",
     images: [
-      "https://wpucc.com/hospitalcare.jpg"
+      "https://primaryuc.com/hospitalcare.jpg"
     ]
   },
   alternates: {
-    canonical: "https://primaryuc.com/emergencyroom"
+    canonical: "https://primaryuc.com/emergency-room"
   }
 };
 
@@ -106,7 +106,7 @@ const EmergencyRoomJsonLd = () => (
         '@context': 'https://schema.org',
         '@type': 'MedicalClinic',
         name: 'Primary & Urgent Care Centers of Palm Beach County',
-        url: 'https://primaryuc.com/emergencyroom',
+        url: 'https://primaryuc.com/emergency-room',
         areaServed: {
           '@type': 'AdministrativeArea',
           name: 'Palm Beach County, FL'
@@ -188,8 +188,8 @@ const EmergencyRoomPage = () => {
         {/* Background image */}
         <div className="absolute inset-0 w-full h-full -z-10">
           <Image
-            src="/paincare.jpg"
-            alt="Pain Care Landing Background"
+            src="/emergency-room-bg.jpg"
+            alt="Emergency Room Background"
             fill
             className="object-cover w-full h-full"
             priority
@@ -318,6 +318,22 @@ const EmergencyRoomPage = () => {
           <div className="md:text-lg text-base text-white max-w-2xl mx-auto">
             On-site MRI, CT, digital X-ray, and STAT labs. Board-certified providers see you in {'<'} 15 minutes—no appointment, no ER prices.
           </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="w-full bg-[#FAFAFA] py-16 px-4 lg:px-[60px]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-black mb-6">Car Accident Care</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            For car accident injuries, visit our dedicated car accident care hub for specialized treatment, documentation, and PIP services.
+          </p>
+          <Link 
+            href="/car-accident-injury-clinic" 
+            className="bg-[#2563eb] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#174ea6] transition inline-block"
+          >
+            Visit Car Accident Care Hub
+          </Link>
         </div>
       </section>
     </main>

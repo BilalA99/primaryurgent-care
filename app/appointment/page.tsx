@@ -15,8 +15,8 @@ import Link from 'next/link';
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
-    title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-    description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+    title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
+    description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Lantana clinics.',
     keywords: [
         'urgent care appointment',
         'book urgent care',
@@ -32,8 +32,8 @@ export const metadata = {
         'online urgent care booking'
     ].join(', '),
     openGraph: {
-        title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-        description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+        title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
+        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Lantana clinics.',
         url: 'https://primaryuc.com/appointment',
         siteName: 'Primary & Urgent Care Centers',
         images: [
@@ -49,8 +49,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Book Urgent Care Appointment Palm Beach | Same Day & Walk-In Visits',
-        description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted, ',
+        title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
+        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Lantana clinics.',
         images: ['/appointment.png'],
         site: '@primaryurgentcare',
     },

@@ -212,7 +212,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const { slug } = await params;
     const service = primaryCareServices.find(s => s.slug === slug);
     if (!service) return {};
-    const baseUrl = 'https://wpucc.com';
+    const baseUrl = 'https://primaryuc.com';
     const url = `${baseUrl}/primary-care-doctor/${service.slug}`;
     return {
         title: service.metaTitle || `${service.title} | Primary Care Services`,
@@ -262,9 +262,9 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                         "@context": "https://schema.org",
                         "@type": "MedicalClinic",
                         "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
-                        "image": `https://wpucc.com${service.image}`,
-                        "@id": `https://wpucc.com/primary-care-doctor/${service.slug}`,
-                        "url": `https://wpucc.com/primary-care-doctor/${service.slug}`,
+                        "image": `https://primaryuc.com${service.image}`,
+                        "@id": `https://primaryuc.com/primary-care-doctor/${service.slug}`,
+                        "url": `https://primaryuc.com/primary-care-doctor/${service.slug}`,
                         "telephone": "+1-561-223-8024",
                         "address": [
                             {
@@ -324,8 +324,8 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                             "closes": "20:00"
                         }],
                         "sameAs": [
-                            "https://www.facebook.com/wpucc",
-                            "https://www.instagram.com/wpucc"
+                            "https://www.facebook.com/primaryuc",
+                            "https://www.instagram.com/primaryuc"
                         ],
                         "makesOffer": {
                             "@type": "Offer",
@@ -333,7 +333,7 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                                 "@type": "Service",
                                 "name": service.title,
                                 "description": service.metaDescription || service.description,
-                                "url": `https://wpucc.com/primary-care-doctor/${service.slug}`
+                                "url": `https://primaryuc.com/primary-care-doctor/${service.slug}`
                             }
                         }
                     })
