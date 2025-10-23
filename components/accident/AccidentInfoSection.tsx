@@ -44,21 +44,21 @@ const AccidentInfoSection: React.FC<AccidentInfoSectionProps> = ({
 
   return (
     <section className={`py-16 ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 lg:px-[60px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {items.map((item, index) => {
             const styles = getTypeStyles(item.type);
             return (
               <div
                 key={index}
                 className={`
-                  p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.03] cursor-pointer
+                  p-4 sm:p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.03] cursor-pointer touch-manipulation
                   ${styles.container}
                 `}
               >

@@ -5,13 +5,16 @@ export const accidentCities: Record<AccidentCityKey, {
   address: string;
   phoneDisplay: string;
   phoneHref: string;
+  phone: string; // Add for schema
   gmb?: string; // optional Google Maps URL if available
+  coordinates?: { lat: number; lng: number }; // Add for geo schema
 }> = {
   "royal-palm-beach": {
     name: "Royal Palm Beach",
     address: "11476 Okeechobee Blvd., Royal Palm Beach, FL 33411",
     phoneDisplay: "(561) 223-8024",
     phoneHref: "tel:+15612238024",
+    phone: "+1-561-223-8024",
     gmb: undefined
   },
   "lake-worth": {
@@ -19,6 +22,7 @@ export const accidentCities: Record<AccidentCityKey, {
     address: "6447 Lake Worth Road, Lake Worth, FL 33463",
     phoneDisplay: "(561) 223-8024",
     phoneHref: "tel:+15612238024",
+    phone: "+1-561-223-8024",
     gmb: undefined
   },
   "palm-springs": {
@@ -26,6 +30,7 @@ export const accidentCities: Record<AccidentCityKey, {
     address: "3696 S. Congress Ave., Palm Springs, FL 33461",
     phoneDisplay: "(561) 223-8024",
     phoneHref: "tel:+15612238024",
+    phone: "+1-561-223-8024",
     gmb: undefined
   },
   "lantana": {
@@ -33,6 +38,7 @@ export const accidentCities: Record<AccidentCityKey, {
     address: "6169 S Jog Road, Unit 4B, Lantana, FL 33467",
     phoneDisplay: "(561) 223-8024",
     phoneHref: "tel:+15612238024",
+    phone: "+1-561-223-8024",
     gmb: undefined
   }
 };

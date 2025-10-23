@@ -5,8 +5,8 @@ import AccidentTypesTabs from "@/components/ui/AccidentTypesTabs";
 import PricingGrid from "@/components/PricingGrid";
 
 export const metadata = {
-    title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
-    description: 'Get same-day MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine at our urgent care centers in Palm Beach County. Walk in or book an appointment for hospital-level diagnostics—no ER wait, affordable pricing, and fast results. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    title: 'Car Accident Imaging Palm Beach | MRI, CT, X-Ray | Primary & Urgent Care',
+    description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
     keywords: [
         'urgent care imaging',
         'hospital-grade diagnostics',
@@ -30,8 +30,8 @@ export const metadata = {
         'Lantana'
     ],
     openGraph: {
-        title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
-        description: 'Get same-day MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine at our urgent care centers in Palm Beach County. Walk in or book an appointment for hospital-level diagnostics—no ER wait, affordable pricing, and fast results.',
+        title: 'Car Accident Imaging Palm Beach | MRI, CT, X-Ray | Primary & Urgent Care',
+        description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
         url: 'https://primaryuc.com/service',
         type: 'website',
         images: [
@@ -45,8 +45,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Hospital-Grade Imaging & Diagnostic Services | Urgent Care Palm Beach County',
-        description: 'Get same-day MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine at our urgent care centers in Palm Beach County. Walk in or book an appointment for hospital-level diagnostics—no ER wait, affordable pricing, and fast results.',
+        title: 'Car Accident Imaging Palm Beach | MRI, CT, X-Ray | Primary & Urgent Care',
+        description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
         images: ['https://primaryuc.com/servicelanding.jpg'],
     },
     alternates: {

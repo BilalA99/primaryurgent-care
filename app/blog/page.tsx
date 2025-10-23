@@ -6,8 +6,8 @@ import { GetBlogs } from '@/lib/blog/get-blogs';
 import { generateBlogIndexJsonLd } from '@/lib/seo';
 
 export const metadata = {
-  title: 'Health Tips & Urgent Care Insights | Primary & Urgent Care Centers',
-  description: 'Stay informed with expert health advice, urgent care guidance, and wellness tips from our medical team. From accident care to preventive health, we\'re here to help you make informed decisions about your health.',
+  title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
+  description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',
   keywords: [
     'health tips',
     'urgent care advice',
@@ -23,8 +23,8 @@ export const metadata = {
     'injury care advice'
   ].join(', '),
   openGraph: {
-    title: 'Health Tips & Urgent Care Insights | Primary & Urgent Care Centers',
-    description: 'Stay informed with expert health advice, urgent care guidance, and wellness tips from our medical team.',
+    title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
+    description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',
     url: 'https://primaryuc.com/blog',
     siteName: 'Primary & Urgent Care Centers',
     images: [
@@ -40,8 +40,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Health Tips & Urgent Care Insights | Primary & Urgent Care Centers',
-    description: 'Stay informed with expert health advice, urgent care guidance, and wellness tips from our medical team.',
+    title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
+    description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',
     images: ['https://primaryuc.com/doctorwithpatient.jpg'],
     site: '@primaryurgentcare',
   },

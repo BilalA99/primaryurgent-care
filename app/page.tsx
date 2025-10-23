@@ -20,8 +20,8 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import Link from "next/link";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 export const metadata = {
-  title: 'Injury Doctor & Accident Clinic in Palm Beach County | PrimaryUC',
-  description: 'Immediate care for car accident, slip & fall, and work injuries in West Palm Beach, Lake Worth & Royal Palm Beach. We handle PIP claims & provide medical reports for attorneys.',
+  title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
+  description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
   keywords: [
     'car accident doctor west palm beach',
     'personal injury clinic',
@@ -39,8 +39,8 @@ export const metadata = {
     'MRI urgent care'
   ].join(', '),
   openGraph: {
-    title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
-    description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+    title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
+    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
     url: 'https://primaryuc.com/',
     siteName: 'Primary & Urgent Care Centers',
     images: [
@@ -56,8 +56,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Urgent Care Palm Beach County | Walk-In Clinic, Emergency & Primary Care',
-    description: 'Get fast, affordable urgent care in Palm Beach County. Walk-in clinic for injuries, illness, X-ray, MRI, and more. Seen in 15 minutes or less—book or walk in today!',
+    title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
+    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
     images: ['/Homepage25.png'],
   },
   alternates: {
@@ -252,7 +252,7 @@ export default function Home() {
                 title="Comprehensive Accident & Pain Care"
                 description="Car crash? Sports mishap? We evaluate whiplash, neck and back pain, headaches, migraines and more. On-site imaging plus pain-management therapy speed your recovery—without an ER wait. Get your injury documented for insurance or legal claims."
                 buttonText="Explore Pain care"
-                buttonLink="/paincare"
+                buttonLink="/car-accident-injury-clinic"
               />
             </div>
           </div>

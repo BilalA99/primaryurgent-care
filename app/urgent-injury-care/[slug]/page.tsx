@@ -25,7 +25,7 @@ export default async function ConditionDetails({
           '@context': 'https://schema.org',
           '@type': 'MedicalProcedure',
           name: condition_details?.title || 'Urgent Injury Care',
-          url: `https://primaryuc.com/urgentinjurycare/${conditionSlug}`,
+          url: `https://primaryuc.com/urgent-injury-care/${conditionSlug}`,
           provider: {
             '@type': 'MedicalClinic',
             name: 'Primary & Urgent Care Centers of Palm Beach County',

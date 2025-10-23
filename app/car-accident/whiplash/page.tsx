@@ -1,55 +1,50 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import AccidentCTA from "@/components/accident/AccidentCTA";
-import AccidentAppointmentForm from "@/components/accident/AccidentAppointmentForm";
-import HeroWithForm from "@/components/accident/HeroWithForm";
-import ImmediateCareBanner from "@/components/accident/ImmediateCareBanner";
-import CompactBooking from "@/components/accident/CompactBooking";
-import AccidentSEOContent from "@/components/accident/AccidentSEOContent";
-import AccidentFAQ from "@/components/accident/AccidentFAQ";
+import { Metadata } from "next";
 import { toJsonLd } from "@/lib/seo";
 
-const baseUrl = "https://primaryuc.com";
+const baseUrl = 'https://primaryuc.com';
+import HeroWithForm from "@/components/accident/HeroWithForm";
+import ImmediateCareBanner from "@/components/accident/ImmediateCareBanner";
+import AccidentAppointmentForm from "@/components/accident/AccidentAppointmentForm";
+import AccidentFAQ from "@/components/accident/AccidentFAQ";
+import RelatedTopics from "@/components/accident/RelatedTopics";
 
 export const metadata: Metadata = {
-  title: "Whiplash Treatment After a Car Accident | Urgent Care Near You",
-  description:
-    "Neck pain or headaches after a crash? Get a same-day whiplash evaluation, X-ray, and recovery plan at Primary & Urgent Care. Walk-ins welcome.",
+  title: "Car Accident Whiplash Treatment Palm Beach | Primary & Urgent Care",
+  description: "Whiplash treatment after car accident in Palm Beach County. Same-day evaluation, X-ray, pain management, PIP documentation. Walk-ins welcome. Call (561) 223-8024.",
   keywords: [
-    'whiplash treatment',
-    'whiplash after car accident',
-    'neck pain car accident',
-    'whiplash urgent care',
-    'same day whiplash exam',
-    'whiplash symptoms',
-    'car accident neck injury',
-    'whiplash X-ray',
-    'Palm Beach County whiplash',
-    'walk-in whiplash treatment'
-  ].join(', '),
-  alternates: { canonical: `${baseUrl}/car-accident/whiplash` },
+    "whiplash treatment palm beach county",
+    "car accident whiplash florida",
+    "whiplash injury urgent care same day",
+    "post accident neck pain evaluation",
+    "whiplash evaluation palm beach",
+    "neck injury treatment urgent care",
+    "whiplash documentation PIP",
+    "car crash neck injury florida",
+    "urgent care whiplash palm beach county",
+    "PIP whiplash treatment florida",
+    "delayed whiplash symptoms",
+    "Florida PIP 14 day whiplash"
+  ],
   openGraph: {
-    title: "Whiplash Treatment After a Car Accident | Urgent Care Near You",
-    description:
-      "Same-day whiplash evaluation, imaging, and recovery plan after a car accident.",
+    title: "Car Accident Whiplash Treatment Palm Beach | Primary & Urgent Care",
+    description: "Whiplash treatment after car accident in Palm Beach County. Same-day evaluation, X-ray, pain management, PIP documentation. Walk-ins welcome. Call (561) 223-8024.",
     url: `${baseUrl}/car-accident/whiplash`,
-    type: 'article',
-    siteName: "Primary & Urgent Care Centers",
+    type: "website",
     images: [
       {
-        url: `${baseUrl}/websitelogo.png`,
+        url: `${baseUrl}/whiplash-hero-image.png`,
         width: 1200,
         height: 630,
-        alt: "Whiplash Treatment After Car Accident",
+        alt: "Whiplash Treatment After Car Accident Palm Beach County",
       },
     ],
     locale: 'en_US',
   },
-  twitter: { 
-    card: 'summary_large_image', 
-    title: "Whiplash Treatment After a Car Accident",
-    description: "Same-day whiplash evaluation, imaging, and recovery plan.",
-    images: [`${baseUrl}/websitelogo.png`],
+  twitter: {
+    card: 'summary_large_image',
+    title: "Car Accident Whiplash Treatment Palm Beach | Primary & Urgent Care",
+    description: "Whiplash treatment after car accident in Palm Beach County. Same-day evaluation, X-ray, pain management, PIP documentation. Walk-ins welcome. Call (561) 223-8024.",
+    images: [`${baseUrl}/whiplash-hero-image.png`],
     site: '@primaryurgentcare',
   },
   robots: { index: true, follow: true }
@@ -66,6 +61,25 @@ export default function Page() {
     ]
   };
 
+  const whiplashTreatmentSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: "Whiplash Treatment and Evaluation",
+    description: "Comprehensive evaluation and treatment of whiplash injuries sustained in car accidents",
+    bodyLocation: "Neck and Cervical Spine",
+    preparation: "No special preparation required - walk-ins welcome for immediate evaluation",
+    procedureType: "Diagnostic Evaluation and Treatment",
+    followup: "Follow-up care and monitoring as needed, specialist referrals when appropriate",
+    provider: {
+      "@type": "MedicalOrganization",
+      name: "Primary & Urgent Care Centers",
+      url: `${baseUrl}/car-accident/whiplash`
+    },
+    medicalSpecialty: "Emergency Medicine",
+    indication: "Neck pain, stiffness, headaches, or other symptoms following car accident",
+    contraindication: "Severe neurological symptoms requiring emergency room evaluation"
+  };
+
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -73,19 +87,60 @@ export default function Page() {
       {
         "@type": "Question",
         name: "Can whiplash start days after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Neck pain, headaches, or stiffness can appear hours or days later. An exam helps rule out more serious injury and guides recovery." }
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Neck pain, headaches, or stiffness can appear hours or days later. This is why it's important to seek medical evaluation even if you feel fine initially. An exam helps rule out more serious injury and guides recovery." }
       },
       {
         "@type": "Question",
         name: "Do I need X-ray or MRI for whiplash?",
-        acceptedAnswer: { "@type": "Answer", text: "X-ray can rule out fractures; MRI may be referred if symptoms suggest soft-tissue or disc injury. We'll advise based on your exam." }
+        acceptedAnswer: { "@type": "Answer", text: "X-ray can rule out fractures; MRI may be referred if symptoms suggest soft-tissue or disc injury. We have onsite X-ray capabilities and can provide same-day results for your insurance documentation." }
+      },
+      {
+        "@type": "Question",
+        name: "What are the common symptoms of whiplash after a car accident?",
+        acceptedAnswer: { "@type": "Answer", text: "Common symptoms include neck pain and stiffness, headaches, shoulder pain, dizziness, fatigue, and sometimes jaw pain or ringing in the ears. Symptoms may not appear immediately after the accident and can develop over 24-48 hours." }
+      },
+      {
+        "@type": "Question",
+        name: "How is whiplash diagnosed after a car accident?",
+        acceptedAnswer: { "@type": "Answer", text: "Diagnosis involves a comprehensive physical examination, assessment of neck range of motion, neurological tests, and potentially imaging studies like X-rays or MRI to rule out fractures or disc injuries. Our urgent care team specializes in car accident injury evaluation." }
+      },
+      {
+        "@type": "Question",
+        name: "What treatment options are available for whiplash?",
+        acceptedAnswer: { "@type": "Answer", text: "Treatment may include pain management, anti-inflammatory medications, physical therapy exercises, heat/ice therapy, and in some cases, specialist referrals for advanced care. We provide comprehensive documentation for insurance claims." }
+      },
+      {
+        "@type": "Question",
+        name: "How long does whiplash recovery typically take?",
+        acceptedAnswer: { "@type": "Answer", text: "Most people recover from whiplash within a few weeks to months, but some may experience chronic symptoms. Early treatment and proper documentation are important for both recovery and insurance claims. We provide ongoing monitoring and follow-up care." }
+      },
+      {
+        "@type": "Question",
+        name: "When should I seek immediate medical attention for whiplash?",
+        acceptedAnswer: { "@type": "Answer", text: "Seek immediate care if you experience severe neck pain, numbness or tingling in arms/hands, difficulty walking, loss of bladder/bowel control, or worsening neurological symptoms. Our urgent care can evaluate and refer to emergency services if needed." }
+      },
+      {
+        "@type": "Question",
+        name: "What documentation do you provide for whiplash insurance claims?",
+        acceptedAnswer: { "@type": "Answer", text: "We provide comprehensive medical documentation including exam findings, imaging results, treatment plans, and visit summaries essential for PIP claims and legal cases. All documentation is provided immediately after your visit." }
+      },
+      {
+        "@type": "Question",
+        name: "How much does whiplash treatment cost?",
+        acceptedAnswer: { "@type": "Answer", text: "Costs vary based on your insurance coverage and services needed. Most insurance plans cover urgent care visits with lower copays than emergency rooms. We work with patients to provide transparent pricing and can help with insurance verification." }
+      },
+      {
+        "@type": "Question",
+        name: "Do you accept PIP insurance for whiplash treatment?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes, we accept PIP (Personal Injury Protection) insurance for whiplash treatment. Florida's PIP law requires medical care within 14 days to unlock benefits. We work directly with insurance companies and provide all necessary documentation for your claim." }
       }
     ]
   };
 
   return (
-    <main className="w-full bg-[#FAFAFA] lg:py-20 py-10 px-4 lg:px-[60px] min-h-screen">
+    <main className="w-full min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(whiplashTreatmentSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faq)} />
       
       {/* Hero Section */}
@@ -93,96 +148,94 @@ export default function Page() {
         title="Whiplash Treatment After a Car Accident"
         subtitle={<p>Neck pain or headaches after a crash? Get evaluated today.</p>}
         checklist={[
-          "Assessment of neck mobility & neuro exam",
-          "X-ray onsite; MRI referral when indicated",
-          "Clear return-to-activity guidance",
+          "Comprehensive neck mobility assessment and neurological examination for car accident whiplash injuries",
+          "Onsite X-ray imaging and MRI referral when indicated for serious car crash neck trauma",
+          "Clear return-to-work and activity guidance for car accident whiplash recovery",
         ]}
         banner={<ImmediateCareBanner />}
-        form={<CompactBooking />}
+        form={<AccidentAppointmentForm title="Book Your Whiplash Exam" noWrapper={true} showHeader={false} compact={true} />}
+        backgroundImage="/whiplash-hero-image.png"
       />
 
-      <div className="max-w-4xl mx-auto">
+      <div className="bg-[#FAFAFA] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+        <div className="max-w-4xl mx-auto">
 
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-black mb-3">When to Get Checked</h2>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Neck pain, stiffness, reduced range of motion</li>
-            <li>Headaches, dizziness, jaw or shoulder pain</li>
-            <li>Pain beginning hours or days after a crash</li>
-            <li>Numbness or tingling in arms or hands</li>
-            <li>Difficulty concentrating or memory issues</li>
+            <li>Severe neck pain, stiffness, and reduced range of motion after car accident whiplash injury</li>
+            <li>Headaches, dizziness, jaw pain, or shoulder pain following car crash trauma</li>
+            <li>Delayed whiplash symptoms beginning hours or days after the car accident</li>
+            <li>Numbness, tingling, or weakness in arms or hands from car accident neck injury</li>
+            <li>Difficulty concentrating, memory issues, or cognitive problems after car crash whiplash</li>
           </ul>
         </section>
-
-        <AccidentCTA />
 
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-black mb-3">What to Expect During Your Visit</h2>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Thorough examination of neck range of motion and strength</li>
-            <li>Assessment of neurological function</li>
-            <li>X-ray imaging to rule out fractures</li>
-            <li>Pain management and recovery recommendations</li>
-            <li>Documentation for insurance and legal purposes</li>
+            <li>Detailed medical history review and comprehensive car accident injury documentation</li>
+            <li>Thorough physical examination of neck, shoulders, and arms for car crash whiplash assessment</li>
+            <li>Complete range of motion and strength testing for car accident neck injury evaluation</li>
+            <li>Comprehensive neurological screening for nerve damage from car accident whiplash trauma</li>
+            <li>Onsite X-ray imaging if indicated to rule out fractures from car crash neck injury</li>
+            <li>Detailed discussion of car accident whiplash treatment options and recovery timeline</li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Recovery and Treatment Options</h2>
-          <p className="text-base md:text-lg text-gray-700 mb-3">
-            Whiplash recovery typically involves pain management, gentle exercises, and gradual return to normal activities. 
-            Most people recover within weeks to months with proper care.
-          </p>
+          <h2 className="text-2xl font-bold text-black mb-3">Treatment Options</h2>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Pain medication and anti-inflammatory treatments</li>
-            <li>Physical therapy referrals when appropriate</li>
-            <li>Activity modifications and ergonomic guidance</li>
-            <li>Follow-up care recommendations</li>
+            <li>Comprehensive pain management with appropriate medications for car accident whiplash treatment</li>
+            <li>Detailed ice and heat therapy instructions for car crash neck injury recovery</li>
+            <li>Customized neck exercises and stretching program for car accident whiplash rehabilitation</li>
+            <li>Activity modifications and return-to-work guidance for car crash injury recovery</li>
+            <li>Referral to specialized specialists for severe car accident whiplash cases</li>
+            <li>Ongoing follow-up care and monitoring plan for car crash whiplash recovery progress</li>
           </ul>
         </section>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-black mb-3">Related Topics</h2>
-              <p className="text-base md:text-lg text-gray-700">
-                Related:{" "}
-                <Link href="/car-accident/back-neck-pain" className="underline text-[#2563eb]">Back &amp; Neck Pain</Link> •{" "}
-                <Link href="/car-accident/documentation-pip" className="underline text-[#2563eb]">PIP & Documentation</Link> •{" "}
-                <Link href="/car-accident-injury-clinic" className="underline text-[#2563eb]">Car Accident Urgent Care</Link>
-              </p>
-            </section>
-          </div>
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">Recovery Timeline</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Most car accident whiplash injuries improve within 2-6 weeks with proper medical care and treatment. Severe car crash whiplash cases may take several months to fully recover. Early evaluation and treatment after a car accident can help speed whiplash recovery and prevent chronic neck pain issues from developing.
+          </p>
+        </section>
 
-          {/* SEO Content Section */}
-          <AccidentSEOContent 
-            content="Whiplash is one of the most common car accident injuries, occurring when the head is suddenly jerked forward and backward. This rapid movement can cause damage to the neck muscles, ligaments, and tendons. Symptoms of whiplash may not appear immediately after a car accident, making early medical evaluation crucial. Our experienced urgent care team provides comprehensive whiplash assessment including neck range of motion testing, neurologic examination, and imaging when indicated. We offer same-day whiplash treatment, pain management, and complete documentation for insurance claims. Don't delay whiplash treatment - early intervention leads to better outcomes. Our board-certified physicians specialize in whiplash injury treatment and understand the complex nature of cervical spine trauma. We work with physical therapists, chiropractors, and other specialists to develop comprehensive treatment plans for whiplash patients. Whether you're experiencing immediate neck pain or delayed whiplash symptoms, our urgent care centers are equipped to provide the evaluation and treatment you need."
-          />
+        <RelatedTopics 
+          topics={[
+            { title: "Back & Neck Pain", href: "/car-accident/back-neck-pain" },
+            { title: "PIP & Documentation", href: "/car-accident/documentation-pip" },
+            { title: "Car Accident Urgent Care", href: "/car-accident-injury-clinic" }
+          ]}
+        />
 
-          {/* FAQ Section */}
-          <AccidentFAQ 
-            title="Frequently Asked Questions About Whiplash After Car Accidents"
-            faqs={[
-              {
-                question: "How do I know if I have whiplash after a car accident?",
-                answer: "Common whiplash symptoms include neck pain, stiffness, headaches, dizziness, and reduced range of motion. These symptoms may not appear immediately - they often develop hours or days after the accident. If you've been in a car accident, it's important to get evaluated even if you don't feel injured right away."
-              },
-              {
-                question: "When should I seek medical attention for whiplash?",
-                answer: "You should seek medical attention as soon as possible after a car accident, even if you don't feel injured. Early evaluation is crucial for whiplash treatment and insurance documentation. Our urgent care centers offer same-day appointments and can provide comprehensive whiplash assessment and treatment."
-              },
-              {
-                question: "What tests are needed to diagnose whiplash?",
-                answer: "Whiplash diagnosis typically involves a physical examination including neck range of motion testing and neurologic assessment. We may order X-rays to rule out fractures or other serious injuries. In some cases, MRI or CT scans may be recommended for more detailed evaluation of soft tissue damage."
-              },
-              {
-                question: "How long does whiplash take to heal?",
-                answer: "Whiplash recovery time varies depending on the severity of the injury. Most people recover within a few weeks to a few months with proper treatment. Early intervention, including physical therapy and pain management, can significantly improve recovery time and outcomes."
-              },
-              {
-                question: "What treatment options are available for whiplash?",
-                answer: "Whiplash treatment may include pain medication, physical therapy, neck exercises, and lifestyle modifications. Our team will develop a personalized treatment plan based on your specific symptoms and injury severity. We also provide documentation for insurance claims and coordinate with specialists when needed."
-              }
-            ]}
-          />
-        </main>
-      );
-    }
+        <AccidentFAQ
+          faqs={[
+            {
+              question: "Can whiplash start days after a car accident?",
+              answer: "Yes. Neck pain, headaches, or stiffness can appear hours or days later. An exam helps rule out more serious injury and guides recovery."
+            },
+            {
+              question: "Do I need X-ray or MRI for whiplash?",
+              answer: "X-ray can rule out fractures; MRI may be referred if symptoms suggest soft-tissue or disc injury. We'll advise based on your exam."
+            },
+            {
+              question: "How long does whiplash take to heal?",
+              answer: "Most whiplash injuries improve within 2-6 weeks with proper care. Severe cases may take several months. Early evaluation and treatment can help speed recovery."
+            },
+            {
+              question: "Can I work with whiplash?",
+              answer: "It depends on your symptoms and job requirements. We'll provide activity modifications and documentation for work accommodations if needed."
+            },
+            {
+              question: "What treatment options are available for whiplash?",
+              answer: "Whiplash treatment may include pain medication, neck exercises, and lifestyle modifications. Our team will develop a personalized treatment plan based on your specific symptoms and injury severity. We also provide documentation for insurance claims and coordinate with specialists when needed."
+            }
+          ]}
+        />
+        </div>
+      </div>
+    </main>
+  );
+}

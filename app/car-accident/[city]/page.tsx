@@ -10,6 +10,7 @@ import HeroWithForm from "@/components/accident/HeroWithForm";
 import ImmediateCareBanner from "@/components/accident/ImmediateCareBanner";
 import AccidentSEOContent from "@/components/accident/AccidentSEOContent";
 import AccidentFAQ from "@/components/accident/AccidentFAQ";
+import MobileCarousel from "@/components/ui/MobileCarousel";
 import { toJsonLd } from "@/lib/seo";
 import { accidentCities, type AccidentCityKey } from "@/lib/accidentLocations";
 import { MapPin, Phone, Clock, Shield, Stethoscope, FileText } from "lucide-react";
@@ -25,33 +26,37 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const c = accidentCities[params.city];
   if (!c) return {};
-  const title = `Car Accident Urgent Care in ${c.name}, FL | Same-Day Exam & X-Ray`;
-  const url = `${baseUrl}/car-accident/${params.city}`;
-  return {
-    title,
-    description: `Post-accident urgent care in ${c.name}. Same-day exam, X-ray, and documentation for insurance claims. Call ${c.phoneDisplay} or book online today.`,
+    const title = `Car Accident Doctor ${c.name} FL | Urgent Care & PIP Documentation`;
+    const url = `${baseUrl}/car-accident/${params.city}`;
+    return {
+      title,
+      description: `Car accident urgent care in ${c.name}, Palm Beach County. Same-day PIP exam, X-ray, injury documentation. Walk-ins welcome. Florida 14-day rule compliant. Call ${c.phoneDisplay}.`,
     keywords: [
-      `car accident urgent care ${c.name}`,
-      `post accident exam ${c.name}`,
-      `auto accident clinic ${c.name}`,
+      `car accident urgent care ${c.name} florida`,
+      `post accident exam ${c.name} palm beach county`,
+      `auto accident clinic ${c.name} fl`,
       `accident injury evaluation ${c.name}`,
-      `PIP documentation ${c.name}`,
+      `PIP documentation ${c.name} florida`,
       `same day accident exam ${c.name}`,
       `walk-in accident clinic ${c.name}`,
-      `Palm Beach County accident care`
+      `Palm Beach County accident care ${c.name}`,
+      `car accident X-ray ${c.name}`,
+      `urgent care ${c.name} car accident`,
+      `Florida PIP 14 day rule ${c.name}`,
+      `car accident medical documentation ${c.name}`
     ].join(', '),
     alternates: { canonical: url },
     openGraph: {
       title,
-      description: `Car accident injury clinic in ${c.name}. Same-day exams, X-ray, and documentation.`,
+      description: `Car accident injury clinic in ${c.name}, FL. Same-day exams, X-ray, and PIP documentation.`,
       url,
       siteName: "Primary & Urgent Care Centers",
       images: [
         {
-          url: `${baseUrl}/websitelogo.png`,
+          url: `${baseUrl}/image-auto-accident-involving-two-cars.jpg`,
           width: 1200,
           height: 630,
-          alt: `Car Accident Urgent Care in ${c.name}`,
+          alt: `Car Accident Urgent Care in ${c.name}, FL - Two cars involved in rear-end collision`,
         },
       ],
       locale: 'en_US',
@@ -60,8 +65,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     twitter: { 
       card: 'summary_large_image', 
       title, 
-      description: `Same-day car accident care in ${c.name}.`,
-      images: [`${baseUrl}/websitelogo.png`],
+      description: `Same-day car accident care in ${c.name}, FL.`,
+      images: [`${baseUrl}/image-auto-accident-involving-two-cars.jpg`],
       site: '@primaryurgentcare',
     },
     robots: { index: true, follow: true }
@@ -84,19 +89,42 @@ export default function Page({ params }: { params: Params }) {
 
   const localClinic = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
+    "@type": "LocalBusiness",
     name: `Primary & Urgent Care — Car Accident Urgent Care (${c.name})`,
     url: `${baseUrl}/car-accident/${params.city}`,
+    description: `Same-day car accident injury care in ${c.name}, FL. Onsite X-ray and PIP documentation.`,
     address: {
       "@type": "PostalAddress",
       streetAddress: c.address.split(',')[0],
       addressLocality: c.name,
       addressRegion: "FL",
-      addressCountry: "US"
+      addressCountry: "US",
+      postalCode: c.address.split(',')[2].trim().split(' ')[1] || "33411"
     },
-    telephone: c.phoneDisplay,
-    medicalSpecialty: ["Emergency", "PainManagement"],
-    areaServed: `${c.name}, FL`,
+    telephone: c.phone,
+    medicalSpecialty: ["Emergency Medicine", "Pain Management", "Trauma Care"],
+    areaServed: [
+      {
+        "@type": "City",
+        name: c.name,
+        containedInPlace: {
+          "@type": "State",
+          name: "Florida"
+        }
+      }
+    ],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "09:00",
+        closes: "20:00"
+      }
+    ],
+    serviceType: "Urgent Care",
+    priceRange: "$$",
+    paymentAccepted: ["Cash", "Credit Card", "Insurance", "PIP"],
+    currenciesAccepted: "USD",
     sameAs: c.gmb ? [c.gmb] : undefined
   };
 
@@ -108,7 +136,14 @@ export default function Page({ params }: { params: Params }) {
       {/* Hero Section */}
       <HeroWithForm
         title={`Car Accident Urgent Care in ${c.name}, FL`}
-        subtitle={<p>Get evaluated today after a car crash. Address: {c.address}. Phone: {c.phoneDisplay}.</p>}
+        subtitle={
+          <div>
+            <p className="mb-2">Get evaluated today after a car crash. Address: {c.address}.</p>
+            <p className="text-lg font-semibold text-white">
+              Phone: {c.phoneDisplay}
+            </p>
+          </div>
+        }
         checklist={[
           "Rapid triage & evaluation",
           "Onsite X-ray; MRI/CT referrals when indicated",
@@ -116,6 +151,7 @@ export default function Page({ params }: { params: Params }) {
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title={`Book Your Car Accident Exam in ${c.name}`} noWrapper={true} showHeader={false} compact={true} />}
+        backgroundImage="/image-auto-accident-involving-two-cars.jpg"
       />
 
       {/* Why Get Seen Now */}
@@ -146,7 +182,7 @@ export default function Page({ params }: { params: Params }) {
 
       {/* Services & Treatment */}
       <section className="py-16 bg-[#FAFAFA]">
-        <div className="max-w-7xl mx-auto px-4 lg:px-[60px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Imaging & Treatment Services
@@ -156,7 +192,7 @@ export default function Page({ params }: { params: Params }) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <MobileCarousel showDots={true} showArrows={false} autoPlay={false}>
             <AccidentCard
               title="Back & Neck Pain"
               description="Comprehensive evaluation for spinal injuries and soft tissue damage."
@@ -183,62 +219,78 @@ export default function Page({ params }: { params: Params }) {
               features={["Same-day results", "High-quality imaging", "Expert interpretation"]}
               variant="accent"
             />
-          </div>
+          </MobileCarousel>
         </div>
       </section>
 
       {/* Location Details */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 lg:px-[60px]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our {c.name} Location
             </h2>
           </div>
 
-          <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-2xl p-8 border-2 border-[#2563eb]/20">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
+          <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 border-2 border-[#2563eb]/20 shadow-lg">
+            <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+              {/* Left Column - Address & Hours */}
+              <div className="lg:col-span-2 space-y-6 sm:space-y-8">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#2563eb]/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-[#2563eb]" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-[#2563eb]/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-7 h-7 text-[#2563eb]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Address</h3>
-                    <p className="text-gray-600">{c.address}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Address</h3>
+                    <p className="text-gray-600 text-lg">{c.address}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#D52128]/10 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-[#D52128]" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-[#16A34A]/10 rounded-xl flex items-center justify-center">
+                    <Clock className="w-7 h-7 text-[#16A34A]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-                    <a href={c.phoneHref} className="text-[#D52128] hover:underline">
-                      {c.phoneDisplay}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#16A34A]/10 rounded-xl flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-[#16A34A]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
-                    <p className="text-gray-600">Monday-Friday 9am-6pm</p>
-                    <p className="text-gray-600">Saturday 9am-4pm</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Hours</h3>
+                    <p className="text-gray-600 text-lg">Monday-Friday 9am-6pm</p>
+                    <p className="text-gray-600 text-lg">Saturday 9am-4pm</p>
                   </div>
                 </div>
               </div>
 
+              {/* Right Column - Call Now Button */}
               <div className="flex flex-col justify-center">
-                <AccidentCTA
-                  citySlug={params.city}
-                  phoneHref={c.phoneHref}
-                  directionsHref={c.gmb}
-                />
+                <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200">
+                  <div className="text-center mb-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-[#D52128]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <Phone className="w-8 h-8 text-[#D52128]" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Ready to Get Started?</h3>
+                    <p className="text-gray-600 mb-4">Call now for immediate care</p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <a
+                      href={c.phoneHref}
+                      className="w-full bg-[#D52128] hover:bg-[#b81b22] text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    >
+                      <Phone className="w-5 h-5" />
+                      {c.phoneDisplay}
+                    </a>
+                    
+                    {c.gmb && (
+                      <a
+                        href={c.gmb}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-white border-2 border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white font-semibold py-3 px-6 rounded-xl text-lg transition-all duration-300 flex items-center justify-center gap-3"
+                      >
+                        <MapPin className="w-5 h-5" />
+                        Get Directions
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -299,6 +351,26 @@ export default function Page({ params }: { params: Params }) {
           {
             question: "What should I do immediately after a car accident?",
             answer: `After ensuring everyone's safety and calling 911 if needed, seek medical attention as soon as possible. Even if you don't feel injured, some injuries may not show symptoms immediately. Our ${c.name} location is equipped to provide comprehensive evaluation and documentation for your car accident injuries.`
+          },
+          {
+            question: `What are your hours at the ${c.name} location?`,
+            answer: `Our ${c.name} location is open Monday through Sunday from 9:00 AM to 8:00 PM. We understand that car accidents can happen at any time, so we maintain extended hours to accommodate urgent injury evaluations and documentation needs. Walk-ins are always welcome.`
+          },
+          {
+            question: `Is parking available at your ${c.name} location?`,
+            answer: `Yes, we have convenient parking available at our ${c.name} location. Our facility is easily accessible and designed to accommodate patients who may be experiencing pain or mobility issues after a car accident. The parking area is well-lit and close to the entrance.`
+          },
+          {
+            question: "What should I bring to my car accident exam?",
+            answer: `Please bring a photo ID, your insurance card, and any accident-related documentation you may have. If you have the accident report or insurance claim number, bring that as well. We'll handle all the paperwork and documentation needed for your case at our ${c.name} location.`
+          },
+          {
+            question: "Do you have onsite imaging at this location?",
+            answer: `Yes, our ${c.name} location has onsite X-ray capabilities for immediate evaluation of fractures and injuries. We can also arrange MRI or CT referrals when needed. All imaging results are available same-day for your insurance documentation and legal proceedings.`
+          },
+          {
+            question: "Can you refer me to specialists if needed?",
+            answer: `Absolutely. Our ${c.name} location can refer you to appropriate specialists such as orthopedic surgeons, neurologists, or physical therapists based on your injury. We coordinate with specialists throughout Palm Beach County and provide all necessary documentation for your continued care.`
           }
         ]}
       />

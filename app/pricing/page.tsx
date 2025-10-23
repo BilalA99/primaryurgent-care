@@ -16,8 +16,8 @@ import {
 import { Button } from '@/components/ui/button'
 
 export const metadata = {
-  title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
-  description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
+  title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
+  description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Lantana.',
   keywords: [
     'urgent care pricing',
     'urgent care cost',
@@ -42,8 +42,8 @@ export const metadata = {
     'Lantana'
   ],
   openGraph: {
-    title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
-    description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
+    title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
+    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Lantana.',
     url: 'https://primaryuc.com/pricing',
     type: 'website',
     images: [
@@ -57,8 +57,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Urgent Care Pricing & Self-Pay Cost | Affordable Walk-In Clinic Palm Beach County',
-    description: 'See transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Compare urgent care vs ER cost and save.',
+    title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
+    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Lantana.',
     images: ['https://primaryuc.com/insurance.jpg'],
   },
   alternates: {

@@ -30,7 +30,7 @@ const AccidentCard: React.FC<AccidentCardProps> = ({
   return (
     <Link href={href} className={`group block ${className}`}>
       <div className={`
-        relative p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-full
+        relative p-4 sm:p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-full touch-manipulation w-full
         ${variantStyles[variant]}
       `}>
         {/* Icon */}
@@ -42,7 +42,7 @@ const AccidentCard: React.FC<AccidentCardProps> = ({
         
         {/* Content */}
         <div className="space-y-3">
-          <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#2563eb] transition-colors">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-[#2563eb] transition-colors">
             {title}
           </h3>
           <p className="text-gray-600 leading-relaxed">

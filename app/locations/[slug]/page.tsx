@@ -65,23 +65,23 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
   );
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Royal Palm Beach | PrimaryUC',
-      description: 'Need a doctor after an accident in Royal Palm Beach? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+      title: 'Royal Palm Beach Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Royal Palm Beach urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Royal Palm Beach, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Royal Palm Beach businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Royal Palm Beach.'
     },
     'lake-worth-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Lake Worth | PrimaryUC',
-      description: 'Need a doctor after an accident in Lake Worth? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+      title: 'Lake Worth Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Lake Worth urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Lake Worth, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lake Worth businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Lake Worth.'
     },
     'palm-springs-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Palm Springs | PrimaryUC',
-      description: 'Need a doctor after an accident in Palm Springs? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+      title: 'Palm Springs Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Palm Springs urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Palm Springs, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Palm Springs businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Palm Springs.'
     },
     'lantana-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Lantana | PrimaryUC',
-      description: 'Need a doctor after an accident in Lantana? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.',
+      title: 'Lantana Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Lantana urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Lantana, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lantana businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Lantana.'
     }
   };
@@ -167,7 +167,7 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
               <Reveal className='bg-[#F2F6FC] flex flex-col gap-2'>
                 <div className="p-6 flex flex-col gap-2">
                   <div className="w-10 h-10 relative flex items-center justify-center rounded-full bg-white mb-2">
-                    <Image src={'/paincare.png'} alt='imaging' width={25} height={25} className='object-contain' />
+                    <Image src={'/pain-management-care.png'} alt='pain management' width={25} height={25} className='object-contain' />
                   </div>
                   <div className="font-bold lg:text-xl text-lg">Pain Care</div>
                   <div className="text-gray-600 lg:text-lg text-sm">Our board-certified <span className="font-semibold">{location.name}</span> orthopedic surgeons bring years of experience and a proven track record of successful outcomes.</div>
@@ -210,20 +210,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const url = `${baseUrl}/locations/${slug}`;
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Royal Palm Beach | PrimaryUC',
-      description: 'Need a doctor after an accident in Royal Palm Beach? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+      title: 'Royal Palm Beach Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Royal Palm Beach urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
     },
     'lake-worth-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Lake Worth | PrimaryUC',
-      description: 'Need a doctor after an accident in Lake Worth? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+      title: 'Lake Worth Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Lake Worth urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
     },
     'palm-springs-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Palm Springs | PrimaryUC',
-      description: 'Need a doctor after an accident in Palm Springs? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+      title: 'Palm Springs Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Palm Springs urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
     },
     'lantana-primary-urgent-care-center': {
-      title: 'Car Accident & Injury Doctor in Lantana | PrimaryUC',
-      description: 'Need a doctor after an accident in Lantana? PrimaryUC offers immediate care for car crash, work, and slip & fall injuries. Walk-ins welcome.'
+      title: 'Lantana Urgent Care & Car Accident Doctor | Primary & Urgent Care',
+      description: 'Lantana urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
     }
   };
   return {

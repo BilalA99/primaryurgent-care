@@ -1,5 +1,4 @@
 import { LocationsScreens } from '@/components/locationsscreens';
-import { PainCareWeTreatData } from '@/components/paincarewetreat';
 import { pricingData } from '@/app/pricing/page';
 import { conditions } from '@/components/conditions';
 import { services } from '@/components/Services';
@@ -13,24 +12,22 @@ export async function GET() {
     '',
     '/appointment',
     '/blog',
-    '/emergencyroom',
+    '/emergency-room',
     '/lawyers',
     '/locations',
     '/pain-management-care',
-    '/paincare',
     '/pricing',
     '/service',
-    '/urgentinjurycare',
+    '/urgent-injury-care',
     '/primary-care-doctor',
   ];
 
   // Dynamic routes
   const locationRoutes: string[] = LocationsScreens.map(loc => `/locations/${loc.slug}`);
-  const painCareRoutes: string[] = PainCareWeTreatData.map(item => `/paincare/${item.slug}`);
   const pricingRoutes: string[] = pricingData.map(item => `/pricing/${item.slug}`);
-  const urgentInjuryCareRoutes: string[] = conditions.map(item => `/urgentinjurycare/${item.slug}`);
+  const urgentInjuryCareRoutes: string[] = conditions.map(item => `/urgent-injury-care/${item.slug}`);
   // Remove serviceRoutes, add emergencyRoomServiceRoutes
-  const emergencyRoomServiceRoutes: string[] = services.map(item => `/emergencyroom/${item.slug}`);
+  const emergencyRoomServiceRoutes: string[] = services.map(item => `/emergency-room/${item.slug}`);
   // Add dynamic routes for primary-care-doctor/[slug]
   const primaryCareDoctorRoutes: string[] = primaryCareServices.map((item: { slug: string }) => `/primary-care-doctor/${item.slug}`);
   // Add individual service pages
@@ -59,7 +56,6 @@ export async function GET() {
   const allRoutes: string[] = [
     ...staticRoutes,
     ...locationRoutes,
-    ...painCareRoutes,
     ...pricingRoutes,
     ...urgentInjuryCareRoutes,
     ...emergencyRoomServiceRoutes,
@@ -70,7 +66,10 @@ export async function GET() {
   ];
 
   const urls = allRoutes.map(
-    path => `\n    <url>\n      <loc>${BASE_URL}${path}</loc>\n      <changefreq>weekly</changefreq>\n      <priority>0.8</priority>\n    </url>`
+    path => {
+      const priority = accidentRoutes.includes(path) ? '0.9' : '0.8';
+      return `\n    <url>\n      <loc>${BASE_URL}${path}</loc>\n      <changefreq>weekly</changefreq>\n      <priority>${priority}</priority>\n    </url>`;
+    }
   ).join('');
 
   const xml = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">${urls}\n</urlset>`;

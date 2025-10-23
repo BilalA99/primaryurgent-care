@@ -97,8 +97,8 @@ const visitSteps = [
 ];
 
 export const metadata = {
-    title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
-    description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
+        title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
+        description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Lantana.",
     keywords: [
         "primary care doctor",
         "family medicine",
@@ -116,19 +116,19 @@ export const metadata = {
         index: true,
         follow: true,
     },
-    openGraph: {
-        title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
-        description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
+        openGraph: {
+            title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
+            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Lantana.",
         url: "https://primaryuc.com/primary-care-doctor",
         type: "website",
         images: [
             "https://primaryuc.com/doctorwithpatient.jpg"
         ]
     },
-    twitter: {
-        card: "summary_large_image",
-        title: "Primary Care Doctor | Family Medicine & Walk-In Clinic Palm Beach County",
-        description: "See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.",
+        twitter: {
+            card: "summary_large_image",
+            title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
+            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Lantana.",
         images: ["https://primaryuc.com/doctorwithpatient.jpg"],
         site: "@primaryuc"
     }
