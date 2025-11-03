@@ -161,7 +161,7 @@ const LanguageSwitcher = () => {
     return (
         <>
             <div
-                className="fixed bottom-2 right-2 sm:bottom-8 sm:right-8  z-50 animate-fade-in bg-white rounded-2xl shadow-2xl border border-[#A7E3F7] px-6 py-4 flex flex-col items-center gap-2 transition-all duration-500"
+                className="fixed bottom-2 right-0 sm:bottom-8 sm:right-8  z-50 animate-fade-in bg-white rounded-2xl shadow-2xl border border-[#A7E3F7] px-6 py-4 flex flex-col items-center gap-2 transition-all duration-500"
                 style={{ fontFamily: 'var(--font-inter)', minWidth: 220 }}
             >
                 <button
