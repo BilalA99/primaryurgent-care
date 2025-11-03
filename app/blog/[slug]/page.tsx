@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react'
 import { BlogPost } from '@/types/blog'
 import { GetBlogInfo } from '@/lib/blog/get-blogs'
-import { generateBlogPostMeta, generateBlogPostJsonLd } from '@/lib/seo'
+import { generateBlogPostMeta, generateBlogPostJsonLd, generateFAQJsonLd } from '@/lib/seo'
 import { formatDate } from '@/lib/utils'
 import KeyTakeaways from '@/components/blog/KeyTakeaways'
 import FAQAccordion from '@/components/blog/FAQAccordion'
@@ -143,10 +143,36 @@ export default async function BlogPostPage({ params }: Params) {
     />
   )
 
+  const FAQJsonLd = () => {
+    // Early return if no FAQs
+    if (!post.faq || !Array.isArray(post.faq) || post.faq.length === 0) {
+      return null
+    }
+
+    // Generate FAQ schema
+    const faqSchema = generateFAQJsonLd(post)
+
+    // Return null if schema generation failed or returned null
+    if (!faqSchema) {
+      return null
+    }
+
+    // Render FAQ schema script tag
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema)
+        }}
+      />
+    )
+  }
+
   return (
     <main className="w-full bg-[#FAFAFA] min-h-screen">
       <BlogPostJsonLd />
       <BreadcrumbJsonLd />
+      <FAQJsonLd />
       
       <article className="max-w-4xl mx-auto px-4 py-12 md:px-6">
         {/* Back to Blog */}

@@ -52,20 +52,7 @@ export function generateBlogPostJsonLd(post: BlogPost) {
     },
     url: meta.canonical,
     keywords: meta.keywords.join(', '),
-    timeRequired: `PT${meta.readingTime}M`,
-    ...(post.faq && post.faq.length > 0 && {
-      mainEntity: {
-        '@type': 'FAQPage',
-        mainEntity: post.faq.map(faq => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer
-          }
-        }))
-      }
-    })
+    timeRequired: `PT${meta.readingTime}M`
   }
 }
 
@@ -111,4 +98,146 @@ export function generateMetaDescription(description: string, maxLength: number =
 
 export function toJsonLd(obj: Record<string, any>) {
   return { __html: JSON.stringify(obj) };
+}
+
+/**
+ * Strips HTML tags from text, keeping only plain text
+ * Used for questions which must be plain text per Google guidelines
+ */
+function stripHtmlTags(text: string): string {
+  if (!text) return ''
+  // Remove all HTML tags
+  return text.replace(/<[^>]*>/g, '').trim()
+}
+
+/**
+ * Sanitizes HTML by removing dangerous tags but preserving safe formatting
+ * Safe tags: p, strong, em, ul, ol, li, br, span (with class attributes)
+ * Dangerous tags: script, iframe, object, embed, etc. are removed
+ */
+function sanitizeHtml(html: string): string {
+  if (!html) return ''
+  
+  // Remove dangerous script tags and event handlers
+  let sanitized = html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
+    .replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, '')
+    .replace(/on\w+="[^"]*"/gi, '') // Remove event handlers like onclick, onload, etc.
+    .replace(/on\w+='[^']*'/gi, '')
+    .replace(/javascript:/gi, '') // Remove javascript: protocol
+    .trim()
+  
+  return sanitized
+}
+
+/**
+ * Validates and filters FAQ items according to Google's requirements
+ * - Questions must be non-empty after trimming and stripping HTML
+ * - Questions should be under 150 characters (warning if longer)
+ * - Answers must be non-empty after trimming and at least 20 characters
+ */
+function validateAndFilterFAQs(faqs: Array<{ question: string; answer: string }>): Array<{ question: string; answer: string }> {
+  if (!faqs || !Array.isArray(faqs)) return []
+  
+  return faqs
+    .map(faq => {
+      // Strip HTML from questions (must be plain text)
+      const cleanQuestion = stripHtmlTags(faq.question || '')
+      // Sanitize but preserve HTML in answers
+      const cleanAnswer = sanitizeHtml(faq.answer || '')
+      
+      return {
+        question: cleanQuestion,
+        answer: cleanAnswer
+      }
+    })
+    .filter(faq => {
+      // Filter out empty questions or answers
+      if (!faq.question || faq.question.trim().length === 0) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('[FAQ Schema] Filtered out FAQ with empty question')
+        }
+        return false
+      }
+      
+      if (!faq.answer || faq.answer.trim().length === 0) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('[FAQ Schema] Filtered out FAQ with empty answer')
+        }
+        return false
+      }
+      
+      // Warn if question is too long (but don't block)
+      if (faq.question.length > 150) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn(`[FAQ Schema] Question exceeds 150 characters (${faq.question.length}): ${faq.question.substring(0, 100)}...`)
+        }
+      }
+      
+      // Warn if answer is too short (but don't block, just log)
+      if (faq.answer.trim().length < 20) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn(`[FAQ Schema] Answer is shorter than recommended 20 characters: ${faq.answer.substring(0, 50)}...`)
+        }
+      }
+      
+      return true
+    })
+}
+
+/**
+ * Generates Google-compliant FAQPage schema (JSON-LD) for blog posts
+ * Returns null if no valid FAQs are present
+ * 
+ * @param post - BlogPost with FAQ data
+ * @returns FAQPage schema object or null
+ */
+export function generateFAQJsonLd(post: BlogPost): any | null {
+  try {
+    // Early return if no FAQs
+    if (!post.faq || !Array.isArray(post.faq) || post.faq.length === 0) {
+      return null
+    }
+    
+    // Validate and filter FAQs
+    const validFAQs = validateAndFilterFAQs(post.faq)
+    
+    // Return null if no valid FAQs after filtering
+    if (validFAQs.length === 0) {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('[FAQ Schema] No valid FAQs found after validation')
+      }
+      return null
+    }
+    
+    // Limit to recommended maximum (10-12 for optimal rich results)
+    const limitedFAQs = validFAQs.slice(0, 12)
+    if (validFAQs.length > 12 && process.env.NODE_ENV === 'development') {
+      console.warn(`[FAQ Schema] Limiting FAQs from ${validFAQs.length} to 12 for optimal rich results`)
+    }
+    
+    // Generate FAQPage schema
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: limitedFAQs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question, // Plain text question
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer // Can contain HTML, will be properly escaped by JSON.stringify
+        }
+      }))
+    }
+    
+    return schema
+  } catch (error) {
+    // Gracefully handle errors without breaking the page
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[FAQ Schema] Error generating FAQ schema:', error)
+    }
+    return null
+  }
 }
