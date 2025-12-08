@@ -12,6 +12,12 @@ import AccidentSEOContent from "@/components/accident/AccidentSEOContent";
 import AccidentFAQ from "@/components/accident/AccidentFAQ";
 import AccidentTypesTabs from "@/components/ui/AccidentTypesTabs";
 import AccidentInjuryTypes from "@/components/car-accident/AccidentInjuryTypes";
+import TrustBadges from "@/components/accident/TrustBadges";
+import FourteenDayUrgencyBlock from "@/components/accident/FourteenDayUrgencyBlock";
+import AttorneyFriendlySection from "@/components/accident/AttorneyFriendlySection";
+import ComparisonTable from "@/components/accident/ComparisonTable";
+import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
+import FourteenDayBanner from "@/components/accident/FourteenDayBanner";
 import { toJsonLd } from "@/lib/seo";
 import { accidentCities } from "@/lib/accidentLocations";
 import { MapPin, Phone, FileText, Shield, Clock, Users, Stethoscope, X, Dot } from "lucide-react";
@@ -21,28 +27,14 @@ import SlidingDiv from "@/components/SlidingAnimation";
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Car Accident Clinic Palm Beach | Same-Day PIP | Primary & Urgent Care",
+  title: "Car Accident Injury Clinic | Same-Day Exam & PIP Docs",
   description:
-    "Car accident clinic in Palm Beach County. Same-day PIP exam, X-ray, injury documentation. Florida 14-day rule. Walk-ins at Royal Palm Beach, Lake Worth, Lantana.",
-  keywords: [
-    'car accident urgent care palm beach county',
-    'post accident medical exam same day',
-    'car accident injury clinic walk-in',
-    'PIP documentation urgent care',
-    'car accident X-ray onsite',
-    'auto accident urgent care florida',
-    'accident injury evaluation documentation',
-    'same day accident exam palm beach',
-    'walk-in accident clinic palm beach county',
-    'car accident medical documentation PIP',
-    'Florida PIP 14 day rule urgent care',
-    'Palm Beach County car accident care'
-  ].join(', '),
+    "Same-day car accident injury exams in Palm Beach County. Onsite X-ray, PIP documentation, Florida 14-day rule compliant. Walk-ins welcome at 4 locations.",
   alternates: { canonical: `${baseUrl}/car-accident-injury-clinic` },
   openGraph: {
-    title: "Car Accident Clinic Palm Beach | Same-Day PIP | Primary & Urgent Care",
+    title: "Car Accident Injury Clinic | Same-Day Exam & PIP Docs",
     description:
-      "Car accident clinic in Palm Beach County. Same-day PIP exam, X-ray, injury documentation. Florida 14-day rule. Walk-ins at Royal Palm Beach, Lake Worth, Lantana.",
+      "Same-day car accident injury exams in Palm Beach County. Onsite X-ray, PIP documentation, Florida 14-day rule compliant. Walk-ins welcome at 4 locations.",
     url: `${baseUrl}/car-accident-injury-clinic`,
     siteName: "Primary & Urgent Care Centers",
     images: [
@@ -50,7 +42,7 @@ export const metadata: Metadata = {
         url: `${baseUrl}/websitelogo.png`,
         width: 1200,
         height: 630,
-        alt: "Car Accident Injury Urgent Care Palm Beach County",
+        alt: "Car accident doctor examining patient with neck brace in Palm Beach County urgent care",
       },
     ],
     locale: 'en_US',
@@ -58,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident Clinic Palm Beach | Same-Day PIP | Primary & Urgent Care",
-    description: "Car accident clinic in Palm Beach County. Same-day PIP exam, X-ray, injury documentation. Florida 14-day rule. Walk-ins at Royal Palm Beach, Lake Worth, Lantana.",
+    title: "Car Accident Injury Clinic | Same-Day Exam & PIP Docs",
+    description: "Same-day car accident injury exams in Palm Beach County. Onsite X-ray, PIP documentation, Florida 14-day rule compliant. Walk-ins welcome.",
     images: [`${baseUrl}/websitelogo.png`],
     site: '@primaryurgentcare',
   },
@@ -83,6 +75,38 @@ export default function Page() {
         name: "Palm Beach County",
         containedInPlace: {
           "@type": "State", 
+          name: "Florida"
+        }
+      },
+      {
+        "@type": "City",
+        name: "Royal Palm Beach",
+        containedInPlace: {
+          "@type": "State",
+          name: "Florida"
+        }
+      },
+      {
+        "@type": "City",
+        name: "Lake Worth",
+        containedInPlace: {
+          "@type": "State",
+          name: "Florida"
+        }
+      },
+      {
+        "@type": "City",
+        name: "Palm Springs",
+        containedInPlace: {
+          "@type": "State",
+          name: "Florida"
+        }
+      },
+      {
+        "@type": "City",
+        name: "Lantana",
+        containedInPlace: {
+          "@type": "State",
           name: "Florida"
         }
       }
@@ -144,11 +168,11 @@ export default function Page() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Should I see a doctor after a minor car accident?",
+        name: "Should I see a doctor immediately after a minor car accident?",
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Yes. Hidden injuries such as whiplash or concussion are common and may not show symptoms immediately. An exam protects your health and supports insurance documentation. Florida's PIP law requires medical care within 14 days to unlock benefits."
+            "Yes. Hidden injuries such as whiplash, concussion, or internal trauma are common and may not show symptoms immediately but can worsen without proper treatment. An exam protects your health and supports insurance documentation. Florida's PIP law requires medical care within 14 days to unlock up to $10,000 in benefits, regardless of who was at fault. Early evaluation also creates a documented timeline that links your symptoms to the collision."
         }
       },
       {
@@ -157,7 +181,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Yes. We provide comprehensive medical documentation including exam findings, imaging reports, treatment plans, and visit summaries essential for PIP claims and legal cases. All documentation is provided immediately after your visit."
+            "Yes. We provide comprehensive medical documentation including detailed exam findings, imaging reports, treatment plans, and visit summaries essential for PIP claims and legal cases. All documentation is provided immediately after your visit and formatted for easy review by insurance adjusters and legal teams. Our records include clear timelines, diagnoses, and treatment recommendations that support both your recovery and your claim."
         }
       },
       {
@@ -184,7 +208,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "We accept most major insurance plans including PIP (Personal Injury Protection) coverage, auto insurance, and health insurance. We work directly with insurance companies and can provide documentation for your claims. Walk-ins welcome regardless of insurance status."
+            "We accept most major insurance plans including PIP (Personal Injury Protection) coverage, which is required in Florida, as well as auto insurance and health insurance. We work directly with insurance companies and can provide documentation for your claims. Our team helps coordinate billing and insurance verification. Walk-ins welcome regardless of insurance status, and we offer transparent pricing for self-pay patients."
         }
       },
       {
@@ -193,7 +217,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Bring a photo ID, insurance card, and any accident-related documentation. If you have the accident report or insurance claim number, bring that as well. We'll handle all the paperwork and documentation needed for your case."
+            "Bring a photo ID, insurance card, and any accident-related documentation such as the police report or insurance claim number. If you have prior medical records related to this accident, bring those as well. We'll handle all the paperwork and documentation needed for your case, including coordinating with your insurance company and attorney if needed."
         }
       },
       {
@@ -202,7 +226,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Yes, we have onsite X-ray capabilities for immediate evaluation of fractures and injuries. We can also arrange MRI or CT referrals when needed. All imaging results are available same-day for your insurance documentation."
+            "Yes, we have onsite X-ray capabilities for immediate evaluation of fractures and injuries. We can also arrange MRI or CT referrals when needed with rapid turnaround times. All imaging results are available same-day for your insurance documentation and legal proceedings. Our imaging services are fully integrated with our documentation process."
         }
       },
       {
@@ -211,7 +235,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Costs vary based on your insurance coverage and services needed. Most insurance plans cover urgent care visits with lower copays than emergency rooms. We work with patients to provide transparent pricing and can help with insurance verification."
+            "Costs vary based on your insurance coverage and services needed. Most insurance plans cover urgent care visits with lower copays than emergency rooms (typically $20-$50 vs $100-$500+). We work with patients to provide transparent pricing and can help with insurance verification. Self-pay options are also available with clear pricing upfront."
         }
       },
       {
@@ -220,7 +244,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "We can refer you to appropriate specialists such as orthopedic surgeons, neurologists, or physical therapists based on your injury. We coordinate with specialists and provide all necessary documentation for your continued care."
+            "We can refer you to appropriate specialists such as orthopedic surgeons, neurologists, or physical therapists based on your injury. We coordinate with specialists throughout Palm Beach County and provide all necessary documentation for your continued care. Our team maintains communication with specialists to ensure continuity of care."
         }
       },
       {
@@ -229,7 +253,7 @@ export default function Page() {
         acceptedAnswer: {
           "@type": "Answer",
           text:
-            "Yes, we provide comprehensive medical documentation suitable for legal cases including detailed exam findings, imaging reports, and treatment documentation. We work with attorneys and can provide additional documentation upon request with proper authorization."
+            "Yes, we provide comprehensive medical documentation suitable for legal cases including detailed exam findings, imaging reports, and treatment documentation. We work with attorneys and can provide additional documentation upon request with proper authorization. All records are formatted for easy review by legal teams and include clear timelines linking your injuries to the accident."
         }
       }
     ]
@@ -244,19 +268,40 @@ export default function Page() {
     ]
   };
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Car Accident Injury Clinic | Same-Day Exam & PIP Docs",
+    url: `${baseUrl}/car-accident-injury-clinic`,
+    description: "Same-day car accident injury exams in Palm Beach County. Onsite X-ray, PIP documentation, Florida 14-day rule compliant. Walk-ins welcome at 4 locations.",
+    about: {
+      "@type": "MedicalCondition",
+      name: "Motor Vehicle Collision Injuries"
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/websitelogo.png`,
+      width: 1200,
+      height: 630
+    }
+  };
+
   return (
     <main className="w-full min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(orgSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faqSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
       
+      {/* 14-Day Rule Warning Banner */}
+      <FourteenDayBanner />
+
       {/* Hero Section */}
       <HeroWithForm
-        title="Car Accident Injury Urgent Care in Palm Beach County, FL"
+        title="Car Accident Injury Clinic in Palm Beach County"
         subtitle={
           <p>
-            If you've been in a car accident, get checked today. We provide injury exams, onsite X-ray,
-            and documentation commonly needed for insurance claims.
+            Just had a crash? Our car accident doctors provide same-day exams, onsite X-ray, and documentation most insurers and attorneys request.
           </p>
         }
         checklist={[
@@ -265,13 +310,25 @@ export default function Page() {
           "Visit summary & documentation for insurers",
         ]}
         banner={<ImmediateCareBanner />}
-        form={<AccidentAppointmentForm title="Book Your Car Accident Exam" noWrapper={true} showHeader={false} compact={true} />}
+        form={<AccidentAppointmentForm title="Check Car Accident Exam Availability" noWrapper={true} showHeader={false} compact={true} />}
       />
+
+      {/* Trust & Urgency Strip */}
+      <TrustBadges />
+
+      {/* Why You Must Be Seen Within 14 Days */}
+      <FourteenDayUrgencyBlock />
 
       {/* Florida's 14-Day PIP Rule Section */}
       <section className='grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-14 h-full px-4 sm:px-6 lg:px-8 xl:px-[60px] py-8 sm:py-12 lg:py-16 xl:py-20'>
         <div className='w-full h-full relative rounded-2xl overflow-hidden'>
-          <Image src="/piprule.jpg" alt="Florida PIP 14-Day Rule" fill className='object-cover aspect-square' />
+          <Image 
+            src="/piprule.jpg" 
+            alt="Florida PIP 14-day rule documentation for car accident insurance claims in Palm Beach County" 
+            fill 
+            className='object-cover aspect-square'
+            loading="lazy"
+          />
         </div>
         <SlidingDiv position='right' className='flex flex-col gap-2'>
           <div className='flex items-start justify-center xl:py-14 py-10 space-y-6 flex-col'>
@@ -299,15 +356,119 @@ export default function Page() {
         </SlidingDiv>
       </section>
 
+      {/* Types of Car Accident Injuries We Treat */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Types of Car Accident Injuries We Treat
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our experienced team evaluates and treats a wide range of injuries commonly seen after motor vehicle collisions
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Neck & Whiplash Injuries</h3>
+              <p className="text-gray-700">Neck pain, stiffness, headaches, and reduced range of motion after rear-end or side-impact collisions. Symptoms may develop hours or days after the crash.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Back & Spinal Injuries</h3>
+              <p className="text-gray-700">Lower back pain, upper back pain, muscle strains, disc injuries, and facet joint irritation. We evaluate the full spine and check for nerve involvement.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Headaches & Concussion Symptoms</h3>
+              <p className="text-gray-700">Post-accident headaches, dizziness, confusion, and concussion-like symptoms. We screen for more serious head injuries and provide appropriate care.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Soft Tissue Injuries</h3>
+              <p className="text-gray-700">Muscle strains, ligament sprains, contusions, and seatbelt-related injuries. These injuries can cause significant pain and may worsen over time.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Joint & Extremity Injuries</h3>
+              <p className="text-gray-700">Shoulder, knee, wrist, and ankle injuries from impact or bracing during the collision. We evaluate joint stability and range of motion.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Minor Fractures</h3>
+              <p className="text-gray-700">Simple fractures that don't require emergency surgery. We have onsite X-ray to diagnose and can refer for orthopedic care when needed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Early Evaluation Matters */}
+      <section className="py-16 bg-[#FAFAFA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Early Evaluation Matters
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Getting evaluated soon after a car accident benefits both your health and your insurance claim
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Clinical Benefits</h3>
+              <p className="text-gray-700 mb-4">Many injuries, especially whiplash and soft-tissue trauma, may not cause immediate symptoms. Early evaluation helps identify hidden injuries before they worsen, allowing for prompt treatment and better recovery outcomes.</p>
+              <p className="text-gray-700">Early intervention can also prevent chronic pain conditions and reduce the risk of long-term complications from untreated injuries.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border-2 border-[#2563eb]/20">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">PIP Timing Requirements</h3>
+              <p className="text-gray-700 mb-4">Florida's PIP law requires medical care within 14 days of your accident to unlock up to $10,000 in PIP benefits. Missing this deadline can result in denial of coverage for medical bills, lost wages, and related benefits.</p>
+              <p className="text-gray-700">Early documentation also creates a clear timeline that links your symptoms to the collision, which is important for both insurance claims and any potential legal proceedings.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Common Accident Types We See */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Common Accident Types We See
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+              We treat patients after various types of motor vehicle collisions. Even minor fender-benders can cause significant injuries.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-[#FEF2F2] to-[#FEE2E2] rounded-xl p-6 border-2 border-[#D52128]/20">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Rear-End Collisions</h3>
+              <p className="text-sm text-gray-700">Common cause of whiplash and neck injuries. Even low-speed impacts can cause significant trauma.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#FEF2F2] to-[#FEE2E2] rounded-xl p-6 border-2 border-[#D52128]/20">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Side-Impact Crashes</h3>
+              <p className="text-sm text-gray-700">Often cause back pain, shoulder injuries, and head trauma from lateral forces.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#FEF2F2] to-[#FEE2E2] rounded-xl p-6 border-2 border-[#D52128]/20">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Head-On Collisions</h3>
+              <p className="text-sm text-gray-700">Higher-energy impacts that may cause multiple injuries including spinal trauma.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#FEF2F2] to-[#FEE2E2] rounded-xl p-6 border-2 border-[#D52128]/20">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Low-Speed Accidents</h3>
+              <p className="text-sm text-gray-700">Parking lot fender-benders and minor collisions can still cause whiplash and soft-tissue injuries.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Accident Types We Treat Section */}
       <AccidentTypesTabs />
 
       {/* Car Accident Injuries We Treat Section */}
       <AccidentInjuryTypes />
 
+      {/* Urgent Care vs ER Comparison */}
+      <ComparisonTable />
+
+      {/* Attorney-Friendly Documentation Section */}
+      <AttorneyFriendlySection />
+
       {/* SEO Content Section */}
       <AccidentSEOContent 
-        content="After a car accident, immediate medical evaluation is crucial for your health and legal protection. Our experienced urgent care team provides comprehensive car accident injury assessments, including whiplash treatment, back and neck pain evaluation, and soft tissue injury care. We offer same-day appointments, onsite digital X-rays, and complete documentation for insurance claims and personal injury cases. Located throughout Palm Beach County, our car accident urgent care centers are equipped to handle everything from minor cuts and bruises to whiplash and spinal injuries. Don't wait - get the medical attention you need today for your car accident injuries. Our board-certified physicians specialize in motor vehicle accident care and understand the unique challenges of treating car crash victims. We work closely with insurance companies, attorneys, and legal teams to ensure you receive the proper medical documentation needed for your case. Whether you've been involved in a rear-end collision, side-impact crash, or head-on collision, our team is trained to identify and treat the full spectrum of car accident injuries."
+        content="After a car accident, immediate medical evaluation is crucial for both your health and your claim. Under Florida's PIP 14-day rule, you must see a doctor within 14 days of your accident to unlock up to $10,000 in PIP benefits. Our experienced urgent care team provides comprehensive car accident injury assessments, including whiplash treatment, back and neck pain evaluation, and soft tissue injury care. We offer same-day appointments, onsite digital X-rays, and complete documentation for insurance claims and personal injury cases. Located throughout Palm Beach County, our clinics are equipped to handle everything from minor cuts and bruises to suspected spinal injuries. Our board-certified providers understand Florida's PIP 14-day rule and the documentation insurers and attorneys expect, so your visit generates clear, organized records that support your recovery. We work closely with insurance companies, attorneys, and legal teams to ensure you receive the proper medical documentation needed for your case, including whiplash settlement documentation and PIP claim paperwork."
       />
 
       {/* Location Cards - Made Bigger and More Prominent */}
@@ -321,10 +482,10 @@ export default function Page() {
           </div>
           <LinkCardGrid
             items={[
-              { href: "/car-accident/royal-palm-beach", title: "Car Accident Urgent Care — Royal Palm Beach", desc: "11476 Okeechobee Blvd., Royal Palm Beach, FL • Same-day appointments available" },
-              { href: "/car-accident/lake-worth", title: "Car Accident Urgent Care — Lake Worth", desc: "6447 Lake Worth Road, Lake Worth, FL • Onsite X-ray and imaging" },
-              { href: "/car-accident/palm-springs", title: "Car Accident Urgent Care — Palm Springs", desc: "3696 S. Congress Ave., Palm Springs, FL • PIP documentation and insurance coordination" },
-              { href: "/car-accident/lantana", title: "Car Accident Urgent Care — Lantana", desc: "6169 S Jog Road, Unit 4B, Lantana, FL • Walk-ins welcome, no appointment needed" },
+              { href: "/car-accident/royal-palm-beach", title: "Car Accident Urgent Care — Royal Palm Beach", desc: "11476 Okeechobee Blvd, Royal Palm Beach, FL 33411 • Same-day appointments available" },
+              { href: "/car-accident/lake-worth", title: "Car Accident Urgent Care — Lake Worth", desc: "6447 Lake Worth Rd, Lake Worth Beach, FL 33463 • Onsite X-ray and imaging" },
+              { href: "/car-accident/palm-springs", title: "Car Accident Urgent Care — Palm Springs", desc: "3460 S Congress Ave, Palm Springs, FL 33461 • PIP documentation and insurance coordination" },
+              { href: "/car-accident/lantana", title: "Car Accident Urgent Care — Lantana / Jog Rd", desc: "6169 Jog Rd Unit 4B, Lake Worth Beach, FL 33463 • Walk-ins welcome, no appointment needed" },
             ]}
           />
         </div>
@@ -376,6 +537,9 @@ export default function Page() {
 
       {/* FAQ Section */}
       <AccidentFAQ />
+
+      {/* Internal Links Section */}
+      <AccidentInternalLinks />
 
     </main>
   );

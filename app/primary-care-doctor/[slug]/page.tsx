@@ -269,7 +269,7 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                         "address": [
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "11476 Okeechobee Blvd.",
+                                "streetAddress": "11476 Okeechobee Blvd",
                                 "addressLocality": "Royal Palm Beach",
                                 "addressRegion": "FL",
                                 "postalCode": "33411",
@@ -278,8 +278,8 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                             },
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "6447 Lake Worth Road",
-                                "addressLocality": "Lake Worth",
+                                "streetAddress": "6447 Lake Worth Rd",
+                                "addressLocality": "Lake Worth Beach",
                                 "addressRegion": "FL",
                                 "postalCode": "33463",
                                 "addressCountry": "US",
@@ -287,7 +287,7 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                             },
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "3696 S. Congress Ave.",
+                                "streetAddress": "3460 S Congress Ave",
                                 "addressLocality": "Palm Springs",
                                 "addressRegion": "FL",
                                 "postalCode": "33461",
@@ -296,10 +296,10 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
                             },
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "6169 S Jog Road, Unit 4B",
-                                "addressLocality": "Lantana",
+                                "streetAddress": "6169 Jog Rd Unit 4B",
+                                "addressLocality": "Lake Worth Beach",
                                 "addressRegion": "FL",
-                                "postalCode": "33467",
+                                "postalCode": "33463",
                                 "addressCountry": "US",
                                 "name": "Lantana Primary & Urgent Care Center"
                             }

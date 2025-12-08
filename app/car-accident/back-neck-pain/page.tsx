@@ -4,33 +4,24 @@ import AccidentAppointmentForm from "@/components/accident/AccidentAppointmentFo
 import HeroWithForm from "@/components/accident/HeroWithForm";
 import ImmediateCareBanner from "@/components/accident/ImmediateCareBanner";
 import RelatedTopics from "@/components/accident/RelatedTopics";
+import FourteenDayBanner from "@/components/accident/FourteenDayBanner";
+import TrustBadges from "@/components/accident/TrustBadges";
+import RedFlagChecklist from "@/components/accident/RedFlagChecklist";
+import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
+import AccidentInfoSection from "@/components/accident/AccidentInfoSection";
 import { toJsonLd } from "@/lib/seo";
 
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Car Accident Back & Neck Pain Palm Beach | Primary & Urgent Care",
+  title: "Back & Neck Pain After Car Accident | Spine Exam",
   description:
-    "Car accident back & neck pain treatment in Palm Beach County. Same-day evaluation, X-ray, PIP documentation. Walk-ins welcome. Florida 14-day rule compliant.",
-  keywords: [
-    'back pain after car accident palm beach county',
-    'neck pain car accident florida',
-    'spinal injury urgent care same day',
-    'car accident back injury evaluation',
-    'neck injury treatment palm beach',
-    'back pain evaluation urgent care',
-    'car crash back pain florida',
-    'spinal pain urgent care palm beach county',
-    'neck injury urgent care florida',
-    'car accident spinal injury documentation',
-    'Florida PIP back pain treatment',
-    'Palm Beach County neck injury care'
-  ].join(', '),
+    "Back & neck pain after car accident in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
   alternates: { canonical: `${baseUrl}/car-accident/back-neck-pain` },
   openGraph: {
-    title: "Car Accident Back & Neck Pain Palm Beach | Primary & Urgent Care",
+    title: "Back & Neck Pain After Car Accident | Spine Exam",
     description:
-      "Car accident back & neck pain treatment in Palm Beach County. Same-day evaluation, X-ray, PIP documentation. Walk-ins welcome. Florida 14-day rule compliant.",
+      "Back & neck pain after car accident in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     url: `${baseUrl}/car-accident/back-neck-pain`,
     type: 'article',
     siteName: "Primary & Urgent Care Centers",
@@ -39,15 +30,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/back-pain-hero.png`,
         width: 1200,
         height: 630,
-        alt: "Back & Neck Pain After Car Accident Palm Beach County",
+        alt: "Back and neck pain spinal exam after car accident in Palm Beach County urgent care",
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident Back & Neck Pain Palm Beach | Primary & Urgent Care",
-    description: "Car accident back & neck pain treatment in Palm Beach County. Same-day evaluation, X-ray, PIP documentation. Walk-ins welcome. Florida 14-day rule compliant.",
+    title: "Back & Neck Pain After Car Accident | Spine Exam",
+    description: "Back & neck pain after car accident in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     images: [`${baseUrl}/back-pain-hero.png`],
     site: '@primaryurgentcare',
   },
@@ -69,19 +60,61 @@ export default function Page() {
     "@context": "https://schema.org",
     "@type": "MedicalProcedure",
     name: "Back and Neck Pain Treatment After Car Accident",
-    description: "Comprehensive evaluation and treatment of back and neck pain sustained in car accidents",
+    description: "Comprehensive evaluation and treatment of back and neck pain sustained in car accidents. Includes spinal assessment, neurologic testing, and imaging when indicated.",
     bodyLocation: "Spine, Back, and Neck",
     preparation: "No special preparation required - walk-ins welcome for immediate evaluation",
     procedureType: "Diagnostic Evaluation and Treatment",
-    followup: "Follow-up care and monitoring as needed, specialist referrals when appropriate",
+    followup: "Follow-up care and monitoring as needed, specialist referrals when appropriate. Most patients recover within weeks to months with proper treatment.",
     provider: {
       "@type": "MedicalOrganization",
       name: "Primary & Urgent Care Centers",
       url: `${baseUrl}/car-accident/back-neck-pain`
     },
     medicalSpecialty: "Emergency Medicine",
-    indication: "Back pain, neck pain, or spinal symptoms following car accident",
-    contraindication: "Severe neurological symptoms requiring emergency room evaluation"
+    indication: "Back pain, neck pain, or spinal symptoms following motor vehicle collision. Common after rear-end, side-impact, or head-on collisions.",
+    contraindication: "Severe neurological symptoms requiring emergency room evaluation including severe weakness, loss of bladder/bowel control, inability to walk, or signs of spinal cord injury"
+  };
+
+  const spinalConditionSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalCondition",
+    name: "Spinal injuries after motor vehicle collision",
+    alternateName: "Back and neck pain after car accident",
+    possibleTreatment: [
+      "Pain management",
+      "Anti-inflammatory medications",
+      "Physical therapy",
+      "Spinal exercises",
+      "Activity modification",
+      "Specialist referral"
+    ],
+    signOrSymptom: [
+      "Back pain",
+      "Neck pain",
+      "Muscle spasm",
+      "Reduced range of motion",
+      "Numbness or tingling",
+      "Weakness",
+      "Shooting pain"
+    ]
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Back & Neck Pain After Car Accident | Spine Exam",
+    url: `${baseUrl}/car-accident/back-neck-pain`,
+    description: "Back & neck pain after car accident in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    about: {
+      "@type": "MedicalCondition",
+      name: "Spinal Injury After Motor Vehicle Collision"
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/back-pain-hero.png`,
+      width: 1200,
+      height: 630
+    }
   };
 
   const faqSchema = {
@@ -90,28 +123,28 @@ export default function Page() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What are the warning signs of serious back or neck injury after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Warning signs include severe pain, numbness or tingling in arms or legs, difficulty walking, loss of bladder or bowel control, or worsening neurological symptoms. Seek immediate medical attention if you experience any of these symptoms." }
+        name: "What are warning signs of serious back or neck injury after a car accident?",
+        acceptedAnswer: { "@type": "Answer", text: "Red-flag symptoms include severe pain, numbness or tingling in the arms or legs, weakness, difficulty walking, loss of bladder or bowel control, or worsening neurological symptoms. These may require emergency room evaluation. Our urgent care team can assess your condition and determine the appropriate level of care." }
       },
       {
         "@type": "Question",
         name: "How is back and neck pain diagnosed after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Diagnosis involves a comprehensive physical examination, assessment of range of motion, strength testing, neurological evaluation, and potentially imaging studies like X-rays or MRI to rule out fractures or disc injuries." }
+        acceptedAnswer: { "@type": "Answer", text: "Diagnosis involves a detailed history, spine and neurologic exam, range-of-motion testing, and sometimes imaging such as X-ray or MRI to rule out fractures or disc injury. We have onsite X-ray capabilities and can provide same-day results along with comprehensive documentation for your insurance claim." }
       },
       {
         "@type": "Question",
-        name: "What treatment options are available for back and neck pain after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Treatment may include pain management, anti-inflammatory medications, muscle relaxants, physical therapy exercises, heat/ice therapy, and in some cases, specialist referrals for advanced care. We provide comprehensive documentation for insurance claims." }
+        name: "What treatment options are available?",
+        acceptedAnswer: { "@type": "Answer", text: "Treatment may include pain medications, muscle relaxants, anti-inflammatory therapy, guided exercises, activity modification, and specialist referral when needed. We also provide documentation for PIP and other insurance claims. Our goal is to help you recover while ensuring all necessary medical records are properly documented." }
       },
       {
         "@type": "Question",
-        name: "How long does back and neck pain recovery typically take after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Recovery time varies depending on the severity of injury. Most people recover within weeks to months, but some may experience chronic pain. Early treatment and proper documentation are important for both recovery and insurance claims." }
+        name: "Do I always need imaging?",
+        acceptedAnswer: { "@type": "Answer", text: "Not every patient needs imaging. Your provider will decide based on your exam and symptoms. X-ray can rule out fractures, while MRI may be used if soft-tissue or disc injury is suspected. We provide clear explanations of any imaging recommendations and can coordinate referrals when needed." }
       },
       {
         "@type": "Question",
-        name: "Do I need imaging for back or neck pain after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "X-ray can rule out fractures; MRI may be referred if symptoms suggest soft-tissue or disc injury. We have onsite X-ray capabilities and can provide same-day results for your insurance documentation." }
+        name: "How long does recovery usually take?",
+        acceptedAnswer: { "@type": "Answer", text: "Mild strains often improve within a few weeks. More significant injuries can take several months. Early evaluation, treatment, and follow-up help reduce the risk of chronic pain. We provide ongoing monitoring and can adjust your treatment plan as your recovery progresses." }
       },
       {
         "@type": "Question",
@@ -144,72 +177,129 @@ export default function Page() {
   return (
     <main className="w-full min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(spinalConditionSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(backNeckPainSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faqSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
       
+      {/* 14-Day Rule Warning Banner */}
+      <FourteenDayBanner />
+
       {/* Hero Section */}
       <HeroWithForm
-        title="Back & Neck Pain After a Car Accident"
-        subtitle={<p>Back or neck pain after a crash should be evaluated promptly. We assess for spinal tenderness, nerve symptoms, and indications for imaging.</p>}
+        title="Back & Neck Pain After a Car Crash"
+        subtitle={
+          <p>
+            Back or neck pain after a crash should be taken seriously. Our car-accident doctors evaluate your spine, nerves, and muscles and document everything for PIP and insurance.
+          </p>
+        }
         checklist={[
-          "Comprehensive range of motion, strength, and neurologic examination for car accident back and neck injuries",
-          "Red flags assessment for car crash trauma requiring ER vs urgent care treatment",
-          "When X-ray or MRI referrals are indicated for serious car accident spinal injuries",
+          "Spinal, neurologic, and range-of-motion examination",
+          "Red-flag screening for injuries that require the ER",
+          "Onsite X-ray; MRI referrals when indicated",
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title="Book Your Back & Neck Pain Exam" noWrapper={true} showHeader={false} compact={true} />}
         backgroundImage="/back-pain-hero.png"
       />
 
+      {/* Trust Badges */}
+      <TrustBadges />
+
       <div className="bg-[#FAFAFA] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-[60px]">
         <div className="max-w-4xl mx-auto">
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">What We Check</h2>
-          <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Comprehensive range of motion, strength, and neurologic examination for car accident back and neck injuries</li>
-            <li>Red flags assessment for car crash trauma requiring ER vs urgent care treatment</li>
-            <li>When X-ray or MRI referrals are indicated for serious car accident spinal injuries</li>
-            <li>Detailed pain patterns and symptom onset analysis from car crash back and neck trauma</li>
-            <li>Functional limitations assessment and daily activities impact from car accident injuries</li>
-          </ul>
+          <h2 className="text-2xl font-bold text-black mb-3">How We Evaluate Back & Neck Pain After a Crash</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Our comprehensive spinal evaluation includes multiple components to assess your injury:
+          </p>
+          <div className="space-y-4 mb-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Spine Exam</h3>
+              <p className="text-gray-700">We check for tenderness, muscle spasm, and joint restriction throughout your spine. This helps identify the specific areas affected by the collision.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Neurologic Exam</h3>
+              <p className="text-gray-700">Strength, sensation, and reflex testing helps identify nerve involvement. This is critical for determining if you need immediate emergency care or if urgent care is appropriate.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Imaging Decisions</h3>
+              <p className="text-gray-700">Based on your exam findings, we determine when X-ray, MRI, or CT imaging is needed. We have onsite X-ray capabilities and can arrange advanced imaging referrals when indicated.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Common Back and Neck Injuries</h2>
-          <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Muscle strains and ligament sprains from car accident back and neck trauma</li>
-            <li>Herniated or bulging discs caused by car crash spinal injuries</li>
-            <li>Spinal compression fractures from severe car accident impact</li>
-            <li>Facet joint injuries and inflammation from car crash whiplash trauma</li>
-            <li>Nerve root compression and radiculopathy from car accident spinal injuries</li>
-          </ul>
-        </section>
+        {/* Red Flag Checklist */}
+        <RedFlagChecklist />
+
+        <AccidentInfoSection
+          title="When to Choose Urgent Care vs ER for Back & Neck Pain"
+          items={[
+            {
+              icon: <></>,
+              title: "Urgent Care is Usually Appropriate When",
+              description:
+                "Pain is moderate but you can walk, move, and control your bladder and bowels. There is no major head injury or chest pain.",
+              type: "primary"
+            },
+            {
+              icon: <></>,
+              title: "Go Straight to the ER If You Have",
+              description:
+                "Severe weakness, loss of bladder/bowel control, major trauma, trouble breathing, or a serious head injury. Call 911 if in doubt.",
+              type: "warning"
+            }
+          ]}
+          className="bg-white mb-10"
+        />
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Diagnostic Imaging</h2>
-          <p className="text-base md:text-lg text-gray-700 mb-3">
-            We may recommend imaging based on your symptoms and physical examination findings.
+          <h2 className="text-2xl font-bold text-black mb-3">Common Back & Neck Injuries After Car Accidents</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Motor vehicle collisions can cause various types of spinal injuries:
           </p>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Onsite X-rays to assess bone alignment and fractures from car accident back and neck injuries</li>
-            <li>MRI referrals for soft tissue and disc evaluation of car crash spinal trauma</li>
-            <li>CT scans for detailed bone assessment of severe car accident spinal injuries</li>
-            <li>Rapid referrals to imaging centers for comprehensive car crash injury evaluation</li>
+            <li><strong>Muscle strains and ligament sprains</strong> from sudden impact forces during the collision</li>
+            <li><strong>Herniated or bulging discs</strong> in the neck or lower back from compression and twisting forces</li>
+            <li><strong>Compression fractures</strong> in higher-energy collisions, especially in older patients or severe crashes</li>
+            <li><strong>Facet joint irritation and inflammation</strong> commonly seen after whiplash-type injuries</li>
+            <li><strong>Nerve root irritation</strong> causing shooting pain, tingling, or weakness in arms or legs</li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Treatment Approach</h2>
-          <p className="text-base md:text-lg text-gray-700 mb-3">
-            Treatment depends on the specific injury but typically includes:
+          <h2 className="text-2xl font-bold text-black mb-3">How Back & Neck Evaluations Are Done</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Our comprehensive evaluation process includes multiple components:
+          </p>
+          <div className="space-y-4 mb-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Spine Exam</h3>
+              <p className="text-gray-700">We assess your entire spine for tenderness, muscle spasm, joint restriction, and alignment issues. This helps identify the specific areas affected by the collision.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Neurologic Exam</h3>
+              <p className="text-gray-700">Comprehensive testing of strength, sensation, and reflexes helps identify nerve involvement. This is critical for determining the severity of your injury and whether emergency care is needed.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Imaging Decisions</h3>
+              <p className="text-gray-700">Based on your exam findings, we determine when X-ray, MRI, or CT imaging is needed. We have onsite X-ray capabilities and can arrange advanced imaging referrals when indicated. Imaging helps rule out fractures, disc injuries, and other serious conditions.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">Recovery Timelines & Follow-Up</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Recovery from back and neck injuries varies based on the severity and type of injury:
           </p>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Comprehensive pain management and anti-inflammatory medications for car accident back and neck injuries</li>
-            <li>Activity modifications and ergonomic guidance for car crash spinal injury recovery</li>
-            <li>Specialist referrals for specialized car accident back and neck injury rehabilitation</li>
-            <li>Ongoing follow-up care and monitoring for car crash spinal injury recovery progress</li>
-            <li>Specialist referrals for complex car accident spinal injury cases requiring advanced treatment</li>
+            <li><strong>Mild strains:</strong> Often improve within a few weeks with proper treatment and activity modification</li>
+            <li><strong>Moderate injuries:</strong> May take several weeks to months with ongoing treatment and physical therapy</li>
+            <li><strong>More significant injuries:</strong> Can take several months with specialist care and rehabilitation</li>
+            <li><strong>Follow-up care:</strong> We provide ongoing monitoring and can adjust your treatment plan as your recovery progresses</li>
+            <li><strong>Specialist referrals:</strong> When needed, we coordinate referrals to orthopedic surgeons, neurologists, or physical therapists</li>
           </ul>
         </section>
 
@@ -220,6 +310,9 @@ export default function Page() {
             { title: "Car Accident Urgent Care", href: "/car-accident-injury-clinic" }
           ]}
         />
+
+        {/* Internal Links Section */}
+        <AccidentInternalLinks />
         </div>
       </div>
     </main>

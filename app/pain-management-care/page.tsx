@@ -58,14 +58,14 @@ function PainManagementJsonLd() {
           "@context": "https://schema.org",
           "@type": "MedicalClinic",
           "name": "Primary & Urgent Care Centers of Palm Beach County",
-          "description": "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+          "description": "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.",
           "url": "https://primaryuc.com/pain-management-program",
           "image": "https://primaryuc.com/painmanage.jpg",
           "telephone": "+1-561-223-8024",
           "address": [
             {
               '@type': 'PostalAddress',
-              streetAddress: '11476 Okeechobee Blvd.',
+              streetAddress: '11476 Okeechobee Blvd',
               addressLocality: 'Royal Palm Beach',
               addressRegion: 'FL',
               postalCode: '33411',
@@ -74,8 +74,8 @@ function PainManagementJsonLd() {
             },
             {
               '@type': 'PostalAddress',
-              streetAddress: '6447 Lake Worth Road',
-              addressLocality: 'Lake Worth',
+              streetAddress: '6447 Lake Worth Rd',
+              addressLocality: 'Lake Worth Beach',
               addressRegion: 'FL',
               postalCode: '33463',
               addressCountry: 'US',
@@ -83,7 +83,7 @@ function PainManagementJsonLd() {
             },
             {
               '@type': 'PostalAddress',
-              streetAddress: '3696 S. Congress Ave.',
+              streetAddress: '3460 S Congress Ave',
               addressLocality: 'Palm Springs',
               addressRegion: 'FL',
               postalCode: '33461',
@@ -92,10 +92,10 @@ function PainManagementJsonLd() {
             },
             {
               '@type': 'PostalAddress',
-              streetAddress: '6169 S Jog Road, Unit 4B',
-              addressLocality: 'Lantana',
+              streetAddress: '6169 Jog Rd Unit 4B',
+              addressLocality: 'Lake Worth Beach',
               addressRegion: 'FL',
-              postalCode: '33467',
+              postalCode: '33463',
               addressCountry: 'US',
               name: 'Lantana Primary & Urgent Care Center'
             }

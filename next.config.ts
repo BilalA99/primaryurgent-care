@@ -40,6 +40,22 @@ const nextConfig: NextConfig = {
         destination: '/emergency-room/:slug',
         permanent: true,
       },
+      // Lantana location redirects - maintain branding but ensure proper routing
+      {
+        source: '/locations/lantana',
+        destination: '/locations/lantana-primary-urgent-care-center',
+        permanent: true,
+      },
+      {
+        source: '/car-accident/lantana-fl',
+        destination: '/car-accident/lantana',
+        permanent: true,
+      },
+      {
+        source: '/locations/lantana-fl',
+        destination: '/locations/lantana-primary-urgent-care-center',
+        permanent: true,
+      },
     ];
   },
   images: {

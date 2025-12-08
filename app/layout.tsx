@@ -132,7 +132,7 @@ export default function RootLayout({
                 },
                 {
                   '@type': 'AdministrativeArea',
-                  name: 'Lantana, FL'
+                  name: 'Lake Worth Beach, FL'
                 },
                 {
                   '@type': 'AdministrativeArea',
@@ -241,6 +241,7 @@ export default function RootLayout({
 
       <body
         className={`${interTight.variable} antialiased overscroll-none`}
+        suppressHydrationWarning
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

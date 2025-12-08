@@ -11,13 +11,10 @@ import ClinicsMap from '@/components/clinicsmap'
 
 export const metadata = {
   title: "Urgent Care Locations Palm Beach | Car Accident Care | 4 Clinics",
-  description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana. Walk-ins, PIP accepted, X-ray onsite.",
-  keywords: [
-    "urgent care Palm Beach County", "Palm Beach County walk-in clinic", "urgent care near me Palm Beach", "Palm Beach urgent care locations", "walk-in clinic in Palm Beach County open now", "closest urgent care in Royal Palm Beach area", "urgent care locations in West Palm Beach area", "best urgent care in Palm Beach", "urgent care Royal Palm Beach", "urgent care Lake Worth", "urgent care Palm Springs", "urgent care Lantana", "local urgent care directory"
-  ],
+  description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
   openGraph: {
     title: "Urgent Care Locations Palm Beach | Car Accident Care | 4 Clinics",
-    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana. Walk-ins, PIP accepted, X-ray onsite.",
+    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
     url: "https://primaryuc.com/locations",
     images: [
       { url: "https://primaryuc.com/servicelanding.jpg", width: 1200, height: 630, alt: "Urgent Care Locations Palm Beach County" }
@@ -27,7 +24,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Urgent Care Locations Palm Beach | Car Accident Care | 4 Clinics",
-    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana. Walk-ins, PIP accepted, X-ray onsite.",
+    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
     images: [
       { url: "https://primaryuc.com/servicelanding.jpg", alt: "Urgent Care Locations Palm Beach County" }
     ]
@@ -51,66 +48,36 @@ function LocationsJsonLd() {
           "@context": "https://schema.org",
           "@type": "MedicalClinic",
           "name": "Primary & Urgent Care Centers of Palm Beach County",
-          "description": "Walk-in urgent care clinics in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. Short wait times, most insurance accepted, and hospital-level care.",
+          "description": "Walk-in urgent care clinics in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd. Short wait times, most insurance accepted, and hospital-level care.",
           "url": "https://primaryuc.com/locations",
           "image": "https://primaryuc.com/servicelanding.jpg",
           "areaServed": [
-            "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
+            "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana / Jog Rd", "Lake Worth Beach", "Palm Beach County"
           ],
-          "department": [
-            {
-              "@type": "MedicalClinic",
-              "name": "Royal Palm Beach Primary & Urgent Care Center",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "11476 Okeechobee Blvd.",
-                "addressLocality": "Royal Palm Beach",
-                "addressRegion": "FL",
-                "postalCode": "33411",
-                "addressCountry": "US"
-              },
-              "telephone": "+1-561-223-8024"
+          "department": LocationsScreens.map(loc => ({
+            "@type": "MedicalClinic",
+            "name": loc.clinic,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": loc.address,
+              "addressLocality": loc.city || loc.name,
+              "addressRegion": "FL",
+              "postalCode": loc.postalCode || '',
+              "addressCountry": "US"
             },
-            {
-              "@type": "MedicalClinic",
-              "name": "Lake Worth Primary & Urgent Care Center",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "6447 Lake Worth Road",
-                "addressLocality": "Lake Worth",
-                "addressRegion": "FL",
-                "postalCode": "33463",
-                "addressCountry": "US"
-              },
-              "telephone": "+1-561-223-8024"
-            },
-            {
-              "@type": "MedicalClinic",
-              "name": "Palm Springs Primary & Urgent Care Center",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "3696 S. Congress Ave.",
-                "addressLocality": "Palm Springs",
-                "addressRegion": "FL",
-                "postalCode": "33461",
-                "addressCountry": "US"
-              },
-              "telephone": "+1-561-969-1595"
-            },
-            {
-              "@type": "MedicalClinic",
-              "name": "Lantana Primary & Urgent Care Center",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "6169 S Jog Road, Unit 4B",
-                "addressLocality": "Lantana",
-                "addressRegion": "FL",
-                "postalCode": "33467",
-                "addressCountry": "US"
-              },
-              "telephone": "+1-561-249-6959"
-            }
-          ],
+            "telephone": `+1-${loc.phone.replace(/-/g, '')}`,
+            ...(loc.gmbUrl ? {
+              "sameAs": [loc.gmbUrl],
+              "hasMap": loc.gmbUrl
+            } : {}),
+            ...(loc.lat && loc.lng ? {
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": loc.lat,
+                "longitude": loc.lng
+              }
+            } : {})
+          })),
           "medicalSpecialty": [
             "Urgent Care", "Primary Care", "Walk-In Clinic", "Injury Care", "Diagnostics"
           ],

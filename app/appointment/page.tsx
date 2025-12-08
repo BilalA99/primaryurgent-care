@@ -16,7 +16,7 @@ import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
     title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
-    description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Lantana clinics.',
+    description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
     keywords: [
         'urgent care appointment',
         'book urgent care',
@@ -33,7 +33,7 @@ export const metadata = {
     ].join(', '),
     openGraph: {
         title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
-        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Lantana clinics.',
+        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
         url: 'https://primaryuc.com/appointment',
         siteName: 'Primary & Urgent Care Centers',
         images: [
@@ -50,7 +50,7 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
-        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Lantana clinics.',
+        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
         images: ['/appointment.png'],
         site: '@primaryurgentcare',
     },
@@ -87,7 +87,7 @@ const AppointmentPage = () => {
               },
               {
                 '@type': 'AdministrativeArea',
-                name: 'Lantana, FL'
+                name: 'Lake Worth Beach, FL'
               },
               {
                 '@type': 'AdministrativeArea',

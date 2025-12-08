@@ -14,19 +14,19 @@ export default function ImmediateCareBanner() {
   };
 
   return (
-    <div className="rounded-lg border border-[color:var(--brand-border)] bg-[color:var(--brand-bg-soft)] p-4">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="text-sm sm:text-base font-semibold">Need immediate care after a car crash?</p>
-          <p className="text-sm text-[color:var(--brand-muted)]">
+    <div className="rounded-xl border-2 border-white/30 bg-white/95 backdrop-blur-md p-5 shadow-xl">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="flex-1">
+          <p className="text-base sm:text-lg font-bold text-gray-900 mb-1">Need immediate care after a car crash?</p>
+          <p className="text-sm sm:text-base text-gray-700">
             Same-day exam, onsite X-ray, and documentation for insurance claims.
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex-shrink-0">
           <a
             href="tel:+15612238024"
             onClick={() => click("Banner Call Now")}
-            className="inline-flex items-center justify-center rounded-md bg-[#D52128] px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base font-medium text-white hover:bg-[#b81b22] focus:outline-none focus:ring-2 focus:ring-[#D52128] touch-manipulation transition-all duration-200"
+            className="inline-flex items-center justify-center rounded-lg bg-[#D52128] px-6 py-3 text-base sm:text-lg font-semibold text-white hover:bg-[#b81b22] focus:outline-none focus:ring-2 focus:ring-[#D52128] touch-manipulation transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             Call Now
           </a>
