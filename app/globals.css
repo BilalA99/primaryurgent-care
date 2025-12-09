@@ -261,6 +261,11 @@ iframe {
     @apply text-gray-700;
   }
   
+  /* Fix spacing for paragraph tags inside list items */
+  .blog-content li p {
+    @apply mb-0 mt-0;
+  }
+  
   .blog-content blockquote {
     @apply border-l-4 border-[#D52128] pl-4 italic text-gray-600 my-4;
   }

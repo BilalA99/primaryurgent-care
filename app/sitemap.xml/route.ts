@@ -3,6 +3,7 @@ import { pricingData } from '@/app/pricing/page';
 import { conditions } from '@/components/conditions';
 import { services } from '@/components/Services';
 import { primaryCareServices } from '@/app/primary-care-doctor/page';
+import { GetBlogs } from '@/lib/blog/get-blogs';
 
 const BASE_URL = 'https://primaryuc.com';
 
@@ -37,8 +38,15 @@ export async function GET() {
     '/service/dot-physical'
   ];
   
-  // Blog post routes will be added when Supabase integration is complete
-  const blogPostRoutes: string[] = [];
+  // Fetch blog posts dynamically from Supabase
+  let blogPostRoutes: string[] = [];
+  try {
+    const posts = await GetBlogs();
+    blogPostRoutes = posts.map(post => `/blog/${post.slug}`);
+  } catch (error) {
+    console.error('Error fetching blog posts for sitemap:', error);
+    // Continue with empty array if blog fetch fails
+  }
   
   // Car accident routes
   const accidentRoutes: string[] = [
@@ -77,6 +85,8 @@ export async function GET() {
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml',
+      // Cache for 1 hour, but allow dynamic updates
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
     },
   });
 }

@@ -23,7 +23,8 @@ ${posts.map(post => `  <url>
     return new Response(sitemap, {
       headers: {
         'Content-Type': 'application/xml',
-        'Cache-Control': 'public, max-age=3600, s-maxage=3600'
+        // Reduced cache time to 5 minutes for faster blog updates
+        'Cache-Control': 'public, max-age=300, s-maxage=300'
       }
     })
   } catch (error) {
