@@ -13,7 +13,7 @@ interface AccidentAppointmentFormProps {
 }
 
 const AccidentAppointmentForm: React.FC<AccidentAppointmentFormProps> = ({
-  title = "Book Your Car Accident Exam",
+  title = "Check Injury Eligibility",
   bgColor = "bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF]",
   textColor = "text-gray-900",
   className = "",

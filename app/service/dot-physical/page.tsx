@@ -7,7 +7,7 @@ import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
     title: "DOT Physical Exam | CDL Medical Exam Palm Beach County",
-    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.",
+    description: "DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.",
     keywords: [
         "DOT physical", "CDL medical exam", "DOT physical near me", "urgent care DOT physical", "Palm Beach County urgent care", "same day DOT physical", "FMCSA", "commercial driver exam"
     ],
@@ -112,7 +112,7 @@ function DotPhysicalJsonLd() {
                         "Royal Palm Beach FL",
                         "Lake Worth FL",
                         "Palm Springs FL",
-                        "Lantana FL"
+                        "Lake Worth Beach FL"
                     ],
                     "availableService": [
                         "DOT Physical Exam",

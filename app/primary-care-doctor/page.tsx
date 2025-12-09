@@ -98,7 +98,7 @@ const visitSteps = [
 
 export const metadata = {
         title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
-        description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Lantana.",
+        description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
     keywords: [
         "primary care doctor",
         "family medicine",
@@ -118,7 +118,7 @@ export const metadata = {
     },
         openGraph: {
             title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
-            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Lantana.",
+            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         url: "https://primaryuc.com/primary-care-doctor",
         type: "website",
         images: [
@@ -128,7 +128,7 @@ export const metadata = {
         twitter: {
             card: "summary_large_image",
             title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
-            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Lantana.",
+            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         images: ["https://primaryuc.com/doctorwithpatient.jpg"],
         site: "@primaryuc"
     }
@@ -162,7 +162,7 @@ export default function PrimaryCareDoctorPage() {
                         },
                         {
                             '@type': 'AdministrativeArea',
-                            name: 'Lantana, FL'
+                            name: 'Lake Worth Beach, FL'
                         },
                         {
                             '@type': 'AdministrativeArea',
@@ -228,7 +228,7 @@ export default function PrimaryCareDoctorPage() {
                         "address": [
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "11476 Okeechobee Blvd.",
+                                "streetAddress": "11476 Okeechobee Blvd",
                                 "addressLocality": "Royal Palm Beach",
                                 "addressRegion": "FL",
                                 "postalCode": "33411",
@@ -237,8 +237,8 @@ export default function PrimaryCareDoctorPage() {
                             },
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "6447 Lake Worth Road",
-                                "addressLocality": "Lake Worth",
+                                "streetAddress": "6447 Lake Worth Rd",
+                                "addressLocality": "Lake Worth Beach",
                                 "addressRegion": "FL",
                                 "postalCode": "33463",
                                 "addressCountry": "US",
@@ -246,7 +246,7 @@ export default function PrimaryCareDoctorPage() {
                             },
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "3696 S. Congress Ave.",
+                                "streetAddress": "3460 S Congress Ave",
                                 "addressLocality": "Palm Springs",
                                 "addressRegion": "FL",
                                 "postalCode": "33461",
@@ -255,10 +255,10 @@ export default function PrimaryCareDoctorPage() {
                             },
                             {
                                 "@type": "PostalAddress",
-                                "streetAddress": "6169 S Jog Road, Unit 4B",
-                                "addressLocality": "Lantana",
+                                "streetAddress": "6169 Jog Rd Unit 4B",
+                                "addressLocality": "Lake Worth Beach",
                                 "addressRegion": "FL",
-                                "postalCode": "33467",
+                                "postalCode": "33463",
                                 "addressCountry": "US",
                                 "name": "Lantana Primary & Urgent Care Center"
                             }

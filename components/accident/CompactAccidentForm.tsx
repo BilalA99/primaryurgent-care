@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { sendContactEmail, sendUserEmail } from '@/components/email/SendEmail';
+import { Shield, Clock, Lock } from 'lucide-react';
 
 interface CompactAccidentFormProps {
   title: string;
@@ -136,6 +137,22 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
           {isLoading ? 'Submitting...' : 'Book Appointment'}
         </Button>
       </form>
+
+      {/* Trust Indicators */}
+      <div className="mt-4 space-y-2 pt-3 border-t border-gray-200">
+        <div className="flex items-center gap-2 text-xs text-gray-600">
+          <Clock className="w-4 h-4 text-[#16A34A]" />
+          <span>Takes &lt;60 seconds</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-gray-600">
+          <Lock className="w-4 h-4 text-[#2563eb]" />
+          <span>Your information is secure and private</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-gray-600">
+          <Shield className="w-4 h-4 text-[#16A34A]" />
+          <span>No spam, we respect your privacy</span>
+        </div>
+      </div>
     </div>
   );
 };

@@ -5,33 +5,23 @@ import AccidentFAQ from "@/components/accident/AccidentFAQ";
 import HeroWithForm from "@/components/accident/HeroWithForm";
 import ImmediateCareBanner from "@/components/accident/ImmediateCareBanner";
 import RelatedTopics from "@/components/accident/RelatedTopics";
+import FourteenDayBanner from "@/components/accident/FourteenDayBanner";
+import TrustBadges from "@/components/accident/TrustBadges";
+import AttorneyFriendlySection from "@/components/accident/AttorneyFriendlySection";
+import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 import { toJsonLd } from "@/lib/seo";
 
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Car Accident PIP Documentation Palm Beach | Primary & Urgent Care",
+  title: "Car Accident PIP Exam & Documentation | Palm Beach",
   description:
-    "Car accident PIP documentation in Palm Beach County. Same-day exam, medical records, insurance paperwork. Florida 14-day rule. Walk-ins welcome. Call (561) 223-8024.",
-  keywords: [
-    'PIP documentation palm beach county',
-    'car accident medical records florida',
-    'Florida PIP 14 day rule urgent care',
-    'car accident documentation palm beach',
-    'PIP exam urgent care same day',
-    'car accident medical report florida',
-    'PIP insurance documentation palm beach county',
-    'car crash medical records florida',
-    'Florida PIP requirements urgent care',
-    'car accident documentation urgent care palm beach',
-    'PIP claim documentation florida',
-    'Palm Beach County PIP exam'
-  ].join(', '),
+    "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
   alternates: { canonical: `${baseUrl}/car-accident/documentation-pip` },
   openGraph: {
-    title: "Car Accident PIP Documentation Palm Beach | Primary & Urgent Care",
+    title: "Car Accident PIP Exam & Documentation | Palm Beach",
     description:
-      "Car accident PIP documentation in Palm Beach County. Same-day exam, medical records, insurance paperwork. Florida 14-day rule. Walk-ins welcome. Call (561) 223-8024.",
+      "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
     url: `${baseUrl}/car-accident/documentation-pip`,
     type: 'article',
     siteName: "Primary & Urgent Care Centers",
@@ -40,15 +30,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/man-on-phone-next-to-open-hood.jpg`,
         width: 1200,
         height: 630,
-        alt: "Car Accident Medical Documentation & PIP Exam Palm Beach County",
+        alt: "Car accident PIP documentation and medical exam paperwork in Palm Beach County",
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident PIP Documentation Palm Beach | Primary & Urgent Care",
-    description: "Car accident PIP documentation in Palm Beach County. Same-day exam, medical records, insurance paperwork. Florida 14-day rule. Walk-ins welcome. Call (561) 223-8024.",
+    title: "Car Accident PIP Exam & Documentation | Palm Beach",
+    description: "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
     images: [`${baseUrl}/man-on-phone-next-to-open-hood.jpg`],
     site: '@primaryurgentcare',
   },
@@ -73,22 +63,22 @@ export default function Page() {
       {
         "@type": "Question",
         name: "What documents do you provide after the visit?",
-        acceptedAnswer: { "@type": "Answer", text: "We provide detailed visit summaries, exam findings, imaging reports, and treatment documentation. All documentation is available immediately after your visit and tailored to meet PIP claim requirements." }
+        acceptedAnswer: { "@type": "Answer", text: "We provide detailed visit summaries, exam findings, diagnoses, imaging reports, treatment plans, and follow-up recommendations. All records are created in a format insurers and legal teams can easily review. Documentation includes comprehensive notes about your injuries, symptoms, and recommended treatment." }
       },
       {
         "@type": "Question",
         name: "Do you coordinate with insurers or attorneys?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes, we coordinate directly with insurance companies for PIP claims and provide all necessary documentation. We also work with attorneys and legal teams to ensure proper documentation for your case." }
+        acceptedAnswer: { "@type": "Answer", text: "Yes. We coordinate directly with insurance companies for PIP claims and can share records with attorneys when properly authorized. Our goal is to make the paperwork side of your case as smooth as possible. We handle billing, claim submission, and documentation requests efficiently." }
       },
       {
         "@type": "Question",
         name: "What is the Florida PIP 14-day rule?",
-        acceptedAnswer: { "@type": "Answer", text: "Florida's Personal Injury Protection (PIP) law requires you to seek medical care within 14 days of a car accident to unlock PIP benefits, regardless of fault. Missing this deadline can result in denial of PIP coverage for medical bills, lost wages, and other benefits." }
+        acceptedAnswer: { "@type": "Answer", text: "Florida's PIP law requires you to seek medical care within 14 days of a car accident to unlock PIP benefits. Waiting beyond this window can lead to denial of coverage for medical bills and related benefits. Early documentation creates a clear timeline that supports your claim and helps track your recovery." }
       },
       {
         "@type": "Question",
         name: "How quickly can I get my medical documentation?",
-        acceptedAnswer: { "@type": "Answer", text: "Medical documentation is typically available immediately after your visit. We can provide visit summaries, imaging reports, and treatment plans on the same day as your evaluation. No waiting periods for documentation." }
+        acceptedAnswer: { "@type": "Answer", text: "Most documentation is available the same day as your visit. You leave with a clear summary of your exam and treatment, and we store electronic records for future requests. All visit summaries, imaging reports, and treatment plans are prepared immediately and formatted for insurance and legal use." }
       },
       {
         "@type": "Question",
@@ -123,97 +113,211 @@ export default function Page() {
     ]
   };
 
+  const pipProcedureSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: "PIP Exam and Medical Documentation",
+    description: "Comprehensive medical examination and documentation for Florida PIP insurance claims after car accidents. Includes exam findings, imaging results, treatment plans, and visit summaries.",
+    procedureType: "Diagnostic Evaluation and Documentation",
+    provider: {
+      "@type": "MedicalOrganization",
+      name: "Primary & Urgent Care Centers",
+      url: `${baseUrl}/car-accident/documentation-pip`
+    },
+    medicalSpecialty: "Emergency Medicine",
+    indication: "Car accident injury requiring medical evaluation and documentation for PIP insurance claims within Florida's 14-day requirement"
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Car Accident PIP Exam & Documentation | Palm Beach",
+    url: `${baseUrl}/car-accident/documentation-pip`,
+    description: "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    about: {
+      "@type": "Service",
+      name: "PIP Documentation Service"
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/man-on-phone-next-to-open-hood.jpg`,
+      width: 1200,
+      height: 630
+    }
+  };
+
   return (
     <main className="w-full min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(pipProcedureSchema)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faq)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
       
+      {/* 14-Day Rule Warning Banner */}
+      <FourteenDayBanner />
+
       {/* Hero Section */}
       <HeroWithForm
-        title="Car Accident Medical Documentation & PIP Exam"
-        subtitle={<p>We complete a same-day post-accident evaluation and provide documentation commonly needed for insurance claims.</p>}
+        title="Car Accident PIP Documentation"
+        subtitle={
+          <p>
+            We complete a same-day post-accident exam and create the medical documentation commonly requested by insurers and attorneys.
+          </p>
+        }
         checklist={[
-          "Complete medical evaluation and comprehensive documentation for car accident PIP claims",
-          "Detailed visit summaries and medical reports for insurance companies and attorneys",
-          "PIP coordination and billing assistance for car crash injury claims processing",
+          "Full exam and injury mapping for PIP claims",
+          "Same-day visit summary and records you can share",
+          "Help coordinating paperwork with insurance",
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title="Book Your PIP Documentation Exam" noWrapper={true} showHeader={false} compact={true} />}
         backgroundImage="/man-on-phone-next-to-open-hood.jpg"
       />
 
+      {/* Trust Badges */}
+      <TrustBadges />
+
       <div className="bg-[#FAFAFA] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-[60px]">
         <div className="max-w-4xl mx-auto">
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">What to Bring</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">What Your PIP Exam Includes</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            A comprehensive PIP exam involves several key components designed to document your injuries and create a clear medical record:
+          </p>
+          <div className="space-y-4 mb-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Initial History & Injury Description</h3>
+              <p className="text-gray-700">We document the collision details, how your injuries occurred, and when symptoms began. This creates a clear timeline linking the accident to your medical condition.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Physical Exam Details</h3>
+              <p className="text-gray-700">Comprehensive examination findings including range of motion, neurologic testing, palpation findings, and any visible injuries. All findings are documented in detail for your records.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Imaging When Indicated</h3>
+              <p className="text-gray-700">If imaging is needed, we perform onsite X-rays or arrange MRI/CT referrals. All imaging results are included in your documentation package.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Treatment Discussion & Follow-Up</h3>
+              <p className="text-gray-700">We discuss treatment options, medications, activity modifications, and follow-up care. All recommendations are documented for your insurance claim.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">What to Bring to Your PIP Documentation Visit</h2>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Photo ID and car accident insurance card for PIP claims processing</li>
-            <li>Claim number (if available) and detailed car crash incident details</li>
-            <li>Any prior medical records related to the car accident injury</li>
-            <li>Police report number (if available) for car crash documentation</li>
-            <li>Other driver's insurance information for car accident claims processing</li>
+            <li>Photo ID and insurance card</li>
+            <li>Auto insurance claim number, if available</li>
+            <li>Police report or crash report number, if you have it</li>
+            <li>
+              Any prior medical records or imaging related to this accident
+            </li>
+            <li>
+              Contact information for your attorney or law office, if applicable
+            </li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">PIP Coverage and Requirements</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">Types of Documentation We Commonly Prepare</h2>
           <p className="text-base md:text-lg text-gray-700 mb-3">
-            Florida PIP (Personal Injury Protection) coverage has specific requirements and timeframes:
+            After your exam, we generate records that are structured for insurance and legal review, including:
           </p>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>14-day rule: Initial car accident treatment must begin within 14 days of the crash</li>
-            <li>$10,000 in PIP benefits for car accident medical expenses and injury treatment</li>
-            <li>80% coverage for medical bills related to car crash injuries</li>
-            <li>Proper medical documentation required for car accident PIP claims processing</li>
+            <li>
+              Initial visit summary with detailed history of the crash and symptoms
+            </li>
+            <li>
+              Physical exam findings, including neurologic and orthopedic testing
+            </li>
+            <li>
+              Imaging reports and interpretations from X-ray or other studies
+            </li>
+            <li>
+              Diagnoses, treatment recommendations, and medication list
+            </li>
+            <li>
+              Work status and activity limitations, when applicable
+            </li>
+            <li>
+              Follow-up plans and referrals for specialist care or therapy
+            </li>
           </ul>
         </section>
 
+        {/* Documentation Example Section */}
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Medical Documentation We Provide</h2>
-          <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Comprehensive visit summaries with detailed car accident injury findings and documentation</li>
-            <li>Medical diagnosis and treatment plans for car crash injury recovery and PIP claims</li>
-            <li>Imaging reports and interpretations for car accident spinal and soft tissue injuries</li>
-            <li>Work restrictions and activity limitations documentation for car crash injury recovery</li>
-            <li>Follow-up care recommendations for ongoing car accident injury treatment and rehabilitation</li>
-            <li>Detailed billing statements for car accident insurance claims and PIP processing</li>
-          </ul>
+          <h2 className="text-2xl font-bold text-black mb-3">Examples of Documentation We Provide</h2>
+          <div className="bg-white rounded-xl border-2 border-[#2563eb]/20 p-6 shadow-lg">
+            <div className="space-y-4">
+              <div className="border-b border-gray-200 pb-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Visit Summary Example</h3>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>• Chief Complaint: Motor vehicle collision with neck and back pain</p>
+                  <p>• History of Present Illness: Patient reports [detailed injury description]</p>
+                  <p>• Physical Examination: [Comprehensive findings documented]</p>
+                  <p>• Assessment: [Diagnosis with ICD-10 codes]</p>
+                  <p>• Plan: [Treatment recommendations and follow-up]</p>
+                </div>
+              </div>
+              <div className="border-b border-gray-200 pb-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Imaging Report</h3>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>• X-ray interpretations with detailed findings</p>
+                  <p>• MRI/CT reports when applicable</p>
+                  <p>• Comparison with prior studies if available</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Treatment Documentation</h3>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>• Medications prescribed with dosages</p>
+                  <p>• Activity restrictions and work limitations</p>
+                  <p>• Physical therapy referrals and exercise instructions</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Legal Documentation</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">Why Documentation Timing Matters</h2>
           <p className="text-base md:text-lg text-gray-700 mb-3">
-            For legal cases, we can provide additional documentation upon request:
+            The closer your exam is to the date of the collision, the stronger your documentation usually is. Early notes create a clear timeline: when symptoms started, how severe they were, and how they changed over time. This can influence how insurers view your claim and helps your care team track your recovery.
           </p>
-          <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Detailed medical records</li>
-            <li>Expert medical opinions when appropriate</li>
-            <li>Coordinated care with your attorney</li>
-            <li>Medical lien services</li>
-          </ul>
         </section>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Insurance Coordination</h2>
-          <p className="text-base md:text-lg text-gray-700 mb-3">
-            We work with most insurance providers and can help coordinate:
-          </p>
-          <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Direct billing to insurance companies</li>
-            <li>Prior authorization for treatments</li>
-            <li>Coordination of benefits</li>
-            <li>Appeals and claim assistance</li>
-          </ul>
-        </section>
+        {/* Attorney-Friendly Section */}
+        <AttorneyFriendlySection />
 
         <RelatedTopics 
           topics={[
             { title: "Car Accident Urgent Care", href: "/car-accident-injury-clinic" },
-            { title: "Urgent Care vs ER", href: "/car-accident/urgent-care-vs-er" },
-            { title: "Legal Records Request", href: "/lawyers" }
+            { title: "Urgent Care vs ER After a Crash", href: "/car-accident/urgent-care-vs-er" },
+            { title: "Whiplash", href: "/car-accident/whiplash" }
           ]}
         />
+
+        <AccidentFAQ
+          title="PIP & Documentation FAQs"
+          faqs={[
+            {
+              question: "Do I need an attorney before I come in?",
+              answer:
+                "No. You can come in for an exam and documentation whether or not you have an attorney. If you decide to work with one later, we can share records once you sign a release."
+            },
+            {
+              question: "Can you update documentation over time?",
+              answer:
+                "Yes. Follow-up visits generate updated records that show how your symptoms and function change over weeks or months. These can be important for ongoing claims."
+            }
+          ]}
+        />
+
+        {/* Internal Links Section */}
+        <AccidentInternalLinks />
         </div>
       </div>
     </main>

@@ -61,12 +61,15 @@ const Footer = () => (
                     </ul>
                 </div>
 
-                {/* Resources Section */}
+                {/* Locations Section */}
                 <div className="lg:col-span-1">
-                    <h3 className="text-white font-semibold text-lg mb-4">Resources</h3>
+                    <h3 className="text-white font-semibold text-lg mb-4">Locations</h3>
                     <ul className="space-y-3">
-                        <li><Link href="/service" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">All Services</Link></li>
-                        <li><Link href="/sitemap.xml" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Sitemap</Link></li>
+                        <li><Link href="/locations/royal-palm-beach-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Royal Palm Beach</Link></li>
+                        <li><Link href="/locations/lake-worth-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Lake Worth</Link></li>
+                        <li><Link href="/locations/palm-springs-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Palm Springs</Link></li>
+                        <li><Link href="/locations/lantana-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Lantana / Jog Rd</Link></li>
+                        <li><Link href="/locations" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">All Locations</Link></li>
                     </ul>
                 </div>
             </div>

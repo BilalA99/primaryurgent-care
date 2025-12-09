@@ -64,7 +64,7 @@ export function CtScanJsonLd() {
             'Royal Palm Beach FL',
             'Lake Worth FL',
             'Palm Springs FL',
-            'Lantana FL',
+            'Lake Worth Beach FL',
             'Palm Beach County FL',
           ],
           price: '200.00',
