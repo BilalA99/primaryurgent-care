@@ -231,8 +231,8 @@ const NavBar = () => {
         <div className='fixed top-0 left-0 right-0 z-50 flex w-full'>
             <div className="bg-white p-4 font-sans w-full border">
                 <div className=" bg-[#FAFAFA] rounded-xl p-3">
-                    <div className="flex items-center justify-between">
-                        <Link href="/" className="flex items-center space-x-3">
+                    <div className="flex items-center justify-between w-full">
+                        <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
                             <Image src="/logoheart.png" alt="Logo" width={40} height={40} className="" />
                             <div className="text-red-600 font-bold text-base leading-tight">
                                 <span>Primary & Urgent</span>
@@ -241,118 +241,121 @@ const NavBar = () => {
                             </div>
                         </Link>
 
-                        {/* Desktop Nav */}
-                        <nav className="hidden xl:block">
-                            <ul className="flex items-center space-x-8">
-                                {navItems.map((item, idx) => (
-                                    <li key={item.name} className="relative group">
-                                        <Link 
-                                            href={item.href} 
-                                            className={`text-gray-600 font-medium text-base hover:text-red-500 ${pathname === item.href ? 'bg-red-100 text-red-600 px-4 py-2 rounded-lg' : 'px-4 py-2'}`}
-                                            onClick={() => {
-                                                if (item.name === 'Blogs') {
-                                                    window?.dataLayer?.push({ 
-                                                        event: 'nav_click', 
-                                                        link_text: 'Blogs', 
-                                                        link_url: '/blog' 
-                                                    });
-                                                }
-                                            }}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                        {item.sublinks && (
-                                            <ul className="absolute left-0 top-full mt-2 min-w-[220px] bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all z-20 border border-gray-100">
-                                                {item.sublinks.map((sub) => (
-                                                    <li key={sub.name} className="relative group/sub">
-                                                        {sub.href ? (
-                                                            <Link
-                                                                href={sub.href}
-                                                                className={`block px-5 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === sub.href ? 'bg-red-100 text-red-600' : ''}`}
-                                                            >
-                                                                {sub.name}
-                                                            </Link>
-                                                        ) : (
-                                                            <div className="block px-5 py-3 text-gray-700 cursor-pointer whitespace-nowrap">
-                                                                {sub.name}
-                                                            </div>
-                                                        )}
-                                                        {sub.sublinks && (
-                                                            <ul className="absolute left-full top-0 ml-1 min-w-[200px] bg-white shadow-lg rounded-lg opacity-0 group-hover/sub:opacity-100 group-hover/sub:visible invisible transition-all z-30 border border-gray-100">
-                                                                {sub.sublinks.map((subsub) => (
-                                                                    <li key={subsub.name}>
-                                                                        <Link
-                                                                            href={subsub.href}
-                                                                            className={`block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === subsub.href ? 'bg-red-100 text-red-600' : ''}`}
-                                                                        >
-                                                                            {subsub.name}
-                                                                        </Link>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        )}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-
-                        {/* Desktop Call Button */}
-                        <CallButton label="navbar" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
-                            <Phone fill="white" />
-                            <span>561-223-8024</span>
-                        </CallButton>
-
-                        {/* Desktop Language Switcher */}
-                        {languageConfig && (
-                            <div className="hidden xl:block relative" ref={languageDropdownRef}>
-                                <button
-                                    onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                                    className="flex items-center space-x-2 bg-white text-gray-700 px-4 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
-                                >
-                                    <Globe className="w-4 h-4 text-[#D52128]" />
-                                    <span className="font-medium">{getCurrentLanguageTitle()}</span>
-                                    <ChevronDown className={`w-4 h-4 transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
-                                </button>
-
-                                {isLanguageDropdownOpen && (
-                                    <div className="absolute right-0 top-full mt-2 min-w-[160px] bg-white shadow-lg rounded-xl border border-gray-100 z-20">
-                                        {languageConfig.languages.map((lang: LanguageDescriptor) => (
-                                            <button
-                                                key={lang.name}
+                        {/* Right side container for desktop nav, buttons, and mobile hamburger */}
+                        <div className="flex items-center gap-4 flex-shrink-0">
+                            {/* Desktop Nav */}
+                            <nav className="hidden xl:block">
+                                <ul className="flex items-center space-x-8">
+                                    {navItems.map((item, idx) => (
+                                        <li key={item.name} className="relative group">
+                                            <Link 
+                                                href={item.href} 
+                                                className={`text-gray-600 font-medium text-base hover:text-red-500 ${pathname === item.href ? 'bg-red-100 text-red-600 px-4 py-2 rounded-lg' : 'px-4 py-2'}`}
                                                 onClick={() => {
-                                                    switchLanguage(lang.name);
-                                                    setIsLanguageDropdownOpen(false);
+                                                    if (item.name === 'Blogs') {
+                                                        window?.dataLayer?.push({ 
+                                                            event: 'nav_click', 
+                                                            link_text: 'Blogs', 
+                                                            link_url: '/blog' 
+                                                        });
+                                                    }
                                                 }}
-                                                className={`w-full text-left px-4 py-3 text-sm hover:bg-red-50 hover:text-red-600 transition-colors first:rounded-t-xl last:rounded-b-xl ${currentLanguage === lang.name ? 'bg-red-100 text-red-600' : 'text-gray-700'
-                                                    }`}
                                             >
-                                                {lang.title}
-                                            </button>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        )}
-                        {/* <BookAnAppointmentPopup>
-                            <button className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
-                                Contact Us
-                            </button>
-                        </BookAnAppointmentPopup> */}
+                                                {item.name}
+                                            </Link>
+                                            {item.sublinks && (
+                                                <ul className="absolute left-0 top-full mt-2 min-w-[220px] bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all z-20 border border-gray-100">
+                                                    {item.sublinks.map((sub) => (
+                                                        <li key={sub.name} className="relative group/sub">
+                                                            {sub.href ? (
+                                                                <Link
+                                                                    href={sub.href}
+                                                                    className={`block px-5 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === sub.href ? 'bg-red-100 text-red-600' : ''}`}
+                                                                >
+                                                                    {sub.name}
+                                                                </Link>
+                                                            ) : (
+                                                                <div className="block px-5 py-3 text-gray-700 cursor-pointer whitespace-nowrap">
+                                                                    {sub.name}
+                                                                </div>
+                                                            )}
+                                                            {sub.sublinks && (
+                                                                <ul className="absolute left-full top-0 ml-1 min-w-[200px] bg-white shadow-lg rounded-lg opacity-0 group-hover/sub:opacity-100 group-hover/sub:visible invisible transition-all z-30 border border-gray-100">
+                                                                    {sub.sublinks.map((subsub) => (
+                                                                        <li key={subsub.name}>
+                                                                            <Link
+                                                                                href={subsub.href}
+                                                                                className={`block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 whitespace-nowrap ${pathname === subsub.href ? 'bg-red-100 text-red-600' : ''}`}
+                                                                            >
+                                                                                {subsub.name}
+                                                                            </Link>
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            )}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
 
-                        {/* Hamburger Button (Mobile) */}
-                        <button
-                            className={`xl:hidden text-[#D52128] flex p-2 z-50 ml-2 bg-white rounded-xl backdrop-blur-3xl ${isSidebarOpen ? 'hidden' : ''}`}
-                            onClick={toggleSidebar}
-                            aria-label="Toggle menu"
-                            aria-expanded={isSidebarOpen}
-                            aria-controls="mobile-sidebar"
-                        >
-                            <HamburgerIcon open={isSidebarOpen} />
-                        </button>
+                            {/* Desktop Call Button */}
+                            <CallButton label="navbar" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                                <Phone fill="white" />
+                                <span>561-223-8024</span>
+                            </CallButton>
+
+                            {/* Desktop Language Switcher */}
+                            {languageConfig && (
+                                <div className="hidden xl:block relative" ref={languageDropdownRef}>
+                                    <button
+                                        onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+                                        className="flex items-center space-x-2 bg-white text-gray-700 px-4 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors"
+                                    >
+                                        <Globe className="w-4 h-4 text-[#D52128]" />
+                                        <span className="font-medium">{getCurrentLanguageTitle()}</span>
+                                        <ChevronDown className={`w-4 h-4 transition-transform ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+                                    </button>
+
+                                    {isLanguageDropdownOpen && (
+                                        <div className="absolute right-0 top-full mt-2 min-w-[160px] bg-white shadow-lg rounded-xl border border-gray-100 z-20">
+                                            {languageConfig.languages.map((lang: LanguageDescriptor) => (
+                                                <button
+                                                    key={lang.name}
+                                                    onClick={() => {
+                                                        switchLanguage(lang.name);
+                                                        setIsLanguageDropdownOpen(false);
+                                                    }}
+                                                    className={`w-full text-left px-4 py-3 text-sm hover:bg-red-50 hover:text-red-600 transition-colors first:rounded-t-xl last:rounded-b-xl ${currentLanguage === lang.name ? 'bg-red-100 text-red-600' : 'text-gray-700'
+                                                        }`}
+                                                >
+                                                    {lang.title}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            {/* <BookAnAppointmentPopup>
+                                <button className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
+                                    Contact Us
+                                </button>
+                            </BookAnAppointmentPopup> */}
+
+                            {/* Hamburger Button (Mobile) */}
+                            <button
+                                className={`xl:hidden text-[#D52128] flex p-2 z-50 bg-white rounded-xl backdrop-blur-3xl flex-shrink-0 ${isSidebarOpen ? 'hidden' : ''}`}
+                                onClick={toggleSidebar}
+                                aria-label="Toggle menu"
+                                aria-expanded={isSidebarOpen}
+                                aria-controls="mobile-sidebar"
+                            >
+                                <HamburgerIcon open={isSidebarOpen} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

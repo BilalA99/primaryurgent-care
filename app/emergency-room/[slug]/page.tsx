@@ -109,7 +109,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: 'Emergency Room Services | Hospital-Level Care Palm Beach County',
       description: 'Walk-in emergency room alternative with hospital-level care, advanced imaging, and board-certified doctors. Less than 15 min wait. Serving Palm Beach County.',
       alternates: {
-        canonical: `https://primaryuc.com/emergencyroom/${slug}`,
+        canonical: `https://primaryuc.com/emergency-room/${slug}`,
       },
     };
   }
@@ -129,7 +129,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: service.metaTitle || `${service.title} | Emergency Room Services Palm Beach County`,
       description: service.metaDescription || `Get ${service.title.toLowerCase()} at our emergency room alternative. Walk-in hospital-level care with advanced imaging and board-certified doctors. Less than 15 min wait. Serving Palm Beach County.`,
-      url: `https://primaryuc.com/emergencyroom/${slug}`,
+      url: `https://primaryuc.com/emergency-room/${slug}`,
       type: 'website',
       images: [
         {
@@ -147,7 +147,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [service.imageSrc || '/hospitalcare.jpg']
     },
     alternates: {
-      canonical: `https://primaryuc.com/emergencyroom/${slug}`,
+      canonical: `https://primaryuc.com/emergency-room/${slug}`,
     },
    
   };

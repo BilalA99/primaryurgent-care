@@ -14,7 +14,7 @@ import CallButton from '../../components/CallButton';
 export const metadata = {
     title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
     description:
-        "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Lantana.",
+        "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
     keywords: [
         "urgent injury care florida",
         "accident injury clinic",
@@ -30,7 +30,7 @@ export const metadata = {
     openGraph: {
         title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
         description:
-            "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Lantana.",
+            "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         url: "https://primaryuc.com/urgent-injury-care",
         type: "website",
         images: [
@@ -46,7 +46,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
         description:
-            "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Lantana.",
+            "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         images: [
             "/urgentcarelanding.jpg"
         ]
@@ -97,7 +97,7 @@ const UrgentInjuryCareJsonLd = () => (
                 address: [
                     {
                         '@type': 'PostalAddress',
-                        streetAddress: '11476 Okeechobee Blvd.',
+                        streetAddress: '11476 Okeechobee Blvd',
                         addressLocality: 'Royal Palm Beach',
                         addressRegion: 'FL',
                         postalCode: '33411',
@@ -106,8 +106,8 @@ const UrgentInjuryCareJsonLd = () => (
                     },
                     {
                         '@type': 'PostalAddress',
-                        streetAddress: '6447 Lake Worth Road',
-                        addressLocality: 'Lake Worth',
+                        streetAddress: '6447 Lake Worth Rd',
+                        addressLocality: 'Lake Worth Beach',
                         addressRegion: 'FL',
                         postalCode: '33463',
                         addressCountry: 'US',
@@ -115,7 +115,7 @@ const UrgentInjuryCareJsonLd = () => (
                     },
                     {
                         '@type': 'PostalAddress',
-                        streetAddress: '3696 S. Congress Ave.',
+                        streetAddress: '3460 S Congress Ave',
                         addressLocality: 'Palm Springs',
                         addressRegion: 'FL',
                         postalCode: '33461',
@@ -124,10 +124,10 @@ const UrgentInjuryCareJsonLd = () => (
                     },
                     {
                         '@type': 'PostalAddress',
-                        streetAddress: '6169 S Jog Road, Unit 4B',
-                        addressLocality: 'Lantana',
+                        streetAddress: '6169 Jog Rd Unit 4B',
+                        addressLocality: 'Lake Worth Beach',
                         addressRegion: 'FL',
-                        postalCode: '33467',
+                        postalCode: '33463',
                         addressCountry: 'US',
                         name: 'Lantana Primary & Urgent Care Center'
                     }

@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button'
 
 export const metadata = {
   title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
-  description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Lantana.',
+  description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
   keywords: [
     'urgent care pricing',
     'urgent care cost',
@@ -39,11 +39,11 @@ export const metadata = {
     'Royal Palm Beach',
     'Lake Worth',
     'Palm Springs',
-    'Lantana'
+    'Lantana / Jog Rd'
   ],
   openGraph: {
     title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
-    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Lantana.',
+    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
     url: 'https://primaryuc.com/pricing',
     type: 'website',
     images: [
@@ -58,7 +58,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
-    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Lantana.',
+    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
     images: ['https://primaryuc.com/insurance.jpg'],
   },
   alternates: {
@@ -78,12 +78,12 @@ export function PricingJsonLd() {
           url: 'https://primaryuc.com/pricing',
           image: 'https://primaryuc.com/insurance.jpg',
           description:
-            'Transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+            'Transparent urgent care pricing for office visits, imaging, physicals, and more. $89.99 self-pay visit. No surprise bills. Most insurance accepted. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
           areaServed: [
             'Royal Palm Beach FL',
             'Lake Worth FL',
             'Palm Springs FL',
-            'Lantana FL',
+            'Lake Worth Beach FL',
             'Palm Beach County FL',
           ],
           availableService: [
@@ -156,7 +156,7 @@ export function PricingJsonLd() {
           address: [
             {
               '@type': 'PostalAddress',
-              streetAddress: '11476 Okeechobee Blvd.',
+              streetAddress: '11476 Okeechobee Blvd',
               addressLocality: 'Royal Palm Beach',
               addressRegion: 'FL',
               postalCode: '33411',
@@ -165,8 +165,8 @@ export function PricingJsonLd() {
             },
             {
               '@type': 'PostalAddress',
-              streetAddress: '6447 Lake Worth Road',
-              addressLocality: 'Lake Worth',
+              streetAddress: '6447 Lake Worth Rd',
+              addressLocality: 'Lake Worth Beach',
               addressRegion: 'FL',
               postalCode: '33463',
               addressCountry: 'US',
@@ -174,7 +174,7 @@ export function PricingJsonLd() {
             },
             {
               '@type': 'PostalAddress',
-              streetAddress: '3696 S. Congress Ave.',
+              streetAddress: '3460 S Congress Ave',
               addressLocality: 'Palm Springs',
               addressRegion: 'FL',
               postalCode: '33461',
@@ -183,10 +183,10 @@ export function PricingJsonLd() {
             },
             {
               '@type': 'PostalAddress',
-              streetAddress: '6169 S Jog Road, Unit 4B',
-              addressLocality: 'Lantana',
+              streetAddress: '6169 Jog Rd Unit 4B',
+              addressLocality: 'Lake Worth Beach',
               addressRegion: 'FL',
-              postalCode: '33467',
+              postalCode: '33463',
               addressCountry: 'US',
               name: 'Lantana Primary & Urgent Care Center'
             }
@@ -219,7 +219,7 @@ export const pricingData = [
     slug: "office-visit",
     img: '/officevisit.png',
     metaTitle: 'Office Visit Cost | Urgent Care Self-Pay Price Palm Beach County',
-    metaDescription: 'Transparent $89.99 office visit at our Palm Beach County urgent care. No insurance needed. Walk-in for same-day care, extended hours, and no surprise bills. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Transparent $89.99 office visit at our Palm Beach County urgent care. No insurance needed. Walk-in for same-day care, extended hours, and no surprise bills. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'urgent care office visit',
       'office visit cost',
@@ -252,7 +252,7 @@ export const pricingData = [
     slug: "ultrasound",
     img: '/ultrasound.png',
     metaTitle: 'Ultrasound Cost | Walk-In Ultrasound Palm Beach County',
-    metaDescription: 'Get a same-day ultrasound for $150 at our Palm Beach County urgent care. No appointment needed. Fast, affordable imaging for pregnancy, abdominal pain, and more. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Get a same-day ultrasound for $150 at our Palm Beach County urgent care. No appointment needed. Fast, affordable imaging for pregnancy, abdominal pain, and more. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'ultrasound cost',
       'walk-in ultrasound',
@@ -317,7 +317,7 @@ export const pricingData = [
     slug: "school-physical",
     img: '/schoolphysical.png',
     metaTitle: 'School Physical Cost | Walk-In School Physical Palm Beach County',
-    metaDescription: 'School physicals for $9.99 at our Palm Beach County urgent care. Same-day exams, vision and hearing screening, and required forms. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'School physicals for $9.99 at our Palm Beach County urgent care. Same-day exams, vision and hearing screening, and required forms. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'school physical cost',
       'walk-in school physical',
@@ -349,7 +349,7 @@ export const pricingData = [
     slug: "ct-scan",
     img: '/ctscan2.png',
     metaTitle: 'CT Scan Cost | Same-Day CT Imaging Palm Beach County',
-    metaDescription: 'Get a same-day CT scan for $200 at our Palm Beach County urgent care. Walk-in CT for trauma, chest pain, and emergencies. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Get a same-day CT scan for $200 at our Palm Beach County urgent care. Walk-in CT for trauma, chest pain, and emergencies. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'CT scan cost',
       'urgent care CT scan',
@@ -381,7 +381,7 @@ export const pricingData = [
     slug: "nuclear-scans",
     img: '/nuclear2.png',
     metaTitle: 'Nuclear Scans Cost | Nuclear Medicine Imaging Palm Beach County',
-    metaDescription: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'nuclear scans cost',
       'nuclear medicine urgent care',
@@ -413,7 +413,7 @@ export const pricingData = [
     slug: "mri",
     img: '/mri.png',
     metaTitle: 'MRI Cost | Same-Day MRI Scan Palm Beach County',
-    metaDescription: 'Get a same-day MRI for $300 at our Palm Beach County urgent care. Walk-in MRI for spine, brain, and joint injuries. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Get a same-day MRI for $300 at our Palm Beach County urgent care. Walk-in MRI for spine, brain, and joint injuries. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'MRI cost',
       'urgent care MRI',
@@ -445,7 +445,7 @@ export const pricingData = [
     slug: "dot-physical",
     img: '/dotphysical.png',
     metaTitle: 'DOT Physical Cost | CDL Medical Exam Palm Beach County',
-    metaDescription: 'DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'DOT physical for CDL drivers for $90 at our Palm Beach County urgent care. Federal-certified exams, same-day results. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'DOT physical cost',
       'CDL medical exam',
@@ -476,7 +476,7 @@ export const pricingData = [
     slug: "suboxone",
     img: '/suboxone.png',
     metaTitle: 'Suboxone Treatment Cost | Opioid Detox Palm Beach County',
-    metaDescription: 'Suboxone treatment for opioid dependence for $299 at our Palm Beach County urgent care. Confidential, compassionate care. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    metaDescription: 'Suboxone treatment for opioid dependence for $299 at our Palm Beach County urgent care. Confidential, compassionate care. Walk in or book online. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     keywords: [
       'suboxone cost',
       'suboxone doctor near me',

@@ -21,7 +21,7 @@ import Link from "next/link";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 export const metadata = {
   title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
-  description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
+  description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
   keywords: [
     'car accident doctor west palm beach',
     'personal injury clinic',
@@ -33,14 +33,14 @@ export const metadata = {
     'Royal Palm Beach urgent care',
     'Lake Worth urgent care',
     'Palm Springs urgent care',
-    'Lantana urgent care',
+    'Lantana / Jog Rd urgent care',
     'no wait urgent care',
     'X-ray urgent care',
     'MRI urgent care'
   ].join(', '),
   openGraph: {
     title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
-    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
+    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
     url: 'https://primaryuc.com/',
     siteName: 'Primary & Urgent Care Centers',
     images: [
@@ -57,7 +57,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
-    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
+    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
     images: ['/Homepage25.png'],
   },
   alternates: {
@@ -94,7 +94,7 @@ export default function Home() {
             },
             {
               '@type': 'AdministrativeArea',
-              name: 'Lantana, FL'
+              name: 'Lake Worth Beach, FL'
             },
             {
               '@type': 'AdministrativeArea',
@@ -280,7 +280,7 @@ export default function Home() {
             <div>
               <h2 className="lg:text-6xl text-4xl font-bold text-black mb-6 leading-tight">Accessible Urgent Care Across Palm Beach County</h2>
               <p className="text-md text-gray-700 mb-10">
-                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana—we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location. If you’ve been in an accident, it’s critical to seek care within 14 days to comply with Florida’s PIP rule and protect your right to insurance benefits.
+                With four walk-in urgent care clinics—Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd—we make it easy to see a provider close to home, on your schedule. Enjoy short wait times, hospital-level diagnostics, and broad insurance acceptance at every location. If you’ve been in an accident, it’s critical to seek care within 14 days to comply with Florida’s PIP rule and protect your right to insurance benefits.
               </p>
             </div>
 

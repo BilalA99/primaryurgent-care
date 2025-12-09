@@ -6,7 +6,7 @@ import PricingGrid from "@/components/PricingGrid";
 
 export const metadata = {
     title: 'Car Accident Imaging Palm Beach | MRI, CT, X-Ray | Primary & Urgent Care',
-    description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
+    description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
     keywords: [
         'urgent care imaging',
         'hospital-grade diagnostics',
@@ -27,11 +27,11 @@ export const metadata = {
         'Royal Palm Beach',
         'Lake Worth',
         'Palm Springs',
-        'Lantana'
+        'Lantana / Jog Rd'
     ],
     openGraph: {
         title: 'Car Accident Imaging Palm Beach | MRI, CT, X-Ray | Primary & Urgent Care',
-        description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
+        description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
         url: 'https://primaryuc.com/service',
         type: 'website',
         images: [
@@ -46,7 +46,7 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Car Accident Imaging Palm Beach | MRI, CT, X-Ray | Primary & Urgent Care',
-        description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana.',
+        description: 'Car accident imaging in Palm Beach County. Same-day MRI, CT, X-ray for crash injuries. Walk-in or book. STAT reads. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
         images: ['https://primaryuc.com/servicelanding.jpg'],
     },
     alternates: {
@@ -67,12 +67,12 @@ export function ServiceJsonLd() {
                     url: 'https://primaryuc.com/service',
                     image: 'https://primaryuc.com/servicelanding.jpg',
                     description:
-                        'Hospital-grade imaging and diagnostic services including MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine. Walk-in or book same-day appointments at our urgent care centers in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+                        'Hospital-grade imaging and diagnostic services including MRI, CT scan, digital X-ray, ultrasound, and nuclear medicine. Walk-in or book same-day appointments at our urgent care centers in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
                     areaServed: [
                         'Royal Palm Beach FL',
                         'Lake Worth FL',
                         'Palm Springs FL',
-                        'Lantana FL',
+                        'Lake Worth Beach FL',
                         'Palm Beach County FL',
                     ],
                     availableService: [
@@ -88,7 +88,7 @@ export function ServiceJsonLd() {
                     address: [
                         {
                             '@type': 'PostalAddress',
-                            streetAddress: '11476 Okeechobee Blvd.',
+                            streetAddress: '11476 Okeechobee Blvd',
                             addressLocality: 'Royal Palm Beach',
                             addressRegion: 'FL',
                             postalCode: '33411',
@@ -97,8 +97,8 @@ export function ServiceJsonLd() {
                         },
                         {
                             '@type': 'PostalAddress',
-                            streetAddress: '6447 Lake Worth Road',
-                            addressLocality: 'Lake Worth',
+                            streetAddress: '6447 Lake Worth Rd',
+                            addressLocality: 'Lake Worth Beach',
                             addressRegion: 'FL',
                             postalCode: '33463',
                             addressCountry: 'US',
@@ -106,7 +106,7 @@ export function ServiceJsonLd() {
                         },
                         {
                             '@type': 'PostalAddress',
-                            streetAddress: '3696 S. Congress Ave.',
+                            streetAddress: '3460 S Congress Ave',
                             addressLocality: 'Palm Springs',
                             addressRegion: 'FL',
                             postalCode: '33461',
@@ -115,10 +115,10 @@ export function ServiceJsonLd() {
                         },
                         {
                             '@type': 'PostalAddress',
-                            streetAddress: '6169 S Jog Road, Unit 4B',
-                            addressLocality: 'Lantana',
+                            streetAddress: '6169 Jog Rd Unit 4B',
+                            addressLocality: 'Lake Worth Beach',
                             addressRegion: 'FL',
-                            postalCode: '33467',
+                            postalCode: '33463',
                             addressCountry: 'US',
                             name: 'Lantana Primary & Urgent Care Center'
                         }

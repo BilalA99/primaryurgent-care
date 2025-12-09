@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Nuclear Scans Cost | Nuclear Medicine Imaging Palm Beach County',
-  description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+  description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
   keywords: [
     'nuclear scans cost',
     'nuclear medicine urgent care',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Nuclear Scans Cost | Nuclear Medicine Imaging Palm Beach County',
-    description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     url: 'https://primaryuc.com/service/nuclear-scans',
     type: 'website',
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Nuclear Scans Cost | Nuclear Medicine Imaging Palm Beach County',
-    description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
     images: ['https://primaryuc.com/nuclear2.png'],
   },
   alternates: {
@@ -51,7 +51,7 @@ export function NuclearScansJsonLd() {
           '@context': 'https://schema.org',
           '@type': 'MedicalProcedure',
           name: 'Nuclear Scans',
-          description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+          description: 'Get nuclear medicine imaging for $550 at our Palm Beach County urgent care. Walk-in for thyroid, bone, and cardiac scans. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.',
           url: 'https://primaryuc.com/service/nuclear-scans',
           image: 'https://primaryuc.com/nuclear2.png',
           provider: {
@@ -63,7 +63,7 @@ export function NuclearScansJsonLd() {
             'Royal Palm Beach FL',
             'Lake Worth FL',
             'Palm Springs FL',
-            'Lantana FL',
+            'Lake Worth Beach FL',
             'Palm Beach County FL',
           ],
           price: '550.00',
