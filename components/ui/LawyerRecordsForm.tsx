@@ -1,14 +1,16 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
-import { trackFormSubmission } from '../../lib/gtag';
+import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 import { sendLawyerRecordsEmail, sendLawyerRecordsThankYouEmail } from '../email/SendEmail';
 
 interface FormData {
     lawFirm: string;
     email: string;
     phone: string;
-    patientName: string;
+    patientFirstName: string;
+    patientLastName: string;
+    postalCode: string;
     dob: string;
     dos: string;
     records: string[];
@@ -24,7 +26,9 @@ export default function LawyerRecordsForm() {
         lawFirm: '',
         email: '',
         phone: '',
-        patientName: '',
+        patientFirstName: '',
+        patientLastName: '',
+        postalCode: '',
         dob: '',
         dos: '',
         records: [],
@@ -82,7 +86,7 @@ export default function LawyerRecordsForm() {
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         // Simple validation
-        if (!form.lawFirm || !form.email || !form.phone || !form.patientName || !form.dob || !form.dos || form.records.length === 0 || !form.confirm) {
+        if (!form.lawFirm || !form.email || !form.phone || !form.patientFirstName || !form.patientLastName || !form.dob || !form.dos || form.records.length === 0 || !form.confirm) {
             setError('Please fill all fields and confirm authorization.');
             return;
         }
@@ -91,11 +95,13 @@ export default function LawyerRecordsForm() {
             return;
         }
         setSubmitting(true);
+        // Combine first and last name for email functions
+        const patientFullName = `${form.patientFirstName} ${form.patientLastName}`.trim();
         const result = await sendLawyerRecordsEmail({
             lawFirm: form.lawFirm,
             email: form.email,
             phone: form.phone,
-            patientName: form.patientName,
+            patientName: patientFullName,
             dob: form.dob,
             dos: form.dos,
             records: form.records.join(', '),
@@ -109,7 +115,7 @@ export default function LawyerRecordsForm() {
         const thankYouResult = await sendLawyerRecordsThankYouEmail({
             lawFirm: form.lawFirm,
             email: form.email,
-            patientName: form.patientName
+            patientName: patientFullName
         });
         if (thankYouResult.error) {
             setError(thankYouResult.error.message);
@@ -119,11 +125,22 @@ export default function LawyerRecordsForm() {
         setError('');
         setSubmitted(true);
         setSubmitting(false);
+        // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
+        pushEnhancedConversion({
+            email: form.email,
+            phone: form.phone,
+            firstName: form.patientFirstName,
+            lastName: form.patientLastName,
+            postalCode: form.postalCode
+        });
+        
         setForm({
             lawFirm: '',
             email: '',
             phone: '',
-            patientName: '',
+            patientFirstName: '',
+            patientLastName: '',
+            postalCode: '',
             dob: '',
             dos: '',
             records: [],
@@ -131,13 +148,10 @@ export default function LawyerRecordsForm() {
             files: [],
         })
         
-        // Track form submission for both Google Analytics and Google Ads
+        // Track form submission for Google Analytics
         trackFormSubmission({
             formName: 'LawyerRecordsForm',
-            conversionId: 'AW-17373488028', // Your Google Ads account ID
-            conversionLabel: 'lawyer_records_submit', // Different conversion label for lawyer records
-            value: 1,
-            currency: 'USD'
+            value: 1
         });
     }
 
@@ -182,8 +196,18 @@ export default function LawyerRecordsForm() {
                             <input name="phone" type="tel" value={form.phone} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
                         </div>
                         <div className="flex flex-col gap-3">
-                            <label className="text-sm font-medium">Patient Name</label>
-                            <input name="patientName" value={form.patientName} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
+                            <label className="text-sm font-medium">ZIP Code</label>
+                            <input name="postalCode" type="text" value={form.postalCode} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
+                        </div>
+                        <div className="flex gap-3">
+                            <div className="flex flex-col gap-3 flex-1">
+                                <label className="text-sm font-medium">Patient First Name</label>
+                                <input name="patientFirstName" value={form.patientFirstName} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
+                            </div>
+                            <div className="flex flex-col gap-3 flex-1">
+                                <label className="text-sm font-medium">Patient Last Name</label>
+                                <input name="patientLastName" value={form.patientLastName} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
+                            </div>
                         </div>
                         <div className="flex flex-col gap-3">
                             <label className="text-sm font-medium">Patient Date of Birth</label>

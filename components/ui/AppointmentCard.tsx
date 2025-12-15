@@ -1,5 +1,6 @@
 import Phone from '../icons/phone';
 import CallButton from '@/components/CallButton';
+import { PRIMARY_PHONE_DISPLAY } from '@/lib/constants/phone';
 
 const AppointmentCard = ({ height = 'h-full' }: { height?: string }) => {
     return (
@@ -11,7 +12,7 @@ const AppointmentCard = ({ height = 'h-full' }: { height?: string }) => {
                 </p>
                 <CallButton label="appointment_card" className="w-full bg-white text-gray-800 font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2">
                     <div className='group-hover:-translate-x-2 transition-transform duration-300'><Phone /></div>
-                    <span className='text-[#D52128] font-[500] '> 561-223-8024
+                    <span className='text-[#D52128] font-[500] '> {PRIMARY_PHONE_DISPLAY}
                     </span>
                 </CallButton>
             </div>

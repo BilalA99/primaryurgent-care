@@ -4,6 +4,7 @@ import Link from "next/link";
 import CallButton from "@/components/CallButton";
 import Phone from "@/components/icons/phone";
 import Mappin from "@/components/icons/mappin";
+import { PRIMARY_PHONE_HREF } from "@/lib/constants/phone";
 
 type Props = {
   citySlug?: string;
@@ -14,7 +15,7 @@ type Props = {
 
 export default function AccidentCTA({
   citySlug,
-  phoneHref = "tel:+15612238024",
+  phoneHref = PRIMARY_PHONE_HREF,
   directionsHref,
   variant = "primary"
 }: Props) {
