@@ -5,6 +5,7 @@ import Phone from './icons/phone';
 import BookAnAppointmentPopup from './BookAnAppointmentPopup';
 import { trackEvent } from '../lib/gtag';
 import CallButton from './CallButton';
+import { PRIMARY_PHONE_HREF, PRIMARY_PHONE_DISPLAY } from '@/lib/constants/phone';
 const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Appointment', href: '/appointment' },
@@ -63,8 +64,14 @@ const Footer = () => (
 
                 {/* Locations Section */}
                 <div className="lg:col-span-1">
-                    <h3 className="text-white font-semibold text-lg mb-4">Locations</h3>
+                    <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
                     <ul className="space-y-3">
+                        <li>
+                            <a href={PRIMARY_PHONE_HREF} className="text-gray-400 hover:text-[#D52128] text-sm transition-colors flex items-center gap-2">
+                                <Phone className="w-4 h-4" />
+                                {PRIMARY_PHONE_DISPLAY}
+                            </a>
+                        </li>
                         <li><Link href="/locations/royal-palm-beach-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Royal Palm Beach</Link></li>
                         <li><Link href="/locations/lake-worth-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Lake Worth</Link></li>
                         <li><Link href="/locations/palm-springs-primary-urgent-care-center" className="text-gray-400 hover:text-[#D52128] text-sm transition-colors">Palm Springs</Link></li>

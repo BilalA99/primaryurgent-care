@@ -1,5 +1,6 @@
 import React from 'react'
 import { LocationsScreens } from "../locationsscreens"
+import { PRIMARY_PHONE_HREF, PRIMARY_PHONE_DISPLAY } from "@/lib/constants/phone"
 
 interface ContactEmailProps {
     name: string,
@@ -168,14 +169,13 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                     )}
 
                     <p style={{ color: '#374151', marginBottom: 16 }}>
-                        <b>Need care right away?</b> Call us at <a href="tel:5612238024" style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>561-223-8024
+                        <b>Need care right away?</b> Call us at <a href={PRIMARY_PHONE_HREF} style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>{PRIMARY_PHONE_DISPLAY}
                         </a> for immediate assistance, or simply walk in during business hours.
                     </p>
 
                     <p style={{ color: '#374151', marginBottom: 16 }}>
-                        If you have any immediate questions, please don't hesitate to contact us at <a href="tel:5612238024
-‬" style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>561-223-8024
-                            ‬</a> or reply to this email.
+                        If you have any immediate questions, please don't hesitate to contact us at <a href={PRIMARY_PHONE_HREF} style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>{PRIMARY_PHONE_DISPLAY}
+                            </a> or reply to this email.
                     </p>
 
                     <hr style={{ borderColor: '#e5e7eb', margin: '24px 0' }} />
@@ -235,7 +235,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                     <div style={{ marginBottom: 0 }}>
                         <a href="https://primaryuc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
                         <a href="https://primaryuc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
-                        <a href="tel:5612238024" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
+                        <a href={PRIMARY_PHONE_HREF} style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 "use client";
+import { PRIMARY_PHONE_HREF } from '@/lib/constants/phone';
 
 export default function ImmediateCareBanner() {
   const click = (label: string) => {
@@ -24,7 +25,7 @@ export default function ImmediateCareBanner() {
         </div>
         <div className="flex-shrink-0">
           <a
-            href="tel:+15612238024"
+            href={PRIMARY_PHONE_HREF}
             onClick={() => click("Banner Call Now")}
             className="inline-flex items-center justify-center rounded-lg bg-[#D52128] px-6 py-3 text-base sm:text-lg font-semibold text-white hover:bg-[#b81b22] focus:outline-none focus:ring-2 focus:ring-[#D52128] touch-manipulation transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
           >

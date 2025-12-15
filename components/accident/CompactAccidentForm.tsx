@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { sendContactEmail, sendUserEmail } from '@/components/email/SendEmail';
+import { pushEnhancedConversion } from '@/lib/gtag';
 import { Shield, Clock, Lock } from 'lucide-react';
 
 interface CompactAccidentFormProps {
@@ -14,9 +15,11 @@ interface CompactAccidentFormProps {
 
 const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
+    postalCode: '',
     type: '',
     message: ''
   });
@@ -27,29 +30,31 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
     setIsLoading(true);
     
     try {
+      // Combine first and last name for email functions
+      const fullName = `${formData.firstName} ${formData.lastName}`.trim();
       await sendContactEmail({
-        name: formData.name,
+        name: fullName,
         email: formData.email,
         phone: formData.phone,
         reason: formData.message,
         accidentType: formData.type
       });
       await sendUserEmail({
-        name: formData.name,
+        name: fullName,
         email: formData.email,
         phone: formData.phone
       });
       
-      // Track form submission
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'form_submit', {
-          event_category: 'engagement',
-          event_label: 'CompactAccidentForm',
-          value: 1
-        });
-      }
+      // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
+      pushEnhancedConversion({
+        email: formData.email,
+        phone: formData.phone,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        postalCode: formData.postalCode
+      });
       
-      setFormData({ name: '', email: '', phone: '', type: '', message: '' });
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', postalCode: '', type: '', message: '' });
       window.location.href = '/thank-you';
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -67,16 +72,30 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
       <h2 className="text-lg font-bold text-gray-900 mb-3">{title}</h2>
       
       <form onSubmit={handleSubmit} className="space-y-3">
-        <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">Full Name</label>
-          <Input
-            type="text"
-            placeholder="Enter your full name"
-            value={formData.name}
-            onChange={(e) => handleChange('name', e.target.value)}
-            className="w-full h-9 text-sm px-3"
-            required
-          />
+        <div className="flex gap-2">
+          <div className="flex-1">
+            <label className="text-sm font-medium text-gray-700 block mb-1">First Name</label>
+            <Input
+              type="text"
+              placeholder="First name"
+              value={formData.firstName}
+              onChange={(e) => handleChange('firstName', e.target.value)}
+              className="w-full h-9 text-sm px-3"
+              required
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="text-sm font-medium text-gray-700 block mb-1">Last Name</label>
+            <Input
+              type="text"
+              placeholder="Last name"
+              value={formData.lastName}
+              onChange={(e) => handleChange('lastName', e.target.value)}
+              className="w-full h-9 text-sm px-3"
+              required
+            />
+          </div>
         </div>
 
         <div>
@@ -100,6 +119,17 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
             onChange={(e) => handleChange('phone', e.target.value)}
             className="w-full h-9 text-sm px-3"
             required
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-gray-700 block mb-1">ZIP Code</label>
+          <Input
+            type="text"
+            placeholder="Enter your ZIP code"
+            value={formData.postalCode}
+            onChange={(e) => handleChange('postalCode', e.target.value)}
+            className="w-full h-9 text-sm px-3"
           />
         </div>
 

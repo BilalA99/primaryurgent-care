@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { LocationsScreens } from "../locationsscreens"
+import { PRIMARY_PHONE_HREF, PRIMARY_PHONE_DISPLAY } from "@/lib/constants/phone"
 
 interface UserEmailProps {
     name: string,
@@ -77,7 +78,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                     </div>
 
                     <p style={{ color: '#374151', marginBottom: 16 }}>
-                        <b>Need care right away?</b> Call us at <a href="tel:5612238024" style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>561-223-8024
+                        <b>Need care right away?</b> Call us at <a href={PRIMARY_PHONE_HREF} style={{ color: '#D52128', textDecoration: 'underline', fontWeight: 600 }}>{PRIMARY_PHONE_DISPLAY}
                         </a> for immediate assistance, or simply walk in during business hours.
                     </p>
 
@@ -138,7 +139,7 @@ export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, em
                     <div style={{ marginBottom: 0 }}>
                         <a href="https://primaryuc.com" style={{ color: '#D52128', textDecoration: 'underline', marginRight: 8 }}>Website</a>
                         <a href="https://primaryuc.com/locations" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8, marginRight: 8 }}>Locations</a>
-                        <a href="tel:5612238024" style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
+                        <a href={PRIMARY_PHONE_HREF} style={{ color: '#D52128', textDecoration: 'underline', marginLeft: 8 }}>Contact Us</a>
                     </div>
                 </div>
             </div>

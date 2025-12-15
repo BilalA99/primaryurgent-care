@@ -9,6 +9,7 @@ import Phone from './icons/phone';
 import BookAnAppointmentPopup from './BookAnAppointmentPopup';
 import { trackEvent } from '../lib/gtag';
 import CallButton from './CallButton';
+import { PRIMARY_PHONE_DISPLAY } from '@/lib/constants/phone';
 import { parseCookies, setCookie } from 'nookies';
 
 const COOKIE_NAME = 'googtrans';
@@ -305,7 +306,7 @@ const NavBar = () => {
                             {/* Desktop Call Button */}
                             <CallButton label="navbar" className="hidden xl:flex hover:cursor-pointer items-center flex-row space-x-4 bg-red-600 text-white px-[16px] py-[10px] rounded-xl font-semibold text-base">
                                 <Phone fill="white" />
-                                <span>561-223-8024</span>
+                                <span>{PRIMARY_PHONE_DISPLAY}</span>
                             </CallButton>
 
                             {/* Desktop Language Switcher */}

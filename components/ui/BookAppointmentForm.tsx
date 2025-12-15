@@ -26,12 +26,14 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
 import { redirect } from 'next/navigation';
-import { trackFormSubmission } from '../../lib/gtag';
+import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 
 const formSchema = z.object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
+    firstName: z.string().min(1, 'First name is required'),
+    lastName: z.string().min(1, 'Last name is required'),
     email: z.string().email('Please enter a valid email address'),
     phone: z.string().min(10, 'Please enter a valid phone number'),
+    postalCode: z.string().optional(),
     type: z.string(),
     message: z.string(),
 });
@@ -50,9 +52,11 @@ const BookAppointmentForm = ({
     const form = useForm<FormData>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: '',
+            firstName: '',
+            lastName: '',
             email: '',
             phone: '',
+            postalCode: '',
             type: '',
             message: '',
         },
@@ -60,19 +64,27 @@ const BookAppointmentForm = ({
     const [isLoading, setIsLoading] = useState(false);
     const onSubmit = async (data: FormData) => {
         setIsLoading(true);
-        const response = await sendContactEmail({name : data.name, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
-        await sendUserEmail({name : data.name, email : data.email, phone : data.phone});
+        // Combine first and last name for email functions
+        const fullName = `${data.firstName} ${data.lastName}`.trim();
+        const response = await sendContactEmail({name : fullName, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
+        await sendUserEmail({name : fullName, email : data.email, phone : data.phone});
         if(response) {
             setIsLoading(false);
             form.reset();
             
-            // Track form submission for both Google Analytics and Google Ads
+            // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
+            pushEnhancedConversion({
+                email: data.email,
+                phone: data.phone,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                postalCode: data.postalCode
+            });
+            
+            // Track form submission for Google Analytics
             trackFormSubmission({
                 formName: 'BookAppointmentForm',
-                conversionId: 'AW-17373488028', // Your Google Ads account ID
-                conversionLabel: 'form_submit', // Your conversion label
-                value: 1, // You can set a specific value if needed
-                currency: 'USD'
+                value: 1
             });
             
             redirect('/thank-you');
@@ -85,25 +97,47 @@ const BookAppointmentForm = ({
 
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 h-full w-full ">
-                    <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className={`font-semibold ${textColor} text-base`}>
-                                    Full Name
-                                </FormLabel>
-                                <FormControl>
-                                    <Input
-                                        placeholder="Enter your full name"
-                                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
-                                        {...field}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                    <div className="flex gap-4">
+                        <FormField
+                            control={form.control}
+                            name="firstName"
+                            render={({ field }) => (
+                                <FormItem className="flex-1">
+                                    <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                        First Name
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="First name"
+                                            className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        <FormField
+                            control={form.control}
+                            name="lastName"
+                            render={({ field }) => (
+                                <FormItem className="flex-1">
+                                    <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                        Last Name
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Last name"
+                                            className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
 
                     <FormField
                         control={form.control}
@@ -138,6 +172,27 @@ const BookAppointmentForm = ({
                                     <Input
                                         type="tel"
                                         placeholder="Enter your phone number"
+                                        className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name="postalCode"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className={`font-semibold ${textColor} text-base`}>
+                                    ZIP Code
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="text"
+                                        placeholder="Enter your ZIP code"
                                         className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
                                         {...field}
                                     />

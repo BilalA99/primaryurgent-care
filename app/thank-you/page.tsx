@@ -2,24 +2,14 @@
 import { CheckCircle, Mail, Users, Share2, Instagram, Phone, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useEffect } from 'react';
-import { trackFormSubmission } from '../../lib/gtag';
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
+import { PRIMARY_PHONE_HREF, PRIMARY_PHONE_DISPLAY } from "@/lib/constants/phone"
 
 export default function ThankYouPage() {
-    useEffect(() => {
-        // Track conversion on thank you page (backup tracking)
-        trackFormSubmission({
-            formName: 'BookAppointmentForm_ThankYou',
-            conversionId: 'AW-17373488028', // Your Google Ads account ID
-            conversionLabel: 'form_submit', // Your conversion label
-            value: 1,
-            currency: 'USD'
-        });
-    }, []);
+    // Note: Conversion tracking is handled by GTM on this page
+    // GTM fires conversion tag when Page Path contains /thank-you
 
     return (
         <div className="lg:py-[80px] py-[40px] w-full bg-gradient-to-br from-red-50 to-slate-50">
@@ -84,7 +74,7 @@ export default function ThankYouPage() {
                                         <div className="space-y-3">
                                             <div className="flex items-center gap-3">
                                                 <Phone className="h-5 w-5 text-[#D52128]" />
-                                                <span className="text-gray-700">Call us at <a href="tel:5612238024" className="text-[#D52128] font-semibold hover:underline">561-223-8024
+                                                <span className="text-gray-700">Call us at <a href={PRIMARY_PHONE_HREF} className="text-[#D52128] font-semibold hover:underline">{PRIMARY_PHONE_DISPLAY}
                                                 </a></span>
                                             </div>
                                             <div className="flex items-center gap-3">

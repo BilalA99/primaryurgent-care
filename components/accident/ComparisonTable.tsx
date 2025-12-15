@@ -124,3 +124,6 @@ const ComparisonTable: React.FC = () => {
 export default ComparisonTable;
 
 
+
+
+
