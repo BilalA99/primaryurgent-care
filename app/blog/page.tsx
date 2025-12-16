@@ -5,6 +5,10 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import { GetBlogs } from '@/lib/blog/get-blogs';
 import { generateBlogIndexJsonLd } from '@/lib/seo';
 
+// Ensure the blog index reflects newly-published CMS posts immediately
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export const metadata = {
   title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
   description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',

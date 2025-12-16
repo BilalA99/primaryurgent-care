@@ -1,8 +1,12 @@
 import { supabase } from '@/utils/supabase/server'
 import { BlogPost, BlogPostPreview } from '@/types/blog'
+import { unstable_noStore as noStore } from 'next/cache'
 
 export async function GetBlogs(): Promise<BlogPostPreview[]> {
   try {
+    // Prevent Next.js from caching the result; CMS publishes should appear immediately
+    noStore()
+
     // Check if Supabase client is properly initialized
     if (!supabase) {
       console.error('Supabase client not initialized')
@@ -45,6 +49,9 @@ export async function GetBlogs(): Promise<BlogPostPreview[]> {
 
 export async function GetBlogInfo(slug: string): Promise<BlogPost | null> {
   try {
+    // Prevent Next.js from caching the result; ensures fresh post data
+    noStore()
+
     // Check if Supabase client is properly initialized
     if (!supabase) {
       console.error('Supabase client not initialized')
@@ -84,6 +91,8 @@ export async function GetBlogsPaginated(
   tag?: string
 ): Promise<{ posts: BlogPostPreview[]; total: number; totalPages: number }> {
   try {
+    noStore()
+
     const offset = (page - 1) * perPage
 
     let query = supabase
@@ -131,6 +140,8 @@ export async function GetBlogsPaginated(
 
 export async function GetBlogSearchIndex(limit: number = 50): Promise<{ id: string; slug: string; title: string }[]> {
   try {
+    noStore()
+
     const { data, error } = await supabase
       .from('posts')
       .select('id, slug, title')
