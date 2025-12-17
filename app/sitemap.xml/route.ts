@@ -7,6 +7,10 @@ import { GetBlogs } from '@/lib/blog/get-blogs';
 
 const BASE_URL = 'https://primaryuc.com';
 
+// Ensure sitemaps reflect newly published CMS posts quickly
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
   // Static routes
   const staticRoutes: string[] = [
@@ -85,8 +89,8 @@ export async function GET() {
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml',
-      // Cache for 1 hour, but allow dynamic updates
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      // Keep CDN caching short so new posts appear without redeploy
+      'Cache-Control': 'public, max-age=300, s-maxage=300',
     },
   });
 }
