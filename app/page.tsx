@@ -169,9 +169,13 @@ export default function Home() {
             <h1 className="lg:text-6xl text-4xl font-bold ">
               Welcome To Primary & Urgent Care Centers
             </h1>
+            <div className="w-fit">
+              <span className="inline-block bg-[#D52128] text-white font-semibold rounded-full px-5 py-2.5 text-base sm:px-6 sm:py-3 sm:text-lg shadow-lg ring-2 ring-white/30 backdrop-blur-sm">
+                Office visits are $89.99
+              </span>
+            </div>
             <p className="text-lg w-full ">
-              Fast, reliable urgent care for all your health needs. From routine check-ups and primary care to accident and injury care—our expert medical team provides comprehensive healthcare services with same-day appointments and walk-ins welcome. <br />
-              Office visits are <strong>$89.99</strong>.
+              Fast, reliable urgent care for all your health needs. From routine check-ups and primary care to accident and injury care—our expert medical team provides comprehensive healthcare services with same-day appointments and walk-ins welcome.
             </p>
           </div>
 
