@@ -155,6 +155,11 @@ const ServicePage = () => {
                                     <span className="text-[#2563eb] ml-1">Services</span>
                                 </div>
                                 <h1 className="text-4xl md:text-5xl font-bold text-black mb-2 ">Integrated Primary Care in Palm Beach County</h1>
+                                <div className="w-fit">
+                                    <span className="inline-block bg-[#D52128] text-white font-semibold rounded-full px-5 py-2.5 text-base sm:px-6 sm:py-3 sm:text-lg shadow-lg ring-2 ring-white/30 backdrop-blur-sm">
+                                        Office visits are $89.99
+                                    </span>
+                                </div>
                                 <p className="text-gray-700 text-lg mb-2">
                                     Having Primary Care services available to you is a very powerful combination with our Urgent Care. Why? Because this combination affords you the highest level of communication and continuity of treatment for you between your entire Primary UC "Care Team". Your Care Team communicates with each other before, after and, if needed, during your visit in order to provide you with the safest and highest quality care.
                                 </p>
