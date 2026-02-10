@@ -1,5 +1,9 @@
 import { GetBlogs } from '@/lib/blog/get-blogs'
 
+// Ensure blog sitemap reflects newly published CMS posts quickly
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
   try {
     const posts = await GetBlogs()
