@@ -98,6 +98,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={interTight.className} suppressHydrationWarning={true}>
       <head>
+        {/* Google tag (gtag.js) - GA4 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2BKMKZM043"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2BKMKZM043');
+            `,
+          }}
+        />
         {/* Favicon Links - Critical for Google Search Results */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32" />
