@@ -1,14 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, MapPin, FileText, Stethoscope, Shield, Clock } from 'lucide-react';
+import { ArrowRight, MapPin, FileText, Stethoscope, Shield, Clock, Calendar } from 'lucide-react';
 
 const AccidentInternalLinks: React.FC = () => {
   const links = [
     {
-      title: 'Car Accident Injury Clinic',
+      title: 'Book a Car Accident Exam',
+      href: '/appointment',
+      icon: <Calendar className="w-6 h-6" />,
+      description: 'Schedule same-day car accident exam'
+    },
+    {
+      title: 'Car Accident Urgent Care Exam',
       href: '/car-accident-injury-clinic',
       icon: <Stethoscope className="w-6 h-6" />,
-      description: 'Main car accident care information'
+      description: 'Same-day car accident urgent care exam and PIP documentation'
     },
     {
       title: 'Royal Palm Beach',

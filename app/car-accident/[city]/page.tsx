@@ -16,7 +16,7 @@ import MobileStickyFooter from "@/components/accident/MobileStickyFooter";
 import PatientReviewsSection from "@/components/accident/PatientReviewsSection";
 import TrustBadges from "@/components/accident/TrustBadges";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
-import { toJsonLd } from "@/lib/seo";
+import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
 import { accidentCities, type AccidentCityKey } from "@/lib/accidentLocations";
 import { MapPin, Phone, Clock, Shield, Stethoscope, FileText } from "lucide-react";
 
@@ -32,15 +32,15 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { city } = await params;
   const c = accidentCities[city];
   if (!c) return {};
-    const title = `Car Accident Doctor in ${c.displayName || c.name} | Same-Day Exam`;
+    const title = `Car Accident Urgent Care in ${c.displayName || c.name} | Same-Day Injury Exam + PIP | PrimaryUC`;
     const url = `${baseUrl}/car-accident/${city}`;
     return {
       title,
-      description: `Car accident doctor in ${c.displayName || c.name}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome. Call ${c.phoneDisplay}.`,
+      description: `Car accident urgent care in ${c.displayName || c.name}, FL. Same-day injury exam, walk-in welcome, PIP documentation. Onsite X-ray. Florida 14-day rule. Call ${c.phoneDisplay}.`,
     alternates: { canonical: url },
     openGraph: {
       title,
-      description: `Car accident doctor in ${c.displayName || c.name}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.`,
+      description: `Car accident urgent care in ${c.displayName || c.name}, FL. Same-day injury exam, walk-in welcome, PIP documentation. Onsite X-ray. Florida 14-day rule.`,
       url,
       siteName: "Primary & Urgent Care Centers",
       images: [
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     twitter: { 
       card: 'summary_large_image', 
       title, 
-      description: `Car accident doctor in ${c.displayName || c.name}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.`,
+      description: `Car accident urgent care in ${c.displayName || c.name}, FL. Same-day injury exam, walk-in welcome, PIP documentation. Onsite X-ray. Florida 14-day rule.`,
       images: [`${baseUrl}/image-auto-accident-involving-two-cars.jpg`],
       site: '@primaryurgentcare',
     },
@@ -70,19 +70,26 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const c = accidentCities[city];
   if (!c) notFound();
 
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "Car Accident Injury Clinic", item: `${baseUrl}/car-accident-injury-clinic` },
-      { "@type": "ListItem", position: 3, name: `Car Accident Urgent Care — ${c.name}`, item: `${baseUrl}/car-accident/${city}` }
-    ]
-  };
+  const pageUrl = `${baseUrl}/car-accident/${city}`;
+  const clinicId = `${pageUrl}#clinic`;
+
+  const breadcrumb = buildBreadcrumb([
+    { name: "Home", url: baseUrl },
+    { name: "Car Accident Urgent Care", url: `${baseUrl}/car-accident-injury-clinic` },
+    { name: `Car Accident Urgent Care — ${c.displayName || c.name}`, url: pageUrl }
+  ]);
+
+  const serviceSchema = buildServiceSchema({
+    name: `Car accident injury exam in ${c.displayName || c.name}`,
+    description: `Same-day car accident injury evaluation with onsite X-ray and PIP documentation in ${c.city}, FL`,
+    provider: clinicId,
+    areaServed: [c.city, "Palm Beach County", "Florida"],
+    url: pageUrl
+  });
 
   const localClinic = {
-    "@context": "https://schema.org",
     "@type": "MedicalClinic",
+    "@id": clinicId,
     name: `Primary & Urgent Care — Car Accident Urgent Care (${c.displayName || c.name})`,
     url: `${baseUrl}/car-accident/${city}`,
     description: `Same-day car accident injury care in ${c.city}, FL. Onsite X-ray and PIP documentation.`,
@@ -133,8 +140,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     hasMap: c.gmbUrl
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
+  const faqSchemaObj = {
     "@type": "FAQPage",
     mainEntity: [
       {
@@ -198,12 +204,17 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     }
   };
 
+  const graphSchema = buildGraphSchema([
+    breadcrumb,
+    localClinic,
+    webPageSchema,
+    serviceSchema,
+    faqSchemaObj
+  ]);
+
   return (
     <main className="w-full min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(localClinic)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faqSchema)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
       
       {/* 14-Day Rule Warning Banner */}
       <FourteenDayBanner />
@@ -312,7 +323,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             <AccidentCard
               title="Digital X-Ray"
               description="Onsite imaging during your visit so you don't lose time."
-              href="/emergencyroom/digital-x-ray"
+              href="/emergency-room/digital-x-ray"
               icon={<FileText className="w-6 h-6 text-[#16A34A]" />}
               features={["Same-day results", "High-quality digital images", "Reports formatted for insurers"]}
               variant="accent"

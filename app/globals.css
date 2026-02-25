@@ -151,12 +151,6 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* Hide all iframes globally */
-iframe {
-  display: none !important;
-  visibility: hidden !important;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;

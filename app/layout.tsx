@@ -74,13 +74,6 @@ export const metadata: Metadata = {
     apple: [
       { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    shortcut: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/icon1.png', sizes: '32x32', type: 'image/png' },
-    ],
-    other: [
-      { url: '/icon0.svg', type: 'image/svg+xml' },
-    ]
   },
 };
 
@@ -113,21 +106,36 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Favicon Links - Critical for Google Search Results */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon0.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.json" />
         
-        {/* MedicalClinic Structured Data */}
+        {/* Organization + MedicalClinic Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'MedicalClinic',
-              name: 'Primary & Urgent Care Centers of Palm Beach County',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://primaryuc.com/#organization',
+                  name: 'Primary & Urgent Care Centers of Palm Beach County',
+                  url: 'https://primaryuc.com',
+                  logo: 'https://primaryuc.com/logo.png',
+                  description: 'Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.',
+                  areaServed: [
+                    { '@type': 'AdministrativeArea', name: 'Royal Palm Beach, FL' },
+                    { '@type': 'AdministrativeArea', name: 'Lake Worth, FL' },
+                    { '@type': 'AdministrativeArea', name: 'Palm Springs, FL' },
+                    { '@type': 'AdministrativeArea', name: 'Lake Worth Beach, FL' },
+                    { '@type': 'AdministrativeArea', name: 'Palm Beach County, FL' }
+                  ],
+                  telephone: '+1-561-223-8024'
+                },
+                {
+                  '@type': 'MedicalClinic',
+                  '@id': 'https://primaryuc.com/#clinic',
+                  name: 'Primary & Urgent Care Centers of Palm Beach County',
+                  parentOrganization: { '@id': 'https://primaryuc.com/#organization' },
               url: 'https://primaryuc.com',
               logo: 'https://primaryuc.com/logo.png',
               image: 'https://primaryuc.com/websitelogo.png',
@@ -190,23 +198,21 @@ export default function RootLayout({
                 addressRegion: 'FL',
                 addressCountry: 'US'
               },
-              sameAs: [
-                'https://primaryuc.com/appointment',
-                'https://primaryuc.com/locations',
-                'https://primaryuc.com/service',
-                'https://primaryuc.com/blog'
+                }
               ]
             })
           }}
         />
         {/* Google Tag Manager */}
-        <script
+        <Script
+          id="gtm-base"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TQFNQD3Z');`
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TQFNQD3Z');`,
           }}
         />
         {/* End Google Tag Manager */}
@@ -228,10 +234,7 @@ export default function RootLayout({
         <Script
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
           strategy="afterInteractive"
-         
         />
-        {/* Hide all iframes globally */}
-        <style>{`iframe { display: none !important; visibility: hidden !important; }`}</style>
       </head>
 
       <body

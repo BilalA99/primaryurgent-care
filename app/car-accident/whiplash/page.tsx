@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { toJsonLd } from "@/lib/seo";
+import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
 
 const baseUrl = 'https://primaryuc.com';
 import HeroWithForm from "@/components/accident/HeroWithForm";
@@ -12,11 +12,11 @@ import TrustBadges from "@/components/accident/TrustBadges";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 
 export const metadata: Metadata = {
-  title: "Whiplash After Car Accident | Same-Day Neck Exam",
-  description: "Whiplash treatment after car accident in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+  title: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
+  description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
   openGraph: {
-    title: "Whiplash After Car Accident | Same-Day Neck Exam",
-    description: "Whiplash treatment after car accident in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
+    description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     url: `${baseUrl}/car-accident/whiplash`,
     type: "website",
     images: [
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Whiplash After Car Accident | Same-Day Neck Exam",
-    description: "Whiplash treatment after car accident in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
+    description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     images: [`${baseUrl}/whiplash-hero-image.png`],
     site: '@primaryurgentcare',
   },
@@ -41,37 +41,22 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "Car Accident Injury Clinic", item: `${baseUrl}/car-accident-injury-clinic` },
-      { "@type": "ListItem", position: 3, name: "Whiplash Treatment", item: `${baseUrl}/car-accident/whiplash` }
-    ]
-  };
+  const pageUrl = `${baseUrl}/car-accident/whiplash`;
+  const breadcrumb = buildBreadcrumb([
+    { name: "Home", url: baseUrl },
+    { name: "Car Accident Urgent Care", url: `${baseUrl}/car-accident-injury-clinic` },
+    { name: "Whiplash Treatment", url: pageUrl }
+  ]);
 
-  const whiplashTreatmentSchema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalProcedure",
-    name: "Whiplash Treatment and Evaluation",
-    description: "Comprehensive evaluation and treatment of whiplash injuries sustained in car accidents. Symptoms often develop 24-72 hours after impact, making early evaluation critical for both health and insurance documentation.",
-    bodyLocation: "Neck and Cervical Spine",
-    preparation: "No special preparation required - walk-ins welcome for immediate evaluation",
-    procedureType: "Diagnostic Evaluation and Treatment",
-    followup: "Follow-up care and monitoring as needed, specialist referrals when appropriate. Most patients improve within 2-6 weeks with proper treatment.",
-    provider: {
-      "@type": "MedicalOrganization",
-      name: "Primary & Urgent Care Centers",
-      url: `${baseUrl}/car-accident/whiplash`
-    },
-    medicalSpecialty: "Emergency Medicine",
-    indication: "Neck pain, stiffness, headaches, or other symptoms following car accident. Most patients don't feel pain until hours or days after the crash.",
-    contraindication: "Severe neurological symptoms requiring emergency room evaluation including severe weakness, loss of bladder/bowel control, or inability to move limbs"
-  };
+  const serviceSchema = buildServiceSchema({
+    name: "Whiplash treatment after car accident",
+    description: "Comprehensive evaluation and treatment of whiplash injuries sustained in car accidents. Same-day neck exam, X-ray, PIP documentation.",
+    provider: "https://primaryuc.com/#clinic",
+    areaServed: ["Palm Beach County", "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana"],
+    url: pageUrl
+  });
 
   const whiplashConditionSchema = {
-    "@context": "https://schema.org",
     "@type": "MedicalCondition",
     name: "Whiplash",
     alternateName: "Cervical sprain/strain",
@@ -94,11 +79,10 @@ export default function Page() {
   };
 
   const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Whiplash After Car Accident | Same-Day Neck Exam",
-    url: `${baseUrl}/car-accident/whiplash`,
-    description: "Whiplash treatment after car accident in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    "@type": "MedicalWebPage",
+    name: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
+    url: pageUrl,
+    description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     about: {
       "@type": "MedicalCondition",
       name: "Whiplash Injury"
@@ -111,70 +95,48 @@ export default function Page() {
     }
   };
 
-  const faq = {
-    "@context": "https://schema.org",
+  const faqObj = {
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: "Can whiplash start days after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Neck pain, headaches, or stiffness can appear hours or days later. This is why it's important to seek medical evaluation even if you feel fine initially. An exam helps rule out more serious injury and guides recovery." }
+        name: "Can whiplash symptoms start days after a car accident?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Neck pain, stiffness, headaches, and dizziness may appear hours or even days after the crash. This is why it is important to be evaluated even if you feel 'okay' right after the accident. Early evaluation helps document the timeline for insurance purposes." }
       },
       {
         "@type": "Question",
         name: "Do I need X-ray or MRI for whiplash?",
-        acceptedAnswer: { "@type": "Answer", text: "X-ray can rule out fractures; MRI may be referred if symptoms suggest soft-tissue or disc injury. We have onsite X-ray capabilities and can provide same-day results for your insurance documentation." }
-      },
-      {
-        "@type": "Question",
-        name: "What are the common symptoms of whiplash after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Common symptoms include neck pain and stiffness, headaches, shoulder pain, dizziness, fatigue, and sometimes jaw pain or ringing in the ears. Symptoms may not appear immediately after the accident and can develop over 24-48 hours." }
-      },
-      {
-        "@type": "Question",
-        name: "How is whiplash diagnosed after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Diagnosis involves a comprehensive physical examination, assessment of neck range of motion, neurological tests, and potentially imaging studies like X-rays or MRI to rule out fractures or disc injuries. Our urgent care team specializes in car accident injury evaluation." }
-      },
-      {
-        "@type": "Question",
-        name: "What treatment options are available for whiplash?",
-        acceptedAnswer: { "@type": "Answer", text: "Treatment may include pain management, anti-inflammatory medications, physical therapy exercises, heat/ice therapy, and in some cases, specialist referrals for advanced care. We provide comprehensive documentation for insurance claims." }
+        acceptedAnswer: { "@type": "Answer", text: "Your provider will decide based on your exam and symptoms. X-ray can help rule out fractures, and MRI may be recommended if there is concern for disc or soft-tissue injury. We have onsite X-ray capabilities and can provide same-day results." }
       },
       {
         "@type": "Question",
         name: "How long does whiplash recovery typically take?",
-        acceptedAnswer: { "@type": "Answer", text: "Most people recover from whiplash within a few weeks to months, but some may experience chronic symptoms. Early treatment and proper documentation are important for both recovery and insurance claims. We provide ongoing monitoring and follow-up care." }
+        acceptedAnswer: { "@type": "Answer", text: "Many people improve within 2–6 weeks with appropriate care. Some injuries take longer, especially if there is significant soft-tissue damage. Early evaluation, treatment, and follow-up can help reduce the risk of long-term symptoms." }
       },
       {
         "@type": "Question",
-        name: "When should I seek immediate medical attention for whiplash?",
-        acceptedAnswer: { "@type": "Answer", text: "Seek immediate care if you experience severe neck pain, numbness or tingling in arms/hands, difficulty walking, loss of bladder/bowel control, or worsening neurological symptoms. Our urgent care can evaluate and refer to emergency services if needed." }
+        name: "Is it safe to drive with whiplash?",
+        acceptedAnswer: { "@type": "Answer", text: "It depends on your pain, range of motion, and whether you have dizziness or neurologic symptoms. Your provider will advise you based on your exam and can provide documentation for work or driving restrictions if needed." }
       },
       {
         "@type": "Question",
-        name: "What documentation do you provide for whiplash insurance claims?",
-        acceptedAnswer: { "@type": "Answer", text: "We provide comprehensive medical documentation including exam findings, imaging results, treatment plans, and visit summaries essential for PIP claims and legal cases. All documentation is provided immediately after your visit." }
-      },
-      {
-        "@type": "Question",
-        name: "How much does whiplash treatment cost?",
-        acceptedAnswer: { "@type": "Answer", text: "Costs vary based on your insurance coverage and services needed. Most insurance plans cover urgent care visits with lower copays than emergency rooms. We work with patients to provide transparent pricing and can help with insurance verification." }
-      },
-      {
-        "@type": "Question",
-        name: "Do you accept PIP insurance for whiplash treatment?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes, we accept PIP (Personal Injury Protection) insurance for whiplash treatment. Florida's PIP law requires medical care within 14 days to unlock benefits. We work directly with insurance companies and provide all necessary documentation for your claim." }
+        name: "Can whiplash symptoms get worse over time?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. It is common for soreness and stiffness to increase over the first few days. Early care can help manage pain and prevent some long-term problems. Proper documentation of symptom progression is also important for insurance claims." }
       }
     ]
   };
 
+  const graphSchema = buildGraphSchema([
+    breadcrumb,
+    webPageSchema,
+    whiplashConditionSchema,
+    serviceSchema,
+    faqObj
+  ]);
+
   return (
     <main className="w-full min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(whiplashConditionSchema)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(whiplashTreatmentSchema)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faq)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
       
       {/* 14-Day Rule Warning Banner */}
       <FourteenDayBanner />

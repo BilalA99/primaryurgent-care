@@ -9,7 +9,7 @@ import TrustBadges from "@/components/accident/TrustBadges";
 import ComparisonTable from "@/components/accident/ComparisonTable";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 import AccidentFAQ from "@/components/accident/AccidentFAQ";
-import { toJsonLd } from "@/lib/seo";
+import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
 
 const baseUrl = "https://primaryuc.com";
 
@@ -46,74 +46,43 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "Car Accident Injury Clinic", item: `${baseUrl}/car-accident-injury-clinic` },
-      { "@type": "ListItem", position: 3, name: "Urgent Care vs ER", item: `${baseUrl}/car-accident/urgent-care-vs-er` }
-    ]
-  };
+  const pageUrl = `${baseUrl}/car-accident/urgent-care-vs-er`;
+  const breadcrumb = buildBreadcrumb([
+    { name: "Home", url: baseUrl },
+    { name: "Car Accident Urgent Care", url: `${baseUrl}/car-accident-injury-clinic` },
+    { name: "Urgent Care vs ER", url: pageUrl }
+  ]);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
+  const serviceSchema = buildServiceSchema({
+    name: "Car accident urgent care evaluation",
+    description: "Guidance on when urgent care vs ER is appropriate after a car accident. Cost comparison, wait times, PIP coverage.",
+    provider: "https://primaryuc.com/#clinic",
+    areaServed: ["Palm Beach County", "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana"],
+    url: pageUrl
+  });
+
+  const faqSchemaObj = {
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
         name: "When is urgent care appropriate after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care is typically appropriate for stable patients with pain, cuts, bruises, suspected sprains or simple fractures, and mild head or whiplash symptoms without red-flag signs like severe chest pain, major bleeding, or difficulty breathing. We can evaluate your condition and determine if urgent care is right for you or if you need emergency services." }
+        acceptedAnswer: { "@type": "Answer", text: "Urgent care is typically appropriate for stable patients with pain, cuts, bruises, suspected sprains or simple fractures, and mild head or whiplash symptoms without red-flag signs like severe chest pain, major bleeding, or difficulty breathing. Our team can evaluate your condition and determine if urgent care is right for you." }
       },
       {
         "@type": "Question",
         name: "When should I go straight to the ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Go straight to the ER or call 911 if you have severe chest pain, trouble breathing, uncontrolled bleeding, obvious fractures with deformity, loss of consciousness, confusion, seizure, or signs of spinal cord injury. When in doubt about the severity of your condition, it's always safer to err on the side of caution and seek emergency care immediately." }
+        acceptedAnswer: { "@type": "Answer", text: "Go straight to the ER or call 911 if you have severe chest pain, trouble breathing, uncontrolled bleeding, obvious fractures with deformity, loss of consciousness, confusion, seizure, or signs of spinal cord injury. When in doubt about the severity of your condition, it's always safer to err on the side of caution and seek emergency care." }
       },
       {
         "@type": "Question",
-        name: "What are the cost differences between urgent care and the ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care visits usually cost a fraction of ER visits. Many insured patients pay an urgent care copay similar to a primary-care visit ($20-$50), while ER visits often carry much higher facility fees ($500-$1,500+) and deductibles. Most urgent care visits for car accidents range from $100-$300, while ER visits typically cost $1,000-$3,000 or more for similar conditions." }
+        name: "How do costs compare between urgent care and the ER?",
+        acceptedAnswer: { "@type": "Answer", text: "Urgent care visits usually cost a fraction of ER visits. Many insured patients pay an urgent care copay similar to a primary-care visit, while ER visits often carry much higher facility fees and deductibles. Most urgent care visits for car accidents range from $100-$300, while ER visits typically cost $1,000-$3,000 or more for similar conditions." }
       },
       {
         "@type": "Question",
-        name: "How do wait times compare between urgent care and ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care typically has wait times of 15-30 minutes for most patients, while ER wait times can be 2-6 hours or more for non-life-threatening conditions. Urgent care prioritizes patients based on arrival time and appointment scheduling, while ERs must prioritize by severity of condition, which means stable patients often wait significantly longer." }
-      },
-      {
-        "@type": "Question",
-        name: "What services are available at urgent care for car accidents?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care provides injury evaluation, X-rays, wound care, pain management, and documentation for insurance claims. We can also refer to specialists or transfer to ER if more advanced care is needed." }
-      },
-      {
-        "@type": "Question",
-        name: "Can urgent care transfer me to ER if needed?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes, urgent care can transfer patients to ER when more advanced care is needed. We coordinate transfers and provide all medical documentation to ensure continuity of care." }
-      },
-      {
-        "@type": "Question",
-        name: "How does insurance coverage differ between urgent care and ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Most insurance plans cover both urgent care and ER visits, but copays and deductibles are typically lower for urgent care. PIP insurance covers both options, but urgent care often provides better value." }
-      },
-      {
-        "@type": "Question",
-        name: "What documentation quality can I expect from urgent care?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care provides comprehensive medical documentation including detailed exam findings, imaging results, treatment plans, and visit summaries. Documentation quality is equivalent to ER visits and suitable for insurance claims and legal cases." }
-      },
-      {
-        "@type": "Question",
-        name: "When should I definitely go to the ER instead of urgent care?",
-        acceptedAnswer: { "@type": "Answer", text: "Go to ER for severe bleeding, broken bones, head injuries with loss of consciousness, chest pain, difficulty breathing, severe abdominal pain, or any life-threatening symptoms. When in doubt, call 911." }
-      },
-      {
-        "@type": "Question",
-        name: "Can urgent care provide follow-up care after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes, urgent care can provide follow-up care, monitor healing progress, adjust treatment plans, and coordinate with specialists. We maintain continuity of care throughout your recovery process." }
-      },
-      {
-        "@type": "Question",
-        name: "How does PIP coverage work for urgent care vs ER?",
-        acceptedAnswer: { "@type": "Answer", text: "PIP insurance covers both urgent care and ER visits, but urgent care often provides better value with lower costs and faster service. Both options meet Florida's PIP 14-day requirement for coverage." }
+        name: "Does PIP cover both urgent care and ER?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Florida PIP coverage can apply to both urgent care and ER visits when related to the crash, as long as you seek medical care within 14 days. Both options meet the PIP requirement, but urgent care often provides better value with faster service and lower costs while delivering the same quality documentation for your claim." }
       }
     ]
   };
@@ -136,11 +105,16 @@ export default function Page() {
     }
   };
 
+  const graphSchema = buildGraphSchema([
+    breadcrumb,
+    webPageSchema,
+    serviceSchema,
+    faqSchemaObj
+  ]);
+
   return (
     <main className="w-full min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faqSchema)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
       
       {/* 14-Day Rule Warning Banner */}
       <FourteenDayBanner />

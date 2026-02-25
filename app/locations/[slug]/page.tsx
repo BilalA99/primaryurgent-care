@@ -19,6 +19,7 @@ import Reveal from '@/components/RevealAnimation'
 import Testimonials from '@/components/testimonials'
 import { trackEvent } from '../../../lib/gtag';
 import CallButton from '../../../components/CallButton';
+import { buildBreadcrumb, buildServiceSchema, buildGraphSchema, toJsonLd } from '@/lib/seo';
 
 const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params
@@ -27,12 +28,15 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
   // MedicalClinic JSON-LD schema
   const LocationJsonLd = () => {
     const baseUrl = 'https://primaryuc.com';
+    const pageUrl = `${baseUrl}/locations/${location.slug}`;
+    const clinicId = `${pageUrl}#clinic`;
+    const cityName = location.displayName || location.name;
     const clinicSchema = {
-      "@context": "https://schema.org",
       "@type": "MedicalClinic",
+      "@id": clinicId,
       "name": location.clinic,
       "image": `${baseUrl}${location.image}`,
-      "url": `${baseUrl}/locations/${location.slug}`,
+      "url": pageUrl,
       "telephone": `+1-${location.phone.replace(/-/g, '')}`,
       "address": {
         "@type": "PostalAddress",
@@ -71,39 +75,29 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
       ...(location.gmbUrl ? {
         "sameAs": [location.gmbUrl],
         "hasMap": location.gmbUrl
-      } : {})
+      } : {}),
+      "branchOf": { "@id": "https://primaryuc.com/#clinic" },
+      "parentOrganization": { "@id": "https://primaryuc.com/#organization" }
     };
 
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": baseUrl
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Locations",
-          "item": `${baseUrl}/locations`
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": location.clinic,
-          "item": `${baseUrl}/locations/${location.slug}`
-        }
-      ]
-    };
+    const breadcrumbSchema = buildBreadcrumb([
+      { name: "Home", url: baseUrl },
+      { name: "Locations", url: `${baseUrl}/locations` },
+      { name: location.clinic, url: pageUrl }
+    ]);
+
+    const serviceSchema = buildServiceSchema({
+      name: `Car accident injury exam in ${cityName}`,
+      description: `Same-day car accident injury evaluation with onsite X-ray and PIP documentation in ${location.city || location.name}, FL`,
+      provider: clinicId,
+      areaServed: [location.city || location.name, "Palm Beach County", "Florida"],
+      url: pageUrl
+    });
 
     const webPageSchema = {
-      "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": location.clinic,
-      "url": `${baseUrl}/locations/${location.slug}`,
+      "name": citySeo[location.slug]?.title || location.clinic,
+      "url": pageUrl,
       "description": citySeo[location.slug]?.description || location.metaDescription || '',
       "primaryImageOfPage": {
         "@type": "ImageObject",
@@ -111,38 +105,39 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
         "width": 1200,
         "height": 630
       },
-      "mainEntity": {
-        "@id": `${baseUrl}/locations/${location.slug}#clinic`
-      }
+      "mainEntity": { "@id": clinicId }
     };
 
+    const graphSchema = buildGraphSchema([
+      clinicSchema,
+      breadcrumbSchema,
+      webPageSchema,
+      serviceSchema
+    ]);
+
     return (
-      <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
-      </>
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
     );
   };
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
-      title: 'Royal Palm Beach Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Royal Palm Beach urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
+      title: 'Urgent Care in Royal Palm Beach | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Royal Palm Beach, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Wellington, Loxahatchee. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Royal Palm Beach, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Royal Palm Beach businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Royal Palm Beach.'
     },
     'lake-worth-primary-urgent-care-center': {
-      title: 'Lake Worth Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Lake Worth urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
+      title: 'Urgent Care in Lake Worth | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Lake Worth Beach, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Boynton Beach, Lantana. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Lake Worth, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lake Worth businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Lake Worth.'
     },
     'palm-springs-primary-urgent-care-center': {
-      title: 'Palm Springs Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Palm Springs urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
+      title: 'Urgent Care in Palm Springs | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Palm Springs, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Greenacres, Lake Worth. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Palm Springs, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Palm Springs businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Palm Springs.'
     },
     'lantana-primary-urgent-care-center': {
-      title: 'Lantana / Jog Rd Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Lantana / Jog Rd urgent care & car accident doctor in Lake Worth Beach, FL. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.',
+      title: 'Urgent Care in Lantana / Jog Rd | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Lantana / Jog Rd, Lake Worth Beach, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Boynton Beach, Hypoluxo. Call (561) 223-8024.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center serving the Lantana / Jog Rd area in Lake Worth Beach, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lantana and surrounding area businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor serving the Lantana, Boynton Beach, and Hypoluxo areas.'
     }
   };
@@ -345,25 +340,25 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
               {location.slug === 'royal-palm-beach-primary-urgent-care-center' && (
                 <>
                   <p>Our Royal Palm Beach urgent care center is conveniently located at 11476 Okeechobee Blvd, Royal Palm Beach, FL 33411, making it easily accessible from Wellington, Loxahatchee, and surrounding Palm Beach County communities. We're near Commons Park and serve patients throughout the Royal Palm Beach area along SR-7 (Okeechobee Blvd).</p>
-                  <p>Whether you're coming from Wellington via Forest Hill Blvd or from Loxahatchee along Okeechobee Blvd, our location offers quick access and convenient parking for same-day urgent care and car accident injury evaluation. Our clinic is well-positioned to serve patients throughout western Palm Beach County.</p>
+                  <p>Whether you're coming from Wellington via Forest Hill Blvd or from Loxahatchee along Okeechobee Blvd, our location offers quick access and convenient parking for same-day urgent care and <Link href="/car-accident-injury-clinic" className="text-[#2563eb] hover:underline font-medium">car accident urgent care</Link> evaluation. Our clinic is well-positioned to serve patients throughout western Palm Beach County.</p>
                 </>
               )}
               {location.slug === 'lake-worth-primary-urgent-care-center' && (
                 <>
                   <p>Our Lake Worth Beach urgent care center at 6447 Lake Worth Rd, Lake Worth Beach, FL 33463 serves patients from throughout Palm Beach County, including nearby communities along Congress Ave, Jog Road, and Hypoluxo Road. We're easily accessible from Palm Beach State College and surrounding neighborhoods.</p>
-                  <p>Patients from Boynton Beach, Lantana, Greenacres, and surrounding areas find our Lake Worth Beach location convenient for same-day care, car accident injury evaluation, and comprehensive medical services. Our clinic is centrally located along Lake Worth Road, providing easy access from major thoroughfares.</p>
+                  <p>Patients from Boynton Beach, Lantana, Greenacres, and surrounding areas find our Lake Worth Beach location convenient for same-day care, <Link href="/car-accident-injury-clinic" className="text-[#2563eb] hover:underline font-medium">car accident urgent care</Link> evaluation, and comprehensive medical services. Our clinic is centrally located along Lake Worth Road, providing easy access from major thoroughfares.</p>
                 </>
               )}
               {location.slug === 'palm-springs-primary-urgent-care-center' && (
                 <>
                   <p>Our Palm Springs urgent care center at 3460 S Congress Ave, Palm Springs, FL 33461 serves patients from Greenacres, Lake Worth Beach, and surrounding communities. Located along a major corridor, we're easily accessible from Forest Hill Blvd and nearby neighborhoods.</p>
-                  <p>Whether you're coming from Greenacres via Forest Hill Blvd or from other Palm Beach County areas, our Palm Springs location provides convenient access to same-day urgent care, car accident injury evaluation, and comprehensive medical services. Our clinic is well-positioned along S Congress Ave to serve central Palm Beach County.</p>
+                  <p>Whether you're coming from Greenacres via Forest Hill Blvd or from other Palm Beach County areas, our Palm Springs location provides convenient access to same-day urgent care, <Link href="/car-accident-injury-clinic" className="text-[#2563eb] hover:underline font-medium">car accident urgent care</Link> evaluation, and comprehensive medical services. Our clinic is well-positioned along S Congress Ave to serve central Palm Beach County.</p>
                 </>
               )}
               {location.slug === 'lantana-primary-urgent-care-center' && (
                 <>
                   <p>Our Jog Road location in Lake Worth Beach (Lantana / Jog Rd area) serves patients from Boynton Beach, Lantana, Hypoluxo, and surrounding communities along the Jog Road and Hypoluxo Road corridors. Located at 6169 Jog Rd Unit 4B, Lake Worth Beach, FL 33463, we're easily accessible from major thoroughfares and nearby neighborhoods.</p>
-                  <p>Patients from throughout southern Palm Beach County find our Jog Road location convenient for same-day care, car accident injury evaluation, and comprehensive medical services. Our clinic is well-positioned to serve the Lantana, Boynton Beach, and Hypoluxo areas, with quick access from Hypoluxo Road and nearby residential communities.</p>
+                  <p>Patients from throughout southern Palm Beach County find our Jog Road location convenient for same-day care, <Link href="/car-accident-injury-clinic" className="text-[#2563eb] hover:underline font-medium">car accident urgent care</Link> evaluation, and comprehensive medical services. Our clinic is well-positioned to serve the Lantana, Boynton Beach, and Hypoluxo areas, with quick access from Hypoluxo Road and nearby residential communities.</p>
                 </>
               )}
             </div>
@@ -388,20 +383,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const url = `${baseUrl}/locations/${slug}`;
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
-      title: 'Royal Palm Beach Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Royal Palm Beach urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
+      title: 'Urgent Care in Royal Palm Beach | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Royal Palm Beach, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Wellington, Loxahatchee. Call (561) 223-8024.'
     },
     'lake-worth-primary-urgent-care-center': {
-      title: 'Lake Worth Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Lake Worth urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
+      title: 'Urgent Care in Lake Worth | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Lake Worth Beach, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Boynton Beach, Lantana. Call (561) 223-8024.'
     },
     'palm-springs-primary-urgent-care-center': {
-      title: 'Palm Springs Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Palm Springs urgent care & car accident doctor in Palm Beach County. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
+      title: 'Urgent Care in Palm Springs | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Palm Springs, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Greenacres, Lake Worth. Call (561) 223-8024.'
     },
     'lantana-primary-urgent-care-center': {
-      title: 'Lantana / Jog Rd Urgent Care & Car Accident Doctor | Primary & Urgent Care',
-      description: 'Lantana / Jog Rd urgent care & car accident doctor in Lake Worth Beach, FL. Same-day PIP exam, X-ray, injury care. Walk-ins for crashes, falls, work injuries. Call (561) 223-8024.'
+      title: 'Urgent Care in Lantana / Jog Rd | Walk-In + X-Ray | PrimaryUC',
+      description: 'Urgent care in Lantana / Jog Rd, Lake Worth Beach, FL. Walk-in welcome, onsite X-ray. Car accident exams + PIP documentation available. Serves Boynton Beach, Hypoluxo. Call (561) 223-8024.'
     }
   };
   return {

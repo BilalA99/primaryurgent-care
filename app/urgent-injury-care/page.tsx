@@ -35,7 +35,7 @@ export const metadata = {
         type: "website",
         images: [
             {
-                url: "/urgentcarelanding.jpg",
+                url: "https://primaryuc.com/urgentcarelanding.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Urgent injury care walk-in clinic Palm Beach County"
@@ -48,7 +48,7 @@ export const metadata = {
         description:
             "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         images: [
-            "/urgentcarelanding.jpg"
+            "https://primaryuc.com/urgentcarelanding.jpg"
         ]
     },
     alternates: {
@@ -132,7 +132,7 @@ const UrgentInjuryCareJsonLd = () => (
                         name: 'Lantana Primary & Urgent Care Center'
                     }
                 ],
-                telephone: '+1-561-223-80245',
+                telephone: '+1-561-223-8024',
                 description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $89 self-pay, most insurance accepted. Serving Palm Beach County.'
             })
         }}
