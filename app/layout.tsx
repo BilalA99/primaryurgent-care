@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import BookAppointmentSection from "@/components/BookAppointmentSection";
 import { MapProvider } from "@/providers/map-provider";
 import Script from "next/script";
+import GclidCapture from "@/components/GclidCapture";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://primaryuc.com'),
@@ -241,6 +242,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         className={`${interTight.variable} antialiased overscroll-none`}
         suppressHydrationWarning
       >
+        <GclidCapture />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

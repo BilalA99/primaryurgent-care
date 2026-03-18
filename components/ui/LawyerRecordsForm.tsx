@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 import { sendLawyerRecordsEmail, sendLawyerRecordsThankYouEmail } from '../email/SendEmail';
+import { getAttributionData } from '@/lib/gclid';
 
 interface FormData {
     lawFirm: string;
@@ -112,10 +113,18 @@ export default function LawyerRecordsForm() {
             setSubmitting(false);
             return;
         }
+        const attribution = getAttributionData();
         const thankYouResult = await sendLawyerRecordsThankYouEmail({
-            lawFirm: form.lawFirm,
-            email: form.email,
-            patientName: patientFullName
+            lawFirm:      form.lawFirm,
+            email:        form.email,
+            patientName:  patientFullName,
+            phone:        form.phone,
+            gclid:        attribution.gclid,
+            utm_source:   attribution.utm_source,
+            utm_medium:   attribution.utm_medium,
+            utm_campaign: attribution.utm_campaign,
+            utm_term:     attribution.utm_term,
+            utm_content:  attribution.utm_content,
         });
         if (thankYouResult.error) {
             setError(thankYouResult.error.message);

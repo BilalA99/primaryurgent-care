@@ -27,6 +27,7 @@ import { Loader2 } from 'lucide-react';
 import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
 import { redirect } from 'next/navigation';
 import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
+import { getAttributionData } from '@/lib/gclid';
 
 const formSchema = z.object({
     firstName: z.string().min(1, 'First name is required'),
@@ -66,8 +67,22 @@ const BookAppointmentForm = ({
         setIsLoading(true);
         // Combine first and last name for email functions
         const fullName = `${data.firstName} ${data.lastName}`.trim();
+        const attribution = getAttributionData();
         const response = await sendContactEmail({name : fullName, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
-        await sendUserEmail({name : fullName, email : data.email, phone : data.phone});
+        await sendUserEmail({
+          name:         fullName,
+          email:        data.email,
+          phone:        data.phone,
+          reason:       data.message,
+          accidentType: data.type,
+          postalCode:   data.postalCode,
+          gclid:        attribution.gclid,
+          utm_source:   attribution.utm_source,
+          utm_medium:   attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term:     attribution.utm_term,
+          utm_content:  attribution.utm_content,
+        });
         if(response) {
             setIsLoading(false);
             form.reset();

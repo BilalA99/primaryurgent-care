@@ -32,15 +32,19 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { city } = await params;
   const c = accidentCities[city];
   if (!c) return {};
-    const title = `Car Accident Urgent Care in ${c.displayName || c.name} | Same-Day Injury Exam + PIP | PrimaryUC`;
-    const url = `${baseUrl}/car-accident/${city}`;
-    return {
-      title,
-      description: `Car accident urgent care in ${c.displayName || c.name}, FL. Same-day injury exam, walk-in welcome, PIP documentation. Onsite X-ray. Florida 14-day rule. Call ${c.phoneDisplay}.`,
+
+  const cityName = c.displayName || c.name;
+  const title = `Car Accident Doctor in ${cityName}, FL | Same-Day Exam · PIP Accepted | PrimaryUC`;
+  const description = `Hurt in a car accident in ${cityName}? Get a same-day injury exam at PrimaryUC. Onsite X-ray, PIP documentation, walk-ins welcome. Florida 14-day rule — don't wait. Call ${c.phoneDisplay}.`;
+  const url = `${baseUrl}/car-accident/${city}`;
+
+  return {
+    title,
+    description,
     alternates: { canonical: url },
     openGraph: {
       title,
-      description: `Car accident urgent care in ${c.displayName || c.name}, FL. Same-day injury exam, walk-in welcome, PIP documentation. Onsite X-ray. Florida 14-day rule.`,
+      description,
       url,
       siteName: "Primary & Urgent Care Centers",
       images: [
@@ -52,16 +56,24 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
         },
       ],
       locale: 'en_US',
-      type: 'article'
+      type: 'website'
     },
-    twitter: { 
-      card: 'summary_large_image', 
-      title, 
-      description: `Car accident urgent care in ${c.displayName || c.name}, FL. Same-day injury exam, walk-in welcome, PIP documentation. Onsite X-ray. Florida 14-day rule.`,
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
       images: [`${baseUrl}/image-auto-accident-involving-two-cars.jpg`],
       site: '@primaryurgentcare',
     },
-    robots: { index: true, follow: true }
+    robots: { index: true, follow: true },
+    other: {
+      'geo.region': 'US-FL',
+      'geo.placename': c.city,
+      ...(c.coordinates ? {
+        'geo.position': `${c.coordinates.lat};${c.coordinates.lng}`,
+        'ICBM': `${c.coordinates.lat}, ${c.coordinates.lng}`
+      } : {})
+    }
   };
 }
 
@@ -70,17 +82,18 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const c = accidentCities[city];
   if (!c) notFound();
 
+  const cityName = c.displayName || c.name;
   const pageUrl = `${baseUrl}/car-accident/${city}`;
   const clinicId = `${pageUrl}#clinic`;
 
   const breadcrumb = buildBreadcrumb([
     { name: "Home", url: baseUrl },
     { name: "Car Accident Urgent Care", url: `${baseUrl}/car-accident-injury-clinic` },
-    { name: `Car Accident Urgent Care — ${c.displayName || c.name}`, url: pageUrl }
+    { name: `Car Accident Urgent Care — ${cityName}`, url: pageUrl }
   ]);
 
   const serviceSchema = buildServiceSchema({
-    name: `Car accident injury exam in ${c.displayName || c.name}`,
+    name: `Car accident injury exam in ${cityName}`,
     description: `Same-day car accident injury evaluation with onsite X-ray and PIP documentation in ${c.city}, FL`,
     provider: clinicId,
     areaServed: [c.city, "Palm Beach County", "Florida"],
@@ -88,9 +101,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   });
 
   const localClinic = {
-    "@type": "MedicalClinic",
+    "@type": ["MedicalClinic", "LocalBusiness"],
     "@id": clinicId,
-    name: `Primary & Urgent Care — Car Accident Urgent Care (${c.displayName || c.name})`,
+    name: `Primary & Urgent Care — Car Accident Urgent Care (${cityName})`,
     url: `${baseUrl}/car-accident/${city}`,
     description: `Same-day car accident injury care in ${c.city}, FL. Onsite X-ray and PIP documentation.`,
     address: {
@@ -112,6 +125,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         name: "Florida"
       }
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "200",
+      bestRating: "5"
+    },
     ...(c.coordinates ? {
       geo: {
         "@type": "GeoCoordinates",
@@ -124,13 +143,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "09:00",
-        closes: "20:00"
+        closes: "18:00"
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday", "Sunday"],
+        dayOfWeek: ["Saturday"],
         opens: "09:00",
-        closes: "20:00"
+        closes: "16:00"
       }
     ],
     priceRange: "$$",
@@ -182,6 +201,22 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           "@type": "Answer",
           text: "Bring a photo ID, your insurance card, and any accident-related paperwork such as the claim number or police report, if available. If you have prior medical records related to this accident, bring those as well. We'll handle all the paperwork and documentation needed for your case."
         }
+      },
+      {
+        "@type": "Question",
+        name: `Is Primary UC open on weekends for car accident walk-ins in ${cityName}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes. Our ${cityName} location is open Monday–Friday 9am–6pm and Saturday 9am–4pm, including weekends. Walk-ins for car accident injuries are welcome any day. No appointment is required, but calling ahead helps us prepare your visit and minimize wait time. Call us at ${c.phoneDisplay}.`
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What is Florida's 14-day rule and why does it matter for my accident claim?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Florida's PIP law requires that you receive medical care within 14 days of your car accident to qualify for Personal Injury Protection benefits — up to $10,000 in coverage. If you wait longer than 14 days, you risk losing access to these benefits entirely. Our ${cityName} clinic is available same-day to ensure you meet this deadline and protect your claim. Call us at ${c.phoneDisplay} or walk in — no appointment needed.`
+        }
       }
     ]
   };
@@ -189,9 +224,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Car Accident Doctor in ${c.displayName || c.name} | Same-Day Exam`,
+    name: `Car Accident Doctor in ${cityName} | Same-Day Exam`,
     url: `${baseUrl}/car-accident/${city}`,
-    description: `Car accident doctor in ${c.displayName || c.name}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.`,
+    description: `Car accident doctor in ${cityName}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.`,
     about: {
       "@type": "MedicalCondition",
       name: "Motor Vehicle Collision Injuries"
@@ -215,17 +250,17 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   return (
     <main className="w-full min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
-      
-      {/* 14-Day Rule Warning Banner */}
-      <FourteenDayBanner />
+
+      {/* 14-Day Rule Warning Banner — sticky, dismissable */}
+      <FourteenDayBanner phoneHref={c.phoneHref} phoneDisplay={c.phoneDisplay} />
 
       {/* Hero Section */}
       <HeroWithForm
-        title={`Car Accident Doctor in ${c.displayName || c.name}, FL`}
+        title={`Car Accident Doctor in ${cityName}, FL`}
         subtitle={
           <div>
             <p className="mb-2">
-              Recent crash in {c.displayName || c.name}? Get a same-day accident exam at{' '}
+              Recent crash in {cityName}? Get a same-day accident exam at{' '}
               {c.gmbUrl ? (
                 <a
                   href={c.gmbUrl}
@@ -237,30 +272,30 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 </a>
               ) : (
                 <span>{c.address}, {c.city}, FL {c.postalCode}</span>
-              )}. Seen in under 15 minutes at our {c.displayName || c.name} location.
-            </p>
-            <p className="text-lg font-semibold text-white">
-              Call now:{' '}
-              <a
-                href={c.phoneHref}
-                className="text-white underline hover:text-blue-200 transition-colors"
-              >
-                {c.phoneDisplay}
-              </a>
+              )}. Seen in under 15 minutes.
             </p>
           </div>
         }
         checklist={[
-          "Rapid triage & evaluation",
-          "Onsite X-ray; MRI/CT referrals when indicated",
-          "Documentation provided upon request",
+          `Same-day exam — walk-ins welcome in ${cityName}`,
+          "Florida 14-day rule: don't risk losing $10,000 in PIP",
+          "Onsite X-ray · PIP accepted · Documentation included",
         ]}
-        banner={<ImmediateCareBanner />}
-        form={<AccidentAppointmentForm title={`Check Car Accident Exam Availability in ${c.name}`} noWrapper={true} showHeader={false} compact={true} />}
+        phoneHref={c.phoneHref}
+        phoneDisplay={c.phoneDisplay}
+        form={
+          <AccidentAppointmentForm
+            title={`Get a Same-Day Exam in ${c.name}`}
+            noWrapper={true}
+            showHeader={false}
+            compact={true}
+            city={cityName}
+          />
+        }
         backgroundImage="/image-auto-accident-involving-two-cars.jpg"
       />
 
-      {/* Trust Badges */}
+      {/* Trust Badges — immediately after hero */}
       <TrustBadges />
 
       {/* Why Get Seen Now */}
@@ -294,7 +329,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Imaging & Treatment Services in {c.displayName || c.name}
+              Imaging & Treatment Services in {cityName}
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Comprehensive care for whiplash, back and neck pain, joint injuries, and soft-tissue trauma after a collision.
@@ -310,7 +345,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               features={["Range-of-motion & neurologic testing", "Spinal tenderness & disc-injury screening", "Imaging referrals when indicated"]}
               variant="primary"
             />
-            
+
             <AccidentCard
               title="Whiplash Treatment"
               description="Neck pain, stiffness, or headaches after a crash."
@@ -319,7 +354,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               features={["Neck exam & neurologic screening", "Onsite X-ray as needed", "Personalized recovery plan"]}
               variant="secondary"
             />
-            
+
             <AccidentCard
               title="Digital X-Ray"
               description="Onsite imaging during your visit so you don't lose time."
@@ -340,7 +375,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our {c.displayName || c.name} Accident Clinic
+              Our {cityName} Accident Clinic
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Conveniently located in {c.city}, our car accident injury clinic serves patients throughout Palm Beach County. We provide same-day evaluation, onsite X-ray, and comprehensive PIP documentation for auto accident injuries.
@@ -378,8 +413,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Hours</h3>
-                    <p className="text-gray-600 text-lg">Monday-Friday 9am-6pm</p>
-                    <p className="text-gray-600 text-lg">Saturday 9am-4pm</p>
+                    <p className="text-gray-600 text-lg">Monday–Friday 9am–6pm</p>
+                    <p className="text-gray-600 text-lg">Saturday 9am–4pm</p>
                   </div>
                 </div>
               </div>
@@ -393,10 +428,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Ready to Get Checked?</h3>
                     <p className="text-gray-600 mb-4">
-                      Call now to schedule a same-day car accident exam in {c.displayName || c.name}.
+                      Call now to schedule a same-day car accident exam in {cityName}.
                     </p>
                   </div>
-                  
+
                   <div className="space-y-3">
                     <a
                       href={c.phoneHref}
@@ -405,7 +440,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                       <Phone className="w-5 h-5" />
                       {c.phoneDisplay}
                     </a>
-                    
+
                     {c.gmbUrl && (
                       <a
                         href={c.gmbUrl}
@@ -455,11 +490,11 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            Car Accident Care in {c.displayName || c.name}
+            Car Accident Care in {cityName}
           </h2>
           <div className="space-y-4 text-lg text-gray-700">
             <p>
-              Our {c.displayName || c.name} car accident injury clinic serves patients throughout Palm Beach County, including nearby communities. Located at{' '}
+              Our {cityName} car accident injury clinic serves patients throughout Palm Beach County, including nearby communities. Located at{' '}
               {c.gmbUrl ? (
                 <a
                   href={c.gmbUrl}
@@ -474,7 +509,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               )}, we're easily accessible from major roads and neighborhoods in the area.
             </p>
             <p>
-              Auto accident patients from {c.city} and surrounding areas come to us for same-day injury evaluation, onsite X-ray imaging, and comprehensive PIP documentation. Our {c.displayName || c.name} location is equipped with digital X-ray capabilities and experienced providers who specialize in car accident injury care.
+              Auto accident patients from {c.city} and surrounding areas come to us for same-day injury evaluation, onsite X-ray imaging, and comprehensive PIP documentation. Our {cityName} location is equipped with digital X-ray capabilities and experienced providers who specialize in car accident injury care.
             </p>
             <p>
               Whether you've been in a rear-end collision on local roads, a side-impact crash, or a parking lot accident, our car accident doctors in {c.city} can evaluate your injuries, provide treatment, and create the documentation your insurance company and attorney need.
@@ -483,25 +518,31 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         </div>
       </section>
 
-      {/* SEO Content Section */}
-      <AccidentSEOContent 
-        content={`If you've been in a car accident in ${c.displayName || c.name}, Florida, immediate medical evaluation is essential for both your health and your claim. Under Florida's PIP 14-day rule, you must see a doctor within 14 days of your accident to unlock up to $10,000 in PIP benefits. Our car accident doctors at the ${c.displayName || c.name} clinic provide comprehensive injury assessments, including whiplash care, back and neck pain evaluation, and soft-tissue injury treatment. Located at ${c.address}, ${c.city}, FL ${c.postalCode}, we offer same-day appointments, onsite digital X-rays, and complete documentation for insurance claims and personal-injury cases. Our board-certified providers in ${c.city} routinely care for local drivers after rear-end collisions, side-impact crashes, and parking-lot accidents. We understand the documentation insurers and attorneys expect, so each visit generates clear notes, diagnoses, and follow-up plans that support both your recovery and your paperwork.`}
+      {/* SEO Content Section — structured */}
+      <AccidentSEOContent
+        data={{
+          city: cityName,
+          cityFull: `${c.city}, FL`,
+          address: `${c.address}, ${c.city}, FL ${c.postalCode}`,
+          phone: c.phoneDisplay,
+          phoneHref: c.phoneHref
+        }}
       />
 
       {/* Internal Links Section */}
       <AccidentInternalLinks />
 
       {/* FAQ Section */}
-      <AccidentFAQ 
-        title={`Frequently Asked Questions About Car Accident Injuries in ${c.displayName || c.name}`}
+      <AccidentFAQ
+        title={`Frequently Asked Questions About Car Accident Injuries in ${cityName}`}
         faqs={[
           {
-            question: `How quickly can I be seen for car accident injuries in ${c.displayName || c.name}?`,
-            answer: `We offer same-day appointments and welcome walk-ins at our ${c.displayName || c.name} location. Wait times are typically under 15 minutes for auto-injury visits. We prioritize accident-related injuries to ensure you receive prompt medical attention and documentation. No appointment is necessary, and we understand the urgency of getting evaluated within Florida's 14-day PIP window to protect your benefits.`
+            question: `How quickly can I be seen for car accident injuries in ${cityName}?`,
+            answer: `We offer same-day appointments and welcome walk-ins at our ${cityName} location. Wait times are typically under 15 minutes for auto-injury visits. We prioritize accident-related injuries to ensure you receive prompt medical attention and documentation. No appointment is necessary, and we understand the urgency of getting evaluated within Florida's 14-day PIP window to protect your benefits.`
           },
           {
             question: "What types of car accident injuries do you treat?",
-            answer: `We treat whiplash, back and neck pain, joint injuries, soft-tissue strains, minor fractures, contusions, cuts and scrapes, headaches, and concussion-like symptoms. Our ${c.displayName || c.name} location has onsite X-ray capabilities and can arrange MRI or CT referrals when needed. We provide comprehensive evaluation and treatment for most urgent care-level car accident injuries with same-day documentation.`
+            answer: `We treat whiplash, back and neck pain, joint injuries, soft-tissue strains, minor fractures, contusions, cuts and scrapes, headaches, and concussion-like symptoms. Our ${cityName} location has onsite X-ray capabilities and can arrange MRI or CT referrals when needed. We provide comprehensive evaluation and treatment for most urgent care-level car accident injuries with same-day documentation.`
           },
           {
             question: "Do you provide documentation for insurance claims?",
@@ -517,6 +558,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             question: "What should I bring to my exam?",
             answer:
               "Bring a photo ID, your insurance card, and any accident-related paperwork such as the claim number or police report, if available. If you have prior medical records related to this accident, bring those as well. We'll handle all the paperwork and documentation needed for your case."
+          },
+          {
+            question: `Is Primary UC open on weekends for car accident walk-ins in ${cityName}?`,
+            answer: `Yes. Our ${cityName} location is open Monday–Friday 9am–6pm and Saturday 9am–4pm, including weekends. Walk-ins for car accident injuries are welcome any day. No appointment is required, but calling ahead helps us prepare your visit and minimize wait time. Call us at ${c.phoneDisplay}.`
+          },
+          {
+            question: "What is Florida's 14-day rule and why does it matter for my accident claim?",
+            answer: `Florida's PIP law requires that you receive medical care within 14 days of your car accident to qualify for Personal Injury Protection benefits — up to $10,000 in coverage. If you wait longer than 14 days, you risk losing access to these benefits entirely. Our ${cityName} clinic is available same-day to ensure you meet this deadline and protect your claim. Call us at ${c.phoneDisplay} or walk in — no appointment needed.`
           }
         ]}
       />

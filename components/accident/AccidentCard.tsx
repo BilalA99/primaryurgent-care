@@ -30,7 +30,7 @@ const AccidentCard: React.FC<AccidentCardProps> = ({
   return (
     <Link href={href} className={`group block ${className}`}>
       <div className={`
-        relative p-4 sm:p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-full touch-manipulation w-full
+        relative p-4 sm:p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[1.02] h-full touch-manipulation w-full
         ${variantStyles[variant]}
       `}>
         {/* Icon */}

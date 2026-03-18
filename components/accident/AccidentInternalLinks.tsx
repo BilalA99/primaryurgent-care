@@ -63,6 +63,18 @@ const AccidentInternalLinks: React.FC = () => {
       href: '/car-accident/urgent-care-vs-er',
       icon: <Clock className="w-6 h-6" />,
       description: 'When to choose urgent care or emergency room'
+    },
+    {
+      title: 'Digital X-Ray',
+      href: '/emergency-room/digital-x-ray',
+      icon: <FileText className="w-6 h-6" />,
+      description: 'Onsite digital X-ray during your same-day visit'
+    },
+    {
+      title: '1.5T MRI',
+      href: '/services/1-5t-mri',
+      icon: <Shield className="w-6 h-6" />,
+      description: '1.5T MRI for comprehensive injury assessment'
     }
   ];
 
