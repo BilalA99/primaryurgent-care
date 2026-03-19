@@ -32,18 +32,18 @@ export default function FourteenDayBanner({ phoneHref, phoneDisplay }: FourteenD
   if (!visible) return null;
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-[#B91C1C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
+    <div className="sticky top-0 md:top-24 z-40 w-full bg-[#B91C1C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         {/* Icon + Text */}
         <div className="flex items-center gap-2 flex-1 min-w-0">
           <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 animate-pulse" />
           {/* Full text on md+ */}
           <p className="hidden md:block text-sm md:text-base font-bold leading-tight">
-            ⚠️ Florida 14-Day Rule: You must see a doctor within 14 days of your accident to protect up to $10,000 in PIP benefits.
+            Florida 14-Day Rule: You must see a doctor within 14 days of your accident to protect up to $10,000 in PIP benefits.
           </p>
           {/* Short text on mobile */}
           <p className="md:hidden text-sm font-bold leading-tight">
-            ⚠️ 14-Day Rule — Don&apos;t Wait.
+            14-Day Rule — Don&apos;t Wait.
           </p>
         </div>
 
