@@ -173,7 +173,7 @@ const EmergencyRoomJsonLd = () => (
             name: 'Lantana Primary & Urgent Care Center'
           }
         ],
-        telephone: '+1-561-223-80245',
+        telephone: '+1-561-223-8024',
         description: 'Hospital-level emergency care and walk-in ER alternative with advanced imaging, board-certified doctors, and affordable pricing. Less than 15 min wait. Serving Palm Beach County.'
       })
     }}

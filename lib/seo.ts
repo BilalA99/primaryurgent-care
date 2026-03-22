@@ -1,20 +1,26 @@
 import { BlogPost, BlogPostMeta } from '@/types/blog'
 
+/** Canonical site URL - use for all SEO signals (canonical, og:url, JSON-LD) */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://primaryuc.com'
+
 export function generateBlogPostMeta(post: BlogPost): BlogPostMeta {
-  const baseUrl = 'https://primaryuc.com'
+  // Always use SITE_URL for canonical to avoid mixed-domain issues (e.g. primaryurgentcare.com in CMS)
+  const canonical = `${SITE_URL.replace(/\/$/, '')}/blog/${post.slug}`
   
   return {
     title: post.meta_title || post.title,
     description: post.meta_description || post.summary,
     keywords: post.keywords || post.tags || [],
-    canonical: post.canonical_url || `${baseUrl}/blog/${post.slug}`,
-    ogImage: post.og_image_url || post.thumbnail_url || `${baseUrl}/doctorwithpatient.jpg`,
+    canonical,
+    ogImage: post.og_image_url || post.thumbnail_url || `${SITE_URL}/doctorwithpatient.jpg`,
     publishedTime: post.date_published,
     modifiedTime: post.updated_at,
     readingTime: post.reading_minutes,
     author: post.author_name || 'Primary UC Team'
   }
 }
+
+export { SITE_URL }
 
 export function generateBlogPostJsonLd(post: BlogPost) {
   const meta = generateBlogPostMeta(post)
@@ -98,6 +104,109 @@ export function generateMetaDescription(description: string, maxLength: number =
 
 export function toJsonLd(obj: Record<string, any>) {
   return { __html: JSON.stringify(obj) };
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+/**
+ * Build BreadcrumbList schema for structured data
+ */
+export function buildBreadcrumb(items: BreadcrumbItem[]) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url
+    }))
+  };
+}
+
+export interface ServiceSchemaInput {
+  name: string;
+  description?: string;
+  provider: string | { '@id': string };
+  areaServed: string | string[] | { '@type': string; name: string }[];
+  url: string;
+}
+
+/**
+ * Maps a plain-text area name to the correct schema.org type.
+ * Counties → AdministrativeArea, US states → State, cities → City.
+ */
+function areaNameToSchemaType(name: string): string {
+  if (/county/i.test(name)) return 'AdministrativeArea';
+  if (/^(florida|fl)$/i.test(name)) return 'State';
+  return 'City';
+}
+
+/**
+ * Build Service schema for car accident / medical services
+ */
+export function buildServiceSchema(input: ServiceSchemaInput) {
+  const areaServed = Array.isArray(input.areaServed)
+    ? input.areaServed.map((a) =>
+        typeof a === 'string' ? { '@type': areaNameToSchemaType(a), name: a } : a
+      )
+    : typeof input.areaServed === 'string'
+      ? [{ '@type': areaNameToSchemaType(input.areaServed), name: input.areaServed }]
+      : [input.areaServed];
+
+  return {
+    '@type': 'Service',
+    name: input.name,
+    ...(input.description && { description: input.description }),
+    url: input.url,
+    provider:
+      typeof input.provider === 'string'
+        ? { '@id': input.provider }
+        : input.provider,
+    areaServed
+  };
+}
+
+export interface ClinicSchemaInput {
+  name: string;
+  url: string;
+  address?: Record<string, string>;
+  telephone?: string;
+  geo?: { lat: number; lng: number };
+  openingHours?: string[];
+  /** @id of the global clinic network entity this location is a branch of */
+  branchOfId?: string;
+  /** @id of the parent Organization entity */
+  parentOrganizationId?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Build MedicalClinic schema with @id for entity linking.
+ * branchOfId maps to branchOf; parentOrganizationId maps to parentOrganization.
+ */
+export function buildClinicSchema(input: ClinicSchemaInput & { id?: string }) {
+  const { id, branchOfId, parentOrganizationId, ...rest } = input;
+  const schema: Record<string, unknown> = {
+    '@type': 'MedicalClinic',
+    ...rest
+  };
+  if (id) schema['@id'] = id;
+  if (branchOfId) schema['branchOf'] = { '@id': branchOfId };
+  if (parentOrganizationId) schema['parentOrganization'] = { '@id': parentOrganizationId };
+  return schema;
+}
+
+/**
+ * Build @graph schema combining multiple entities
+ */
+export function buildGraphSchema(entities: Record<string, unknown>[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': entities
+  };
 }
 
 /**

@@ -151,12 +151,6 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* Hide all iframes globally */
-iframe {
-  display: none !important;
-  visibility: hidden !important;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -309,5 +303,41 @@ iframe {
   
   .blog-content th {
     @apply bg-gray-100 font-semibold;
+  }
+}
+
+/* Car Accident Page Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .ca-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: caFadeUp 0.5s ease forwards;
+  }
+
+  .ca-fade-in {
+    opacity: 0;
+    animation: caFadeIn 0.4s ease forwards;
+  }
+
+  .ca-pulse-cta {
+    animation: caPulseCta 2s ease-in-out infinite;
+  }
+
+  .ca-stagger-1 { animation-delay: 100ms; }
+  .ca-stagger-2 { animation-delay: 200ms; }
+  .ca-stagger-3 { animation-delay: 300ms; }
+  .ca-stagger-4 { animation-delay: 400ms; }
+
+  @keyframes caFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes caFadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes caPulseCta {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(213, 33, 40, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(213, 33, 40, 0); }
   }
 }

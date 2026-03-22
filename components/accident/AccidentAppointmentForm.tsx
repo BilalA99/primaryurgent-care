@@ -10,6 +10,7 @@ interface AccidentAppointmentFormProps {
   noWrapper?: boolean;
   showHeader?: boolean;
   compact?: boolean;
+  city?: string; // city name for GTM tracking
 }
 
 const AccidentAppointmentForm: React.FC<AccidentAppointmentFormProps> = ({
@@ -19,14 +20,15 @@ const AccidentAppointmentForm: React.FC<AccidentAppointmentFormProps> = ({
   className = "",
   noWrapper = false,
   showHeader = true,
-  compact = false
+  compact = false,
+  city
 }) => {
   const formContent = (
-    <div className={`bg-white rounded-2xl shadow-lg border border-gray-200 ${compact ? 'p-2' : 'p-8'}`}>
+    <div className={compact ? '' : 'bg-white rounded-2xl shadow-lg border border-gray-200 p-8'}>
       {compact ? (
-        <CompactAccidentForm title={title} />
+        <CompactAccidentForm title={title} city={city} />
       ) : (
-        <BookAppointmentForm 
+        <BookAppointmentForm
           title={title}
           bgColor={bgColor}
           textColor={textColor}
@@ -52,12 +54,12 @@ const AccidentAppointmentForm: React.FC<AccidentAppointmentFormProps> = ({
               Schedule Your Car Accident Exam
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Get same-day evaluation and documentation for your car accident injuries. 
+              Get same-day evaluation and documentation for your car accident injuries.
               Book online or walk-in today.
             </p>
           </div>
         )}
-        
+
         {formContent}
       </div>
     </section>

@@ -38,7 +38,7 @@ export const metadata = {
         siteName: 'Primary & Urgent Care Centers',
         images: [
             {
-                url: '/appointment.png',
+                url: 'https://primaryuc.com/appointment.png',
                 width: 1200,
                 height: 630,
                 alt: 'Book Urgent Care Appointment Palm Beach',
@@ -51,7 +51,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
         description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
-        images: ['/appointment.png'],
+        images: ['https://primaryuc.com/appointment.png'],
         site: '@primaryurgentcare',
     },
     alternates: {

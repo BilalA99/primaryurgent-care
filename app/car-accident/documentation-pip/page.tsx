@@ -9,19 +9,19 @@ import FourteenDayBanner from "@/components/accident/FourteenDayBanner";
 import TrustBadges from "@/components/accident/TrustBadges";
 import AttorneyFriendlySection from "@/components/accident/AttorneyFriendlySection";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
-import { toJsonLd } from "@/lib/seo";
+import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
 
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Car Accident PIP Exam & Documentation | Palm Beach",
+  title: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
   description:
-    "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
   alternates: { canonical: `${baseUrl}/car-accident/documentation-pip` },
   openGraph: {
-    title: "Car Accident PIP Exam & Documentation | Palm Beach",
+    title: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
     description:
-      "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+      "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
     url: `${baseUrl}/car-accident/documentation-pip`,
     type: 'article',
     siteName: "Primary & Urgent Care Centers",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident PIP Exam & Documentation | Palm Beach",
-    description: "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    title: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
+    description: "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
     images: [`${baseUrl}/man-on-phone-next-to-open-hood.jpg`],
     site: '@primaryurgentcare',
   },
@@ -46,94 +46,42 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "Car Accident Injury Clinic", item: `${baseUrl}/car-accident-injury-clinic` },
-      { "@type": "ListItem", position: 3, name: "Documentation & PIP", item: `${baseUrl}/car-accident/documentation-pip` }
-    ]
-  };
+  const pageUrl = `${baseUrl}/car-accident/documentation-pip`;
+  const breadcrumb = buildBreadcrumb([
+    { name: "Home", url: baseUrl },
+    { name: "Car Accident Urgent Care", url: `${baseUrl}/car-accident-injury-clinic` },
+    { name: "Documentation & PIP", url: pageUrl }
+  ]);
 
-  const faq = {
-    "@context": "https://schema.org",
+  const serviceSchema = buildServiceSchema({
+    name: "Car accident PIP exam and documentation",
+    description: "Same-day medical records, visit summaries, insurance paperwork for PIP claims. Florida 14-day rule compliant.",
+    provider: "https://primaryuc.com/#clinic",
+    areaServed: ["Palm Beach County", "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana"],
+    url: pageUrl
+  });
+
+  const faqObj = {
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: "What documents do you provide after the visit?",
-        acceptedAnswer: { "@type": "Answer", text: "We provide detailed visit summaries, exam findings, diagnoses, imaging reports, treatment plans, and follow-up recommendations. All records are created in a format insurers and legal teams can easily review. Documentation includes comprehensive notes about your injuries, symptoms, and recommended treatment." }
+        name: "Do I need an attorney before I come in?",
+        acceptedAnswer: { "@type": "Answer", text: "No. You can come in for an exam and documentation whether or not you have an attorney. If you decide to work with one later, we can share records once you sign a release." }
       },
       {
         "@type": "Question",
-        name: "Do you coordinate with insurers or attorneys?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. We coordinate directly with insurance companies for PIP claims and can share records with attorneys when properly authorized. Our goal is to make the paperwork side of your case as smooth as possible. We handle billing, claim submission, and documentation requests efficiently." }
-      },
-      {
-        "@type": "Question",
-        name: "What is the Florida PIP 14-day rule?",
-        acceptedAnswer: { "@type": "Answer", text: "Florida's PIP law requires you to seek medical care within 14 days of a car accident to unlock PIP benefits. Waiting beyond this window can lead to denial of coverage for medical bills and related benefits. Early documentation creates a clear timeline that supports your claim and helps track your recovery." }
-      },
-      {
-        "@type": "Question",
-        name: "How quickly can I get my medical documentation?",
-        acceptedAnswer: { "@type": "Answer", text: "Most documentation is available the same day as your visit. You leave with a clear summary of your exam and treatment, and we store electronic records for future requests. All visit summaries, imaging reports, and treatment plans are prepared immediately and formatted for insurance and legal use." }
-      },
-      {
-        "@type": "Question",
-        name: "What documentation is included in the visit summary?",
-        acceptedAnswer: { "@type": "Answer", text: "Visit summaries include detailed exam findings, diagnosis, treatment recommendations, follow-up care instructions, and any restrictions or limitations. All summaries are formatted to meet insurance and legal documentation requirements." }
-      },
-      {
-        "@type": "Question",
-        name: "How do you coordinate with my insurance company?",
-        acceptedAnswer: { "@type": "Answer", text: "We handle all insurance coordination including billing, claim submission, and documentation requests. Our team works directly with PIP insurance companies to ensure proper processing of your claim and timely payment." }
-      },
-      {
-        "@type": "Question",
-        name: "Can you provide documentation for legal cases?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes, we provide comprehensive medical documentation suitable for legal cases including detailed exam findings, imaging reports, and treatment documentation. We work with attorneys and can provide additional documentation upon request with proper authorization." }
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to get medical records?",
-        acceptedAnswer: { "@type": "Answer", text: "Medical records and documentation are available immediately after your visit. We can provide copies of all records, imaging results, and treatment documentation on the same day as your evaluation." }
-      },
-      {
-        "@type": "Question",
-        name: "Do you provide follow-up documentation?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes, we provide ongoing documentation for follow-up visits, treatment progress, and any changes in your condition. We maintain comprehensive records throughout your treatment to support your PIP claim and legal case if needed." }
-      },
-      {
-        "@type": "Question",
-        name: "What specific PIP documentation do you provide?",
-        acceptedAnswer: { "@type": "Answer", text: "We provide comprehensive PIP documentation including medical reports, treatment plans, imaging results, visit summaries, and any additional documentation requested by your insurance company. All documentation meets Florida PIP requirements and legal standards." }
+        name: "Can you update documentation over time?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes. Follow-up visits generate updated records that show how your symptoms and function change over weeks or months. These can be important for ongoing claims." }
       }
     ]
   };
 
-  const pipProcedureSchema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalProcedure",
-    name: "PIP Exam and Medical Documentation",
-    description: "Comprehensive medical examination and documentation for Florida PIP insurance claims after car accidents. Includes exam findings, imaging results, treatment plans, and visit summaries.",
-    procedureType: "Diagnostic Evaluation and Documentation",
-    provider: {
-      "@type": "MedicalOrganization",
-      name: "Primary & Urgent Care Centers",
-      url: `${baseUrl}/car-accident/documentation-pip`
-    },
-    medicalSpecialty: "Emergency Medicine",
-    indication: "Car accident injury requiring medical evaluation and documentation for PIP insurance claims within Florida's 14-day requirement"
-  };
-
   const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Car Accident PIP Exam & Documentation | Palm Beach",
-    url: `${baseUrl}/car-accident/documentation-pip`,
-    description: "Car accident PIP exam and documentation in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    "@type": "MedicalWebPage",
+    name: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
+    url: pageUrl,
+    description: "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
     about: {
       "@type": "Service",
       name: "PIP Documentation Service"
@@ -146,12 +94,16 @@ export default function Page() {
     }
   };
 
+  const graphSchema = buildGraphSchema([
+    breadcrumb,
+    webPageSchema,
+    serviceSchema,
+    faqObj
+  ]);
+
   return (
     <main className="w-full min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(breadcrumb)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(pipProcedureSchema)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(faq)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(webPageSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
       
       {/* 14-Day Rule Warning Banner */}
       <FourteenDayBanner />

@@ -77,10 +77,11 @@ export async function GET() {
     ...accidentRoutes,
   ];
 
+  const lastmod = new Date().toISOString().split('T')[0];
   const urls = allRoutes.map(
     path => {
       const priority = accidentRoutes.includes(path) ? '0.9' : '0.8';
-      return `\n    <url>\n      <loc>${BASE_URL}${path}</loc>\n      <changefreq>weekly</changefreq>\n      <priority>${priority}</priority>\n    </url>`;
+      return `\n    <url>\n      <loc>${BASE_URL}${path}</loc>\n      <lastmod>${lastmod}</lastmod>\n      <changefreq>weekly</changefreq>\n      <priority>${priority}</priority>\n    </url>`;
     }
   ).join('');
 

@@ -3,58 +3,87 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { sendContactEmail, sendUserEmail } from '@/components/email/SendEmail';
 import { pushEnhancedConversion } from '@/lib/gtag';
-import { Shield, Clock, Lock } from 'lucide-react';
+import { getAttributionData } from '@/lib/gclid';
+import { Shield, Clock, FileText, Lock } from 'lucide-react';
 
 interface CompactAccidentFormProps {
   title: string;
+  city?: string; // city name for GTM tracking
 }
 
-const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
+const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    fullName: '',
     phone: '',
-    postalCode: '',
-    type: '',
-    message: ''
+    email: '',
+    preferredTime: ''
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     try {
-      // Combine first and last name for email functions
-      const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+      const attribution = getAttributionData();
+
+      // Fire GTM car_accident_form_submit event
+      try {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: 'car_accident_form_submit',
+          form_location: 'hero',
+          city: city || '',
+          page_type: 'car_accident_city'
+        });
+        // Also fire gtag generate_lead
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'generate_lead', {
+            event_category: 'car_accident',
+            event_label: city || ''
+          });
+        }
+      } catch {}
+
       await sendContactEmail({
-        name: fullName,
-        email: formData.email,
+        name: formData.fullName,
+        email: formData.email || 'noreply@unknown.com',
         phone: formData.phone,
-        reason: formData.message,
-        accidentType: formData.type
+        reason: formData.preferredTime ? `Preferred time: ${formData.preferredTime}` : '',
+        accidentType: 'car-accident'
       });
-      await sendUserEmail({
-        name: fullName,
-        email: formData.email,
-        phone: formData.phone
-      });
-      
-      // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
+
+      // Only send user confirmation email if email provided
+      if (formData.email) {
+        await sendUserEmail({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          reason: formData.preferredTime ? `Preferred time: ${formData.preferredTime}` : '',
+          accidentType: 'car-accident',
+          gclid: attribution.gclid,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content,
+        });
+      }
+
+      // Push enhanced conversion data
+      const nameParts = formData.fullName.trim().split(' ');
       pushEnhancedConversion({
         email: formData.email,
         phone: formData.phone,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        postalCode: formData.postalCode
+        firstName: nameParts[0] || '',
+        lastName: nameParts.slice(1).join(' ') || '',
+        postalCode: ''
       });
-      
-      setFormData({ firstName: '', lastName: '', email: '', phone: '', postalCode: '', type: '', message: '' });
+
+      setFormData({ fullName: '', phone: '', email: '', preferredTime: '' });
       window.location.href = '/thank-you';
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -68,121 +97,103 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title }) => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-4 w-full">
-      <h2 className="text-lg font-bold text-gray-900 mb-3">{title}</h2>
-      
+    <div className="w-full">
+      <h2 className="text-xl font-bold text-gray-900 mb-1">{title}</h2>
+      <p className="text-sm text-gray-600 mb-3">Most patients are seen in under 15 minutes.</p>
+
+      {/* Micro trust badges */}
+      <div className="flex flex-col gap-1.5 mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+        <div className="flex items-center gap-2 text-xs text-gray-700">
+          <Shield className="w-3.5 h-3.5 text-[#2563eb] flex-shrink-0" />
+          <span>PIP &amp; Auto Insurance Accepted</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-gray-700">
+          <Clock className="w-3.5 h-3.5 text-[#16A34A] flex-shrink-0" />
+          <span>Seen in Under 15 Minutes</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-gray-700">
+          <FileText className="w-3.5 h-3.5 text-[#D52128] flex-shrink-0" />
+          <span>Documentation Provided</span>
+        </div>
+      </div>
+
       <form onSubmit={handleSubmit} className="space-y-3">
-        <div className="flex gap-2">
-          <div className="flex-1">
-            <label className="text-sm font-medium text-gray-700 block mb-1">First Name</label>
-            <Input
-              type="text"
-              placeholder="First name"
-              value={formData.firstName}
-              onChange={(e) => handleChange('firstName', e.target.value)}
-              className="w-full h-9 text-sm px-3"
-              required
-            />
-          </div>
-
-          <div className="flex-1">
-            <label className="text-sm font-medium text-gray-700 block mb-1">Last Name</label>
-            <Input
-              type="text"
-              placeholder="Last name"
-              value={formData.lastName}
-              onChange={(e) => handleChange('lastName', e.target.value)}
-              className="w-full h-9 text-sm px-3"
-              required
-            />
-          </div>
-        </div>
-
+        {/* Field 1: Full Name */}
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">Email</label>
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={(e) => handleChange('email', e.target.value)}
-            className="w-full h-9 text-sm px-3"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">Phone</label>
-          <Input
-            type="tel"
-            placeholder="Enter your phone"
-            value={formData.phone}
-            onChange={(e) => handleChange('phone', e.target.value)}
-            className="w-full h-9 text-sm px-3"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">ZIP Code</label>
+          <label className="text-sm font-medium text-gray-700 block mb-1">Full Name</label>
           <Input
             type="text"
-            placeholder="Enter your ZIP code"
-            value={formData.postalCode}
-            onChange={(e) => handleChange('postalCode', e.target.value)}
-            className="w-full h-9 text-sm px-3"
+            placeholder="Your full name"
+            value={formData.fullName}
+            onChange={(e) => handleChange('fullName', e.target.value)}
+            className="w-full h-11 text-sm px-3"
+            autoComplete="name"
+            required
           />
         </div>
 
+        {/* Field 2: Phone */}
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">Accident Type</label>
-          <Select value={formData.type} onValueChange={(value) => handleChange('type', value)}>
-            <SelectTrigger className="w-full h-9 text-sm">
-              <SelectValue placeholder="Select accident type" />
+          <label className="text-sm font-medium text-gray-700 block mb-1">Phone Number</label>
+          <Input
+            type="tel"
+            placeholder="(561) 555-1234"
+            value={formData.phone}
+            onChange={(e) => handleChange('phone', e.target.value)}
+            className="w-full h-11 text-sm px-3"
+            autoComplete="tel"
+            inputMode="tel"
+            required
+          />
+        </div>
+
+        {/* Field 3: Email (optional) */}
+        <div>
+          <label className="text-sm font-medium text-gray-700 block mb-1">
+            Email <span className="text-gray-400 font-normal">(optional — for confirmation)</span>
+          </label>
+          <Input
+            type="email"
+            placeholder="you@email.com"
+            value={formData.email}
+            onChange={(e) => handleChange('email', e.target.value)}
+            className="w-full h-11 text-sm px-3"
+            autoComplete="email"
+          />
+        </div>
+
+        {/* Field 4: Preferred Time */}
+        <div>
+          <label className="text-sm font-medium text-gray-700 block mb-1">Preferred Visit Time</label>
+          <Select value={formData.preferredTime} onValueChange={(value) => handleChange('preferredTime', value)}>
+            <SelectTrigger className="w-full h-11 text-sm">
+              <SelectValue placeholder="When works best?" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="car-accident">Car Accident</SelectItem>
-              <SelectItem value="motorcycle-accident">Motorcycle Accident</SelectItem>
-              <SelectItem value="truck-accident">Truck Accident</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+              <SelectItem value="asap">ASAP / Today</SelectItem>
+              <SelectItem value="this-week">This Week</SelectItem>
+              <SelectItem value="weekend">Weekend</SelectItem>
+              <SelectItem value="morning">Morning (9am–12pm)</SelectItem>
+              <SelectItem value="afternoon">Afternoon (12pm–4pm)</SelectItem>
+              <SelectItem value="evening">Evening (4pm–6pm)</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">Message</label>
-          <Textarea
-            placeholder="Describe your injuries or concerns"
-            value={formData.message}
-            onChange={(e) => handleChange('message', e.target.value)}
-            className="w-full h-16 text-sm px-3 resize-none"
-            required
-          />
-        </div>
+        {/* Privacy microcopy */}
+        <p className="text-xs text-gray-500 flex items-center gap-1">
+          <Lock className="w-3 h-3 flex-shrink-0" />
+          No spam. We&apos;ll only contact you to confirm your visit.
+        </p>
 
         <Button
           type="submit"
           disabled={isLoading}
-          className="w-full h-9 bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-sm font-medium"
+          className="w-full h-12 bg-[#D52128] hover:bg-[#b81b22] active:bg-[#9a1520] text-white text-base font-bold rounded-xl shadow-lg touch-manipulation"
         >
-          {isLoading ? 'Submitting...' : 'Book Appointment'}
+          {isLoading ? 'Submitting...' : 'Book My Car Accident Exam →'}
         </Button>
       </form>
-
-      {/* Trust Indicators */}
-      <div className="mt-4 space-y-2 pt-3 border-t border-gray-200">
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <Clock className="w-4 h-4 text-[#16A34A]" />
-          <span>Takes &lt;60 seconds</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <Lock className="w-4 h-4 text-[#2563eb]" />
-          <span>Your information is secure and private</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <Shield className="w-4 h-4 text-[#16A34A]" />
-          <span>No spam, we respect your privacy</span>
-        </div>
-      </div>
     </div>
   );
 };
