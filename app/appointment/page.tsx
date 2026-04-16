@@ -15,8 +15,8 @@ import Link from 'next/link';
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup';
 
 export const metadata = {
-    title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
-    description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
+    title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | PrimaryUC',
+    description: 'Book a car accident exam or walk-in visit at Palm Beach County urgent care. Same-day PIP documentation, X-ray & injury care. 4 locations.',
     keywords: [
         'urgent care appointment',
         'book urgent care',
@@ -32,8 +32,8 @@ export const metadata = {
         'online urgent care booking'
     ].join(', '),
     openGraph: {
-        title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
-        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
+        title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | PrimaryUC',
+        description: 'Book a car accident exam or walk-in visit at Palm Beach County urgent care. Same-day PIP documentation, X-ray & injury care. 4 locations.',
         url: 'https://primaryuc.com/appointment',
         siteName: 'Primary & Urgent Care Centers',
         images: [
@@ -49,8 +49,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
-        description: 'Book car accident exam or walk-in to Palm Beach County urgent care. Same-day PIP documentation, X-ray, injury care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd clinics.',
+        title: 'Book Car Accident Exam Palm Beach | Same-Day PIP | PrimaryUC',
+        description: 'Book a car accident exam or walk-in visit at Palm Beach County urgent care. Same-day PIP documentation, X-ray & injury care. 4 locations.',
         images: ['https://primaryuc.com/appointment.png'],
         site: '@primaryurgentcare',
     },
@@ -67,81 +67,29 @@ const AppointmentPage = () => {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'MedicalClinic',
-            name: 'Primary & Urgent Care Centers of Palm Beach County',
-            url: 'https://primaryuc.com/appointment',
-            image: 'https://primaryuc.com/appointment.png',
-            description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted.',
-            areaServed: [
+            '@graph': [
               {
-                '@type': 'AdministrativeArea',
-                name: 'Royal Palm Beach, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Lake Worth, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Palm Springs, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Lake Worth Beach, FL'
-              },
-              {
-                '@type': 'AdministrativeArea',
-                name: 'Palm Beach County, FL'
-              }
-            ],
-            medicalSpecialty: [
-              'UrgentCare',
-              'PrimaryCare',
-              'EmergencyCare',
-              'DiagnosticImaging',
-              'InjuryCare',
-              'PediatricCare'
-            ],
-            availableService: [
-              'Same-day Appointments',
-              'Walk-in Urgent Care',
-              'Online Booking',
-              'Fast Check-in',
-              'Short Wait Times',
-              'Insurance Accepted',
-              'Self-pay Options',
-              'Hospital-level Care',
-              'Advanced Imaging',
-              'On-site Lab Testing'
-            ],
-            openingHours: [
-              'Mo-Fr 09:00-18:00',
-              'Sa 09:00-16:00'
-            ],
-            priceRange: '$$',
-            telephone: '+1-561-223-8024',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Palm Beach County',
-              addressRegion: 'FL',
-              addressCountry: 'US'
-            },
-            potentialAction: {
-              '@type': 'ReserveAction',
-              target: {
-                '@type': 'EntryPoint',
-                urlTemplate: 'https://primaryuc.com/appointment',
+                '@type': 'WebPage',
+                '@id': 'https://primaryuc.com/appointment#webpage',
+                url: 'https://primaryuc.com/appointment',
+                name: 'Book Car Accident Exam Palm Beach | Same-Day PIP | Primary & Urgent Care',
+                description: 'Schedule a same-day urgent care appointment or walk in to any of our Palm Beach County clinics. Fast check-in, short wait times, most insurance accepted.',
+                about: { '@id': 'https://primaryuc.com/#clinic' },
                 inLanguage: 'en-US',
-                actionPlatform: [
-                  'http://schema.org/DesktopWebPlatform',
-                  'http://schema.org/MobileWebPlatform'
-                ]
-              },
-              result: {
-                '@type': 'MedicalClinic',
-                name: 'Primary & Urgent Care Centers'
+                potentialAction: {
+                  '@type': 'ReserveAction',
+                  target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: 'https://primaryuc.com/appointment',
+                    inLanguage: 'en-US',
+                    actionPlatform: [
+                      'http://schema.org/DesktopWebPlatform',
+                      'http://schema.org/MobileWebPlatform'
+                    ]
+                  }
+                }
               }
-            }
+            ]
           })
         }}
       />

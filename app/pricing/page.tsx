@@ -16,8 +16,8 @@ import {
 import { Button } from '@/components/ui/button'
 
 export const metadata = {
-  title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
-  description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
+  title: 'Urgent Care Pricing Palm Beach | X-Ray $70 | PIP Accepted',
+  description: 'Urgent care pricing in Palm Beach County. X-ray $70, office visit $89.99. PIP accepted, no surprise bills. 4 walk-in locations.',
   keywords: [
     'urgent care pricing',
     'urgent care cost',
@@ -42,8 +42,8 @@ export const metadata = {
     'Lantana / Jog Rd'
   ],
   openGraph: {
-    title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
-    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
+    title: 'Urgent Care Pricing Palm Beach | X-Ray $70 | PIP Accepted',
+    description: 'Urgent care pricing in Palm Beach County. X-ray $70, office visit $89.99. PIP accepted, no surprise bills. 4 walk-in locations.',
     url: 'https://primaryuc.com/pricing',
     type: 'website',
     images: [
@@ -57,8 +57,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Urgent Care Pricing Palm Beach | Car Accident X-Ray $70 | PIP Accepted',
-    description: 'Urgent care pricing Palm Beach County. Car accident X-ray $70, office visit $89.99. PIP insurance accepted. No surprise bills. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
+    title: 'Urgent Care Pricing Palm Beach | X-Ray $70 | PIP Accepted',
+    description: 'Urgent care pricing in Palm Beach County. X-ray $70, office visit $89.99. PIP accepted, no surprise bills. 4 walk-in locations.',
     images: ['https://primaryuc.com/insurance.jpg'],
   },
   alternates: {

@@ -17,14 +17,14 @@ import PainCareWeTreat from '@/components/paincarewetreat'
 import Testimonials from '@/components/testimonials'
 
 export const metadata = {
-  title: "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
-  description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
+  title: "Pain Management & Car Accident Care Palm Beach | PrimaryUC",
+  description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day back, neck & joint care. Suboxone MAT. Walk-ins welcome.",
   keywords: [
     "Suboxone treatment Palm Beach", "Suboxone clinic near me", "Suboxone doctor in Palm Beach County", "urgent care Suboxone clinic", "medication-assisted treatment MAT", "opioid detox urgent care", "walk-in Suboxone treatment Royal Palm Beach", "same-day Suboxone appointment Lake Worth", "affordable Suboxone program West Palm Beach", "buprenorphine treatment near me", "outpatient opioid treatment Florida", "pain management clinic Palm Beach", "chronic pain urgent care", "pain management specialist Royal Palm Beach"
   ],
   openGraph: {
-    title: "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
-    description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
+    title: "Pain Management & Car Accident Care Palm Beach | PrimaryUC",
+    description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day back, neck & joint care. Suboxone MAT. Walk-ins welcome.",
     url: "https://primaryuc.com/pain-management-care",
     images: [
       { url: "https://primaryuc.com/painmanage.jpg", width: 1200, height: 630, alt: "Suboxone Treatment & Pain Management Clinic" }
@@ -33,8 +33,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
-    description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
+    title: "Pain Management & Car Accident Care Palm Beach | PrimaryUC",
+    description: "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day back, neck & joint care. Suboxone MAT. Walk-ins welcome.",
     images: [
       { url: "https://primaryuc.com/painmanage.jpg", alt: "Suboxone Treatment & Pain Management Clinic" }
     ]
@@ -56,74 +56,25 @@ function PainManagementJsonLd() {
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "MedicalClinic",
-          "name": "Primary & Urgent Care Centers of Palm Beach County",
-          "description": "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd.",
-          "url": "https://primaryuc.com/pain-management-program",
-          "image": "https://primaryuc.com/painmanage.jpg",
-          "telephone": "+1-561-223-8024",
-          "address": [
+          "@graph": [
             {
-              '@type': 'PostalAddress',
-              streetAddress: '11476 Okeechobee Blvd',
-              addressLocality: 'Royal Palm Beach',
-              addressRegion: 'FL',
-              postalCode: '33411',
-              addressCountry: 'US',
-              name: 'Royal Palm Beach Primary & Urgent Care Center'
+              "@type": "MedicalWebPage",
+              "@id": "https://primaryuc.com/pain-management-care#webpage",
+              "url": "https://primaryuc.com/pain-management-care",
+              "name": "Pain Management & Car Accident Care Palm Beach | Primary & Urgent Care",
+              "description": "Pain management for car accident injuries & chronic pain in Palm Beach County. Same-day care for back, neck, joint pain. Also: Suboxone MAT. Walk-ins welcome.",
+              "about": { "@id": "https://primaryuc.com/#clinic" },
+              "inLanguage": "en-US"
             },
             {
-              '@type': 'PostalAddress',
-              streetAddress: '6447 Lake Worth Rd',
-              addressLocality: 'Lake Worth Beach',
-              addressRegion: 'FL',
-              postalCode: '33463',
-              addressCountry: 'US',
-              name: 'Lake Worth Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '3460 S Congress Ave',
-              addressLocality: 'Palm Springs',
-              addressRegion: 'FL',
-              postalCode: '33461',
-              addressCountry: 'US',
-              name: 'Palm Springs Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '6169 Jog Rd Unit 4B',
-              addressLocality: 'Lake Worth Beach',
-              addressRegion: 'FL',
-              postalCode: '33463',
-              addressCountry: 'US',
-              name: 'Lantana Primary & Urgent Care Center'
-            }
-          ],
-          "areaServed": [
-            "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana", "Palm Beach County"
-          ],
-          "medicalSpecialty": [
-            "Pain Management", "Suboxone Treatment", "Medication-Assisted Treatment", "Opioid Detox", "Chronic Pain", "MAT Clinic"
-          ],
-          "availableService": [
-            "Suboxone (buprenorphine/naloxone) treatment",
-            "Medication-assisted therapy (MAT)",
-            "Opioid detox and withdrawal management",
-            "Chronic pain management",
-            "Integrative pain therapies",
-            "Same-day and walk-in appointments",
-            "Confidential addiction treatment"
-          ],
-          "priceRange": "$299 initial Suboxone visit, most insurance accepted",
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-              ],
-              "opens": "08:00",
-              "closes": "20:00"
+              "@type": "Service",
+              "@id": "https://primaryuc.com/pain-management-care#service",
+              "name": "Pain Management & Suboxone Treatment",
+              "description": "Confidential, same-day Suboxone treatment and holistic pain management. Walk-in MAT clinic for opioid detox, chronic pain, and medication-assisted therapy.",
+              "url": "https://primaryuc.com/pain-management-care",
+              "provider": { "@id": "https://primaryuc.com/#clinic" },
+              "areaServed": { "@type": "AdministrativeArea", "name": "Palm Beach County, FL" },
+              "serviceType": "Pain Management"
             }
           ]
         })

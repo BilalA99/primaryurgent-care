@@ -21,6 +21,7 @@ export function GET() {
       'Disallow: /*.webp$',
       'Disallow: /*.ico$',
       '',
+      'Sitemap: https://primaryuc.com/sitemap-index.xml',
       'Sitemap: https://primaryuc.com/sitemap.xml',
       'Sitemap: https://primaryuc.com/sitemap-blog.xml',
     ].join('\n'),

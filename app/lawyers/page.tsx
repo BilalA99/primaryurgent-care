@@ -28,7 +28,7 @@ export const metadata = {
     "accident injury records Palm Beach"
   ],
   openGraph: {
-    title: "Legal Records Request for Attorneys | Auto Accident & Personal Injury Medical Records Palm Beach County",
+    title: "Medical Records for PI Attorneys | Auto Accident | PrimaryUC",
     description:
       "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County.",
     url: "https://primaryuc.com/lawyers",
@@ -44,7 +44,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Legal Records Request for Attorneys | Auto Accident & Personal Injury Medical Records Palm Beach County",
+    title: "Medical Records for PI Attorneys | Auto Accident | PrimaryUC",
     description:
       "Request urgent care medical records for auto accident, PIP, and personal injury cases. Fast, HIPAA-compliant legal records for attorneys and law firms in Palm Beach County.",
     images: [
@@ -77,50 +77,7 @@ const LawyersJsonLd = () => (
           'PIP 14-Day Rule Records',
           'HIPAA-Compliant Legal Records'
         ],
-        provider: {
-          '@type': 'MedicalClinic',
-          name: 'Primary & Urgent Care Centers of Palm Beach County',
-          url: 'https://primaryuc.com',
-          address: [
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '11476 Okeechobee Blvd',
-              addressLocality: 'Royal Palm Beach',
-              addressRegion: 'FL',
-              postalCode: '33411',
-              addressCountry: 'US',
-              name: 'Royal Palm Beach Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '6447 Lake Worth Rd',
-              addressLocality: 'Lake Worth Beach',
-              addressRegion: 'FL',
-              postalCode: '33463',
-              addressCountry: 'US',
-              name: 'Lake Worth Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '3460 S Congress Ave',
-              addressLocality: 'Palm Springs',
-              addressRegion: 'FL',
-              postalCode: '33461',
-              addressCountry: 'US',
-              name: 'Palm Springs Primary & Urgent Care Center'
-            },
-            {
-              '@type': 'PostalAddress',
-              streetAddress: '6169 Jog Rd Unit 4B',
-              addressLocality: 'Lake Worth Beach',
-              addressRegion: 'FL',
-              postalCode: '33463',
-              addressCountry: 'US',
-              name: 'Lantana Primary & Urgent Care Center'
-            }
-          ],
-          telephone: '+1-561-223-8024'
-        },
+        provider: { '@id': 'https://primaryuc.com/#clinic' },
         audience: [
           {
             '@type': 'Audience',

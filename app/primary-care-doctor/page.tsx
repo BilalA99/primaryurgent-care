@@ -97,8 +97,8 @@ const visitSteps = [
 ];
 
 export const metadata = {
-        title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
-        description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
+        title: "Primary Care & Car Accident Follow-Up Palm Beach | PrimaryUC",
+        description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals & car accident follow-up. Walk-in or book online. 4 locations.",
     keywords: [
         "primary care doctor",
         "family medicine",
@@ -117,8 +117,8 @@ export const metadata = {
         follow: true,
     },
         openGraph: {
-            title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
-            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
+            title: "Primary Care & Car Accident Follow-Up Palm Beach | PrimaryUC",
+            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals & car accident follow-up. Walk-in or book online. 4 locations.",
         url: "https://primaryuc.com/primary-care-doctor",
         type: "website",
         images: [
@@ -127,84 +127,41 @@ export const metadata = {
     },
         twitter: {
             card: "summary_large_image",
-            title: "Primary Care & Car Accident Follow-Up Palm Beach | Primary & Urgent Care",
-            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals, car accident follow-up. Walk-in or book online. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
+            title: "Primary Care & Car Accident Follow-Up Palm Beach | PrimaryUC",
+            description: "Primary care doctor in Palm Beach County. Sick visits, checkups, physicals & car accident follow-up. Walk-in or book online. 4 locations.",
         images: ["https://primaryuc.com/doctorwithpatient.jpg"],
         site: "@primaryuc"
     }
 };
 
 export default function PrimaryCareDoctorPage() {
-    // Structured data for primary care doctor page
+    // Structured data for primary care doctor hub page
     const PrimaryCareJsonLd = () => (
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
                     '@context': 'https://schema.org',
-                    '@type': 'MedicalClinic',
-                    name: 'Primary & Urgent Care Centers of Palm Beach County',
-                    url: 'https://primaryuc.com/primary-care-doctor',
-                    image: 'https://primaryuc.com/doctorwithpatient.jpg',
-                    description: 'See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.',
-                    areaServed: [
+                    '@graph': [
                         {
-                            '@type': 'AdministrativeArea',
-                            name: 'Royal Palm Beach, FL'
+                            '@type': 'MedicalWebPage',
+                            '@id': 'https://primaryuc.com/primary-care-doctor#webpage',
+                            url: 'https://primaryuc.com/primary-care-doctor',
+                            name: 'Primary Care Doctor Palm Beach | Walk-In & Same-Day | PrimaryUC',
+                            description: 'See a primary care doctor for sick visits, checkups, physicals, and preventive care. Walk in or book online at our Palm Beach County urgent care and family medicine clinic.',
+                            about: { '@id': 'https://primaryuc.com/#clinic' },
+                            inLanguage: 'en-US'
                         },
                         {
-                            '@type': 'AdministrativeArea',
-                            name: 'Lake Worth, FL'
-                        },
-                        {
-                            '@type': 'AdministrativeArea',
-                            name: 'Palm Springs, FL'
-                        },
-                        {
-                            '@type': 'AdministrativeArea',
-                            name: 'Lake Worth Beach, FL'
-                        },
-                        {
-                            '@type': 'AdministrativeArea',
-                            name: 'Palm Beach County, FL'
+                            '@type': 'Service',
+                            '@id': 'https://primaryuc.com/primary-care-doctor#service',
+                            name: 'Primary Care Services',
+                            description: 'Comprehensive primary care including sick visits, physicals, preventive care, chronic disease management, and pediatric care.',
+                            url: 'https://primaryuc.com/primary-care-doctor',
+                            provider: { '@id': 'https://primaryuc.com/#clinic' },
+                            areaServed: { '@type': 'AdministrativeArea', name: 'Palm Beach County, FL' }
                         }
-                    ],
-                    medicalSpecialty: [
-                        'PrimaryCare',
-                        'FamilyMedicine',
-                        'PediatricCare',
-                        'PreventiveCare',
-                        'ChronicDiseaseManagement',
-                        'WomenHealth',
-                        'MensHealth'
-                    ],
-                    availableService: [
-                        'Sick Visits',
-                        'Fever & Cough Treatment',
-                        'Preventive Care',
-                        'Annual Physicals',
-                        'Chronic Disease Management',
-                        'Women\'s & Men\'s Health',
-                        'Pediatric Care',
-                        'Vaccinations',
-                        'Same-Day Appointments',
-                        'Walk-in Availability',
-                        'Family Medicine',
-                        'Wellness Exams',
-                        'Health Screenings'
-                    ],
-                    openingHours: [
-                        'Mo-Fr 09:00-18:00',
-                        'Sa 09:00-16:00'
-                    ],
-                    priceRange: '$$',
-                    telephone: '+1-561-223-8024',
-                    address: {
-                        '@type': 'PostalAddress',
-                        addressLocality: 'Palm Beach County',
-                        addressRegion: 'FL',
-                        addressCountry: 'US'
-                    }
+                    ]
                 })
             }}
         />

@@ -12,6 +12,12 @@ export interface ConditionInfoProp {
     metaTitle?: string;
     metaDescription?: string;
     keywords?: string[];
+    carAccidentContext?: {
+        intro: string;
+        commonCauses: string[];
+        pipNote: string;
+        whyUs: string;
+    };
 }
 export const conditions: ConditionInfoProp[] = [
     {
@@ -160,9 +166,22 @@ export const conditions: ConditionInfoProp[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to sprain and strain treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment. Our providers are experienced in managing soft tissue injuries and can provide appropriate rehabilitation guidance.",
         slug: "sprains-strains",
         img: '/strainsprain.png',
-        metaTitle: "Sprains & Strains - Urgent Care Palm Beach County",
-        metaDescription: "Learn about sprains and strains, common soft tissue injuries that require immediate medical attention and proper evaluation and treatment.",
-        keywords: ["sprains", "strains", "soft tissue injuries", "urgent care", "Palm Beach County"]
+        metaTitle: "Sprains & Strains After Car Accident | Urgent Care Palm Beach",
+        metaDescription: "Sprain or strain after a car accident in Palm Beach County? Get same-day evaluation, X-ray, and PIP documentation. Walk-in urgent care — no appointment needed.",
+        keywords: ["sprains after car accident", "strains car accident", "soft tissue injuries PIP", "car accident urgent care", "urgent care Palm Beach County"],
+        carAccidentContext: {
+            intro: "Sprains and strains are among the most common injuries sustained in car accidents. The sudden, violent forces of a collision — even at low speeds — can overstretch or tear the ligaments and muscles supporting your neck, back, shoulders, and knees. Rear-end collisions frequently cause cervical (neck) sprains through the whiplash mechanism, while T-bone and head-on crashes may strain the lumbar spine, hip flexors, and knee ligaments. Seat belt restraint, though life-saving, can itself cause chest, shoulder, and abdominal muscle strains from the restraining force during impact.",
+            commonCauses: [
+                "Rear-end collision whiplash causing cervical ligament sprains",
+                "Lumbar spine strain from violent seat compression during impact",
+                "Shoulder and rotator-cuff strain from bracing the steering wheel",
+                "Knee ligament sprains from dashboard contact in frontal crashes",
+                "Seat belt-induced chest and abdominal muscle strains",
+                "Ankle and foot sprains from braking force or footwell impact"
+            ],
+            pipNote: "Florida's Personal Injury Protection (PIP) law requires you to seek medical care within 14 days of your accident to qualify for insurance coverage. Our board-certified providers document your sprains and strains in SOAP-format medical records that attorneys and insurance adjusters recognize. We generate visit summaries, imaging reports, and narrative letters of necessity — everything your PIP claim requires.",
+            whyUs: "We offer same-day walk-in evaluation with on-site digital X-ray to rule out associated fractures. Our providers have documented thousands of accident-related soft-tissue injuries for PIP and personal injury claims across Palm Beach County. No appointment needed — walk in to any of our 4 locations in Royal Palm Beach, Lake Worth, Palm Springs, or Lantana / Jog Rd."
+        }
     },
     {
         title: "Contusions & Soft-Tissue Swelling",
@@ -190,9 +209,22 @@ export const conditions: ConditionInfoProp[] = [
         urgentCareAdvantage: "Our urgent care centers provide convenient access to wound care and suturing services without the need for appointments. We can provide immediate treatment and arrange appropriate follow-up care. Our providers are experienced in wound management and can provide appropriate referrals when needed.",
         slug: "cuts-lacerations-stitches",
         img: '/cuts.png',
-        metaTitle: "Cuts, Lacerations & Stitches - Urgent Care Palm Beach County",
-        metaDescription: "Learn about cuts and lacerations, common injuries that require immediate medical attention and proper wound care and suturing services.",
-        keywords: ["cuts", "lacerations", "stitches", "urgent care", "Palm Beach County"]
+        metaTitle: "Cuts & Lacerations After Car Accident | Stitches Palm Beach",
+        metaDescription: "Cut or laceration from a car accident in Palm Beach County? Same-day wound care, suturing, and PIP documentation. Walk-in urgent care — no appointment needed.",
+        keywords: ["cuts after car accident", "lacerations car accident", "car accident stitches Palm Beach", "wound care urgent care", "PIP documentation Palm Beach"],
+        carAccidentContext: {
+            intro: "Car accidents are a leading cause of lacerations and cuts requiring immediate medical attention. Broken glass, deployed airbags, metal edges, and flying debris all create laceration hazards during a crash. Even a minor side-impact can shatter a window, sending glass fragments into the driver or passenger's face, arms, and hands. Airbag deployment — while life-saving — delivers significant force and abrasion, frequently causing facial lacerations and burns. Lacerations sustained in car accidents must be evaluated and documented by a medical provider even if they appear minor: infection risk, nerve involvement, and tendon damage are common complications that require professional assessment.",
+            commonCauses: [
+                "Facial lacerations from airbag deployment or shattered windshield",
+                "Arm and hand cuts from broken side or rear windows",
+                "Forehead or scalp lacerations from striking the steering wheel or headrest",
+                "Knee and shin cuts from dashboard contact in frontal collisions",
+                "Glass-fragment puncture wounds in the scalp, neck, and shoulders",
+                "Road rash-style abrasions after motorcyclist or pedestrian accidents"
+            ],
+            pipNote: "Florida PIP requires medical evaluation within 14 days of your accident to preserve your coverage. Our providers generate HIPAA-compliant medical records including wound assessment notes, treatment documentation, and follow-up care plans for stitches and wound management — all formatted for PIP and personal injury claims. Laceration care at urgent care is typically covered under your PIP policy with no out-of-pocket cost when PIP is active.",
+            whyUs: "Our urgent care centers provide immediate laceration repair, suturing, and wound care with on-site supplies — no ER wait required. Providers assess laceration depth, contamination, and nerve or tendon involvement and create a complete record for your PIP claim. Available same day at our Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd locations — walk in or book online."
+        }
     },
     {
         title: "Eye & Ear Injuries",
@@ -220,9 +252,23 @@ export const conditions: ConditionInfoProp[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to fracture and dislocation treatment without the long waits of emergency rooms. We can perform diagnostic imaging on-site and provide same-day treatment. Our providers are experienced in managing these injuries and can arrange appropriate specialist referrals.",
         slug: "fractures-dislocations",
         img: '/fractures.png',
-        metaTitle: "Fractures & Dislocations - Urgent Care Palm Beach County",
-        metaDescription: "Learn about bone fractures and joint dislocations and how our urgent care centers can provide expert care for these injuries.",
-        keywords: ["fractures", "dislocations", "bone injuries", "urgent care", "Palm Beach County"]
+        metaTitle: "Fractures & Dislocations After Car Accident | Palm Beach UC",
+        metaDescription: "Fracture or dislocation from a car accident in Palm Beach County? Same-day X-ray, diagnosis, and PIP documentation. Walk-in urgent care — no appointment needed.",
+        keywords: ["fracture after car accident", "dislocation car accident", "car accident X-ray Palm Beach", "broken bone PIP", "urgent care fracture Palm Beach County"],
+        carAccidentContext: {
+            intro: "Fractures and dislocations are among the most serious orthopedic injuries that result from car accidents. The tremendous impact forces in a collision — even at relatively moderate speeds — can fracture the clavicle (collarbone), ribs, wrists, ankles, and vertebrae, while simultaneously dislocating shoulders, knees, or hips. Wrist fractures are especially common in frontal and rear-end crashes, as drivers instinctively grip the steering wheel and extend their arms to brace for impact. Shoulder dislocations frequently result from seat belt loading or side-impact airbag deployment. Rib fractures are a signature injury of high-force frontal collisions, where the chest contacts the steering wheel or the seat belt loads the chest wall. Many of these fractures have no visible deformity and are only detectable by imaging — making an urgent care evaluation with on-site X-ray critical after any accident.",
+            commonCauses: [
+                "Wrist and hand fractures from gripping the steering wheel during impact",
+                "Clavicle fractures from seat belt restraint loading in frontal crashes",
+                "Rib fractures from steering wheel or chest contact and seat belt force",
+                "Shoulder dislocations from airbag deployment or side-impact force",
+                "Ankle and foot fractures from footwell compression in frontal collisions",
+                "Vertebral fractures from axial compression in rear-end or rollover crashes",
+                "Knee dislocations from dashboard contact in high-energy frontal crashes"
+            ],
+            pipNote: "Florida's 14-day PIP rule is especially critical for fractures and dislocations: delayed diagnosis often leads to improper healing, and a late evaluation can disqualify your entire PIP claim. Our providers perform on-site digital X-rays, document fracture type and severity in SOAP notes, create injury narratives for attorneys, and generate the referral documentation you need for orthopedic specialist follow-up — all in a single visit.",
+            whyUs: "We offer same-day digital X-ray at all 4 locations, allowing immediate fracture confirmation and documentation without an emergency room visit. Our board-certified providers are experienced in accident-related orthopedic injury evaluation and generate complete PIP-ready records. If specialist referral or cast/splint application is needed, we coordinate on the same day. Walk in to Royal Palm Beach, Lake Worth, Palm Springs, or Lantana / Jog Rd."
+        }
     },
     {
         title: "Athletic Injuries",
@@ -355,9 +401,23 @@ export const conditions: ConditionInfoProp[] = [
         urgentCareAdvantage: "Our urgent care centers provide immediate access to evaluation and diagnostic imaging for tendon and ligament injuries without the long waits of emergency rooms. We can perform advanced imaging studies on-site and provide immediate stabilization while arranging appropriate specialist referrals. Our providers are experienced in managing these specialized injuries and can provide appropriate care coordination.",
         slug: "tendon-ligament-tears",
         img: '/tendon.png',
-        metaTitle: "Tendon & Ligament Tears - Urgent Care Palm Beach County",
-        metaDescription: "Learn about tendon and ligament tears and how our urgent care centers can provide advanced diagnostics and specialized care for these injuries.",
-        keywords: ["tendon tears", "ligament tears", "urgent care", "Palm Beach County"]
+        metaTitle: "Tendon & Ligament Tears After Car Accident | Palm Beach UC",
+        metaDescription: "ACL, MCL, or Achilles tear from a car accident in Palm Beach County? Same-day evaluation, MRI referral, and PIP documentation. Walk-in urgent care.",
+        keywords: ["ACL tear car accident", "ligament tear PIP", "tendon injury car accident Palm Beach", "knee ligament damage urgent care", "car accident MRI Palm Beach"],
+        carAccidentContext: {
+            intro: "Tendon and ligament tears are frequently caused by the sudden, high-force movements of a car accident. Unlike sports injuries that follow predictable motion patterns, crash-related ligament damage often results from unusual, multi-directional forces applied to joints that were unprepared for the impact. The ACL and MCL of the knee are vulnerable when the knee contacts the dashboard in a frontal crash. The Achilles tendon can rupture under the sudden dorsiflexion load imposed on a braced foot. Shoulder tendons and ligaments — particularly the rotator cuff and AC joint — are commonly torn when the driver braces against the steering wheel, is struck by a side airbag, or is thrown against the door in a T-bone collision. These injuries are frequently underdiagnosed in the immediate post-crash period because swelling and adrenaline mask the pain. A thorough examination by a medical provider within Florida's 14-day window is essential to preserve your PIP claim and catch these injuries before they worsen.",
+            commonCauses: [
+                "ACL tears from knee-dashboard contact in frontal and rear-end crashes",
+                "MCL tears from lateral knee impact or twisting during a T-bone collision",
+                "Achilles tendon rupture from sudden braking with a locked, dorsiflexed foot",
+                "Rotator cuff tears from bracing against the steering wheel or airbag deployment",
+                "AC (acromioclavicular) joint ligament tears from shoulder belt loading",
+                "Patellar tendon strain from quad contraction against the locked dashboard",
+                "Wrist/hand ligament tears from hyperextension on steering wheel during impact"
+            ],
+            pipNote: "Florida's Personal Injury Protection law gives you 14 days to seek care or forfeit coverage. For tendon and ligament injuries, this window is critical: these injuries are progressive, may not produce severe pain immediately after the crash, and require documented medical evidence to support a PIP or personal injury claim. Our providers generate SOAP-format injury evaluations, clinical justification for MRI referrals, and complete injury narrative letters. We coordinate with orthopedic specialists and provide the full documentation chain attorneys need.",
+            whyUs: "Our board-certified providers specialize in car accident injury evaluation, including examination techniques to detect ligament laxity and tendon integrity before imaging is available. We order same-day MRI referrals when indicated, apply immobilization as needed, and create comprehensive PIP-ready medical records in a single visit. Walk in to any of our 4 Palm Beach County locations — no appointment needed."
+        }
     },
     {
         title: "Simple Stress Fractures",

@@ -17,6 +17,7 @@ import PatientReviewsSection from "@/components/accident/PatientReviewsSection";
 import TrustBadges from "@/components/accident/TrustBadges";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
+import Breadcrumb from "@/components/Breadcrumb";
 import { accidentCities, type AccidentCityKey } from "@/lib/accidentLocations";
 import { MapPin, Phone, Clock, Shield, Stethoscope, FileText } from "lucide-react";
 
@@ -250,6 +251,11 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   return (
     <main className="w-full min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={toJsonLd(graphSchema)} />
+      <Breadcrumb items={[
+        { name: 'Home', href: '/' },
+        { name: 'Car Accident Care', href: '/car-accident-injury-clinic' },
+        { name: `Car Accident Doctor — ${cityName}`, href: `/car-accident/${city}` }
+      ]} />
 
       {/* 14-Day Rule Warning Banner — sticky, dismissable */}
       <FourteenDayBanner phoneHref={c.phoneHref} phoneDisplay={c.phoneDisplay} />
@@ -569,6 +575,44 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           }
         ]}
       />
+
+      {/* Location Cross-Link — connects car accident page to corresponding clinic location */}
+      {(() => {
+        const locationSlugMap: Record<string, string> = {
+          'royal-palm-beach': 'royal-palm-beach-primary-urgent-care-center',
+          'lake-worth': 'lake-worth-primary-urgent-care-center',
+          'palm-springs': 'palm-springs-primary-urgent-care-center',
+          'lantana': 'lantana-primary-urgent-care-center',
+        };
+        const locationSlug = locationSlugMap[city];
+        if (!locationSlug) return null;
+        return (
+          <section className="py-10 bg-white border-t border-gray-100">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                Visit Our {cityName} Clinic
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Our {cityName} urgent care clinic is ready to see car accident patients same-day. Walk in or book your appointment online.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href={`/locations/${locationSlug}`}
+                  className="bg-[#2563eb] text-white font-semibold px-8 py-3 rounded-xl hover:bg-[#1d4ed8] transition"
+                >
+                  View {cityName} Clinic Details
+                </Link>
+                <Link
+                  href="/lawyers"
+                  className="bg-white text-[#2563eb] border border-[#2563eb] font-semibold px-8 py-3 rounded-xl hover:bg-blue-50 transition"
+                >
+                  Medical Records for Attorneys
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Mobile Sticky Footer */}
       <MobileStickyFooter phoneHref={c.phoneHref} phoneDisplay={c.phoneDisplay} />

@@ -50,9 +50,9 @@ const accordionSections = [
 ];
 
 export const metadata = {
-  title: "ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care",
+  title: "ER Alternative Palm Beach | Car Accident Care | PrimaryUC",
   description:
-    "ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.",
+    "Walk-in ER alternative in Palm Beach County. Hospital-level care, MRI, CT & X-ray. Faster than the ER, PIP accepted. 4 locations.",
   keywords: [
     "emergency room alternative",
     "walk-in ER Palm Beach County",
@@ -69,9 +69,9 @@ export const metadata = {
     "board-certified ER doctors urgent care"
   ],
   openGraph: {
-    title: "ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care",
+    title: "ER Alternative Palm Beach | Car Accident Care | PrimaryUC",
     description:
-      "ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.",
+      "Walk-in ER alternative in Palm Beach County. Hospital-level care, MRI, CT & X-ray. Faster than the ER, PIP accepted. 4 locations.",
     url: "https://primaryuc.com/emergency-room",
     type: "website",
     images: [
@@ -85,9 +85,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care",
+    title: "ER Alternative Palm Beach | Car Accident Care | PrimaryUC",
     description:
-      "ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.",
+      "Walk-in ER alternative in Palm Beach County. Hospital-level care, MRI, CT & X-ray. Faster than the ER, PIP accepted. 4 locations.",
     images: [
       "https://primaryuc.com/hospitalcare.jpg"
     ]
@@ -97,84 +97,46 @@ export const metadata = {
   }
 };
 
-// Structured data for hospital-level emergency care
+// Structured data for ER alternative / imaging service page
 const EmergencyRoomJsonLd = () => (
   <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{
       __html: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'MedicalClinic',
-        name: 'Primary & Urgent Care Centers of Palm Beach County',
-        url: 'https://primaryuc.com/emergency-room',
-        areaServed: {
-          '@type': 'AdministrativeArea',
-          name: 'Palm Beach County, FL'
-        },
-        medicalSpecialty: [
-          'EmergencyCare',
-          'UrgentCare',
-          'DiagnosticImaging',
-          'InjuryCare',
-          'PediatricCare'
-        ],
-        availableService: [
-          'Hospital-Level Urgent Care',
-          'Walk-In Emergency Room Alternative',
-          'Auto Accident & PIP Injury Care',
-          'Advanced Imaging (MRI, CT, X-ray, Ultrasound)',
-          'On-Site Lab Testing',
-          'Board-Certified Emergency Doctors',
-          'Workers\' Comp & Occupational Medicine',
-          'Pediatric & Family Care',
-          'Telemedicine',
-          'Vaccinations',
-          'Physicals',
-          'IV Fluids',
-          'Stitches & Wound Care',
-          'Same-Day Appointments',
-          'Direct Insurance & PIP Billing'
-        ],
-        address: [
+        '@graph': [
           {
-            '@type': 'PostalAddress',
-            streetAddress: '11476 Okeechobee Blvd',
-            addressLocality: 'Royal Palm Beach',
-            addressRegion: 'FL',
-            postalCode: '33411',
-            addressCountry: 'US',
-            name: 'Royal Palm Beach Primary & Urgent Care Center'
+            '@type': 'MedicalWebPage',
+            '@id': 'https://primaryuc.com/emergency-room#webpage',
+            url: 'https://primaryuc.com/emergency-room',
+            name: 'ER Alternative Palm Beach | Car Accident Care | Primary & Urgent Care',
+            description: 'ER alternative in Palm Beach County for car accidents. Hospital-level care, MRI, CT, X-ray. Faster than ER, accepts PIP insurance. Walk-ins welcome 4 locations.',
+            about: { '@id': 'https://primaryuc.com/#clinic' },
+            inLanguage: 'en-US',
+            breadcrumb: {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://primaryuc.com' },
+                { '@type': 'ListItem', position: 2, name: 'Emergency Room Alternative', item: 'https://primaryuc.com/emergency-room' }
+              ]
+            }
           },
           {
-            '@type': 'PostalAddress',
-            streetAddress: '6447 Lake Worth Rd',
-            addressLocality: 'Lake Worth Beach',
-            addressRegion: 'FL',
-            postalCode: '33463',
-            addressCountry: 'US',
-            name: 'Lake Worth Primary & Urgent Care Center'
-          },
-          {
-            '@type': 'PostalAddress',
-            streetAddress: '3460 S Congress Ave',
-            addressLocality: 'Palm Springs',
-            addressRegion: 'FL',
-            postalCode: '33461',
-            addressCountry: 'US',
-            name: 'Palm Springs Primary & Urgent Care Center'
-          },
-          {
-            '@type': 'PostalAddress',
-            streetAddress: '6169 Jog Rd Unit 4B',
-            addressLocality: 'Lake Worth Beach',
-            addressRegion: 'FL',
-            postalCode: '33463',
-            addressCountry: 'US',
-            name: 'Lantana Primary & Urgent Care Center'
+            '@type': 'Service',
+            '@id': 'https://primaryuc.com/emergency-room#service',
+            name: 'Hospital-Level Emergency Room Alternative',
+            description: 'Hospital-level emergency care and walk-in ER alternative with advanced imaging, board-certified doctors, and affordable pricing. Less than 15 min wait. Serving Palm Beach County.',
+            url: 'https://primaryuc.com/emergency-room',
+            provider: { '@id': 'https://primaryuc.com/#clinic' },
+            areaServed: { '@type': 'AdministrativeArea', name: 'Palm Beach County, FL' },
+            serviceType: 'Emergency Room Alternative',
+            availableChannel: {
+              '@type': 'ServiceChannel',
+              serviceUrl: 'https://primaryuc.com/appointment',
+              servicePhone: '+1-561-223-8024'
+            }
           }
-        ],
-        telephone: '+1-561-223-8024',
-        description: 'Hospital-level emergency care and walk-in ER alternative with advanced imaging, board-certified doctors, and affordable pricing. Less than 15 min wait. Serving Palm Beach County.'
+        ]
       })
     }}
   />

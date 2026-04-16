@@ -121,84 +121,67 @@ export default function RootLayout({
                   '@id': 'https://primaryuc.com/#organization',
                   name: 'Primary & Urgent Care Centers of Palm Beach County',
                   url: 'https://primaryuc.com',
-                  logo: 'https://primaryuc.com/logo.png',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://primaryuc.com/logo.png',
+                    width: 512,
+                    height: 512
+                  },
                   description: 'Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.',
-                  areaServed: [
-                    { '@type': 'AdministrativeArea', name: 'Royal Palm Beach, FL' },
-                    { '@type': 'AdministrativeArea', name: 'Lake Worth, FL' },
-                    { '@type': 'AdministrativeArea', name: 'Palm Springs, FL' },
-                    { '@type': 'AdministrativeArea', name: 'Lake Worth Beach, FL' },
-                    { '@type': 'AdministrativeArea', name: 'Palm Beach County, FL' }
-                  ],
-                  telephone: '+1-561-223-8024'
+                  areaServed: {
+                    '@type': 'AdministrativeArea',
+                    name: 'Palm Beach County, FL'
+                  },
+                  telephone: '+1-561-223-8024',
+                  sameAs: [
+                    'https://www.facebook.com/primaryurgentcare',
+                    'https://www.instagram.com/primaryurgentcare'
+                  ]
                 },
                 {
                   '@type': 'MedicalClinic',
                   '@id': 'https://primaryuc.com/#clinic',
                   name: 'Primary & Urgent Care Centers of Palm Beach County',
-                  parentOrganization: { '@id': 'https://primaryuc.com/#organization' },
-              url: 'https://primaryuc.com',
-              logo: 'https://primaryuc.com/logo.png',
-              image: 'https://primaryuc.com/websitelogo.png',
-              description: 'Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.',
-              areaServed: [
-                {
-                  '@type': 'AdministrativeArea',
-                  name: 'Royal Palm Beach, FL'
-                },
-                {
-                  '@type': 'AdministrativeArea',
-                  name: 'Lake Worth, FL'
-                },
-                {
-                  '@type': 'AdministrativeArea',
-                  name: 'Palm Springs, FL'
-                },
-                {
-                  '@type': 'AdministrativeArea',
-                  name: 'Lake Worth Beach, FL'
-                },
-                {
-                  '@type': 'AdministrativeArea',
-                  name: 'Palm Beach County, FL'
-                }
-              ],
-              medicalSpecialty: [
-                'UrgentCare',
-                'PrimaryCare',
-                'EmergencyCare',
-                'DiagnosticImaging',
-                'InjuryCare',
-                'PediatricCare',
-                'FamilyMedicine'
-              ],
-              availableService: [
-                'Walk-in Urgent Care',
-                'Same-day Appointments',
-                'Hospital-level Imaging (MRI, CT, X-ray, Ultrasound)',
-                'On-site Lab Testing',
-                'Board-certified Doctors',
-                'Pediatric Care',
-                'Primary Care',
-                'Physicals & Screenings',
-                'Vaccinations',
-                'Chronic Disease Management',
-                'Women\'s & Men\'s Health',
-                'Telemedicine',
-                'Insurance & Self-pay Options'
-              ],
-              openingHours: [
-                'Mo-Fr 09:00-18:00',
-                'Sa 09:00-16:00'
-              ],
-              priceRange: '$$',
-              telephone: '+1-561-223-8024',
-              address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Palm Beach County',
-                addressRegion: 'FL',
-                addressCountry: 'US'
-              },
+                  url: 'https://primaryuc.com',
+                  telephone: '+1-561-223-8024',
+                  image: {
+                    '@type': 'ImageObject',
+                    url: 'https://primaryuc.com/websitelogo.png',
+                    width: 1200,
+                    height: 630
+                  },
+                  description: 'Walk-in urgent care, injury, and pain management clinics in Palm Beach County. Hospital-level diagnostics, short wait times, and same-day appointments.',
+                  areaServed: {
+                    '@type': 'AdministrativeArea',
+                    name: 'Palm Beach County, FL'
+                  },
+                  medicalSpecialty: [
+                    'UrgentCare',
+                    'PrimaryCare',
+                    'Emergency',
+                    'Pediatric'
+                  ],
+                  availableService: [
+                    'Walk-in Urgent Care',
+                    'Same-day Appointments',
+                    'Hospital-level Imaging (MRI, CT, X-ray, Ultrasound)',
+                    'On-site Lab Testing',
+                    'Board-certified Doctors',
+                    'Pediatric Care',
+                    'Primary Care',
+                    'Physicals & Screenings',
+                    'Vaccinations',
+                    'Chronic Disease Management',
+                    "Women's & Men's Health",
+                    'Telemedicine',
+                    'Insurance & Self-pay Options'
+                  ],
+                  openingHours: [
+                    'Mo-Fr 09:00-18:00',
+                    'Sa 09:00-16:00'
+                  ],
+                  priceRange: '$$',
+                  parentOrganization: { '@id': 'https://primaryuc.com/#organization' }
                 }
               ]
             })

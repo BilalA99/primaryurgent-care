@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Car Accident: Urgent Care vs ER | Palm Beach Guide",
-    description: "Urgent care vs ER after car accident in Palm Beach County. When UC is safe, when ER is critical, cost comparison, wait times, PIP coverage. Florida 14-day rule.",
+    description: "Urgent care vs ER after a car accident in Palm Beach County. Cost, wait times & PIP coverage compared. Know when UC is safe vs when ER is critical.",
     images: [`${baseUrl}/car-crash-woman-on-call.jpg`],
     site: '@primaryurgentcare',
   },
@@ -92,7 +92,7 @@ export default function Page() {
     "@type": "WebPage",
     name: "Car Accident: Urgent Care vs ER | Palm Beach Guide",
     url: `${baseUrl}/car-accident/urgent-care-vs-er`,
-    description: "Urgent care vs ER after car accident in Palm Beach County. When UC is safe, when ER is critical, cost comparison, wait times, PIP coverage. Florida 14-day rule.",
+    description: "Urgent care vs ER after a car accident in Palm Beach County. Cost, wait times & PIP coverage compared. Know when UC is safe vs when ER is critical.",
     about: {
       "@type": "Service",
       name: "Car Accident Medical Decision Guidance"

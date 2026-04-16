@@ -12,11 +12,11 @@ import TrustBadges from "@/components/accident/TrustBadges";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 
 export const metadata: Metadata = {
-  title: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
-  description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+  title: "Whiplash Treatment | Car Accident & PIP Exam | PrimaryUC",
+  description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
   openGraph: {
-    title: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
-    description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Whiplash Treatment | Car Accident & PIP Exam | PrimaryUC",
+    description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     url: `${baseUrl}/car-accident/whiplash`,
     type: "website",
     images: [
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
-    description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Whiplash Treatment | Car Accident & PIP Exam | PrimaryUC",
+    description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     images: [`${baseUrl}/whiplash-hero-image.png`],
     site: '@primaryurgentcare',
   },
@@ -82,7 +82,7 @@ export default function Page() {
     "@type": "MedicalWebPage",
     name: "Whiplash After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
     url: pageUrl,
-    description: "Whiplash treatment at car accident urgent care in Palm Beach County. Same-day neck exam, X-ray, pain management, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     about: {
       "@type": "MedicalCondition",
       name: "Whiplash Injury"

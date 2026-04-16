@@ -12,7 +12,7 @@ import { trackEvent } from '../../lib/gtag';
 import CallButton from '../../components/CallButton';
 
 export const metadata = {
-    title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
+    title: "Car Accident & Injury Urgent Care Palm Beach | PrimaryUC",
     description:
         "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
     keywords: [
@@ -28,7 +28,7 @@ export const metadata = {
         "work injury clinic"
     ],
     openGraph: {
-        title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
+        title: "Car Accident & Injury Urgent Care Palm Beach | PrimaryUC",
         description:
             "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         url: "https://primaryuc.com/urgent-injury-care",
@@ -44,7 +44,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care",
+        title: "Car Accident & Injury Urgent Care Palm Beach | PrimaryUC",
         description:
             "Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.",
         images: [
@@ -56,84 +56,46 @@ export const metadata = {
     }
 };
 
-// Structured data for urgent injury care
+// Structured data for urgent injury care service page
 const UrgentInjuryCareJsonLd = () => (
     <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
             __html: JSON.stringify({
                 '@context': 'https://schema.org',
-                '@type': 'MedicalClinic',
-                name: 'Primary & Urgent Care Centers of Palm Beach County',
-                url: 'https://primaryuc.com/urgent-injury-care',
-                areaServed: {
-                    '@type': 'AdministrativeArea',
-                    name: 'Palm Beach County, FL'
-                },
-                medicalSpecialty: [
-                    'UrgentCare',
-                    'OrthopedicCare',
-                    'SportsMedicine',
-                    'InjuryCare',
-                    'DiagnosticImaging',
-                    'WoundCare'
-                ],
-                availableService: [
-                    'Sprain & Fracture Care',
-                    'Laceration & Stitches',
-                    'Burn Treatment',
-                    'Sports Injury Care',
-                    'Splinting & Bracing',
-                    'On-Site X-ray, MRI, CT, Ultrasound',
-                    'STAT Imaging Reads',
-                    'Same-Day Appointments',
-                    'Walk-In Visits',
-                    'Pain Management',
-                    'Wound Cleaning & Debridement',
-                    'Tetanus Shots',
-                    'Antibiotics',
-                    'Insurance & Self-Pay Accepted'
-                ],
-                address: [
+                '@graph': [
                     {
-                        '@type': 'PostalAddress',
-                        streetAddress: '11476 Okeechobee Blvd',
-                        addressLocality: 'Royal Palm Beach',
-                        addressRegion: 'FL',
-                        postalCode: '33411',
-                        addressCountry: 'US',
-                        name: 'Royal Palm Beach Primary & Urgent Care Center'
+                        '@type': 'MedicalWebPage',
+                        '@id': 'https://primaryuc.com/urgent-injury-care#webpage',
+                        url: 'https://primaryuc.com/urgent-injury-care',
+                        name: 'Car Accident & Injury Urgent Care Palm Beach | Primary & Urgent Care',
+                        description: 'Urgent injury care for car accidents, falls, work injuries in Palm Beach County. Walk-in X-ray, stitches, fracture care.',
+                        about: { '@id': 'https://primaryuc.com/#clinic' },
+                        inLanguage: 'en-US',
+                        breadcrumb: {
+                            '@type': 'BreadcrumbList',
+                            itemListElement: [
+                                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://primaryuc.com' },
+                                { '@type': 'ListItem', position: 2, name: 'Urgent Injury Care', item: 'https://primaryuc.com/urgent-injury-care' }
+                            ]
+                        }
                     },
                     {
-                        '@type': 'PostalAddress',
-                        streetAddress: '6447 Lake Worth Rd',
-                        addressLocality: 'Lake Worth Beach',
-                        addressRegion: 'FL',
-                        postalCode: '33463',
-                        addressCountry: 'US',
-                        name: 'Lake Worth Primary & Urgent Care Center'
-                    },
-                    {
-                        '@type': 'PostalAddress',
-                        streetAddress: '3460 S Congress Ave',
-                        addressLocality: 'Palm Springs',
-                        addressRegion: 'FL',
-                        postalCode: '33461',
-                        addressCountry: 'US',
-                        name: 'Palm Springs Primary & Urgent Care Center'
-                    },
-                    {
-                        '@type': 'PostalAddress',
-                        streetAddress: '6169 Jog Rd Unit 4B',
-                        addressLocality: 'Lake Worth Beach',
-                        addressRegion: 'FL',
-                        postalCode: '33463',
-                        addressCountry: 'US',
-                        name: 'Lantana Primary & Urgent Care Center'
+                        '@type': 'Service',
+                        '@id': 'https://primaryuc.com/urgent-injury-care#service',
+                        name: 'Urgent Injury Care',
+                        description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $89 self-pay, most insurance accepted.',
+                        url: 'https://primaryuc.com/urgent-injury-care',
+                        provider: { '@id': 'https://primaryuc.com/#clinic' },
+                        areaServed: { '@type': 'AdministrativeArea', name: 'Palm Beach County, FL' },
+                        serviceType: 'Urgent Injury Care',
+                        availableChannel: {
+                            '@type': 'ServiceChannel',
+                            serviceUrl: 'https://primaryuc.com/appointment',
+                            servicePhone: '+1-561-223-8024'
+                        }
                     }
-                ],
-                telephone: '+1-561-223-8024',
-                description: 'Walk-in urgent injury care for sprains, fractures, lacerations, burns, and sports injuries. On-site X-ray, MRI, CT, and STAT results. Board-certified providers, less than 15 min wait, $89 self-pay, most insurance accepted. Serving Palm Beach County.'
+                ]
             })
         }}
     />

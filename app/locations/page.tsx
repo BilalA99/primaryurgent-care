@@ -10,11 +10,11 @@ import Link from 'next/link'
 import ClinicsMap from '@/components/clinicsmap'
 
 export const metadata = {
-  title: "Urgent Care Locations Palm Beach | Car Accident Care | 4 Clinics",
-  description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
+  title: "Urgent Care Locations Palm Beach | Car Accident | 4 Clinics",
+  description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Walk-ins welcome, PIP accepted, X-ray onsite.",
   openGraph: {
-    title: "Urgent Care Locations Palm Beach | Car Accident Care | 4 Clinics",
-    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
+    title: "Urgent Care Locations Palm Beach | Car Accident | 4 Clinics",
+    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Walk-ins welcome, PIP accepted, X-ray onsite.",
     url: "https://primaryuc.com/locations",
     images: [
       { url: "https://primaryuc.com/servicelanding.jpg", width: 1200, height: 630, alt: "Urgent Care Locations Palm Beach County" }
@@ -23,8 +23,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Urgent Care Locations Palm Beach | Car Accident Care | 4 Clinics",
-    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
+    title: "Urgent Care Locations Palm Beach | Car Accident | 4 Clinics",
+    description: "4 urgent care locations in Palm Beach County for car accidents & injuries. Walk-ins welcome, PIP accepted, X-ray onsite.",
     images: [
       { url: "https://primaryuc.com/servicelanding.jpg", alt: "Urgent Care Locations Palm Beach County" }
     ]
@@ -46,58 +46,43 @@ function LocationsJsonLd() {
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "MedicalClinic",
-          "name": "Primary & Urgent Care Centers of Palm Beach County",
-          "description": "Walk-in urgent care clinics in Royal Palm Beach, Lake Worth, Palm Springs, and Lantana / Jog Rd. Short wait times, most insurance accepted, and hospital-level care.",
-          "url": "https://primaryuc.com/locations",
-          "image": "https://primaryuc.com/servicelanding.jpg",
-          "areaServed": [
-            "Royal Palm Beach", "Lake Worth", "Palm Springs", "Lantana / Jog Rd", "Lake Worth Beach", "Palm Beach County"
-          ],
-          "department": LocationsScreens.map(loc => ({
-            "@type": "MedicalClinic",
-            "name": loc.clinic,
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": loc.address,
-              "addressLocality": loc.city || loc.name,
-              "addressRegion": "FL",
-              "postalCode": loc.postalCode || '',
-              "addressCountry": "US"
-            },
-            "telephone": `+1-${loc.phone.replace(/-/g, '')}`,
-            ...(loc.gmbUrl ? {
-              "sameAs": [loc.gmbUrl],
-              "hasMap": loc.gmbUrl
-            } : {}),
-            ...(loc.lat && loc.lng ? {
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": loc.lat,
-                "longitude": loc.lng
-              }
-            } : {})
-          })),
-          "medicalSpecialty": [
-            "Urgent Care", "Primary Care", "Walk-In Clinic", "Injury Care", "Diagnostics"
-          ],
-          "availableService": [
-            "Walk-in urgent care",
-            "Injury and illness treatment",
-            "On-site X-ray, MRI, CT",
-            "Physicals and preventive care",
-            "Short wait times",
-            "Most insurance accepted"
-          ],
-          "openingHoursSpecification": [
+          "@graph": [
             {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-              ],
-              "opens": "08:00",
-              "closes": "20:00"
-            }
+              "@type": "WebPage",
+              "@id": "https://primaryuc.com/locations#webpage",
+              "url": "https://primaryuc.com/locations",
+              "name": "Urgent Care Locations Palm Beach | 4 Clinics | PrimaryUC",
+              "description": "4 urgent care locations in Palm Beach County. Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd. Walk-ins, PIP accepted, X-ray onsite.",
+              "about": { "@id": "https://primaryuc.com/#clinic" },
+              "inLanguage": "en-US",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://primaryuc.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://primaryuc.com/locations" }
+                ]
+              }
+            },
+            ...LocationsScreens.map(loc => ({
+              "@type": "MedicalClinic",
+              "@id": `https://primaryuc.com/locations/${loc.slug}#clinic`,
+              "name": loc.clinic,
+              "url": `https://primaryuc.com/locations/${loc.slug}`,
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": loc.address,
+                "addressLocality": loc.city || loc.name,
+                "addressRegion": "FL",
+                "postalCode": loc.postalCode || '',
+                "addressCountry": "US"
+              },
+              "telephone": `+1-${loc.phone.replace(/-/g, '')}`,
+              "branchOf": { "@id": "https://primaryuc.com/#clinic" },
+              ...(loc.gmbUrl ? { "sameAs": [loc.gmbUrl], "hasMap": loc.gmbUrl } : {}),
+              ...(loc.lat && loc.lng ? {
+                "geo": { "@type": "GeoCoordinates", "latitude": loc.lat, "longitude": loc.lng }
+              } : {})
+            }))
           ]
         })
       }}
