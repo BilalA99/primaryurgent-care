@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'CT Scan Cost | Same-Day CT Imaging Palm Beach County',
-  description: 'Get a same-day CT scan for $200 at our Palm Beach County urgent care. Walk-in CT for trauma, chest pain, and emergencies. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+  title: 'CT Scan Cost | Same-Day CT Scan Palm Beach | PrimaryUC',
+  description: 'Same-day CT scan for $200 at Palm Beach County urgent care. Walk-in for trauma, chest pain & emergencies. No referral needed. PIP & self-pay accepted.',
   keywords: [
     'CT scan cost',
     'urgent care CT scan',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'CT Scan Cost | Same-Day CT Imaging Palm Beach County',
-    description: 'Get a same-day CT scan for $200 at our Palm Beach County urgent care. Walk-in CT for trauma, chest pain, and emergencies. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    description: 'Same-day CT scan for $200 at Palm Beach County urgent care. Walk-in for trauma, chest pain & emergencies. No referral needed. PIP & self-pay accepted.',
     url: 'https://primaryuc.com/service/ct-scan',
     type: 'website',
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'CT Scan Cost | Same-Day CT Imaging Palm Beach County',
-    description: 'Get a same-day CT scan for $200 at our Palm Beach County urgent care. Walk-in CT for trauma, chest pain, and emergencies. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+    description: 'Same-day CT scan for $200 at Palm Beach County urgent care. Walk-in for trauma, chest pain & emergencies. No referral needed. PIP & self-pay accepted.',
     images: ['https://primaryuc.com/ctscan2.png'],
   },
   alternates: {
@@ -52,27 +52,14 @@ export function CtScanJsonLd() {
           '@context': 'https://schema.org',
           '@type': 'MedicalProcedure',
           name: 'CT Scan',
-          description: 'Get a same-day CT scan for $200 at our Palm Beach County urgent care. Walk-in CT for trauma, chest pain, and emergencies. No appointment needed. Fast, affordable, and expert imaging. Serving Royal Palm Beach, Lake Worth, Palm Springs, and Lantana.',
+          description: 'Same-day CT scan for $200 at Palm Beach County urgent care. Walk-in for trauma, chest pain & emergencies. No referral needed. PIP & self-pay accepted.',
           url: 'https://primaryuc.com/service/ct-scan',
           image: 'https://primaryuc.com/ctscan2.png',
-          provider: {
-            '@type': 'MedicalClinic',
-            name: 'Primary & Urgent Care Centers of Palm Beach County',
-            url: 'https://primaryuc.com',
-          },
-          areaServed: [
-            'Royal Palm Beach FL',
-            'Lake Worth FL',
-            'Palm Springs FL',
-            'Lake Worth Beach FL',
-            'Palm Beach County FL',
-          ],
+          provider: { '@id': 'https://primaryuc.com/#clinic' },
+          areaServed: { '@type': 'AdministrativeArea', name: 'Palm Beach County, FL' },
           price: '200.00',
           priceCurrency: 'USD',
-          availableAtOrFrom: {
-            '@type': 'MedicalClinic',
-            name: 'Primary & Urgent Care Centers of Palm Beach County',
-          },
+          availableAtOrFrom: { '@id': 'https://primaryuc.com/#clinic' },
         }),
       }}
     />

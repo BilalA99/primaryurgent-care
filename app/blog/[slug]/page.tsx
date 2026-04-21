@@ -13,6 +13,9 @@ import CdnImageGallery from '@/components/blog/CdnImageGallery'
 import BookAnAppointmentPopup from '@/components/BookAnAppointmentPopup'
 import CallButton from '@/components/CallButton'
 
+// ISR: revalidate every 24 hours — blog posts rarely change once published
+export const revalidate = 86400
+
 type Params = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
@@ -293,6 +296,52 @@ export default async function BlogPostPage({ params }: Params) {
             </CallButton>
           </div>
         </div>
+
+        {/* Related Services — contextual internal links derived from post tags */}
+        {(() => {
+          const tags = Array.isArray(post.tags) ? post.tags.map((t: string) => t.toLowerCase()) : [];
+          const slugLower = slug.toLowerCase();
+          const combined = [...tags, slugLower].join(' ');
+
+          const allServices = [
+            { label: 'Car Accident Urgent Care', href: '/car-accident-injury-clinic', keywords: ['accident', 'car', 'auto', 'crash', 'collision', 'pip', 'whiplash'] },
+            { label: 'Whiplash Treatment', href: '/car-accident/whiplash', keywords: ['whiplash', 'neck pain', 'cervical'] },
+            { label: 'Back & Neck Pain Care', href: '/car-accident/back-neck-pain', keywords: ['back pain', 'neck pain', 'spine', 'lumbar', 'cervical'] },
+            { label: 'PIP Documentation', href: '/car-accident/documentation-pip', keywords: ['pip', 'documentation', 'insurance', '14 day'] },
+            { label: 'Urgent Injury Care', href: '/urgent-injury-care', keywords: ['injury', 'sprain', 'fracture', 'laceration', 'wound', 'burn'] },
+            { label: 'Same-Day MRI & Imaging', href: '/emergency-room', keywords: ['mri', 'ct scan', 'x-ray', 'imaging', 'ultrasound'] },
+            { label: 'Pain Management', href: '/pain-management-care', keywords: ['pain', 'chronic pain', 'pain management'] },
+            { label: 'Primary Care Doctor', href: '/primary-care-doctor', keywords: ['primary care', 'sick visit', 'physical', 'preventive', 'diabetes', 'hypertension', 'asthma'] },
+            { label: 'Medical Records for Attorneys', href: '/lawyers', keywords: ['attorney', 'lawyer', 'legal', 'lawsuit', 'litigation', 'records'] },
+          ];
+
+          const matched = allServices.filter(s =>
+            s.keywords.some(kw => combined.includes(kw))
+          ).slice(0, 3);
+
+          const related = matched.length > 0 ? matched : [
+            { label: 'Car Accident Urgent Care', href: '/car-accident-injury-clinic' },
+            { label: 'Urgent Injury Care', href: '/urgent-injury-care' },
+            { label: 'Book an Appointment', href: '/appointment' },
+          ];
+
+          return (
+            <div className="mt-12 border-t border-gray-200 pt-10">
+              <h2 className="text-xl font-bold text-gray-900 mb-5">Related Services</h2>
+              <div className="flex flex-wrap gap-3">
+                {related.map(s => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="bg-[#F2F6FC] text-[#2563eb] font-medium px-5 py-2.5 rounded-lg hover:bg-[#dbeafe] transition-colors text-sm border border-[#dbeafe]"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </article>
     </main>
   )

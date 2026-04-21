@@ -26,12 +26,12 @@ import SlidingDiv from "@/components/SlidingAnimation";
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Car Accident Urgent Care Palm Beach | Same-Day Exam + PIP | PrimaryUC",
+  title: "Car Accident Urgent Care Palm Beach | PIP Exam | PrimaryUC",
   description:
     "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant. 4 locations.",
   alternates: { canonical: `${baseUrl}/car-accident-injury-clinic` },
   openGraph: {
-    title: "Car Accident Urgent Care Palm Beach | Same-Day Exam + PIP | PrimaryUC",
+    title: "Car Accident Urgent Care Palm Beach | PIP Exam | PrimaryUC",
     description:
       "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant. 4 locations.",
     url: `${baseUrl}/car-accident-injury-clinic`,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident Urgent Care Palm Beach | Same-Day Exam + PIP | PrimaryUC",
+    title: "Car Accident Urgent Care Palm Beach | PIP Exam | PrimaryUC",
     description: "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant.",
     images: [`${baseUrl}/websitelogo.png`],
     site: '@primaryurgentcare',
@@ -123,7 +123,7 @@ export default function Page() {
     "@type": "MedicalWebPage",
     name: "Car Accident Urgent Care Palm Beach | Same-Day Exam + PIP | PrimaryUC",
     url: pageUrl,
-    description: "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant. 4 locations.",
+    description: "Car accident urgent care in Palm Beach County. Same-day eval, PIP documentation & onsite X-ray. 4 walk-in locations. Florida 14-day rule compliant.",
     about: {
       "@type": "MedicalCondition",
       name: "Motor Vehicle Collision Injuries"

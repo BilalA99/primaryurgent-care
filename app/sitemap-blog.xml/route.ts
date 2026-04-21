@@ -1,8 +1,7 @@
 import { GetBlogs } from '@/lib/blog/get-blogs'
 
-// Ensure blog sitemap reflects newly published CMS posts quickly
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// ISR: regenerate every hour — blog posts don't change frequently enough to warrant force-dynamic
+export const revalidate = 3600
 
 export async function GET() {
   try {

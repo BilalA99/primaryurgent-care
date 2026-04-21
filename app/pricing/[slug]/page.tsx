@@ -2,6 +2,7 @@ import { pricingData } from '@/app/pricing/page'
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import Breadcrumb from '@/components/Breadcrumb'
 
 const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const slug = (await params).slug
@@ -22,11 +23,7 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
             "description": pricing.description,
             "image": pricing.img ? `https://primaryuc.com${pricing.img}` : undefined,
             "url": `https://primaryuc.com/pricing/${pricing.slug}`,
-            "provider": {
-              "@type": "MedicalClinic",
-              "name": "Primary & Urgent Care Centers of Palm Beach County",
-              "url": "https://primaryuc.com"
-            }
+            "provider": { "@id": "https://primaryuc.com/#clinic" }
           })
         }}
       />
@@ -44,11 +41,7 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
             "price": pricing.price ? pricing.price.replace(/[^\d.]/g, '') : undefined,
             "priceCurrency": "USD",
             "url": `https://primaryuc.com/pricing/${pricing.slug}`,
-            "seller": {
-              "@type": "MedicalClinic",
-              "name": "Primary & Urgent Care Centers of Palm Beach County",
-              "url": "https://primaryuc.com"
-            }
+            "seller": { "@id": "https://primaryuc.com/#clinic" }
           })
         }}
       />
@@ -57,6 +50,11 @@ const PricingPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       <PricingJsonLd />
+      <Breadcrumb items={[
+        { name: 'Home', href: '/' },
+        { name: 'Pricing', href: '/pricing' },
+        { name: pricing.title, href: `/pricing/${pricing.slug}` }
+      ]} />
       {/* Landing */}
       <div className="w-full mx-auto flex flex-col items-center mt-20">
         <div className="text-sm mb-2">

@@ -14,12 +14,12 @@ import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from 
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
+  title: "Car Accident PIP Exam & Documentation | PrimaryUC",
   description:
     "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
   alternates: { canonical: `${baseUrl}/car-accident/documentation-pip` },
   openGraph: {
-    title: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
+    title: "Car Accident PIP Exam & Documentation | PrimaryUC",
     description:
       "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
     url: `${baseUrl}/car-accident/documentation-pip`,
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
-    description: "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    title: "Car Accident PIP Exam & Documentation | PrimaryUC",
+    description: "Car accident PIP exam & documentation at Palm Beach County urgent care. Same-day records, visit summaries & insurance paperwork. Florida 14-day compliant.",
     images: [`${baseUrl}/man-on-phone-next-to-open-hood.jpg`],
     site: '@primaryurgentcare',
   },
@@ -81,7 +81,7 @@ export default function Page() {
     "@type": "MedicalWebPage",
     name: "Car Accident PIP Exam & Documentation | Urgent Care + Palm Beach | PrimaryUC",
     url: pageUrl,
-    description: "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    description: "Car accident PIP exam & documentation at Palm Beach County urgent care. Same-day records, visit summaries & insurance paperwork. Florida 14-day compliant.",
     about: {
       "@type": "Service",
       name: "PIP Documentation Service"
@@ -270,6 +270,20 @@ export default function Page() {
 
         {/* Internal Links Section */}
         <AccidentInternalLinks />
+
+        {/* Attorney Referral Cross-Link */}
+        <section className="py-10 bg-white border-t border-gray-100 text-center px-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Are You a Personal Injury Attorney?</h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            We provide timely, detailed medical evaluations and reports for PI attorneys in Florida. We work on a letter of protection (LOP) / medical lien basis.
+          </p>
+          <Link
+            href="/lawyers"
+            className="inline-block bg-[#2563eb] text-white font-semibold px-8 py-3 rounded-xl hover:bg-[#1d4ed8] transition"
+          >
+            Request Medical Records — Attorney Portal
+          </Link>
+        </section>
         </div>
       </div>
     </main>

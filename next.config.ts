@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Canonical host normalization: www → non-www (308 permanent)
+      // These ensure http://www, https://www, and http:// all resolve in one hop to https://primaryuc.com
+      // Note: Vercel/hosting layer handles the actual www→non-www redirect at edge level.
+      // The redirects below handle any internal Next.js routing of www variants.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.primaryuc.com' }],
+        destination: 'https://primaryuc.com/:path*',
+        permanent: true, // 308
+      },
       {
         source: '/paincare',
         destination: '/car-accident-injury-clinic',
@@ -66,11 +76,15 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://randomuser.me/**',
+        hostname: 'randomuser.me',
       },
       {
         protocol: 'https',
-        hostname: 'mynaui.com/**',
+        hostname: 'mynaui.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
       },
       {
         protocol: 'https',

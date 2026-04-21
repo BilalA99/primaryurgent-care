@@ -14,12 +14,12 @@ import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from 
 const baseUrl = "https://primaryuc.com";
 
 export const metadata: Metadata = {
-  title: "Back & Neck Pain After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
+  title: "Back & Neck Pain After Car Accident | PIP Exam | PrimaryUC",
   description:
     "Back & neck pain after car accident at urgent care in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
   alternates: { canonical: `${baseUrl}/car-accident/back-neck-pain` },
   openGraph: {
-    title: "Back & Neck Pain After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
+    title: "Back & Neck Pain After Car Accident | PIP Exam | PrimaryUC",
     description:
       "Back & neck pain after car accident at urgent care in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     url: `${baseUrl}/car-accident/back-neck-pain`,
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Back & Neck Pain After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
-    description: "Back & neck pain after car accident at urgent care in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Back & Neck Pain After Car Accident | PIP Exam | PrimaryUC",
+    description: "Back & neck pain after a car accident? Same-day spinal exam, X-ray & PIP documentation at Palm Beach County urgent care. Walk-ins welcome.",
     images: [`${baseUrl}/back-pain-hero.png`],
     site: '@primaryurgentcare',
   },
@@ -88,7 +88,7 @@ export default function Page() {
     "@type": "MedicalWebPage",
     name: "Back & Neck Pain After Car Accident | Car Accident Urgent Care + PIP | PrimaryUC",
     url: pageUrl,
-    description: "Back & neck pain after car accident at urgent care in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    description: "Back & neck pain after a car accident? Same-day spinal exam, X-ray & PIP documentation at Palm Beach County urgent care. Walk-ins welcome.",
     about: {
       "@type": "MedicalCondition",
       name: "Spinal Injury After Motor Vehicle Collision"

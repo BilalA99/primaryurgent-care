@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Phone, MapPin, Clock, ArrowLeft, Home, User, Calendar } from 'lucide-react'
 
 export const metadata = {
-    title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
+    title: "404 Not Found | Urgent Care Palm Beach County | PrimaryUC",
     description:
         "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
     keywords: [
@@ -19,7 +19,7 @@ export const metadata = {
         "emergency care Palm Beach County"
     ],
     openGraph: {
-        title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
+        title: "404 Not Found | Urgent Care Palm Beach County | PrimaryUC",
         description:
             "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
         url: "https://primaryuc.com/404",
@@ -35,7 +35,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "404 Not Found | Urgent Care Palm Beach County | Primary & Urgent Care Centers",
+        title: "404 Not Found | Urgent Care Palm Beach County | PrimaryUC",
         description:
             "Page not found. Need urgent care? Book an appointment, find a walk-in clinic, or get directions to Primary & Urgent Care Centers in Palm Beach County. Seen in 15 minutes or less, board-certified providers, multiple locations.",
         images: [

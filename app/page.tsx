@@ -20,8 +20,8 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import Link from "next/link";
 import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
 export const metadata = {
-  title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
-  description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
+  title: 'Car Accident Doctor Palm Beach County | PrimaryUC',
+  description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome — 4 locations, seen in under 15 min.',
   keywords: [
     'car accident doctor west palm beach',
     'personal injury clinic',
@@ -39,8 +39,8 @@ export const metadata = {
     'MRI urgent care'
   ].join(', '),
   openGraph: {
-    title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
-    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
+    title: 'Car Accident Doctor Palm Beach County | PrimaryUC',
+    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome — 4 locations, seen in under 15 min.',
     url: 'https://primaryuc.com/',
     siteName: 'Primary & Urgent Care Centers',
     images: [
@@ -56,8 +56,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Car Accident Doctor Palm Beach County | Primary & Urgent Care',
-    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome at Royal Palm Beach, Lake Worth, Palm Springs, Lantana / Jog Rd.',
+    title: 'Car Accident Doctor Palm Beach County | PrimaryUC',
+    description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome — 4 locations, seen in under 15 min.',
     images: ['/Homepage25.png'],
   },
   alternates: {

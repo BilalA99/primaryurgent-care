@@ -10,7 +10,7 @@ const reviews = [
   {
     id: 1,
     name: "Sarah Johnson",
-    avatar: "https://mynaui.com//avatars/avatar-01.jpg",
+    avatar: "https://i.pravatar.cc/80?img=1",
     timeAgo: "2 weeks ago",
     rating: 5,
     text: "Incredible experience! I was in and out in under 15 minutes with a broken wrist. The X-ray was done immediately and the doctor was so thorough. Saved me hours compared to the ER and cost way less. Highly recommend!",
@@ -18,7 +18,7 @@ const reviews = [
   {
     id: 2,
     name: "Michael Rodriguez",
-    avatar: "https://mynaui.com//avatars/avatar-06.jpg",
+    avatar: "https://i.pravatar.cc/80?img=6",
     timeAgo: "1 month ago",
     rating: 5,
     text: "Had severe back pain and they got me an MRI the same day. The 1.5T machine gave crystal clear images and the doctor explained everything perfectly. No waiting weeks for appointments like other places. Amazing service!",
@@ -26,7 +26,7 @@ const reviews = [
   {
     id: 3,
     name: "Jennifer Davis",
-    avatar: "https://mynaui.com//avatars/avatar-07.jpg",
+    avatar: "https://i.pravatar.cc/80?img=7",
     timeAgo: "3 weeks ago",
     rating: 5,
     text: "My son needed stitches after a fall. The staff was so gentle with him and the whole process took maybe 20 minutes. The doctor even called to check on him the next day. This is how healthcare should be!",
@@ -42,7 +42,7 @@ const reviews = [
   {
     id: 5,
     name: "Amanda Thompson",
-    avatar: "https://mynaui.com//avatars/avatar-04.jpg",
+    avatar: "https://i.pravatar.cc/80?img=4",
     timeAgo: "2 months ago",
     rating: 5,
     text: "Car accident victim here. They took care of all my PIP billing and got me the care I needed immediately. The ultrasound showed exactly what was wrong and I was treated right away. Professional and caring.",
@@ -50,7 +50,7 @@ const reviews = [
   {
     id: 6,
     name: "David Wilson",
-    avatar: "https://mynaui.com//avatars/avatar-03.jpg",
+    avatar: "https://i.pravatar.cc/80?img=3",
     timeAgo: "3 weeks ago",
     rating: 5,
     text: "Had chest pain and they did an EKG and chest X-ray right away. The doctor was very thorough and explained everything clearly. Much better than waiting 6 hours in the ER. Will definitely come back.",
@@ -58,7 +58,7 @@ const reviews = [
   {
     id: 7,
     name: "Lisa Martinez",
-    avatar: "https://mynaui.com//avatars/avatar-02.jpg",
+    avatar: "https://i.pravatar.cc/80?img=2",
     timeAgo: "1 month ago",
     rating: 5,
     text: "My daughter needed a school physical last minute. They got us in same day and completed all the paperwork. Only $9.99! Other places wanted **over $200**. The staff was so friendly and efficient.",
@@ -66,7 +66,7 @@ const reviews = [
   {
     id: 8,
     name: "James Anderson",
-    avatar: "https://mynaui.com//avatars/avatar-08.jpg",
+    avatar: "https://i.pravatar.cc/80?img=8",
     timeAgo: "2 weeks ago",
     rating: 5,
     text: "Severe ankle sprain from basketball. They had me in an X-ray machine within minutes and the doctor showed me exactly what was wrong. The treatment plan was perfect and I'm healing great. Top-notch care!",
@@ -74,7 +74,7 @@ const reviews = [
   {
     id: 9,
     name: "Maria Garcia",
-    avatar: "https://mynaui.com//avatars/avatar-09.jpg",
+    avatar: "https://i.pravatar.cc/80?img=9",
     timeAgo: "1 month ago",
     rating: 5,
     text: "Had a deep cut that needed stitches. The wound care was excellent and they made sure I understood all the aftercare instructions. The follow-up was seamless. Really appreciate their attention to detail.",
@@ -82,7 +82,7 @@ const reviews = [
   {
     id: 10,
     name: "Thomas Brown",
-    avatar: "https://mynaui.com//avatars/avatar-10.jpg",
+    avatar: "https://i.pravatar.cc/80?img=10",
     timeAgo: "3 weeks ago",
     rating: 5,
     text: "Migraine that wouldn't go away. They did a thorough evaluation and got me the right medication. The doctor took time to understand my symptoms and history. Much better than my previous urgent care experiences.",

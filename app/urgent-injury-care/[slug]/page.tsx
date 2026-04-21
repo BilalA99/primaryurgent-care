@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { conditions, ConditionInfoProp } from '@/components/conditions';
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
 import Image from 'next/image';
+import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 const baseUrl = 'https://primaryuc.com';
 export default async function ConditionDetails({
   params,
@@ -26,15 +28,7 @@ export default async function ConditionDetails({
           '@type': 'MedicalProcedure',
           name: condition_details?.title || 'Urgent Injury Care',
           url: `https://primaryuc.com/urgent-injury-care/${conditionSlug}`,
-          provider: {
-            '@type': 'MedicalClinic',
-            name: 'Primary & Urgent Care Centers of Palm Beach County',
-            url: 'https://primaryuc.com',
-            areaServed: {
-              '@type': 'AdministrativeArea',
-              name: 'Palm Beach County, FL'
-            }
-          },
+          provider: { '@id': 'https://primaryuc.com/#clinic' },
           medicalSpecialty: 'UrgentCare',
           availableService: condition_details?.title || 'Urgent Injury Care',
           cost: 'Varies by service and insurance',
@@ -51,6 +45,11 @@ export default async function ConditionDetails({
   return (
     <main className='w-full flex flex-col items-center justify-center bg-white h-full'>
       <UrgentInjuryCareJsonLd />
+      <Breadcrumb items={[
+        { name: 'Home', href: '/' },
+        { name: 'Urgent Injury Care', href: '/urgent-injury-care' },
+        { name: condition_details.title, href: `/urgent-injury-care/${conditionSlug}` }
+      ]} />
       <div className="w-full mx-auto flex flex-col items-center mt-20">
         <div className="text-sm mb-2">
           Urgent Injury Care / <span className="text-[#2563eb]">{condition_details?.title}</span>
@@ -205,6 +204,86 @@ export default async function ConditionDetails({
                 {condition_details?.urgentCareAdvantage}
               </p>
             </div>
+
+            {/* Car Accident Context — only rendered for accident-related conditions */}
+            {condition_details?.carAccidentContext && (
+              <div className='flex flex-col space-y-[32px] border-t border-[#E5E7EB] pt-[40px]'>
+                <div className='flex flex-col space-y-[16px]'>
+                  <h2
+                    style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
+                    className='text-[#111315] sm:text-4xl text-2xl'
+                  >
+                    {condition_details.title} After a Car Accident
+                  </h2>
+                  <p
+                    style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
+                    className='text-[#5B5F67] sm:text-xl text-sm'
+                  >
+                    {condition_details.carAccidentContext.intro}
+                  </p>
+                </div>
+
+                <div className='flex flex-col space-y-[16px]'>
+                  <h3
+                    style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
+                    className='text-[#111315] sm:text-3xl text-xl'
+                  >
+                    Common Car Accident Causes of {condition_details.title}
+                  </h3>
+                  <ul className='list-disc pl-6 space-y-2'>
+                    {condition_details.carAccidentContext.commonCauses.map((cause, i) => (
+                      <li key={i} style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }} className='text-[#5B5F67] sm:text-lg text-sm'>
+                        {cause}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className='flex flex-col space-y-[16px] bg-[#FFF8F8] border border-[#D52128]/20 rounded-[16px] p-6'>
+                  <h3
+                    style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
+                    className='text-[#D52128] sm:text-3xl text-xl'
+                  >
+                    Florida PIP & 14-Day Rule — What You Need to Know
+                  </h3>
+                  <p
+                    style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
+                    className='text-[#5B5F67] sm:text-lg text-sm'
+                  >
+                    {condition_details.carAccidentContext.pipNote}
+                  </p>
+                  <div className='flex flex-wrap gap-3 mt-2'>
+                    <Link
+                      href="/car-accident/documentation-pip"
+                      className='inline-block bg-[#D52128] text-white font-semibold px-5 py-2 rounded-full text-sm hover:bg-[#b81c22] transition-colors'
+                    >
+                      PIP Documentation Guide
+                    </Link>
+                    <Link
+                      href="/car-accident-injury-clinic"
+                      className='inline-block border border-[#D52128] text-[#D52128] font-semibold px-5 py-2 rounded-full text-sm hover:bg-[#D52128] hover:text-white transition-colors'
+                    >
+                      Car Accident Urgent Care
+                    </Link>
+                  </div>
+                </div>
+
+                <div className='flex flex-col space-y-[16px]'>
+                  <h3
+                    style={{ fontFamily: 'var(--font-reem-kufi)', fontWeight: 500 }}
+                    className='text-[#111315] sm:text-3xl text-xl'
+                  >
+                    Why Choose PrimaryUC for Accident-Related {condition_details.title}?
+                  </h3>
+                  <p
+                    style={{ fontFamily: 'var(--font-inter)', fontWeight: 400 }}
+                    className='text-[#5B5F67] sm:text-xl text-sm'
+                  >
+                    {condition_details.carAccidentContext.whyUs}
+                  </p>
+                </div>
+              </div>
+            )}
           </section>
         </div>
       </section>
@@ -219,7 +298,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!condition_details) {
     return {
       title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
-      description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
+      description: 'Walk-in urgent injury care in Palm Beach County. Injuries & illness seen in under 15 min. Book online or walk in — no appointment needed.',
       keywords: [
         'urgent injury care',
         'walk-in medical care',
@@ -230,7 +309,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       ],
       openGraph: {
         title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
-        description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
+        description: 'Walk-in urgent injury care in Palm Beach County. Injuries & illness seen in under 15 min. Book online or walk in — no appointment needed.',
         url: `https://primaryuc.com/urgent-injury-care/${slug}`,
         type: 'website',
         images: [
@@ -245,7 +324,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       twitter: {
         card: 'summary_large_image',
         title: 'Urgent Injury Care | Walk-In Medical Care Palm Beach County',
-        description: 'Get immediate care for injuries, illnesses, and medical conditions at our urgent care centers. Walk in or book online. Seen in 15 minutes or less. Serving Palm Beach County.',
+        description: 'Walk-in urgent injury care in Palm Beach County. Injuries & illness seen in under 15 min. Book online or walk in — no appointment needed.',
         images: ['/rapidinjurycare.jpg']
       },
       alternates: {

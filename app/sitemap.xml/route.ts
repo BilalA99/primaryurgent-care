@@ -3,13 +3,11 @@ import { pricingData } from '@/app/pricing/page';
 import { conditions } from '@/components/conditions';
 import { services } from '@/components/Services';
 import { primaryCareServices } from '@/app/primary-care-doctor/page';
-import { GetBlogs } from '@/lib/blog/get-blogs';
 
 const BASE_URL = 'https://primaryuc.com';
 
-// Ensure sitemaps reflect newly published CMS posts quickly
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// ISR: regenerate every hour — no Supabase dependency in main sitemap
+export const revalidate = 3600
 
 export async function GET() {
   // Static routes
@@ -27,30 +25,19 @@ export async function GET() {
     '/primary-care-doctor',
   ];
 
-  // Dynamic routes
+  // Dynamic routes (all static data — no Supabase)
   const locationRoutes: string[] = LocationsScreens.map(loc => `/locations/${loc.slug}`);
   const pricingRoutes: string[] = pricingData.map(item => `/pricing/${item.slug}`);
   const urgentInjuryCareRoutes: string[] = conditions.map(item => `/urgent-injury-care/${item.slug}`);
-  // Remove serviceRoutes, add emergencyRoomServiceRoutes
   const emergencyRoomServiceRoutes: string[] = services.map(item => `/emergency-room/${item.slug}`);
-  // Add dynamic routes for primary-care-doctor/[slug]
   const primaryCareDoctorRoutes: string[] = primaryCareServices.map((item: { slug: string }) => `/primary-care-doctor/${item.slug}`);
-  // Add individual service pages
   const individualServiceRoutes: string[] = [
     '/service/ct-scan',
     '/service/nuclear-scans',
     '/service/dot-physical'
   ];
   
-  // Fetch blog posts dynamically from Supabase
-  let blogPostRoutes: string[] = [];
-  try {
-    const posts = await GetBlogs();
-    blogPostRoutes = posts.map(post => `/blog/${post.slug}`);
-  } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error);
-    // Continue with empty array if blog fetch fails
-  }
+  // Blog posts are in sitemap-blog.xml only — removed from here to prevent duplication
   
   // Car accident routes
   const accidentRoutes: string[] = [
@@ -73,7 +60,6 @@ export async function GET() {
     ...emergencyRoomServiceRoutes,
     ...primaryCareDoctorRoutes,
     ...individualServiceRoutes,
-    ...blogPostRoutes,
     ...accidentRoutes,
   ];
 

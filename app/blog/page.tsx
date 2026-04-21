@@ -5,13 +5,12 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import { GetBlogs } from '@/lib/blog/get-blogs';
 import { generateBlogIndexJsonLd } from '@/lib/seo';
 
-// Ensure the blog index reflects newly-published CMS posts immediately
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// ISR: revalidate every 5 minutes — balances freshness with TTFB performance
+export const revalidate = 300
 
 export const metadata = {
   title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
-  description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',
+  description: 'Health tips & urgent care advice from Palm Beach County doctors. PIP, injury treatment, car accident care & more. Expert medical insights.',
   keywords: [
     'health tips',
     'urgent care advice',
@@ -28,7 +27,7 @@ export const metadata = {
   ].join(', '),
   openGraph: {
     title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
-    description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',
+    description: 'Health tips & urgent care advice from Palm Beach County doctors. PIP, injury treatment, car accident care & more. Expert medical insights.',
     url: 'https://primaryuc.com/blog',
     siteName: 'Primary & Urgent Care Centers',
     images: [
@@ -45,7 +44,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Health Tips & Car Accident Care Blog | Primary & Urgent Care',
-    description: 'Health tips, car accident care advice & urgent care guidance from Palm Beach County doctors. Learn about PIP, injury treatment, walk-in care. Expert medical insights.',
+    description: 'Health tips & urgent care advice from Palm Beach County doctors. PIP, injury treatment, car accident care & more. Expert medical insights.',
     images: ['https://primaryuc.com/doctorwithpatient.jpg'],
     site: '@primaryurgentcare',
   },

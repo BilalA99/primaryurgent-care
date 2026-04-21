@@ -3,6 +3,7 @@ import { services } from '@/components/Services'
 import Image from 'next/image'
 import Reveal from '@/components/RevealAnimation'
 import CallButton from '@/components/CallButton';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params
@@ -19,16 +20,8 @@ const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }>
           name: service?.title || 'Emergency Room Service',
           description: service?.description || 'Hospital-level emergency care service',
           url: `https://primaryuc.com/emergency-room/${slug}`,
-          provider: {
-            '@type': 'MedicalClinic',
-            name: 'Primary & Urgent Care Centers of Palm Beach County',
-            url: 'https://primaryuc.com',
-            areaServed: {
-              '@type': 'AdministrativeArea',
-              name: 'Palm Beach County, FL'
-            }
-          },
-          medicalSpecialty: 'EmergencyCare',
+          provider: { '@id': 'https://primaryuc.com/#clinic' },
+          medicalSpecialty: 'Emergency',
           availableService: service?.title || 'Emergency Room Service',
           cost: 'Varies by service and insurance',
           areaServed: {
@@ -41,8 +34,14 @@ const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }>
   );
   
   return (
-    <main className="w-full bg-[#FAFAFA] min-h-screen lg:py-20 py-10 max-w-8xl mx-auto lg:px-[60px] px-6">
+    <main className="w-full bg-[#FAFAFA] min-h-screen max-w-8xl mx-auto">
       <EmergencyRoomServiceJsonLd />
+      <Breadcrumb items={[
+        { name: 'Home', href: '/' },
+        { name: 'Emergency Room', href: '/emergency-room' },
+        { name: service?.title || slug, href: `/emergency-room/${slug}` }
+      ]} />
+      <div className="lg:py-20 py-10 lg:px-[60px] px-6">
       <div className="w-full mx-auto flex flex-col items-center mb-12">
         <div className="text-sm mb-2">
           Emergency Room / <span className="text-[#2563eb]">{service?.title}</span>
@@ -94,6 +93,7 @@ const EmergencyRoomPage = async ({ params }: { params: Promise<{ slug: string }>
           </div>
         </Reveal>
       </div>
+      </div>
     </main>
   )
 }
@@ -106,7 +106,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   if (!service) {
     return {
-      title: 'Emergency Room Services | Hospital-Level Care Palm Beach County',
+      title: 'Emergency Room Services | Hospital-Level Care Palm Beach',
       description: 'Walk-in emergency room alternative with hospital-level care, advanced imaging, and board-certified doctors. Less than 15 min wait. Serving Palm Beach County.',
       alternates: {
         canonical: `https://primaryuc.com/emergency-room/${slug}`,

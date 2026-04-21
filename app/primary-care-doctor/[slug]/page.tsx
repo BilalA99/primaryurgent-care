@@ -6,6 +6,7 @@ import Polestar from '@/components/icons/polestar';
 import Link from 'next/link';
 import BookAppointmentForm from '@/components/ui/BookAppointmentForm';
 import { notFound } from 'next/navigation';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const primaryCareServices = [
     {
@@ -254,91 +255,26 @@ export default async function PrimaryCareServicePage({ params }: { params: Promi
     }
     return (
         <main className="bg-[#F7FAFF] min-h-screen py-10">
-            {/* JSON-LD Structured Data for LocalBusiness and Service */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "MedicalClinic",
-                        "name": "Primary Urgent Care - Family Medicine & Walk-In Clinic",
-                        "image": `https://primaryuc.com${service.image}`,
-                        "@id": `https://primaryuc.com/primary-care-doctor/${service.slug}`,
+                        "@type": "Service",
+                        "@id": `https://primaryuc.com/primary-care-doctor/${service.slug}#service`,
+                        "name": service.title,
+                        "description": service.metaDescription || service.description,
                         "url": `https://primaryuc.com/primary-care-doctor/${service.slug}`,
-                        "telephone": "+1-561-223-8024",
-                        "address": [
-                            {
-                                "@type": "PostalAddress",
-                                "streetAddress": "11476 Okeechobee Blvd",
-                                "addressLocality": "Royal Palm Beach",
-                                "addressRegion": "FL",
-                                "postalCode": "33411",
-                                "addressCountry": "US",
-                                "name": "Royal Palm Beach Primary & Urgent Care Center"
-                            },
-                            {
-                                "@type": "PostalAddress",
-                                "streetAddress": "6447 Lake Worth Rd",
-                                "addressLocality": "Lake Worth Beach",
-                                "addressRegion": "FL",
-                                "postalCode": "33463",
-                                "addressCountry": "US",
-                                "name": "Lake Worth Primary & Urgent Care Center"
-                            },
-                            {
-                                "@type": "PostalAddress",
-                                "streetAddress": "3460 S Congress Ave",
-                                "addressLocality": "Palm Springs",
-                                "addressRegion": "FL",
-                                "postalCode": "33461",
-                                "addressCountry": "US",
-                                "name": "Palm Springs Primary & Urgent Care Center"
-                            },
-                            {
-                                "@type": "PostalAddress",
-                                "streetAddress": "6169 Jog Rd Unit 4B",
-                                "addressLocality": "Lake Worth Beach",
-                                "addressRegion": "FL",
-                                "postalCode": "33463",
-                                "addressCountry": "US",
-                                "name": "Lantana Primary & Urgent Care Center"
-                            }
-                        ],
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 26.7153,
-                            "longitude": -80.0534
-                        },
-                        "openingHoursSpecification": [{
-                            "@type": "OpeningHoursSpecification",
-                            "dayOfWeek": [
-                                "Monday",
-                                "Tuesday",
-                                "Wednesday",
-                                "Thursday",
-                                "Friday",
-                                "Saturday",
-                                "Sunday"
-                            ],
-                            "opens": "08:00",
-                            "closes": "20:00"
-                        }],
-                        "sameAs": [
-                            "https://www.facebook.com/primaryuc",
-                            "https://www.instagram.com/primaryuc"
-                        ],
-                        "makesOffer": {
-                            "@type": "Offer",
-                            "itemOffered": {
-                                "@type": "Service",
-                                "name": service.title,
-                                "description": service.metaDescription || service.description,
-                                "url": `https://primaryuc.com/primary-care-doctor/${service.slug}`
-                            }
-                        }
+                        "provider": { "@id": "https://primaryuc.com/#clinic" },
+                        "areaServed": { "@type": "AdministrativeArea", "name": "Palm Beach County, FL" }
                     })
                 }}
             />
+            <Breadcrumb items={[
+                { name: 'Home', href: '/' },
+                { name: 'Primary Care', href: '/primary-care-doctor' },
+                { name: service.title, href: `/primary-care-doctor/${service.slug}` }
+            ]} />
             {/* Hero Section */}
             <section className="w-full flex flex-col items-center justify-center py-10 px-4">
                 <div className="max-w-7xl w-full flex flex-col lg:flex-row gap-10 items-start">
