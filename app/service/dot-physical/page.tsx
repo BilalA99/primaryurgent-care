@@ -119,7 +119,7 @@ function DotPhysicalJsonLd() {
                         "CDL Medical Exam"
                     ],
                     "priceRange": "$$",
-                    "telephone": "+1-561-223-8024"
+                    "telephone": "+1-561-653-3177"
                 })
             }}
         />
@@ -142,7 +142,7 @@ export default function DotPhysicalPage() {
                         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start w-full">
                             <BookAnAppointmentPopup><div className="bg-[#D52128] text-white font-semibold px-8 py-4 rounded-xl text-lg shadow hover:bg-[#b81b22] transition">Book DOT Physical</div></BookAnAppointmentPopup>
                             <CallButton label="dot_physical_page" className="bg-white text-[#D52128] font-semibold px-8 py-4 rounded-xl text-lg shadow flex items-center gap-3 hover:bg-gray-100 transition border border-[#D52128]">
-                                Call 561-223-8024
+                                Call 561-653-3177
                             </CallButton>
                         </div>
                     </div>
