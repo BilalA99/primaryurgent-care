@@ -1,7 +1,6 @@
 import { GetBlogs } from '@/lib/blog/get-blogs'
 
-// ISR: regenerate every hour — blog posts don't change frequently enough to warrant force-dynamic
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
