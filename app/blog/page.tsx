@@ -232,7 +232,7 @@ const BlogPage = async () => {
               label="blog_footer"
               className="inline-flex items-center gap-3 bg-white group text-[#D52128] font-semibold text-lg px-8 py-4 rounded-xl shadow-md mb-8"
             >
-              Call Now 561-223-8024
+              Call Now 561-653-3177
             </CallButton>
           </div>
         </div>

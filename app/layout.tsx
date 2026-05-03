@@ -132,7 +132,7 @@ export default function RootLayout({
                     '@type': 'AdministrativeArea',
                     name: 'Palm Beach County, FL'
                   },
-                  telephone: '+1-561-223-8024',
+                  telephone: '+1-561-653-3177',
                   sameAs: [
                     'https://www.facebook.com/primaryurgentcare',
                     'https://www.instagram.com/primaryurgentcare'
@@ -143,7 +143,7 @@ export default function RootLayout({
                   '@id': 'https://primaryuc.com/#clinic',
                   name: 'Primary & Urgent Care Centers of Palm Beach County',
                   url: 'https://primaryuc.com',
-                  telephone: '+1-561-223-8024',
+                  telephone: '+1-561-653-3177',
                   image: {
                     '@type': 'ImageObject',
                     url: 'https://primaryuc.com/websitelogo.png',
