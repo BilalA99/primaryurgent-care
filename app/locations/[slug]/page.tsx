@@ -123,22 +123,22 @@ const LocationPage = async ({ params }: { params: Promise<{ slug: string }> }) =
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
       title: 'Royal Palm Beach Urgent Care & Car Accident | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Royal Palm Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Wellington, Loxahatchee. Call (561) 223-8024.',
+      description: 'Urgent care & car accident doctor in Royal Palm Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Wellington, Loxahatchee. Call 561-653-3177.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Royal Palm Beach, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Royal Palm Beach businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Royal Palm Beach.'
     },
     'lake-worth-primary-urgent-care-center': {
       title: 'Lake Worth Urgent Care & Car Accident Doctor | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Lake Worth Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Lantana. Call (561) 223-8024.',
+      description: 'Urgent care & car accident doctor in Lake Worth Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Lantana. Call 561-653-3177.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Lake Worth, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lake Worth businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Lake Worth.'
     },
     'palm-springs-primary-urgent-care-center': {
       title: 'Palm Springs Urgent Care & Car Accident Doctor | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Palm Springs, FL. Walk-in X-ray, PIP exams, same-day care. Serves Greenacres, Lake Worth. Call (561) 223-8024.',
+      description: 'Urgent care & car accident doctor in Palm Springs, FL. Walk-in X-ray, PIP exams, same-day care. Serves Greenacres, Lake Worth. Call 561-653-3177.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center in Palm Springs, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Palm Springs businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor in Palm Springs.'
     },
     'lantana-primary-urgent-care-center': {
       title: 'Lantana Urgent Care & Car Accident Doctor | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Lantana / Jog Rd, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Hypoluxo. Call (561) 223-8024.',
+      description: 'Urgent care & car accident doctor in Lantana / Jog Rd, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Hypoluxo. Call 561-653-3177.',
       intro: 'PrimaryUC is the leading injury clinic and urgent care center serving the Lantana / Jog Rd area in Lake Worth Beach, providing fast, reliable treatment for accident injuries, work injuries, and everyday urgent health needs. We offer workers\' comp services for Lantana and surrounding area businesses and help you get the documentation you need for insurance or legal claims. If you\'ve been in a car crash, our team is your trusted car crash doctor serving the Lantana, Boynton Beach, and Hypoluxo areas.'
     }
   };
@@ -429,19 +429,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const citySeo = {
     'royal-palm-beach-primary-urgent-care-center': {
       title: 'Royal Palm Beach Urgent Care & Car Accident | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Royal Palm Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Wellington, Loxahatchee. Call (561) 223-8024.'
+      description: 'Urgent care & car accident doctor in Royal Palm Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Wellington, Loxahatchee. Call 561-653-3177.'
     },
     'lake-worth-primary-urgent-care-center': {
       title: 'Lake Worth Urgent Care & Car Accident Doctor | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Lake Worth Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Lantana. Call (561) 223-8024.'
+      description: 'Urgent care & car accident doctor in Lake Worth Beach, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Lantana. Call 561-653-3177.'
     },
     'palm-springs-primary-urgent-care-center': {
       title: 'Palm Springs Urgent Care & Car Accident Doctor | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Palm Springs, FL. Walk-in X-ray, PIP exams, same-day care. Serves Greenacres, Lake Worth. Call (561) 223-8024.'
+      description: 'Urgent care & car accident doctor in Palm Springs, FL. Walk-in X-ray, PIP exams, same-day care. Serves Greenacres, Lake Worth. Call 561-653-3177.'
     },
     'lantana-primary-urgent-care-center': {
       title: 'Lantana Urgent Care & Car Accident Doctor | PrimaryUC',
-      description: 'Urgent care & car accident doctor in Lantana / Jog Rd, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Hypoluxo. Call (561) 223-8024.'
+      description: 'Urgent care & car accident doctor in Lantana / Jog Rd, FL. Walk-in X-ray, PIP exams, same-day care. Serves Boynton Beach, Hypoluxo. Call 561-653-3177.'
     }
   };
   return {
