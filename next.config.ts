@@ -101,6 +101,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'mountainspineortho.b-cdn.net',
+      },
+      {
+        protocol: 'https',
         hostname: '*.b-cdn.net',
       }
     ],

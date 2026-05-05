@@ -191,7 +191,7 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
           disabled={isLoading}
           className="w-full h-12 bg-[#D52128] hover:bg-[#b81b22] active:bg-[#9a1520] text-white text-base font-bold rounded-xl shadow-lg touch-manipulation"
         >
-          {isLoading ? 'Submitting...' : 'Book My Car Accident Exam →'}
+          {isLoading ? 'Submitting...' : 'Request Same-Day Accident Exam'}
         </Button>
       </form>
     </div>

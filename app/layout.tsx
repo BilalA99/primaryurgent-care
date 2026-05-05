@@ -4,7 +4,6 @@ import "./globals.css";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import BookAppointmentSection from "@/components/BookAppointmentSection";
-import { MapProvider } from "@/providers/map-provider";
 import Script from "next/script";
 import GclidCapture from "@/components/GclidCapture";
 
@@ -93,11 +92,13 @@ export default function RootLayout({
     <html lang="en" className={interTight.className} suppressHydrationWarning={true}>
       <head>
         {/* Google tag (gtag.js) - GA4 */}
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2BKMKZM043"
-        ></script>
-        <script
+          strategy="lazyOnload"
+        />
+        <Script
+          id="ga4-base"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -201,7 +202,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* End Google Tag Manager */}
         {/* Ahrefs Analytics */}
-        <script
+        <Script
+          id="ahrefs-analytics"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var ahrefs_analytics_script = document.createElement('script');
@@ -213,11 +216,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Ahrefs Analytics */}
-        <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
-        <Script src="/assets/translation.js" strategy="beforeInteractive" />
+        <Script src="/assets/lang-config.js" strategy="afterInteractive" />
+        <Script src="/assets/translation.js" strategy="afterInteractive" />
         <Script
           src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </head>
 
@@ -236,14 +239,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <MapProvider>
-          <NavBar />
-          <div className="lg:mt-14 mt-30">
-            {children}
-          </div>
-          <BookAppointmentSection />
-          <Footer />
-        </MapProvider>
+        <NavBar />
+        <div className="mt-[74px] lg:mt-14">
+          {children}
+        </div>
+        <BookAppointmentSection />
+        <Footer />
       </body>
     </html>
   );

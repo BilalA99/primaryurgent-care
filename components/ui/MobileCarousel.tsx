@@ -204,13 +204,18 @@ const MobileCarousel: React.FC<MobileCarouselProps> = ({
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`transition-all duration-200 ${
-                  index === currentIndex 
-                    ? 'w-6 h-2 bg-[#D52128] rounded-full' 
-                    : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
-                }`}
+                className="min-h-11 min-w-11 inline-flex items-center justify-center rounded-full transition-colors duration-200"
                 aria-label={`Go to slide ${index + 1}`}
-              />
+                aria-current={index === currentIndex ? 'true' : undefined}
+              >
+                <span
+                  className={`block transition-all duration-200 ${
+                    index === currentIndex
+                      ? 'w-6 h-2 bg-[#D52128] rounded-full'
+                      : 'w-2 h-2 bg-gray-300 rounded-full'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         )}

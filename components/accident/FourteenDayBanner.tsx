@@ -9,13 +9,13 @@ interface FourteenDayBannerProps {
 }
 
 export default function FourteenDayBanner({ phoneHref, phoneDisplay }: FourteenDayBannerProps) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // Check sessionStorage — hide if previously dismissed
+    // Check sessionStorage after first paint so first-time visitors get stable SSR layout.
     try {
-      if (!sessionStorage.getItem('14day_banner_dismissed')) {
-        setVisible(true);
+      if (sessionStorage.getItem('14day_banner_dismissed')) {
+        setVisible(false);
       }
     } catch {
       setVisible(true);
@@ -32,18 +32,18 @@ export default function FourteenDayBanner({ phoneHref, phoneDisplay }: FourteenD
   if (!visible) return null;
 
   return (
-    <div className="sticky top-0 md:top-24 z-40 w-full bg-[#B91C1C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
+    <div className="sticky top-0 md:top-24 z-40 w-full bg-[#B91C1C] text-white py-2 md:py-2.5 px-4 sm:px-6 lg:px-8 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         {/* Icon + Text */}
         <div className="flex items-center gap-2 flex-1 min-w-0">
           <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 animate-pulse" />
           {/* Full text on md+ */}
           <p className="hidden md:block text-sm md:text-base font-bold leading-tight">
-            Florida 14-Day Rule: You must see a doctor within 14 days of your accident to protect up to $10,000 in PIP benefits.
+            Florida 14-Day PIP Rule: a prompt medical exam may affect your ability to use PIP benefits after an accident.
           </p>
           {/* Short text on mobile */}
-          <p className="md:hidden text-sm font-bold leading-tight">
-            14-Day Rule — Don&apos;t Wait.
+          <p className="md:hidden text-xs font-bold leading-tight">
+            14-Day PIP Rule — Get Checked.
           </p>
         </div>
 
@@ -53,6 +53,7 @@ export default function FourteenDayBanner({ phoneHref, phoneDisplay }: FourteenD
             <a
               href={phoneHref}
               className="ca-pulse-cta inline-flex items-center gap-1 bg-white text-[#B91C1C] font-bold text-xs sm:text-sm px-3 py-1.5 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation whitespace-nowrap"
+              aria-label={`Call now: ${phoneDisplay || 'Primary Urgent Care'}`}
             >
               Call Now
             </a>

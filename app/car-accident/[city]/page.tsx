@@ -35,8 +35,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!c) return {};
 
   const cityName = c.displayName || c.name;
-  const title = `Car Accident Doctor in ${cityName}, FL | Same-Day Exam · PIP Accepted | PrimaryUC`;
-  const description = `Hurt in a car accident in ${cityName}? Get a same-day injury exam at PrimaryUC. Onsite X-ray, PIP documentation, walk-ins welcome. Florida 14-day rule — don't wait. Call ${c.phoneDisplay}.`;
+  const isLakeWorth = city === "lake-worth";
+  const heroTitle = isLakeWorth
+    ? "Urgent Care After a Car Accident in Lake Worth, FL"
+    : `Car Accident Doctor in ${cityName}, FL`;
+  const title = isLakeWorth
+    ? "Urgent Care After Car Accident Lake Worth | PrimaryUC"
+    : `Car Accident Doctor in ${cityName}, FL | Same-Day Exam · PIP Accepted | PrimaryUC`;
+  const description = isLakeWorth
+    ? `Same-day car accident exams in Lake Worth with on-site X-ray, injury documentation, and PIP billing support. Walk in or request a visit.`
+    : `Hurt in a car accident in ${cityName}? Get a same-day injury exam at PrimaryUC. Onsite X-ray, PIP documentation, walk-ins welcome. Florida 14-day rule support. Call ${c.phoneDisplay}.`;
   const url = `${baseUrl}/car-accident/${city}`;
 
   return {
@@ -84,6 +92,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   if (!c) notFound();
 
   const cityName = c.displayName || c.name;
+  const isLakeWorth = city === "lake-worth";
+  const heroTitle = isLakeWorth
+    ? "Urgent Care After a Car Accident in Lake Worth, FL"
+    : `Car Accident Doctor in ${cityName}, FL`;
   const pageUrl = `${baseUrl}/car-accident/${city}`;
   const clinicId = `${pageUrl}#clinic`;
 
@@ -168,7 +180,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         name: `How quickly can I be seen for car accident injuries in ${c.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `We offer same-day appointments and welcome walk-ins at our ${c.name} location. Wait times are typically under 15 minutes for auto-injury visits. We prioritize accident-related injuries to ensure you receive prompt medical attention and documentation. No appointment is necessary, and we understand the urgency of getting evaluated within Florida's 14-day PIP window to protect your benefits.`
+          text: `We offer same-day appointments and welcome walk-ins at our ${c.name} location. Auto-injury visits are prioritized when possible so you can receive prompt medical evaluation and documentation. Getting evaluated quickly can help document symptoms, exam findings, and treatment recommendations within Florida's 14-day PIP window.`
         }
       },
       {
@@ -184,7 +196,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         name: "Do you provide documentation for insurance claims?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results, and recommended treatment. These records are designed to support PIP and other insurance claims. We format all documentation for easy review by insurance adjusters and can coordinate with your attorney when properly authorized."
+          text: "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results when performed, and recommended treatment. These records are designed for PIP and insurance documentation and can be shared with your insurance provider if needed."
         }
       },
       {
@@ -216,7 +228,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         name: "What is Florida's 14-day rule and why does it matter for my accident claim?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Florida's PIP law requires that you receive medical care within 14 days of your car accident to qualify for Personal Injury Protection benefits — up to $10,000 in coverage. If you wait longer than 14 days, you risk losing access to these benefits entirely. Our ${cityName} clinic is available same-day to ensure you meet this deadline and protect your claim. Call us at ${c.phoneDisplay} or walk in — no appointment needed.`
+          text: `Florida's 14-day PIP rule may affect your ability to use PIP benefits after an accident. Getting evaluated quickly can help document your symptoms, exam findings, and treatment recommendations. Our ${cityName} clinic offers same-day accident exams when available. Call ${c.phoneDisplay} or walk in.`
         }
       }
     ]
@@ -225,9 +237,11 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Car Accident Doctor in ${cityName} | Same-Day Exam`,
+    name: isLakeWorth ? heroTitle : `Car Accident Doctor in ${cityName} | Same-Day Exam`,
     url: `${baseUrl}/car-accident/${city}`,
-    description: `Car accident doctor in ${cityName}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.`,
+    description: isLakeWorth
+      ? `Urgent care after a car accident in Lake Worth, FL. Same-day exams, on-site X-ray, injury documentation, and PIP billing support.`
+      : `Car accident doctor in ${cityName}, FL. Same-day exam, onsite X-ray, PIP documentation. Florida 14-day rule support. Walk-ins welcome.`,
     about: {
       "@type": "MedicalCondition",
       name: "Motor Vehicle Collision Injuries"
@@ -262,11 +276,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
       {/* Hero Section */}
       <HeroWithForm
-        title={`Car Accident Doctor in ${cityName}, FL`}
+        title={heroTitle}
         subtitle={
           <div>
             <p className="mb-2">
-              Recent crash in {cityName}? Get a same-day accident exam at{' '}
+              Same-day car accident exams with on-site X-ray, injury documentation, and PIP billing support in {cityName}. Walk in or request a visit today.
+            </p>
+            <p className="text-sm md:text-base text-white/80">
+              Convenient care at{' '}
               {c.gmbUrl ? (
                 <a
                   href={c.gmbUrl}
@@ -278,14 +295,17 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 </a>
               ) : (
                 <span>{c.address}, {c.city}, FL {c.postalCode}</span>
-              )}. Seen in under 15 minutes.
+              )}.
             </p>
           </div>
         }
         checklist={[
-          `Same-day exam — walk-ins welcome in ${cityName}`,
-          "Florida 14-day rule: don't risk losing $10,000 in PIP",
-          "Onsite X-ray · PIP accepted · Documentation included",
+          "No referral needed",
+          "Same-day accident exams",
+          "On-site X-ray available",
+          "PIP documentation provided",
+          "Florida 14-day PIP support",
+          "Walk-ins welcome",
         ]}
         phoneHref={c.phoneHref}
         phoneDisplay={c.phoneDisplay}
@@ -298,7 +318,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             city={cityName}
           />
         }
-        backgroundImage="/image-auto-accident-involving-two-cars.jpg"
+        backgroundImage="https://mountainspineortho.b-cdn.net/PrimaryUC-images/image-auto-accident-involving-two-cars.jpg"
       />
 
       {/* Trust Badges — immediately after hero */}
@@ -310,14 +330,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         items={[
           {
             icon: <Shield className="w-6 h-6" />,
-            title: "Protect Your PIP Benefits",
-            description: "Florida's 14-day rule means delayed care can put your $10,000 PIP benefits at risk.",
+            title: "Florida 14-Day PIP Support",
+            description: "Florida's 14-day PIP rule may affect your ability to use PIP benefits after an accident.",
             type: 'warning'
           },
           {
             icon: <FileText className="w-6 h-6" />,
-            title: "Stronger Documentation",
-            description: "Early notes, exam findings, and imaging create a clear timeline insurers and attorneys can follow.",
+            title: "Clear Medical Documentation",
+            description: "Early visit notes, exam findings, imaging records when performed, and follow-up recommendations create a clear medical record.",
             type: 'info'
           },
           {
@@ -473,32 +493,52 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           {
             icon: <FileText className="w-6 h-6" />,
             title: "PIP Claims Support",
-            description: "Complete documentation tailored to Florida PIP requirements, including visit summaries, diagnoses, and recommended treatment.",
+            description: "Medical documentation for PIP and insurance claims, including visit summaries, diagnoses, and recommended treatment.",
             type: 'info'
           },
           {
             icon: <Shield className="w-6 h-6" />,
-            title: "Attorney-Friendly Records",
-            description: "Structured medical records and imaging reports that legal teams can easily review and reference.",
+            title: "Insurance-Ready Records",
+            description: "Clear medical records you can share with your insurance provider if needed, including imaging reports when performed.",
             type: 'success'
           },
           {
             icon: <Clock className="w-6 h-6" />,
-            title: "14-Day Rule Compliance",
-            description: "We ensure your initial auto-injury evaluation occurs within Florida's 14-day PIP window whenever possible.",
+            title: "Prompt Evaluation",
+            description: "Getting evaluated quickly can help document your symptoms, exam findings, and treatment recommendations.",
             type: 'warning'
           }
         ]}
         className="bg-[#FAFAFA]"
       />
 
+      {/* Urgent Care vs ER Safety Guidance */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+          <div className="rounded-2xl border-2 border-[#2563eb]/20 bg-gradient-to-br from-[#F2F6FC] to-white p-6 md:p-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Should You Go to Urgent Care or the ER After a Car Accident?
+            </h2>
+            <div className="space-y-4 text-lg text-gray-700">
+              <p>
+                PrimaryUC can evaluate stable, non-life-threatening accident injuries such as neck pain, back pain, headaches, soreness, sprains, strains, and possible minor fractures.
+              </p>
+              <p>
+                If you have severe chest pain, trouble breathing, loss of consciousness, severe bleeding, confusion, stroke-like symptoms, severe abdominal pain, or major trauma, call 911 or go to the emergency room.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Car Accident Care in {City} */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            Car Accident Care in {cityName}
+            Car Accident Injury Care in {cityName}, FL
           </h2>
           <div className="space-y-4 text-lg text-gray-700">
+            <h3 className="text-2xl font-bold text-gray-900">What to Do After a Car Accident in {cityName}</h3>
             <p>
               Our {cityName} car accident injury clinic serves patients throughout Palm Beach County, including nearby communities. Located at{' '}
               {c.gmbUrl ? (
@@ -514,11 +554,21 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 <span>{c.address}, {c.city}, FL {c.postalCode}</span>
               )}, we're easily accessible from major roads and neighborhoods in the area.
             </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Get checked if you develop neck pain, back pain, headaches, soreness, dizziness, or limited movement.</li>
+              <li>Bring your photo ID, insurance information, claim details, and any accident paperwork you have.</li>
+              <li>Ask for documentation of your symptoms, exam findings, imaging records when performed, and follow-up recommendations.</li>
+            </ul>
+            <h3 className="text-2xl font-bold text-gray-900">Why Choose PrimaryUC for Accident Care?</h3>
             <p>
               Auto accident patients from {c.city} and surrounding areas come to us for same-day injury evaluation, onsite X-ray imaging, and comprehensive PIP documentation. Our {cityName} location is equipped with digital X-ray capabilities and experienced providers who specialize in car accident injury care.
             </p>
+            <h3 className="text-2xl font-bold text-gray-900">Serving {cityName} and Nearby Areas</h3>
             <p>
-              Whether you've been in a rear-end collision on local roads, a side-impact crash, or a parking lot accident, our car accident doctors in {c.city} can evaluate your injuries, provide treatment, and create the documentation your insurance company and attorney need.
+              Whether you've been in a rear-end collision on local roads, a side-impact crash, or a parking lot accident, our car accident doctors in {c.city} can evaluate your injuries, provide treatment, and create documentation for PIP and insurance claims.
+            </p>
+            <p>
+              Serving Lake Worth, Lake Worth Beach, Palm Springs, Greenacres, Lantana, and nearby Palm Beach County communities.
             </p>
           </div>
         </div>
@@ -544,7 +594,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         faqs={[
           {
             question: `How quickly can I be seen for car accident injuries in ${cityName}?`,
-            answer: `We offer same-day appointments and welcome walk-ins at our ${cityName} location. Wait times are typically under 15 minutes for auto-injury visits. We prioritize accident-related injuries to ensure you receive prompt medical attention and documentation. No appointment is necessary, and we understand the urgency of getting evaluated within Florida's 14-day PIP window to protect your benefits.`
+            answer: `We offer same-day appointments and welcome walk-ins at our ${cityName} location. Auto-injury visits are prioritized when possible so you can receive prompt medical evaluation and documentation. Getting evaluated quickly can help document symptoms, exam findings, and treatment recommendations within Florida's 14-day PIP window.`
           },
           {
             question: "What types of car accident injuries do you treat?",
@@ -553,7 +603,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           {
             question: "Do you provide documentation for insurance claims?",
             answer:
-              "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results, and recommended treatment. These records are designed to support PIP and other insurance claims. We format all documentation for easy review by insurance adjusters and can coordinate with your attorney when properly authorized."
+              "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results when performed, and recommended treatment. These records are designed for PIP and insurance documentation and can be shared with your insurance provider if needed."
           },
           {
             question: "Do you accept PIP and auto insurance?",
@@ -571,7 +621,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           },
           {
             question: "What is Florida's 14-day rule and why does it matter for my accident claim?",
-            answer: `Florida's PIP law requires that you receive medical care within 14 days of your car accident to qualify for Personal Injury Protection benefits — up to $10,000 in coverage. If you wait longer than 14 days, you risk losing access to these benefits entirely. Our ${cityName} clinic is available same-day to ensure you meet this deadline and protect your claim. Call us at ${c.phoneDisplay} or walk in — no appointment needed.`
+            answer: `Florida's 14-day PIP rule may affect your ability to use PIP benefits after an accident. Getting evaluated quickly can help document your symptoms, exam findings, and treatment recommendations. Our ${cityName} clinic offers same-day accident exams when available. Call us at ${c.phoneDisplay} or walk in.`
           }
         ]}
       />
@@ -606,7 +656,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                   href="/lawyers"
                   className="bg-white text-[#2563eb] border border-[#2563eb] font-semibold px-8 py-3 rounded-xl hover:bg-blue-50 transition"
                 >
-                  Medical Records for Attorneys
+                  Medical Records Request
                 </Link>
               </div>
             </div>

@@ -7,10 +7,10 @@ const AttorneyFriendlySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Attorney-Ready Documentation
+            Insurance-Ready Medical Documentation
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We create thorough, organized medical records that support your case documentation needs
+            We create thorough, organized medical records for PIP and insurance documentation needs.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ const AttorneyFriendlySection: React.FC = () => {
               Comprehensive Records
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Detailed visit summaries, exam findings, imaging reports, and treatment plans formatted for easy review by legal teams and insurance adjusters.
+              Detailed visit summaries, exam findings, imaging reports when performed, and treatment plans for insurance documentation.
             </p>
           </div>
 
@@ -35,7 +35,7 @@ const AttorneyFriendlySection: React.FC = () => {
               Timeline Documentation
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Clear chronology of your injuries, symptoms, and treatment that establishes a documented connection between the accident and your medical needs.
+              Clear chronology of your symptoms, exam findings, treatment recommendations, and follow-up needs after the accident.
             </p>
           </div>
 
@@ -47,14 +47,14 @@ const AttorneyFriendlySection: React.FC = () => {
               Coordinated Care
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              We coordinate with attorneys and insurance companies when properly authorized, making the documentation process as smooth as possible for your case.
+              We coordinate with insurance companies and authorized representatives when appropriate to support the documentation process.
             </p>
           </div>
         </div>
 
         <div className="mt-8 text-center">
           <p className="text-sm text-gray-500 italic">
-            Note: We provide medical documentation and coordinate with legal teams when authorized. We do not provide legal advice or guarantee specific outcomes.
+            Note: We provide medical documentation for care and insurance records. We do not provide legal advice or guarantee specific outcomes.
           </p>
         </div>
       </div>

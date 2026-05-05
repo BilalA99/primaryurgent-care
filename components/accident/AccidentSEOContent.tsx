@@ -27,11 +27,11 @@ const AccidentSEOContent: React.FC<AccidentSEOContentProps> = ({ content, data }
 
             <h2>Car Accident Injury Care in {cityFull}</h2>
             <p>
-              If you&apos;ve been in a car accident in {city}, Florida, immediate medical evaluation is essential
-              for both your health and your claim. Under Florida&apos;s PIP 14-day rule, you must see a car
-              accident doctor within 14 days of your accident to unlock up to $10,000 in PIP benefits.
-              Waiting longer risks losing those benefits permanently. Our {city} car accident urgent care
-              clinic is open same-day — walk-ins are always welcome.
+              If you&apos;ve been in a car accident in {city}, Florida, a prompt medical evaluation can help
+              identify injuries that are not obvious right away and create a clear medical record. Florida&apos;s
+              14-day PIP rule may affect your ability to use PIP benefits after an accident. Getting evaluated
+              quickly can help document your symptoms, exam findings, and treatment recommendations. Our {city}
+              car accident urgent care clinic offers same-day visits when available, and walk-ins are welcome.
             </p>
 
             <h3>What to Do After a Car Accident in {city}</h3>
@@ -40,12 +40,12 @@ const AccidentSEOContent: React.FC<AccidentSEOContentProps> = ({ content, data }
               <li>Exchange insurance information and document the scene with photos.</li>
               <li>Obtain a copy of the police report as soon as it&apos;s available.</li>
               <li>
-                <strong>See a doctor within 14 days</strong> — visit our {city} walk-in car accident clinic
-                at {address} to protect your PIP benefits and start documentation immediately.
+                <strong>Get evaluated promptly</strong> — visit our {city} walk-in car accident clinic
+                at {address} to document your symptoms, exam findings, and treatment recommendations.
               </li>
               <li>
-                Contact your PIP insurance provider to open a claim. Our team provides all the
-                documentation adjusters and attorneys need.
+                Contact your PIP insurance provider if you need to open a claim. Our team provides clear
+                medical documentation for PIP and insurance records.
               </li>
             </ol>
 
@@ -54,9 +54,8 @@ const AccidentSEOContent: React.FC<AccidentSEOContentProps> = ({ content, data }
               Our {city} location at {address} specializes in car accident injury evaluation, whiplash
               treatment, and back and neck pain care after a collision. We offer same-day car accident
               exams, onsite digital X-ray imaging, and comprehensive PIP documentation — all under one
-              roof. Our board-certified providers understand exactly what insurers and attorneys need,
-              and every visit generates clear exam findings, diagnoses, and a follow-up plan that
-              supports your personal injury case.
+              roof. Every visit generates clear exam findings, diagnoses, imaging records when performed,
+              and follow-up recommendations you can share with your insurance provider if needed.
             </p>
             <p>
               As a PIP doctor in {city}, we accept most major auto insurance plans and handle

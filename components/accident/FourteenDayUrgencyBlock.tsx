@@ -16,19 +16,19 @@ const FourteenDayUrgencyBlock: React.FC = () => {
             
             <div className="flex-1">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Why You Must Be Seen Within 14 Days
+                Why Prompt Medical Evaluation Matters
               </h2>
               <p className="text-white/90 text-base md:text-lg mb-4 leading-relaxed">
-                Florida's Personal Injury Protection (PIP) law requires you to seek medical care within 14 days of your accident to unlock up to $10,000 in PIP benefits. Missing this deadline can result in denial of coverage for medical bills, lost wages, and related benefits.
+                Florida's 14-day PIP rule may affect your ability to use PIP benefits after an accident. Getting evaluated quickly can help document your symptoms, exam findings, and treatment recommendations.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-4">
                 <div className="flex items-center gap-2 text-white/90">
                   <Clock className="w-5 h-5" />
-                  <span className="font-semibold">Time-sensitive window</span>
+                  <span className="font-semibold">Time-sensitive documentation window</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/90">
-                  <span className="font-semibold">$10,000 PIP benefits at stake</span>
+                  <span className="font-semibold">PIP billing support available</span>
                 </div>
               </div>
               

@@ -7,7 +7,7 @@ import Waittimes from '@/components/icons/waittimes'
 import ShieldUser from '@/components/icons/shielduser'
 import { LocationsScreens } from '@/components/locationsscreens'
 import Link from 'next/link'
-import ClinicsMap from '@/components/clinicsmap'
+import ClinicsMap from '@/components/DynamicClinicsMap'
 
 export const metadata = {
   title: "Urgent Care Locations Palm Beach | Car Accident | 4 Clinics",

@@ -10,7 +10,7 @@ import ShieldUser from "@/components/icons/shielduser";
 import LocationCard from '@/components/ui/LocationCard';
 import Services from "@/components/Services";
 import LocationsRow from "@/components/LocationsRow";
-import ClinicsMap from "@/components/clinicsmap";
+import ClinicsMap from "@/components/DynamicClinicsMap";
 import { LocationsScreens } from "@/components/locationsscreens";
 import SlidingDiv from "@/components/SlidingAnimation";
 import Reveal from "@/components/RevealAnimation";

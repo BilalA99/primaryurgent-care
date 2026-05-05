@@ -24,15 +24,15 @@ const AccidentFAQ: React.FC<AccidentFAQProps> = ({
     },
     {
       question: "Do you accept insurance for car accident injuries?",
-      answer: "Yes, we accept most major insurance plans including PIP (Personal Injury Protection) coverage, which is required in Florida. We also work with auto insurance companies and can provide documentation for your personal injury claim. Our team will help coordinate billing and insurance verification."
+      answer: "Yes, we accept most major insurance plans including PIP (Personal Injury Protection) coverage. Our team can help coordinate billing, insurance verification, and medical documentation for PIP or auto insurance records."
     },
     {
       question: "How quickly can I be seen for car accident injuries?",
-      answer: "We offer same-day appointments and welcome walk-ins for car accident injuries. Our urgent care centers typically have wait times under 15 minutes, and we prioritize accident-related injuries to ensure you receive prompt medical attention and documentation."
+      answer: "We offer same-day appointments and welcome walk-ins for car accident injuries. Accident-related visits are prioritized when possible so you can receive prompt medical evaluation and documentation."
     },
     {
       question: "What documentation will I receive for my insurance claim?",
-      answer: "We provide comprehensive documentation including detailed medical reports, X-ray results, treatment plans, and visit summaries. This documentation is essential for your insurance claim and any potential legal proceedings. We can also coordinate with your attorney if needed."
+      answer: "We provide clear medical documentation including visit summaries, exam findings, X-ray results when performed, treatment plans, and follow-up recommendations for PIP and insurance records."
     }
   ]
 }) => {

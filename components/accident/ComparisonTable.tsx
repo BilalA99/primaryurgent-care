@@ -19,8 +19,8 @@ const ComparisonTable: React.FC = () => {
     },
     {
       feature: 'PIP Coverage',
-      urgentCare: 'Yes, full coverage',
-      er: 'Yes, full coverage',
+      urgentCare: 'PIP billing support',
+      er: 'PIP billing support',
       urgentCareIcon: <CheckCircle2 className="w-5 h-5 text-[#16A34A]" />,
       erIcon: <CheckCircle2 className="w-5 h-5 text-[#16A34A]" />
     },
@@ -33,7 +33,7 @@ const ComparisonTable: React.FC = () => {
     },
     {
       feature: 'Documentation',
-      urgentCare: 'Comprehensive, attorney-ready',
+      urgentCare: 'Insurance-ready medical records',
       er: 'Comprehensive records',
       urgentCareIcon: <CheckCircle2 className="w-5 h-5 text-[#16A34A]" />,
       erIcon: <CheckCircle2 className="w-5 h-5 text-[#16A34A]" />

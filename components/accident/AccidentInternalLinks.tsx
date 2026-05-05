@@ -17,30 +17,6 @@ const AccidentInternalLinks: React.FC = () => {
       description: 'Same-day car accident urgent care exam and PIP documentation'
     },
     {
-      title: 'Royal Palm Beach',
-      href: '/car-accident/royal-palm-beach',
-      icon: <MapPin className="w-6 h-6" />,
-      description: 'Car accident doctor in Royal Palm Beach'
-    },
-    {
-      title: 'Lake Worth',
-      href: '/car-accident/lake-worth',
-      icon: <MapPin className="w-6 h-6" />,
-      description: 'Car accident doctor in Lake Worth'
-    },
-    {
-      title: 'Palm Springs',
-      href: '/car-accident/palm-springs',
-      icon: <MapPin className="w-6 h-6" />,
-      description: 'Car accident doctor in Palm Springs'
-    },
-    {
-      title: 'Lantana / Jog Rd',
-      href: '/car-accident/lantana',
-      icon: <MapPin className="w-6 h-6" />,
-      description: 'Car accident doctor in Lantana / Jog Rd area (Lake Worth Beach)'
-    },
-    {
       title: 'Whiplash Treatment',
       href: '/car-accident/whiplash',
       icon: <FileText className="w-6 h-6" />,
@@ -71,10 +47,28 @@ const AccidentInternalLinks: React.FC = () => {
       description: 'Onsite digital X-ray during your same-day visit'
     },
     {
-      title: '1.5T MRI',
-      href: '/services/1-5t-mri',
-      icon: <Shield className="w-6 h-6" />,
-      description: '1.5T MRI for comprehensive injury assessment'
+      title: 'Lake Worth Location',
+      href: '/locations/lake-worth-primary-urgent-care-center',
+      icon: <MapPin className="w-6 h-6" />,
+      description: 'Address, hours, and directions for the Lake Worth clinic'
+    },
+    {
+      title: 'Royal Palm Beach',
+      href: '/car-accident/royal-palm-beach',
+      icon: <MapPin className="w-6 h-6" />,
+      description: 'Car accident urgent care in Royal Palm Beach'
+    },
+    {
+      title: 'Palm Springs',
+      href: '/car-accident/palm-springs',
+      icon: <MapPin className="w-6 h-6" />,
+      description: 'Car accident urgent care in Palm Springs'
+    },
+    {
+      title: 'Lantana / Jog Rd',
+      href: '/car-accident/lantana',
+      icon: <MapPin className="w-6 h-6" />,
+      description: 'Car accident urgent care in the Lantana / Jog Rd area'
     }
   ];
 
@@ -86,7 +80,7 @@ const AccidentInternalLinks: React.FC = () => {
             Car Accident Care Resources
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Explore all our car accident services, locations, and information pages
+            High-intent resources for accident exams, PIP documentation, imaging, and nearby care.
           </p>
         </div>
 

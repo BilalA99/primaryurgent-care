@@ -14,7 +14,6 @@ export async function GET() {
   const staticRoutes: string[] = [
     '',
     '/appointment',
-    '/blog',
     '/emergency-room',
     '/lawyers',
     '/locations',
