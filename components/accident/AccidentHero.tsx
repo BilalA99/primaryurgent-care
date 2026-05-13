@@ -29,7 +29,7 @@ const AccidentHero: React.FC<AccidentHeroProps> = ({
     'On-site X-ray & imaging',
     'PIP documentation & billing',
     'Insurance coordination',
-    'Attorney referrals available'
+    'Clear medical records'
   ],
   citySlug,
   phoneHref,

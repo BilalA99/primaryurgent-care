@@ -28,6 +28,23 @@ const defaultMapOptions = {
   disableDefaultUI: true
 };
 
+const googleMapsLibraries: Libraries = ['places', 'drawing', 'geometry', 'marker'];
+
+function MapLoadingState({ message }: { message: string }) {
+  return (
+    <section className="w-full h-full">
+      <div className="max-w-[1440px] w-full px-2 mx-auto relative">
+        <div
+          style={defaultMapContainerStyle}
+          className="flex items-center justify-center bg-slate-100 text-sm font-medium text-slate-600"
+        >
+          {message}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 // Assume icons are defined here or imported. IMPORTANT: Accessing window.google requires the library to be loaded.
 
@@ -35,6 +52,11 @@ export default function ClinicsMap({ startingClinic, zoom } :  {
   startingClinic? : { name : string, lat : number, lng : number, address : string}, 
   zoom? : number
 }) {
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_API || '';
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey,
+    libraries: googleMapsLibraries,
+  });
 
   //const {location} = useGeolocation();
    // Optional: State to hold map instance
@@ -144,14 +166,6 @@ export default function ClinicsMap({ startingClinic, zoom } :  {
     </svg>
  `;
 
-
-  const defaultMarkerIcon = {
-    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(defaultSvg),
-    scaledSize: new window.google.maps.Size(60, 40), // Display size
-    anchor: new window.google.maps.Point(30, 20),    // Anchor at center
-  };
-
-
   // --- Marker Click Handler ---
   const handleMarkerClick = (clinicName) => {
     if( clinicName.name == selectedClinc?.name ){
@@ -188,6 +202,25 @@ const handleClinicChange = (name: string) => {
       isInitialMount.current = false
     }
   }, [selectedClinc])
+
+  if (!googleMapsApiKey) {
+    return <MapLoadingState message="Map unavailable" />;
+  }
+
+  if (loadError) {
+    return <MapLoadingState message="Map unavailable" />;
+  }
+
+  if (!isLoaded || typeof window === 'undefined' || !window.google?.maps) {
+    return <MapLoadingState message="Loading clinic map..." />;
+  }
+
+  const defaultMarkerIcon = {
+    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(defaultSvg),
+    scaledSize: new window.google.maps.Size(60, 40), // Display size
+    anchor: new window.google.maps.Point(30, 20),    // Anchor at center
+  };
+
   return (
     <section className="w-full h-full ">
       {/* This outer div needs to contain both map and overlay */}

@@ -230,12 +230,12 @@ const NavBar = () => {
 
     return (
         <div className='fixed top-0 left-0 right-0 z-50 flex w-full'>
-            <div className="bg-white p-4 font-sans w-full border">
-                <div className=" bg-[#FAFAFA] rounded-xl p-3">
+            <div className="bg-white p-2 md:p-4 font-sans w-full border">
+                <div className=" bg-[#FAFAFA] rounded-xl p-2 md:p-3">
                     <div className="flex items-center justify-between w-full">
                         <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
-                            <Image src="/logoheart.png" alt="Logo" width={40} height={40} className="" />
-                            <div className="text-red-600 font-bold text-base leading-tight">
+                            <Image src="/logoheart.png" alt="Logo" width={36} height={36} className="md:h-10 md:w-10" />
+                            <div className="text-red-600 font-bold text-sm md:text-base leading-tight">
                                 <span>Primary & Urgent</span>
                                 <br />
                                 <span>Care Centers</span>
@@ -374,7 +374,7 @@ const NavBar = () => {
             <aside
                 id="mobile-sidebar"
                 className={`fixed top-0 right-0 h-full w-full sm:w-[65%] bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-40 xl:hidden ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
-                aria-hidden={!isSidebarOpen}
+                inert={!isSidebarOpen}
             >
                 <div className="pt-6 px-6 flex justify-end">
                     <button
