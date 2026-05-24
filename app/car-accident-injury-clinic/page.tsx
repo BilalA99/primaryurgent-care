@@ -25,15 +25,56 @@ import SlidingDiv from "@/components/SlidingAnimation";
 
 const baseUrl = "https://primaryuc.com";
 
+// Single source of truth for the visible FAQ + JSON-LD FAQPage schema.
+// Audit Round 2 (Feb 2026) flagged schema/visible-content mismatch as the FAQ rich-results blocker;
+// keeping the array referenced by both the component and the schema prevents the issue from returning.
+const accidentFaqs = [
+  {
+    question: "Should I see a doctor after a car accident, even if I feel fine?",
+    answer:
+      "Yes. Adrenaline at the scene of a crash typically suppresses pain for several hours, and inflammation from soft-tissue injury builds over the following 24 to 72 hours. Many patients who walked away from their accident feeling fine wake up the next morning with neck pain, back pain, headache, or stiffness that wasn't there before. In Florida, getting an early medical evaluation also matters legally — Personal Injury Protection benefits require a qualifying medical visit within 14 days of the crash, and a medical doctor's exam is what can certify the emergency medical condition needed to access the full $10,000 PIP cap.",
+  },
+  {
+    question: "Should I go to urgent care or the ER after a car accident?",
+    answer:
+      "For most non-life-threatening symptoms — whiplash, neck pain, back pain, headache, bruising, soft-tissue injury — urgent care is the appropriate setting. We handle examination, on-site digital X-ray, and PIP documentation in a single visit. Go directly to the ER for severe chest pain, loss of consciousness, signs of internal bleeding, neurological deficits, or any symptom that suggests a life-threatening injury. See our urgent care vs ER guide for the full breakdown.",
+  },
+  {
+    question: "How do I find a car accident doctor in Palm Beach County?",
+    answer:
+      "PrimaryUC operates four car accident urgent care locations in Palm Beach County: Royal Palm Beach, Lake Worth, Palm Springs, and Lantana. All four locations are walk-in — no appointment needed — and prioritize accident-related visits so you can be seen, imaged, and documented in a single visit. Choose the location closest to your home, work, or the crash scene.",
+  },
+  {
+    question: "Doctor or chiropractor after a car accident — which should I see first?",
+    answer:
+      "See a medical doctor first. A car accident doctor at an urgent care can order on-site X-rays, refer for CT or MRI when indicated, manage acute pain medically, and generate the PIP documentation your insurance carrier requires. A medical doctor can also certify the emergency medical condition needed to access the full $10,000 PIP cap — a chiropractor cannot, under Florida law. Chiropractic care can be a valuable follow-up for soft-tissue and musculoskeletal complaints once more serious injuries have been ruled out by imaging.",
+  },
+  {
+    question: "Can I go to urgent care after a car accident in Florida?",
+    answer:
+      "Yes. Urgent care is an appropriate setting for the majority of car accident injuries, including whiplash, back and neck pain, soft-tissue injury, minor fractures, and post-accident headache. PrimaryUC's urgent care visits satisfy Florida's 14-day PIP rule for initial services, and our medical doctors can certify the emergency medical condition needed to access the full $10,000 PIP medical cap.",
+  },
+  {
+    question: "What documentation does PIP insurance require after a car accident?",
+    answer:
+      "Your PIP carrier will require an initial medical evaluation note within 14 days of the accident, detailing the mechanism of injury, exam findings, any imaging performed, diagnoses, treatment plan, and recommendations for follow-up. PrimaryUC generates this documentation as part of every car accident visit and can coordinate directly with your insurer or any attorney you retain. See our PIP documentation guide for the full requirements.",
+  },
+  {
+    question: "How quickly can I be seen for a car accident injury at PrimaryUC?",
+    answer:
+      "Same day. We accept walk-ins at all four Palm Beach County locations and prioritize accident-related visits. Most patients are checked in, examined, imaged where appropriate, and documented in a single visit on the day they walk in. No appointment is required.",
+  },
+];
+
 export const metadata: Metadata = {
-  title: "Car Accident Urgent Care Palm Beach | PIP Exam | PrimaryUC",
+  title: "Car Accident Doctor in Palm Beach County | PIP Exam | PrimaryUC",
   description:
-    "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant. 4 locations.",
+    "Car accident doctor & urgent care clinic in Palm Beach County. Same-day PIP exam, onsite X-ray, walk-in welcome. Florida 14-day rule compliant. 4 locations.",
   alternates: { canonical: `${baseUrl}/car-accident-injury-clinic` },
   openGraph: {
-    title: "Car Accident Urgent Care Palm Beach | PIP Exam | PrimaryUC",
+    title: "Car Accident Doctor in Palm Beach County | PIP Exam | PrimaryUC",
     description:
-      "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant. 4 locations.",
+      "Car accident doctor & urgent care clinic in Palm Beach County. Same-day PIP exam, onsite X-ray, walk-in welcome. Florida 14-day rule compliant. 4 locations.",
     url: `${baseUrl}/car-accident-injury-clinic`,
     siteName: "Primary & Urgent Care Centers",
     images: [
@@ -41,7 +82,7 @@ export const metadata: Metadata = {
         url: `${baseUrl}/websitelogo.png`,
         width: 1200,
         height: 630,
-        alt: "Car accident doctor examining patient with neck brace in Palm Beach County urgent care",
+        alt: "Car accident doctor at PrimaryUC Palm Beach County car accident injury clinic with onsite X-ray",
       },
     ],
     locale: 'en_US',
@@ -49,8 +90,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident Urgent Care Palm Beach | PIP Exam | PrimaryUC",
-    description: "Car accident urgent care in Palm Beach County. Same-day evaluation, PIP documentation, walk-in welcome. Onsite X-ray, Florida 14-day rule compliant.",
+    title: "Car Accident Doctor in Palm Beach County | PIP Exam | PrimaryUC",
+    description: "Car accident doctor & urgent care clinic in Palm Beach County. Same-day PIP exam, onsite X-ray, walk-in welcome. Florida 14-day rule compliant.",
     images: [`${baseUrl}/websitelogo.png`],
     site: '@primaryurgentcare',
   },
@@ -68,50 +109,18 @@ export default function Page() {
     url: pageUrl
   });
 
+  // FAQPage schema derived from the same accidentFaqs const that drives the visible <AccidentFAQ /> component.
+  // This guarantees schema/visible-content parity — the issue Audit Round 2 (Feb 2026) had to fix.
   const faqSchemaObj = {
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Should I see a doctor immediately after a car accident?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, you should seek medical attention as soon as possible after a car accident, even if you don't feel injured. Some injuries, like whiplash or internal trauma, may not show symptoms immediately but can worsen without proper treatment. Early evaluation also helps with insurance documentation."
-        }
+    mainEntity: accidentFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.answer,
       },
-      {
-        "@type": "Question",
-        name: "What types of injuries do you treat after car accidents?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We treat a wide range of car accident injuries including whiplash, back and neck pain, soft tissue injuries, minor fractures, contusions, cuts and scrapes, headaches, and concussion symptoms. Our onsite X-ray and imaging capabilities help us diagnose and treat most urgent care-level injuries."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "Do you accept insurance for car accident injuries?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, we accept most major insurance plans including PIP (Personal Injury Protection) coverage, which is required in Florida. We also work with auto insurance companies and can provide documentation for your personal injury claim. Our team will help coordinate billing and insurance verification."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "How quickly can I be seen for car accident injuries?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We offer same-day appointments and welcome walk-ins for car accident injuries. Our urgent care centers typically have wait times under 15 minutes, and we prioritize accident-related injuries to ensure you receive prompt medical attention and documentation."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "What documentation will I receive for my insurance claim?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We provide comprehensive documentation including detailed medical reports, X-ray results, treatment plans, and visit summaries. This documentation is essential for your insurance claim and any potential legal proceedings. We can also coordinate with your attorney if needed."
-        }
-      }
-    ]
+    })),
   };
 
   const breadcrumb = buildBreadcrumb([
@@ -152,16 +161,16 @@ export default function Page() {
 
       {/* Hero Section */}
       <HeroWithForm
-        title="Car Accident Injury Clinic in Palm Beach County"
+        title="Car Accident Doctor & Urgent Care Clinic in Palm Beach County"
         subtitle={
           <p>
-            Just had a crash? Our car accident doctors provide same-day exams, onsite X-ray, and documentation most insurers and attorneys request.
+            Just had a crash? Our car accident doctors at PrimaryUC&apos;s Palm Beach County car accident injury clinic provide same-day exams, onsite X-ray, and PIP documentation that insurers and attorneys request.
           </p>
         }
         checklist={[
           "Seen today — walk-ins welcome",
           "Onsite X-ray; rapid MRI/CT referrals",
-          "Visit summary & documentation for insurers",
+          "Visit summary & PIP documentation for insurers",
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title="Check Car Accident Exam Availability" noWrapper={true} showHeader={false} compact={true} />}
@@ -172,6 +181,31 @@ export default function Page() {
 
       {/* Why You Must Be Seen Within 14 Days */}
       <FourteenDayUrgencyBlock />
+
+      {/* When to See a Car Accident Doctor in Florida */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              When to See a Car Accident Doctor in Florida
+            </h2>
+            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <p>
+                The most common question patients ask us after a Florida crash is simple: <strong>&quot;Do I really need to see a doctor if I feel fine?&quot;</strong> The clinical answer is yes, and the legal answer in Florida is unambiguous — if you want your PIP benefits, you must be evaluated within 14 days of the accident.
+              </p>
+              <p>
+                The reason a doctor&apos;s visit matters even when symptoms are minimal comes down to two physiological facts: adrenaline at the scene masks pain for hours after a crash, and inflammation from soft-tissue injury typically builds over the following 24 to 72 hours. Patients who felt fine in the moments after their accident often wake up the next morning with stiffness, headache, neck pain, or back pain that wasn&apos;t there before. Our walk-in <a className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/blog/headache-after-car-accident">headache evaluation after a car accident</a> and <a className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/blog/hip-pain-after-car-accident">hip pain after a car accident</a> guides walk through the most commonly delayed symptoms we see.
+              </p>
+              <p>
+                For most non-life-threatening post-accident symptoms — whiplash, neck pain, back pain, headache, soft-tissue injury, joint pain — <strong>urgent care is the appropriate setting</strong>. We handle the imaging, examination, and PIP-compliant documentation in a single visit. The exceptions that require an emergency room — severe chest pain, loss of consciousness, neurological deficit, signs of internal bleeding — are detailed in our <a className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident/urgent-care-vs-er">urgent care vs ER guide</a>.
+              </p>
+              <p>
+                If you&apos;re wondering what doctor to see after a car accident in Florida, the practical answer is: a medical doctor who can perform a physical exam, order on-site imaging, and generate the PIP documentation your insurance carrier and any attorney you retain will require. Walk in to any PrimaryUC location — no appointment needed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Florida's 14-Day PIP Rule Section */}
       <section className='grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-14 h-full px-4 sm:px-6 lg:px-8 xl:px-[60px] py-8 sm:py-12 lg:py-16 xl:py-20'>
@@ -215,7 +249,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Types of Car Accident Injuries We Treat
+              Car Accident Injuries Our Doctors Treat
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our experienced team evaluates and treats a wide range of injuries commonly seen after motor vehicle collisions
@@ -321,17 +355,17 @@ export default function Page() {
       <AttorneyFriendlySection />
 
       {/* SEO Content Section */}
-      <AccidentSEOContent 
-        content="After a car accident, immediate medical evaluation is crucial for both your health and your claim. Under Florida's PIP 14-day rule, you must see a doctor within 14 days of your accident to unlock up to $10,000 in PIP benefits. Our experienced urgent care team provides comprehensive car accident injury assessments, including whiplash treatment, back and neck pain evaluation, and soft tissue injury care. We offer same-day appointments, onsite digital X-rays, and complete documentation for insurance claims and personal injury cases. Located throughout Palm Beach County, our clinics are equipped to handle everything from minor cuts and bruises to suspected spinal injuries. Our board-certified providers understand Florida's PIP 14-day rule and the documentation insurers and attorneys expect, so your visit generates clear, organized records that support your recovery. We work closely with insurance companies, attorneys, and legal teams to ensure you receive the proper medical documentation needed for your case, including whiplash settlement documentation and PIP claim paperwork."
+      <AccidentSEOContent
+        content="After a car accident, immediate medical evaluation is crucial for both your health and your insurance claim. Florida's PIP 14-day rule requires you to be seen by a qualifying medical provider within 14 days of your crash to access Personal Injury Protection (PIP) benefits. The full $10,000 PIP medical cap is only available when a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse determines you have an emergency medical condition; without that determination, PIP medical benefits are capped at $2,500. PrimaryUC operates four car accident injury clinics across Palm Beach County, with same-day evaluation, onsite digital X-ray, and rapid CT/MRI referrals when indicated. Our urgent care team handles the full range of car accident injuries — whiplash, back pain, neck pain, soft-tissue injury, minor fractures, and post-accident headache evaluation — and we generate the medical documentation that PIP insurers and personal injury attorneys require. If you're searching for a car accident clinic near me, a car accident urgent care, or a car accident doctor near me in Palm Beach County, walk in to any of our four locations: Royal Palm Beach, Lake Worth, Palm Springs, or Lantana. No appointment needed; we prioritize accident-related visits so you can be seen, imaged, and documented in a single visit."
       />
 
       {/* Location Cards - Made Bigger and More Prominent */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 xl:px-[60px]">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Car Accident Urgent Care Locations</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Find a Car Accident Clinic Near You — 4 Palm Beach Locations</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Get same-day car accident injury evaluation at any of our convenient Palm Beach County locations
+              Searching for a car accident clinic near me in Palm Beach County? PrimaryUC operates four car accident urgent care locations, each open daily for walk-in evaluation, same-day PIP documentation, and onsite digital X-ray. Find the location closest to your home, work, or the scene of your accident:
             </p>
           </div>
           <LinkCardGrid
@@ -389,8 +423,39 @@ export default function Page() {
         className="bg-white"
       />
 
+      {/* Doctor or Chiropractor After a Car Accident? */}
+      <section className="py-16 bg-[#FAFAFA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-[60px]">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Doctor or Chiropractor After a Car Accident?
+            </h2>
+            <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+              <p>
+                Another question that comes up almost daily at our car accident injury clinic: <strong>after a crash, should I see a medical doctor or a chiropractor first?</strong>
+              </p>
+              <p>
+                The short answer: <strong>see a medical doctor first</strong>, and let the exam findings and imaging guide whether chiropractic care belongs in your recovery plan.
+              </p>
+              <p>
+                There are practical reasons this order matters. A car accident doctor at an urgent care can do things a chiropractor typically cannot: order and read on-site digital X-rays to rule out fracture, refer for CT or MRI imaging when soft-tissue injury or possible head injury is suspected, manage acute pain medically, and generate the kind of evaluation note your PIP carrier and any personal injury attorney will require. Both medical doctors and chiropractors can satisfy Florida&apos;s 14-day PIP rule for initial services, but only a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse can certify the emergency medical condition needed to access the full $10,000 PIP benefit. Without that certification, PIP medical benefits are capped at $2,500 — which is the practical reason most patients are better served starting with a medical evaluation. See our <a className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident/documentation-pip">PIP documentation guide</a> for what specifically must be in the record.
+              </p>
+              <p>
+                Chiropractic care can be a valuable follow-up for soft-tissue injury, post-whiplash neck and back stiffness, and certain musculoskeletal complaints once a fracture or more serious injury has been ruled out. Many of our patients combine an initial urgent care visit (medical evaluation, imaging, PIP documentation) with later chiropractic care for ongoing soft-tissue treatment. The order — medical first, chiropractic as appropriate — protects both your health and your insurance claim.
+              </p>
+              <p>
+                If you&apos;re unsure where to start, walk in to a PrimaryUC car accident urgent care for the initial medical evaluation. We&apos;ll examine you, image where indicated, document the visit for your PIP claim, and discuss whether chiropractic follow-up makes sense for your specific injuries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <AccidentFAQ />
+      <AccidentFAQ
+        title="Frequently Asked Questions About Car Accident Injury Care"
+        faqs={accidentFaqs}
+      />
 
       {/* Internal Links Section */}
       <AccidentInternalLinks />
