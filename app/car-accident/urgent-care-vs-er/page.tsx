@@ -13,15 +13,54 @@ import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from 
 
 const baseUrl = "https://primaryuc.com";
 
+// Single source of truth for visible FAQ + JSON-LD FAQPage schema.
+const ucerFaqs = [
+  {
+    question: "Should I go to urgent care or the ER after a car accident?",
+    answer:
+      "For most non-life-threatening symptoms after a car accident — whiplash, neck or back pain, headache, soft-tissue injury, joint pain, minor lacerations — urgent care is the appropriate setting. Urgent care handles the exam, on-site digital X-ray, and PIP-compliant documentation in a single visit. Go directly to the ER for severe chest pain, loss of consciousness, signs of internal bleeding, neurological deficits, uncontrolled bleeding, or any symptom that suggests a life-threatening injury. When in doubt about severity, the ER is the safer choice.",
+  },
+  {
+    question: "Should I go to the ER after a car accident if I feel fine?",
+    answer:
+      "If you have no symptoms at the scene of a crash and are clinically stable, the ER is not typically the right setting. Urgent care is the appropriate place for evaluation, documentation, and Florida 14-day PIP rule compliance — and it'll be faster, lower cost, and produce the same quality medical record. If you develop symptoms later (headache, neck pain, dizziness, abdominal pain), seek care as soon as they appear — even mild delayed-onset symptoms after a crash deserve evaluation.",
+  },
+  {
+    question: "Can I go to urgent care after a car accident in Florida?",
+    answer:
+      "Yes. Urgent care is an appropriate setting for the majority of post-accident injuries, and a PrimaryUC urgent care visit satisfies Florida's 14-day PIP rule for initial services. Our medical doctors can also certify the emergency medical condition needed to access the full $10,000 PIP medical cap — something neither a chiropractor nor a physical therapist can do under Florida law.",
+  },
+  {
+    question: "When should I go straight to the ER after a car accident?",
+    answer:
+      "Go straight to the ER or call 911 for any of these red-flag presentations: severe chest pain or trouble breathing, uncontrolled bleeding, obvious major fractures or visible deformity, loss of consciousness, seizure, confusion that persists or worsens, signs of internal bleeding (severe abdominal pain, distended belly, signs of shock), spinal-cord-injury concern (leg weakness, loss of bladder or bowel control), or any symptom that worsens rapidly. When in doubt about severity, the ER is the right call.",
+  },
+  {
+    question: "How much does urgent care vs ER cost after a car accident?",
+    answer:
+      "Urgent care visits are typically a fraction of the cost of an ER visit for the same complaint. ER visits carry higher facility fees, separate physician fees, and often involve hospital-grade billing even for non-life-threatening complaints. Both settings are typically covered by Florida PIP when the visit is documented as reasonable and medically necessary — but cost-effectiveness still matters because PIP medical benefits are capped at $10,000 (with EMC certification) or $2,500 (without), and ER charges can consume that budget rapidly. For exact pricing in your situation, contact our front desk or your insurance carrier.",
+  },
+  {
+    question: "Does Florida PIP cover both urgent care and ER visits?",
+    answer:
+      "Yes. Florida PIP (Personal Injury Protection) coverage applies to both urgent care and emergency room visits when the care is reasonable, medically necessary, and related to the crash — provided you receive initial services within 14 days of the accident. Both settings can satisfy the 14-day rule. The $10,000 vs $2,500 PIP medical cap is determined by whether a qualifying provider (MD, DO, PA, APRN, or dentist) certifies an emergency medical condition — not by which setting you visited.",
+  },
+  {
+    question: "How long do you wait at urgent care vs the ER after a car accident?",
+    answer:
+      "Urgent care wait times for car accident patients are typically much shorter than ER wait times for the same complaint. Most urgent cares treat by arrival order within urgency level; ERs treat strictly by triage severity, which means a stable post-accident patient with neck pain often waits behind life-threatening cases. At PrimaryUC, we accept walk-ins and prioritize accident-related visits. For exact current wait times, call ahead to your nearest location.",
+  },
+];
+
 export const metadata: Metadata = {
-  title: "Car Accident: Urgent Care vs ER | Palm Beach Guide",
+  title: "Urgent Care or ER After a Car Accident? | Palm Beach Guide",
   description:
-    "Urgent care vs ER after car accident in Palm Beach County. When UC is safe, when ER is critical, cost comparison, wait times, PIP coverage. Florida 14-day rule.",
+    "Should you go to urgent care or the ER after a car accident? Florida PIP-aware guide to when UC is safe, when ER is required, costs, wait times, and 14-day rule.",
   alternates: { canonical: `${baseUrl}/car-accident/urgent-care-vs-er` },
   openGraph: {
-    title: "Car Accident: Urgent Care vs ER | Palm Beach Guide",
+    title: "Urgent Care or ER After a Car Accident? | Palm Beach Guide",
     description:
-      "Urgent care vs ER after car accident in Palm Beach County. When UC is safe, when ER is critical, cost comparison, wait times, PIP coverage. Florida 14-day rule.",
+      "Should you go to urgent care or the ER after a car accident? Florida PIP-aware guide to when UC is safe, when ER is required, costs, wait times, and 14-day rule.",
     url: `${baseUrl}/car-accident/urgent-care-vs-er`,
     type: 'article',
     siteName: "Primary & Urgent Care Centers",
@@ -30,15 +69,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/car-crash-woman-on-call.jpg`,
         width: 1200,
         height: 630,
-        alt: "Decision guide: urgent care vs emergency room after car accident in Palm Beach County",
+        alt: "Urgent care vs ER after a car accident decision guide for Palm Beach County drivers",
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident: Urgent Care vs ER | Palm Beach Guide",
-    description: "Urgent care vs ER after a car accident in Palm Beach County. Cost, wait times & PIP coverage compared. Know when UC is safe vs when ER is critical.",
+    title: "Urgent Care or ER After a Car Accident? | Palm Beach Guide",
+    description: "Urgent care or ER after a car accident? Florida PIP-aware decision guide with red-flag list, costs, wait times, and 14-day rule compliance.",
     images: [`${baseUrl}/car-crash-woman-on-call.jpg`],
     site: '@primaryurgentcare',
   },
@@ -61,30 +100,14 @@ export default function Page() {
     url: pageUrl
   });
 
+  // FAQPage schema derived from the ucerFaqs const — schema cannot drift from visible content.
   const faqSchemaObj = {
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "When is urgent care appropriate after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care is typically appropriate for stable patients with pain, cuts, bruises, suspected sprains or simple fractures, and mild head or whiplash symptoms without red-flag signs like severe chest pain, major bleeding, or difficulty breathing. Our team can evaluate your condition and determine if urgent care is right for you." }
-      },
-      {
-        "@type": "Question",
-        name: "When should I go straight to the ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Go straight to the ER or call 911 if you have severe chest pain, trouble breathing, uncontrolled bleeding, obvious fractures with deformity, loss of consciousness, confusion, seizure, or signs of spinal cord injury. When in doubt about the severity of your condition, it's always safer to err on the side of caution and seek emergency care." }
-      },
-      {
-        "@type": "Question",
-        name: "How do costs compare between urgent care and the ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Urgent care visits usually cost a fraction of ER visits. Many insured patients pay an urgent care copay similar to a primary-care visit, while ER visits often carry much higher facility fees and deductibles. Most urgent care visits for car accidents range from $100-$300, while ER visits typically cost $1,000-$3,000 or more for similar conditions." }
-      },
-      {
-        "@type": "Question",
-        name: "Does PIP cover both urgent care and ER?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Florida PIP coverage can apply to both urgent care and ER visits when related to the crash, as long as you seek medical care within 14 days. Both options meet the PIP requirement, but urgent care often provides better value with faster service and lower costs while delivering the same quality documentation for your claim." }
-      }
-    ]
+    mainEntity: ucerFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
 
   const webPageSchema = {
@@ -121,16 +144,16 @@ export default function Page() {
 
       {/* Hero Section */}
       <HeroWithForm
-        title="Urgent Care vs ER After a Car Accident"
+        title="Urgent Care or ER After a Car Accident? — Palm Beach Guide"
         subtitle={
           <p>
-            Not every crash requires the ER. We help you understand when urgent care is safe, when the ER is critical, and how both options work with PIP.
+            Not every crash requires the ER, and not every crash should default to urgent care either. This guide walks through when urgent care is the appropriate setting, when the ER is required, the cost and wait-time differences, and how Florida PIP applies to both — including the emergency medical condition determination that controls your $10,000 vs $2,500 PIP medical cap.
           </p>
         }
         checklist={[
-          "Guidance on where to go based on your symptoms",
-          "Shorter wait times and lower costs for appropriate cases",
-          "Full documentation for PIP and insurance claims",
+          "Red-flag list for ER-level symptoms",
+          "Florida 14-day PIP rule applies to both settings",
+          "EMC certification by a qualifying medical provider",
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title="Check If Urgent Care Is Right for You" noWrapper={true} showHeader={false} compact={true} />}
@@ -178,33 +201,33 @@ export default function Page() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Cost & Wait Time Comparison</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">Cost &amp; Wait Time — Urgent Care vs ER After a Car Accident</h2>
           <p className="text-base md:text-lg text-gray-700 mb-4">
-            Every situation is different, but understanding the differences can help you make an informed decision:
+            Specific cost and wait times vary by facility, insurance, and your specific complaint. The general patterns are consistent:
           </p>
           <div className="space-y-4 mb-6">
             <div className="bg-gradient-to-br from-[#F0FDF4] to-[#DCFCE7] rounded-xl p-6 border-2 border-[#16A34A]/20">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Urgent Care Advantages</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Urgent Care After a Car Accident</h3>
               <ul className="list-disc ml-6 space-y-2 text-gray-700">
-                <li><strong>Wait times:</strong> Typically 15-30 minutes for most patients</li>
-                <li><strong>Cost:</strong> Lower copays (often $20-$50) and facility fees compared to ER</li>
-                <li><strong>Total visit cost:</strong> Usually $100-$300 for car accident evaluation</li>
-                <li><strong>Service:</strong> Focused on your specific injury without emergency room delays</li>
+                <li><strong>Wait times:</strong> Typically much shorter than the ER for non-life-threatening complaints — walk-in queueing rather than acuity-based triage</li>
+                <li><strong>Cost:</strong> Lower facility fees and copays than the ER for a comparable visit</li>
+                <li><strong>Scope:</strong> Exam, on-site digital X-ray, and PIP-compliant documentation in a single visit</li>
+                <li><strong>EMC certification:</strong> Available when your medical doctor determines you have an emergency medical condition — this is the determination that unlocks your full $10,000 Florida PIP medical cap</li>
               </ul>
             </div>
             <div className="bg-gradient-to-br from-[#FEF2F2] to-[#FEE2E2] rounded-xl p-6 border-2 border-[#D52128]/20">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Emergency Room Considerations</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Emergency Room After a Car Accident</h3>
               <ul className="list-disc ml-6 space-y-2 text-gray-700">
-                <li><strong>Wait times:</strong> Can be 2-6 hours or more for non-life-threatening conditions</li>
-                <li><strong>Cost:</strong> Higher facility fees ($500-$1,500+) and deductibles</li>
-                <li><strong>Total visit cost:</strong> Typically $1,000-$3,000+ for similar conditions</li>
-                <li><strong>Priority:</strong> ERs must prioritize by severity, so stable patients wait longer</li>
+                <li><strong>Wait times:</strong> Variable and acuity-based — stable patients with non-life-threatening complaints typically wait substantially longer than at urgent care, because the ER must prioritize critical cases first</li>
+                <li><strong>Cost:</strong> Higher facility fees, separate physician fees, and hospital-grade billing — even for non-emergent presentations</li>
+                <li><strong>Scope:</strong> The right setting when a life-threatening injury is possible — CT/MRI on demand, surgical consults, intensive monitoring</li>
+                <li><strong>PIP impact:</strong> ER charges can consume a significant share of your $10,000 PIP medical cap quickly, leaving less budget for follow-up imaging, specialist visits, and rehabilitation</li>
               </ul>
             </div>
             <div className="bg-gradient-to-br from-[#F2F6FC] to-[#E8F2FF] rounded-xl p-6 border-2 border-[#2563eb]/20">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">PIP Coverage for Both</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Florida PIP Covers Both Settings</h3>
               <p className="text-gray-700">
-                Florida PIP coverage can apply to both urgent care and ER visits when related to the crash, as long as you are evaluated within 14 days of the crash. Both options meet the PIP requirement, but urgent care often provides better value with faster service and lower costs while delivering the same quality documentation for your claim.
+                Florida PIP applies to both urgent care and ER visits when the care is reasonable, medically necessary, and related to the crash — provided the initial visit happens within 14 days of the accident. The $10,000 vs $2,500 PIP medical cap is determined by whether a qualifying provider (MD, DO, PA, APRN, or dentist) certifies an emergency medical condition, not by which setting you visited. See our <Link className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident/documentation-pip">PIP documentation and 14-day rule guide</Link> for the full breakdown.
               </p>
             </div>
           </div>
@@ -222,24 +245,8 @@ export default function Page() {
 
       {/* FAQ Section */}
       <AccidentFAQ
-        faqs={[
-          {
-            question: "When is urgent care appropriate after a car accident?",
-            answer: "Urgent care is typically appropriate for stable patients with pain, cuts, bruises, suspected sprains or simple fractures, and mild head or whiplash symptoms without red-flag signs like severe chest pain, major bleeding, or difficulty breathing. Our team can evaluate your condition and determine if urgent care is right for you."
-          },
-          {
-            question: "When should I go straight to the ER?",
-            answer: "Go straight to the ER or call 911 if you have severe chest pain, trouble breathing, uncontrolled bleeding, obvious fractures with deformity, loss of consciousness, confusion, seizure, or signs of spinal cord injury. When in doubt about the severity of your condition, it's always safer to err on the side of caution and seek emergency care."
-          },
-          {
-            question: "How do costs compare between urgent care and the ER?",
-            answer: "Urgent care visits usually cost a fraction of ER visits. Many insured patients pay an urgent care copay similar to a primary-care visit, while ER visits often carry much higher facility fees and deductibles. Most urgent care visits for car accidents range from $100-$300, while ER visits typically cost $1,000-$3,000 or more for similar conditions."
-          },
-          {
-            question: "Does PIP cover both urgent care and ER?",
-            answer: "Yes. Florida PIP coverage can apply to both urgent care and ER visits when related to the crash, as long as you seek medical care within 14 days. Both options meet the PIP requirement, but urgent care often provides better value with faster service and lower costs while delivering the same quality documentation for your claim."
-          }
-        ]}
+        title="Urgent Care or ER After a Car Accident — Frequently Asked Questions"
+        faqs={ucerFaqs}
       />
 
       {/* Internal Links Section */}

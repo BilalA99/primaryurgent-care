@@ -184,15 +184,35 @@ If any of these are not accurate today, the relevant sentences need to be soften
 | Route | Changes |
 |-------|---------|
 | `/car-accident-injury-clinic` | Metadata title + description, H1, hero subtitle, 2 new H2 sections, 2 section title renames, AccidentSEOContent rewrite, 7-question FAQ replacing 5 defaults, FAQ schema derived from same const, EMC framing throughout |
+| `/car-accident/whiplash` | Metadata title + description, H1 + hero subtitle, 3 new H2 sections ("Signs of Whiplash After a Car Accident", "When Whiplash Becomes Chronic Neck Pain", "Why See a Whiplash Injury Doctor and Not Just a Chiropractor"), rewritten "How to Treat Whiplash" section with Quebec Task Force reference, 7-question FAQ via `whiplashFaqs` const replacing 5 prior, FAQ schema derived from same const, EMC framing |
+| `/car-accident/back-neck-pain` | Metadata title + description, H1 + hero subtitle, NEW FAQ section (page previously had none) with 7 kw-aligned questions via `backNeckFaqs` const, FAQ schema added to graph, 2 new H2 sections ("Delayed Back Pain & Delayed Neck Pain After a Car Accident", "Upper Back, Middle Back & Lower Back Pain — What's the Difference?"), new "Why See a Medical Doctor for Back Pain After a Car Accident" section with EMC framing, consolidated duplicate spine-exam content |
+| `/car-accident/documentation-pip` | Metadata title + description (now leads with "Florida PIP 14-Day Rule + EMC"), H1 + hero subtitle, 2 new H2 sections ("What Is Florida PIP Insurance, and How Does the 14-Day Rule Work?", "Emergency Medical Condition (EMC) — The $10,000 vs $2,500 Question"), 7-question FAQ via `pipFaqs` const replacing 2 prior, FAQ schema derived from same const, EMC definition tracking Fla. Stat. § 395.002(8) statutory text |
+| `/car-accident/urgent-care-vs-er` | Metadata title + description, H1 + hero subtitle, 7-question FAQ via `ucerFaqs` const replacing 4 prior, FAQ schema derived from same const, cost/wait-time comparison section softened (removed unverifiable specific dollar/minute figures, replaced with comparative framing), EMC framing throughout |
+| `/car-accident/[city]` (4 cities: royal-palm-beach, lake-worth, palm-springs, lantana) | FAQ consolidated to single `cityAccidentFaqs` const consumed by both visible component AND JSON-LD schema (eliminating drift risk), 8-question FAQ replacing 7 prior with new Q7 (EMC + 14-day rule) and new Q8 ("Why see a medical doctor instead of a chiropractor"), Q6 weekend hours softened to defer to per-city location page (removed hardcoded hours that were wrong for any city with different schedules) |
 
-### Audit Round 4 (planned, weekly cadence)
+### Process Changes (NEW this round)
 
-After 5/22 daily-engine stability is confirmed, roll the same playbook to siblings on weekly cadence:
-- Week 1 (after 5/27): `/car-accident/whiplash`
-- Week 2: `/car-accident/back-neck-pain`
-- Week 3: `/car-accident/documentation-pip`
-- Week 4: `/car-accident/urgent-care-vs-er`
-- Weeks 5-8: 4 `/car-accident/[city]` pages
+- **Adversarial fact-check via dedicated subagent**: every page edit was reviewed by a separate `blog-fact-checker` subagent before commit, biased toward finding errors rather than confirming them. The agent reads the draft cold (no attachment to specific phrasings) and verifies every factual claim against primary sources (statute text, peer-reviewed literature, clinical practice guidelines, agency press releases).
+- **Catches from this round**:
+  - **Whiplash**: Original draft conflated "chronic neck pain" (≥3 months) with "late whiplash syndrome" (more commonly ≥6 months in published literature). 3 patches applied to separate the two definitions.
+  - **Documentation-PIP**: Original EMC definition I drafted ("serious impairment, dysfunction, or permanent damage") drifted from the actual statutory text. 2 patches applied to match Fla. Stat. § 395.002(8) ("serious jeopardy to patient health, serious impairment of bodily functions, or serious dysfunction of any bodily organ or part").
+  - **Hub** (Round 3 initial): Original framing implied chiropractors don't satisfy the 14-day PIP rule. They explicitly DO under § 627.736(1)(a)(1) — the legal distinction is who can certify EMC, not who satisfies initial services. 6 patches applied across body and FAQ to use the correct legal hook.
+- **Back-neck-pain, urgent-care-vs-er, [city]**: PASS on first review, no patches needed.
+- **Fact-check reports preserved** in the agency workspace at `accounts/primary-urgent-care/seo/*.factcheck.md`.
+
+### Operational Items — Need Bilal/PUC Sign-Off Before Merge
+
+Operational claims about PUC's clinic operations are flagged for confirmation. If any are not accurate today, the relevant sentences need to be softened or removed:
+
+1. Four locations open and accepting walk-in accident patients today: Royal Palm Beach, Lake Worth, Palm Springs, Lantana
+2. All four locations actively prioritize accident-related visits in queue
+3. Onsite digital X-ray available at all four locations
+4. CT/MRI referrals coordinated when indicated
+5. PIP-compliant documentation routinely generated at the visit
+6. EMC certification offered when clinically appropriate at all four locations
+7. Single same-day visit workup is the standard for car accident presentations
+8. Specialist referral workflow (orthopedic spine, neurology) for persistent radicular symptoms (whiplash + back-neck-pain pages)
+9. 6-week re-evaluation + MRI consideration workflow for whiplash (whiplash page)
 
 ---
 
