@@ -172,66 +172,53 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     hasMap: c.gmbUrl
   };
 
+  // Single source of truth for visible <AccidentFAQ /> + JSON-LD FAQPage schema.
+  // Same array referenced below in the schema graph AND by the AccidentFAQ component near the bottom of the page.
+  const cityAccidentFaqs = [
+    {
+      question: `How quickly can I be seen for car accident injuries in ${cityName}?`,
+      answer: `We offer same-day appointments and welcome walk-ins at our ${cityName} location. Auto-injury visits are prioritized when possible so you can receive prompt medical evaluation and documentation. Getting evaluated quickly can help document symptoms, exam findings, and treatment recommendations within Florida's 14-day PIP window.`,
+    },
+    {
+      question: "What types of car accident injuries do you treat?",
+      answer: `We treat whiplash, back and neck pain, joint injuries, soft-tissue strains, minor fractures, contusions, cuts and scrapes, headaches, and concussion-like symptoms. Our ${cityName} location has onsite X-ray capabilities and can arrange MRI or CT referrals when needed. We provide comprehensive evaluation and treatment for most urgent care-level car accident injuries with same-day documentation.`,
+    },
+    {
+      question: "Do you provide documentation for insurance claims?",
+      answer:
+        "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results when performed, and recommended treatment. These records are designed for PIP and insurance documentation and can be shared with your insurance provider if needed.",
+    },
+    {
+      question: "Do you accept PIP and auto insurance?",
+      answer:
+        "We accept most major insurance plans, including PIP coverage and many auto insurance plans. Our team verifies coverage and handles claim-related paperwork whenever possible. We work directly with insurance companies to ensure proper processing of your claim and can help coordinate benefits and billing.",
+    },
+    {
+      question: "What should I bring to my exam?",
+      answer:
+        "Bring a photo ID, your insurance card, and any accident-related paperwork such as the claim number or police report, if available. If you have prior medical records related to this accident, bring those as well. We'll handle all the paperwork and documentation needed for your case.",
+    },
+    {
+      question: `Is Primary UC open on weekends for car accident walk-ins in ${cityName}?`,
+      answer: `Yes. Our ${cityName} location accepts walk-ins for car accident injuries during regular hours, including weekend hours. No appointment is required, but calling ahead helps us prepare your visit and minimize wait time. Call us at ${c.phoneDisplay} or check the location page for current hours.`,
+    },
+    {
+      question: "What is Florida's 14-day PIP rule, and why does it matter?",
+      answer: `Florida's PIP 14-day rule requires you to receive your initial medical visit within 14 days of the accident to access your Personal Injury Protection benefits. The clock counts from the crash date, not the day your symptoms started. The same statute also requires an Emergency Medical Condition (EMC) certification by a qualifying provider — MD, DO, PA, APRN, or dentist — to unlock the full $10,000 PIP medical cap. Without an EMC determination, PIP medical benefits cap at $2,500. Our ${cityName} car accident doctors meet both requirements in a single same-day visit. Call ${c.phoneDisplay} or walk in.`,
+    },
+    {
+      question: `Why see a medical doctor for car accident injuries in ${cityName} instead of a chiropractor?`,
+      answer: `Both medical doctors and chiropractors can satisfy Florida's 14-day PIP rule for initial services. But only a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse can certify the Emergency Medical Condition needed to access the full $10,000 PIP medical benefit — chiropractors cannot, under Florida law. A medical doctor at our ${cityName} location can also order and read on-site X-ray, refer for MRI when soft-tissue or nerve injury is suspected, and screen for serious conditions a chiropractic visit cannot detect. Chiropractic care can be a valuable follow-up once those serious causes have been ruled out.`,
+    },
+  ];
+
   const faqSchemaObj = {
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `How quickly can I be seen for car accident injuries in ${c.name}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `We offer same-day appointments and welcome walk-ins at our ${c.name} location. Auto-injury visits are prioritized when possible so you can receive prompt medical evaluation and documentation. Getting evaluated quickly can help document symptoms, exam findings, and treatment recommendations within Florida's 14-day PIP window.`
-        }
-      },
-      {
-        "@type": "Question",
-        name: "What types of car accident injuries do you treat?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `We treat whiplash, back and neck pain, joint injuries, soft-tissue strains, minor fractures, contusions, cuts and scrapes, headaches, and concussion-like symptoms. Our ${c.name} location has onsite X-ray capabilities and can arrange MRI or CT referrals when needed. We provide comprehensive evaluation and treatment for most urgent care-level car accident injuries with same-day documentation.`
-        }
-      },
-      {
-        "@type": "Question",
-        name: "Do you provide documentation for insurance claims?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results when performed, and recommended treatment. These records are designed for PIP and insurance documentation and can be shared with your insurance provider if needed."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "Do you accept PIP and auto insurance?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We accept most major insurance plans, including PIP coverage and many auto insurance plans. Our team verifies coverage and handles claim-related paperwork whenever possible. We work directly with insurance companies to ensure proper processing of your claim and can help coordinate benefits and billing."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "What should I bring to my exam?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Bring a photo ID, your insurance card, and any accident-related paperwork such as the claim number or police report, if available. If you have prior medical records related to this accident, bring those as well. We'll handle all the paperwork and documentation needed for your case."
-        }
-      },
-      {
-        "@type": "Question",
-        name: `Is Primary UC open on weekends for car accident walk-ins in ${cityName}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes. Our ${cityName} location is open Monday–Friday 9am–6pm and Saturday 9am–4pm, including weekends. Walk-ins for car accident injuries are welcome any day. No appointment is required, but calling ahead helps us prepare your visit and minimize wait time. Call us at ${c.phoneDisplay}.`
-        }
-      },
-      {
-        "@type": "Question",
-        name: "What is Florida's 14-day rule and why does it matter for my accident claim?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Florida's 14-day PIP rule may affect your ability to use PIP benefits after an accident. Getting evaluated quickly can help document your symptoms, exam findings, and treatment recommendations. Our ${cityName} clinic offers same-day accident exams when available. Call ${c.phoneDisplay} or walk in.`
-        }
-      }
-    ]
+    mainEntity: cityAccidentFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
 
   const webPageSchema = {
@@ -591,39 +578,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       {/* FAQ Section */}
       <AccidentFAQ
         title={`Frequently Asked Questions About Car Accident Injuries in ${cityName}`}
-        faqs={[
-          {
-            question: `How quickly can I be seen for car accident injuries in ${cityName}?`,
-            answer: `We offer same-day appointments and welcome walk-ins at our ${cityName} location. Auto-injury visits are prioritized when possible so you can receive prompt medical evaluation and documentation. Getting evaluated quickly can help document symptoms, exam findings, and treatment recommendations within Florida's 14-day PIP window.`
-          },
-          {
-            question: "What types of car accident injuries do you treat?",
-            answer: `We treat whiplash, back and neck pain, joint injuries, soft-tissue strains, minor fractures, contusions, cuts and scrapes, headaches, and concussion-like symptoms. Our ${cityName} location has onsite X-ray capabilities and can arrange MRI or CT referrals when needed. We provide comprehensive evaluation and treatment for most urgent care-level car accident injuries with same-day documentation.`
-          },
-          {
-            question: "Do you provide documentation for insurance claims?",
-            answer:
-              "Yes. Every visit generates a detailed summary that includes exam findings, diagnoses, imaging results when performed, and recommended treatment. These records are designed for PIP and insurance documentation and can be shared with your insurance provider if needed."
-          },
-          {
-            question: "Do you accept PIP and auto insurance?",
-            answer:
-              "We accept most major insurance plans, including PIP coverage and many auto insurance plans. Our team verifies coverage and handles claim-related paperwork whenever possible. We work directly with insurance companies to ensure proper processing of your claim and can help coordinate benefits and billing."
-          },
-          {
-            question: "What should I bring to my exam?",
-            answer:
-              "Bring a photo ID, your insurance card, and any accident-related paperwork such as the claim number or police report, if available. If you have prior medical records related to this accident, bring those as well. We'll handle all the paperwork and documentation needed for your case."
-          },
-          {
-            question: `Is Primary UC open on weekends for car accident walk-ins in ${cityName}?`,
-            answer: `Yes. Our ${cityName} location is open Monday–Friday 9am–6pm and Saturday 9am–4pm, including weekends. Walk-ins for car accident injuries are welcome any day. No appointment is required, but calling ahead helps us prepare your visit and minimize wait time. Call us at ${c.phoneDisplay}.`
-          },
-          {
-            question: "What is Florida's 14-day rule and why does it matter for my accident claim?",
-            answer: `Florida's 14-day PIP rule may affect your ability to use PIP benefits after an accident. Getting evaluated quickly can help document your symptoms, exam findings, and treatment recommendations. Our ${cityName} clinic offers same-day accident exams when available. Call us at ${c.phoneDisplay} or walk in.`
-          }
-        ]}
+        faqs={cityAccidentFaqs}
       />
 
       {/* Location Cross-Link — connects car accident page to corresponding clinic location */}

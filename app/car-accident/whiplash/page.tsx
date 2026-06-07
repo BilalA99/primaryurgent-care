@@ -2,6 +2,48 @@ import { Metadata } from "next";
 import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
 
 const baseUrl = 'https://primaryuc.com';
+
+// Single source of truth for visible FAQ + JSON-LD FAQPage schema.
+// Round 2 (Feb 2026) flagged schema/visible-content mismatch as the rich-results blocker;
+// keeping this array referenced by both component and schema prevents drift.
+const whiplashFaqs = [
+  {
+    question: "How long does whiplash last after a car accident?",
+    answer:
+      "Most whiplash injuries improve within 2 to 6 weeks with appropriate care, though symptoms typically build over the first 24 to 72 hours before they start to ease. More significant soft-tissue injury can take several months to fully resolve, and a small share of patients develop chronic neck pain after whiplash that lasts longer than three months, and a smaller subset have symptoms that persist past six months. Early evaluation and a documented treatment plan reduce the risk of long-term symptoms.",
+  },
+  {
+    question: "What are the signs of whiplash after a car accident?",
+    answer:
+      "The most common signs of whiplash after a car accident are neck pain, neck stiffness, reduced range of motion, headache, dizziness, jaw discomfort, and shoulder pain. Some patients also experience tingling or numbness down the arms and hands. Symptoms frequently don't appear at the scene of the crash — they build over the next 12 to 72 hours as inflammation peaks. If you walked away from a crash feeling fine and now have any of these symptoms, you should be seen.",
+  },
+  {
+    question: "How to treat whiplash from a car accident?",
+    answer:
+      "Whiplash treatment after a car accident typically combines short-term pain control (anti-inflammatory medications, ice or heat as appropriate), gentle range-of-motion exercises started early, and graduated activity rather than prolonged rest or immobilization. Severe cases may need physical therapy referral or imaging to rule out disc injury. At PrimaryUC, your car accident doctor will examine your neck, screen for nerve involvement, image if indicated, and walk you through a recovery plan plus self-care steps you can start at home.",
+  },
+  {
+    question: "Do I need an X-ray or MRI for whiplash?",
+    answer:
+      "Imaging depends on your exam and symptoms. X-ray helps rule out cervical fracture, and MRI is recommended when there's concern for disc injury, ligament tear, or nerve compression — for example, when symptoms include arm numbness, tingling, weakness, or severe neck pain. We have onsite digital X-ray and can read it during your visit; MRI referrals are coordinated when indicated.",
+  },
+  {
+    question: "Why should I see a whiplash injury doctor instead of just a chiropractor?",
+    answer:
+      "Both medical doctors and chiropractors can satisfy Florida's 14-day PIP rule for initial services, but only a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse can certify the emergency medical condition needed to access the full $10,000 PIP medical benefit. Without that certification, PIP benefits are capped at $2,500. A medical evaluation also includes imaging and nerve checks that fall outside the chiropractic scope. Chiropractic care can be a valuable follow-up for soft-tissue rehabilitation after the initial medical workup is complete.",
+  },
+  {
+    question: "When does whiplash become chronic neck pain?",
+    answer:
+      "When whiplash symptoms persist beyond about three months, the condition is typically described as chronic neck pain. Persistence past roughly six months is sometimes referred to in the medical literature as late whiplash syndrome. Risk factors for chronification include severe initial symptoms, pre-existing neck problems, delayed evaluation, and inadequate early treatment. Catching whiplash early, documenting it properly, and following through with treatment significantly reduces the risk of ongoing chronic neck pain.",
+  },
+  {
+    question: "Can whiplash symptoms get worse over time?",
+    answer:
+      "Yes — particularly in the first few days. Adrenaline at the scene of a crash typically masks pain, and inflammation from soft-tissue injury peaks at 24 to 72 hours. It's common for patients who felt fine at the scene to wake up with significantly worse stiffness and pain the next morning, with symptoms continuing to intensify for several days. Documenting symptom progression with an early medical visit also matters for any PIP or personal injury claim.",
+  },
+];
+
 import HeroWithForm from "@/components/accident/HeroWithForm";
 import ImmediateCareBanner from "@/components/accident/ImmediateCareBanner";
 import AccidentAppointmentForm from "@/components/accident/AccidentAppointmentForm";
@@ -12,11 +54,11 @@ import TrustBadges from "@/components/accident/TrustBadges";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 
 export const metadata: Metadata = {
-  title: "Whiplash Treatment | Car Accident & PIP Exam | PrimaryUC",
-  description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+  title: "Whiplash Treatment After Car Accident | Palm Beach Doctor | PrimaryUC",
+  description: "Whiplash treatment & same-day exam after a car accident in Palm Beach County. Onsite X-ray, PIP documentation, recovery plan. Walk-ins welcome at 4 locations.",
   openGraph: {
-    title: "Whiplash Treatment | Car Accident & PIP Exam | PrimaryUC",
-    description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Whiplash Treatment After Car Accident | Palm Beach Doctor | PrimaryUC",
+    description: "Whiplash treatment & same-day exam after a car accident in Palm Beach County. Onsite X-ray, PIP documentation, recovery plan. Walk-ins welcome at 4 locations.",
     url: `${baseUrl}/car-accident/whiplash`,
     type: "website",
     images: [
@@ -24,15 +66,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/whiplash-hero-image.png`,
         width: 1200,
         height: 630,
-        alt: "Whiplash neck pain evaluation after car accident in Palm Beach County urgent care",
+        alt: "Whiplash injury doctor performing neck range-of-motion exam on car accident patient in Palm Beach County urgent care",
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Whiplash Treatment | Car Accident & PIP Exam | PrimaryUC",
-    description: "Whiplash treatment at Palm Beach County urgent care. Same-day neck exam, X-ray & PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    title: "Whiplash Treatment After Car Accident | Palm Beach Doctor | PrimaryUC",
+    description: "Whiplash treatment & same-day exam after a car accident in Palm Beach County. Onsite X-ray, PIP documentation, recovery plan. Walk-ins welcome at 4 locations.",
     images: [`${baseUrl}/whiplash-hero-image.png`],
     site: '@primaryurgentcare',
   },
@@ -95,35 +137,14 @@ export default function Page() {
     }
   };
 
+  // FAQPage schema derived from the whiplashFaqs const above — schema cannot drift from visible content.
   const faqObj = {
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Can whiplash symptoms start days after a car accident?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Neck pain, stiffness, headaches, and dizziness may appear hours or even days after the crash. This is why it is important to be evaluated even if you feel 'okay' right after the accident. Early evaluation helps document the timeline for insurance purposes." }
-      },
-      {
-        "@type": "Question",
-        name: "Do I need X-ray or MRI for whiplash?",
-        acceptedAnswer: { "@type": "Answer", text: "Your provider will decide based on your exam and symptoms. X-ray can help rule out fractures, and MRI may be recommended if there is concern for disc or soft-tissue injury. We have onsite X-ray capabilities and can provide same-day results." }
-      },
-      {
-        "@type": "Question",
-        name: "How long does whiplash recovery typically take?",
-        acceptedAnswer: { "@type": "Answer", text: "Many people improve within 2–6 weeks with appropriate care. Some injuries take longer, especially if there is significant soft-tissue damage. Early evaluation, treatment, and follow-up can help reduce the risk of long-term symptoms." }
-      },
-      {
-        "@type": "Question",
-        name: "Is it safe to drive with whiplash?",
-        acceptedAnswer: { "@type": "Answer", text: "It depends on your pain, range of motion, and whether you have dizziness or neurologic symptoms. Your provider will advise you based on your exam and can provide documentation for work or driving restrictions if needed." }
-      },
-      {
-        "@type": "Question",
-        name: "Can whiplash symptoms get worse over time?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. It is common for soreness and stiffness to increase over the first few days. Early care can help manage pain and prevent some long-term problems. Proper documentation of symptom progression is also important for insurance claims." }
-      }
-    ]
+    mainEntity: whiplashFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
 
   const graphSchema = buildGraphSchema([
@@ -143,16 +164,16 @@ export default function Page() {
 
       {/* Hero Section */}
       <HeroWithForm
-        title="Whiplash After a Car Accident"
+        title="Whiplash Treatment After a Car Accident — Palm Beach County"
         subtitle={
           <p>
-            Neck pain, stiffness, or headaches after a crash can be a sign of whiplash. Our car-accident doctors evaluate your neck, rule out serious injury, and document everything for PIP and insurance.
+            Neck pain, stiffness, or headaches after a crash can be a sign of whiplash. Our whiplash injury doctors examine your neck, screen for nerve involvement, X-ray to rule out fracture, and document everything for your PIP claim — all in a single same-day visit.
           </p>
         }
         checklist={[
           "Comprehensive neck mobility and neurologic exam",
           "Onsite X-ray; MRI referrals when indicated",
-          "Clear recovery plan and PIP-ready documentation",
+          "Whiplash recovery plan and PIP-ready documentation",
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title="Book Your Whiplash Exam" noWrapper={true} showHeader={false} compact={true} />}
@@ -166,31 +187,33 @@ export default function Page() {
         <div className="max-w-4xl mx-auto">
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Symptoms After a Car Accident</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">Signs of Whiplash After a Car Accident</h2>
           <p className="text-base md:text-lg text-gray-700 mb-4">
-            Whiplash and neck injuries can cause a variety of symptoms. Here's what to watch for:
+            Whiplash injury symptoms are typically caused by a rapid back-and-forth motion of the neck — the same motion produced by a rear-end, side-impact, or sudden-stop crash. Here are the signs of whiplash after a car accident our doctors evaluate most often:
           </p>
           <div className="mb-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Neck & Whiplash Symptoms</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Whiplash Injury Symptoms to Watch For</h3>
             <ul className="list-disc ml-6 space-y-2 mb-4">
-              <li>Neck pain, stiffness, or reduced range of motion</li>
-              <li>Headaches, dizziness, jaw pain, or shoulder pain</li>
-              <li>Symptoms that begin hours or days after the crash</li>
-              <li>Numbness, tingling, or weakness in arms or hands</li>
-              <li>Trouble concentrating, feeling "foggy," or sleep disturbances</li>
+              <li><strong>Whiplash neck pain</strong> — soreness, sharp pain, or stiffness when turning the head</li>
+              <li>Reduced range of motion (turning, looking up, looking down)</li>
+              <li>Headaches at the base of the skull or radiating to the temples</li>
+              <li>Dizziness, jaw pain (TMJ irritation), or shoulder pain</li>
+              <li><strong>Whiplash nerve damage symptoms</strong> — numbness, tingling, or weakness in the arms or hands</li>
+              <li>Symptoms that begin hours or days after the crash, not immediately</li>
+              <li>Trouble concentrating, feeling &quot;foggy,&quot; or sleep disturbances</li>
             </ul>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Whiplash Symptom Timeline</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">Whiplash Symptom Timeline — When Does Pain Start?</h2>
           <p className="text-base md:text-lg text-gray-700 mb-4">
-            Many people feel only shaken or sore immediately after a crash. Whiplash symptoms often build over the next 24–72 hours. Seeking care early creates a documented timeline that links your symptoms to the collision and allows your provider to rule out more serious problems.
+            Most patients feel only shaken or sore immediately after a crash. Adrenaline at the scene typically suppresses pain for several hours, and inflammation from the soft-tissue injury then builds over the following 24 to 72 hours. Seeking care early creates a documented timeline that links your symptoms to the collision and allows a provider to rule out more serious problems.
           </p>
           <div className="bg-gradient-to-br from-[#FEF2F2] to-[#FEE2E2] rounded-xl p-6 border-2 border-[#D52128]/20">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Most patients don't feel pain until the next day</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Most patients don&apos;t feel whiplash pain until the next day</h3>
             <p className="text-gray-700 mb-4">
-              This delayed onset is common with whiplash injuries. Even if you feel fine immediately after the accident, symptoms like neck stiffness, headaches, and pain often appear 12-48 hours later. Early evaluation helps document the connection between the crash and your symptoms for insurance purposes.
+              Delayed-onset pain is common with whiplash injuries. Even if you feel fine immediately after the accident, neck stiffness, headaches, and pain often appear 12 to 48 hours later. Early evaluation matters for two reasons: it documents the connection between the crash and your symptoms for your PIP claim, and Florida&apos;s 14-day PIP rule starts counting from the date of the accident, not the date your symptoms appeared.
             </p>
           </div>
         </section>
@@ -221,16 +244,45 @@ export default function Page() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">Treatment Options</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">How to Treat Whiplash After a Car Accident</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Whiplash treatment combines short-term pain management with graduated activity rather than prolonged rest or rigid immobilization. The current evidence base — including guidance from the Quebec Task Force on Whiplash-Associated Disorders and contemporary musculoskeletal literature — supports the following approach:
+          </p>
           <ul className="list-disc ml-6 space-y-2 mb-6">
-            <li>Pain and anti-inflammatory medications as appropriate</li>
-            <li>Guided stretches and gentle neck exercises</li>
-            <li>Advice on safe activity and return-to-work timelines</li>
-            <li>Referral for physical therapy or specialist care if needed</li>
-            <li>
-              Ongoing follow-up to monitor recovery and adjust the plan over time
-            </li>
+            <li><strong>Anti-inflammatory medications</strong> (NSAIDs) for the first 1–2 weeks, dosed as appropriate to your medical history</li>
+            <li><strong>Ice in the first 48–72 hours</strong> to reduce acute swelling; heat thereafter for muscle relaxation</li>
+            <li><strong>Gentle range-of-motion exercises</strong> started early — long periods of rest or hard cervical collars are no longer recommended for most whiplash injuries</li>
+            <li><strong>Whiplash injury self-care</strong> — sleep posture adjustments, gradual return to normal activity, avoiding sudden head movements during the acute phase</li>
+            <li><strong>Physical therapy referral</strong> when symptoms persist past 2 weeks or when range-of-motion remains significantly limited</li>
+            <li><strong>Specialist referral</strong> (orthopedic spine, neurology) for any patient with persistent radicular symptoms — arm numbness, weakness, or pain shooting down a limb</li>
+            <li><strong>Ongoing follow-up</strong> to monitor recovery and adjust the plan</li>
           </ul>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            For most whiplash injuries, the goal is to keep the neck mobile and gradually return to normal activity while controlling pain. Patients who keep moving generally recover faster than patients who immobilize.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">When Whiplash Becomes Chronic Neck Pain</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Most whiplash injuries resolve within 2 to 6 weeks. A meaningful minority of patients develop <strong>chronic neck pain after whiplash</strong> — typically defined as symptoms that persist beyond about three months. When symptoms continue past roughly six months, the condition is sometimes described in the medical literature as late whiplash syndrome. Risk factors for chronification include severe initial pain, pre-existing neck problems, delayed evaluation, inadequate early treatment, and high psychological distress at the time of injury.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            The strongest protective factors are early medical evaluation, accurate diagnosis (ruling out fracture or disc injury), early initiation of graduated activity, and consistent follow-up. If your whiplash symptoms have not improved meaningfully by 6 weeks, a re-evaluation — including MRI consideration and possible specialist referral — is warranted.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">Why See a Whiplash Injury Doctor and Not Just a Chiropractor</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Both medical doctors and chiropractors can satisfy <strong>Florida&apos;s 14-day PIP rule</strong> for initial services after a car accident. But only a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse can certify the emergency medical condition needed to access the full $10,000 PIP medical benefit — without that certification, PIP medical benefits are capped at $2,500.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            A whiplash injury doctor at urgent care can also order and read on-site X-ray to rule out cervical fracture, refer for MRI when soft-tissue or nerve injury is suspected, manage acute pain medically, and generate the kind of PIP-compliant evaluation note your insurance carrier and any attorney you retain will need. Chiropractic care can be a valuable follow-up for soft-tissue rehabilitation — but most patients are better served starting with a medical workup that satisfies the EMC requirement and the imaging needs that fall outside the chiropractic scope.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            See our <a className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident-injury-clinic">car accident injury clinic page</a> for the full picture of what an urgent care visit looks like, or our <a className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident/documentation-pip">PIP documentation guide</a> for what specifically must be in the record.
+          </p>
         </section>
 
         <RelatedTopics 
@@ -242,28 +294,8 @@ export default function Page() {
         />
 
         <AccidentFAQ
-          faqs={[
-            {
-              question: "Can whiplash symptoms start days after a car accident?",
-              answer: "Yes. Neck pain, stiffness, headaches, and dizziness may appear hours or even days after the crash. This is why it is important to be evaluated even if you feel 'okay' right after the accident. Early evaluation helps document the timeline for insurance purposes."
-            },
-            {
-              question: "Do I need X-ray or MRI for whiplash?",
-              answer: "Your provider will decide based on your exam and symptoms. X-ray can help rule out fractures, and MRI may be recommended if there is concern for disc or soft-tissue injury. We have onsite X-ray capabilities and can provide same-day results."
-            },
-            {
-              question: "How long does whiplash recovery typically take?",
-              answer: "Many people improve within 2–6 weeks with appropriate care. Some injuries take longer, especially if there is significant soft-tissue damage. Early evaluation, treatment, and follow-up can help reduce the risk of long-term symptoms."
-            },
-            {
-              question: "Is it safe to drive with whiplash?",
-              answer: "It depends on your pain, range of motion, and whether you have dizziness or neurologic symptoms. Your provider will advise you based on your exam and can provide documentation for work or driving restrictions if needed."
-            },
-            {
-              question: "Can whiplash symptoms get worse over time?",
-              answer: "Yes. It is common for soreness and stiffness to increase over the first few days. Early care can help manage pain and prevent some long-term problems. Proper documentation of symptom progression is also important for insurance claims."
-            }
-          ]}
+          title="Whiplash After a Car Accident — Frequently Asked Questions"
+          faqs={whiplashFaqs}
         />
 
         {/* Internal Links Section */}

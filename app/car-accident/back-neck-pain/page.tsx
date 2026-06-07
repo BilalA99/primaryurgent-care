@@ -9,19 +9,59 @@ import TrustBadges from "@/components/accident/TrustBadges";
 import RedFlagChecklist from "@/components/accident/RedFlagChecklist";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
 import AccidentInfoSection from "@/components/accident/AccidentInfoSection";
+import AccidentFAQ from "@/components/accident/AccidentFAQ";
 import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from "@/lib/seo";
 
 const baseUrl = "https://primaryuc.com";
 
+// Single source of truth for visible FAQ + JSON-LD FAQPage schema.
+const backNeckFaqs = [
+  {
+    question: "When should I see a doctor for back pain after a car accident?",
+    answer:
+      "If you have any back pain after a car accident in Florida, you should be evaluated within 14 days of the crash to preserve your PIP benefits. The most urgent presentations — severe pain, loss of bladder or bowel control, leg weakness, or pain that radiates down a leg — require ER care immediately. Moderate back or neck pain with normal neurological function is appropriate for same-day urgent care evaluation. Even mild soreness is worth a visit because delayed-onset back pain after a car accident is extremely common, and Florida's PIP clock runs from the crash date, not from the day your symptoms started.",
+  },
+  {
+    question: "Why does back pain show up days after a car accident?",
+    answer:
+      "Delayed back pain after a car accident is the rule, not the exception. Adrenaline at the scene of a crash typically suppresses pain for several hours, and inflammation from injured muscles, ligaments, and discs builds gradually over the following 24 to 72 hours. Many patients with significant lumbar or cervical injuries first notice meaningful pain the morning after the accident — or even two or three days later. Delayed onset does not mean the injury is minor; it reflects normal post-trauma physiology.",
+  },
+  {
+    question: "What kinds of back and neck injuries happen in car accidents?",
+    answer:
+      "Most common: muscle strains and ligament sprains from sudden impact forces. Also common: facet joint irritation (the small joints between vertebrae), herniated or bulging discs in the neck (cervical) or lower back (lumbar), and nerve-root irritation that causes shooting pain, tingling, or weakness in an arm or leg. Less common but more serious: compression fractures (more frequent in older patients and higher-energy crashes), spinal cord injury, and instability. Imaging is the only reliable way to distinguish soft-tissue injuries from structural injuries.",
+  },
+  {
+    question: "Do I need an MRI or just an X-ray for back pain after a car accident?",
+    answer:
+      "X-ray is the first-line imaging study because it rules out fracture and gross instability and can be done on-site in minutes. MRI is the better study for soft-tissue and disc injury, nerve compression, or ligament damage, and is typically ordered when symptoms include numbness, weakness, radicular pain (pain radiating down an arm or leg), or when symptoms aren't improving with conservative care. We do digital X-ray on-site at PrimaryUC; MRI is coordinated via referral when indicated.",
+  },
+  {
+    question: "Why see a medical doctor for back pain instead of going straight to a chiropractor?",
+    answer:
+      "Both medical doctors and chiropractors can satisfy Florida's 14-day PIP rule for initial services. The legal difference is that only a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse can certify the emergency medical condition needed to access the full $10,000 PIP medical benefit — without that certification, PIP benefits cap at $2,500. The clinical difference is that a medical doctor can order and read X-ray on-site, refer for MRI, and perform a full neurological exam to rule out the dangerous causes of back pain (disc herniation with nerve compression, cauda equina, fracture). Chiropractic care can be a valuable follow-up for soft-tissue rehabilitation once those serious causes have been ruled out.",
+  },
+  {
+    question: "How long does back pain last after a car accident?",
+    answer:
+      "Mild muscle strains and soft-tissue injuries typically improve within 2 to 6 weeks with appropriate care. Moderate disc-related or facet-joint injuries can take several weeks to months. A subset of patients develop chronic back pain — defined as symptoms persisting past about three months — particularly if the initial injury was severe, evaluation was delayed, or there's a pre-existing spinal condition. Early evaluation, accurate diagnosis, and a documented treatment plan all reduce the risk of chronification.",
+  },
+  {
+    question: "Can back pain after a car accident come back years later?",
+    answer:
+      "Yes. Patients sometimes return with back pain 1 to 2 years after a car accident, particularly when the initial injury was undertreated or when imaging missed a disc or facet injury. Post-traumatic degenerative changes can also develop on top of the original injury. A new evaluation is appropriate any time post-accident back pain recurs — and your original PIP visit records make it easier to demonstrate the link to the original collision if needed for a separate claim.",
+  },
+];
+
 export const metadata: Metadata = {
-  title: "Back & Neck Pain After Car Accident | PIP Exam | PrimaryUC",
+  title: "Back Pain After a Car Accident | Same-Day Exam, PIP | PrimaryUC",
   description:
-    "Back & neck pain after car accident at urgent care in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+    "Back pain or neck pain after a car accident in Palm Beach County. Same-day spinal exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
   alternates: { canonical: `${baseUrl}/car-accident/back-neck-pain` },
   openGraph: {
-    title: "Back & Neck Pain After Car Accident | PIP Exam | PrimaryUC",
+    title: "Back Pain After a Car Accident | Same-Day Exam, PIP | PrimaryUC",
     description:
-      "Back & neck pain after car accident at urgent care in Palm Beach County. Same-day spinal exam, X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
+      "Back pain or neck pain after a car accident in Palm Beach County. Same-day spinal exam, onsite X-ray, PIP documentation. Florida 14-day rule. Walk-ins welcome.",
     url: `${baseUrl}/car-accident/back-neck-pain`,
     type: 'article',
     siteName: "Primary & Urgent Care Centers",
@@ -30,15 +70,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/back-pain-hero.png`,
         width: 1200,
         height: 630,
-        alt: "Back and neck pain spinal exam after car accident in Palm Beach County urgent care",
+        alt: "Doctor performing spinal exam for back pain and neck pain after car accident in Palm Beach County urgent care",
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Back & Neck Pain After Car Accident | PIP Exam | PrimaryUC",
-    description: "Back & neck pain after a car accident? Same-day spinal exam, X-ray & PIP documentation at Palm Beach County urgent care. Walk-ins welcome.",
+    title: "Back Pain After a Car Accident | Same-Day Exam, PIP | PrimaryUC",
+    description: "Back pain after a car accident? Same-day spinal exam, X-ray & PIP documentation at Palm Beach County urgent care. Walk-ins welcome.",
     images: [`${baseUrl}/back-pain-hero.png`],
     site: '@primaryurgentcare',
   },
@@ -101,11 +141,22 @@ export default function Page() {
     }
   };
 
+  // FAQPage schema derived from the backNeckFaqs const — schema cannot drift from visible content.
+  const faqObj = {
+    "@type": "FAQPage",
+    mainEntity: backNeckFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   const graphSchema = buildGraphSchema([
     breadcrumb,
     webPageSchema,
     spinalConditionSchema,
     serviceSchema,
+    faqObj,
   ]);
 
   return (
@@ -117,10 +168,10 @@ export default function Page() {
 
       {/* Hero Section */}
       <HeroWithForm
-        title="Back & Neck Pain After a Car Crash"
+        title="Back Pain & Neck Pain After a Car Accident — Palm Beach County"
         subtitle={
           <p>
-            Back or neck pain after a crash should be taken seriously. Our car-accident doctors evaluate your spine, nerves, and muscles and document everything for PIP and insurance.
+            Back pain or neck pain after a car accident — even delayed-onset pain that starts days later — needs evaluation. Our car accident doctors examine your spine, screen for nerve involvement, X-ray on-site, and generate PIP-compliant documentation in a single same-day visit.
           </p>
         }
         checklist={[
@@ -140,22 +191,36 @@ export default function Page() {
         <div className="max-w-4xl mx-auto">
 
         <section className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-3">How We Evaluate Back & Neck Pain After a Crash</h2>
+          <h2 className="text-2xl font-bold text-black mb-3">Delayed Back Pain & Delayed Neck Pain After a Car Accident</h2>
           <p className="text-base md:text-lg text-gray-700 mb-4">
-            Our comprehensive spinal evaluation includes multiple components to assess your injury:
+            Delayed-onset back pain after a car accident is the rule, not the exception. Two physiological factors explain it: adrenaline at the scene typically suppresses pain for several hours, and inflammation from injured muscles, ligaments, and discs builds gradually over the following 24 to 72 hours. Many patients with significant lumbar or cervical injuries first notice meaningful pain the morning after the accident — sometimes two or three days later.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            This matters in two ways. Clinically, late-onset pain is not a sign of a minor injury — it&apos;s the normal post-trauma timeline. Legally, Florida&apos;s 14-day PIP rule counts from the date of the accident, not the date your symptoms started. If your back pain shows up on day five, you still have only nine days left to be seen and preserve your PIP benefits.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">Upper Back, Middle Back & Lower Back Pain — What&apos;s the Difference?</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Where the pain is located helps narrow what&apos;s going on, what imaging makes sense, and what the recovery looks like:
           </p>
           <div className="space-y-4 mb-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Spine Exam</h3>
-              <p className="text-gray-700">We check for tenderness, muscle spasm, and joint restriction throughout your spine. This helps identify the specific areas affected by the collision.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Lower Back Pain After a Car Accident</h3>
+              <p className="text-gray-700">The most common location for post-accident back pain. Typically involves lumbar muscle strain, facet joint irritation, or — in higher-energy crashes — disc herniation or compression fracture. Pain that radiates down a leg (sciatica), is accompanied by leg weakness or numbness, or involves loss of bladder or bowel control is a red-flag presentation requiring immediate evaluation.</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Neurologic Exam</h3>
-              <p className="text-gray-700">Strength, sensation, and reflex testing helps identify nerve involvement. This is critical for determining if you need immediate emergency care or if urgent care is appropriate.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Upper Back Pain After a Car Accident</h3>
+              <p className="text-gray-700">Less common than lower back but frequently seen after side-impact crashes, seatbelt loading, or airbag deployment. Often involves thoracic muscle strain, rib or sternocostal injury, and thoracic-spine facet irritation. Upper back pain combined with chest pain or shortness of breath should be evaluated promptly to rule out rib fracture or intrathoracic injury.</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Imaging Decisions</h3>
-              <p className="text-gray-700">Based on your exam findings, we determine when X-ray, MRI, or CT imaging is needed. We have onsite X-ray capabilities and can arrange advanced imaging referrals when indicated.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Middle Back Pain After a Car Accident</h3>
+              <p className="text-gray-700">Pain between the shoulder blades or in the mid-thoracic region, typically from seatbelt loading or postural strain at the moment of impact. Usually responds well to anti-inflammatory medications, postural correction, and graduated activity.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Neck Pain After a Car Accident</h3>
+              <p className="text-gray-700">Most often involves cervical strain or whiplash from rear-end and side-impact crashes. Symptoms can include reduced range of motion, headaches at the base of the skull, dizziness, and pain or numbness radiating down an arm. See our <Link className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident/whiplash">whiplash treatment guide</Link> for a deeper breakdown.</p>
             </div>
           </div>
         </section>
@@ -233,12 +298,30 @@ export default function Page() {
           </ul>
         </section>
 
-        <RelatedTopics 
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">Why See a Medical Doctor for Back Pain After a Car Accident</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Both medical doctors and chiropractors can satisfy <strong>Florida&apos;s 14-day PIP rule</strong> for initial services after a car accident. But only a medical doctor, osteopathic physician, dentist, physician assistant, or advanced practice registered nurse can certify the emergency medical condition needed to access the full $10,000 PIP medical benefit — without that certification, PIP medical benefits are capped at $2,500.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            For back and neck pain specifically, the clinical reason to start with a medical doctor is also strong: a medical workup can order and read X-ray on-site, refer for MRI when nerve involvement or disc injury is suspected, and perform a full neurological exam to screen for the dangerous causes of post-accident back pain (significant disc herniation with nerve compression, cauda equina syndrome, occult fracture). Chiropractic care can be a valuable follow-up for soft-tissue rehabilitation once those serious causes have been ruled out.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            See our <Link className="text-[#2563eb] underline hover:text-[#1d4ed8]" href="/car-accident/documentation-pip">PIP documentation guide</Link> for what specifically must be in the record.
+          </p>
+        </section>
+
+        <RelatedTopics
           topics={[
             { title: "Whiplash", href: "/car-accident/whiplash" },
             { title: "PIP & Documentation", href: "/car-accident/documentation-pip" },
             { title: "Car Accident Urgent Care", href: "/car-accident-injury-clinic" }
           ]}
+        />
+
+        <AccidentFAQ
+          title="Back & Neck Pain After a Car Accident — Frequently Asked Questions"
+          faqs={backNeckFaqs}
         />
 
         {/* Internal Links Section */}

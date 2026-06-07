@@ -13,15 +13,54 @@ import { toJsonLd, buildBreadcrumb, buildServiceSchema, buildGraphSchema } from 
 
 const baseUrl = "https://primaryuc.com";
 
+// Single source of truth for visible FAQ + JSON-LD FAQPage schema.
+const pipFaqs = [
+  {
+    question: "What is PIP insurance in Florida?",
+    answer:
+      "PIP — Personal Injury Protection — is the mandatory no-fault auto insurance coverage required of all Florida drivers under Fla. Stat. § 627.736. It pays for your medical evaluation and treatment after a car accident regardless of who was at fault. Florida PIP provides up to $10,000 in medical and disability benefits per accident — but only if you receive your initial medical evaluation within 14 days of the crash and a qualifying provider certifies an emergency medical condition. Without that certification, PIP medical benefits cap at $2,500.",
+  },
+  {
+    question: "What is the Florida PIP 14-day rule?",
+    answer:
+      "The Florida PIP 14-day rule requires you to receive initial medical services within 14 days of your motor vehicle accident to be eligible for PIP medical benefits. The 14 days are counted from the date of the accident — not from the day your symptoms appeared. If you wait beyond day 14, your PIP carrier can deny the medical portion of your claim, leaving you responsible for the medical costs out of pocket. The same rule applies whether your injuries were serious, mild, or initially asymptomatic.",
+  },
+  {
+    question: "What is an Emergency Medical Condition (EMC) and why does it matter?",
+    answer:
+      "An Emergency Medical Condition (EMC) is a clinical determination — drawn from Fla. Stat. § 395.002(8) and applied through Florida's PIP statute — that your injuries manifest as acute symptoms severe enough that, without immediate medical attention, they could reasonably result in serious jeopardy to your health, serious impairment of bodily functions, or serious dysfunction of any bodily organ or part. Under Florida PIP statute § 627.736(1)(a), only a medical doctor (MD), osteopathic physician (DO), dentist, physician assistant (PA), or advanced practice registered nurse (APRN) can certify an EMC. The certification matters financially: with an EMC, your PIP medical benefit is $10,000; without one, it caps at $2,500. Chiropractors and physical therapists cannot certify an EMC under Florida law.",
+  },
+  {
+    question: "What does PIP insurance cover in Florida?",
+    answer:
+      "Florida PIP covers 80% of reasonable and necessary medical expenses (up to the PIP limit), 60% of lost wages, and 100% of replacement services (household help, childcare you'd otherwise do). It also provides a $5,000 death benefit. Covered medical services include emergency room visits, urgent care, hospital stays, surgery, X-ray and other imaging, rehabilitation, and prescription medications — provided they're documented as reasonable and medically necessary. PIP does not cover pain and suffering, vehicle damage, or third-party liability — those fall under other coverages.",
+  },
+  {
+    question: "How much is PIP insurance in Florida?",
+    answer:
+      "PIP premiums vary by driver, vehicle, location, and carrier, but the statutory minimum coverage every Florida driver must carry is $10,000 in PIP medical/disability and $10,000 in PDL (Property Damage Liability). Many drivers choose higher PIP limits if available from their carrier. We don't sell insurance — for current PIP premium quotes, contact a Florida-licensed insurance agent. Our role is on the medical side: we provide the same-day exam, imaging, and PIP-compliant documentation your carrier requires once a claim is opened.",
+  },
+  {
+    question: "Do I need an attorney before I come in for a PIP exam?",
+    answer:
+      "No. You can come in for an exam and documentation whether or not you have an attorney. Many patients see us first, get the medical workup and PIP documentation in order, and then decide whether to retain a personal injury attorney later. If you decide to work with one, we can share your records once you sign a release. Florida PIP benefits are available to you regardless of whether you have legal representation.",
+  },
+  {
+    question: "Can PrimaryUC update my documentation over time?",
+    answer:
+      "Yes. Follow-up visits generate updated records that show how your symptoms and function change over weeks or months. These ongoing records can be important for both medical recovery tracking and any insurance or legal claims. If your PIP carrier or attorney needs additional documentation, we can typically generate a supplemental note from your visit records.",
+  },
+];
+
 export const metadata: Metadata = {
-  title: "Car Accident PIP Exam & Documentation | PrimaryUC",
+  title: "Florida PIP 14-Day Rule + EMC | Car Accident Exam | PrimaryUC",
   description:
-    "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+    "Florida PIP 14-day rule explained. Same-day car accident exam, emergency medical condition (EMC) certification, and PIP documentation in Palm Beach County. $10,000 cap protected.",
   alternates: { canonical: `${baseUrl}/car-accident/documentation-pip` },
   openGraph: {
-    title: "Car Accident PIP Exam & Documentation | PrimaryUC",
+    title: "Florida PIP 14-Day Rule + EMC | Car Accident Exam | PrimaryUC",
     description:
-      "Car accident PIP exam and documentation at urgent care in Palm Beach County. Same-day medical records, visit summaries, insurance paperwork. Florida 14-day rule compliant.",
+      "Florida PIP 14-day rule explained. Same-day car accident exam, emergency medical condition (EMC) certification, and PIP documentation in Palm Beach County. $10,000 cap protected.",
     url: `${baseUrl}/car-accident/documentation-pip`,
     type: 'article',
     siteName: "Primary & Urgent Care Centers",
@@ -30,15 +69,15 @@ export const metadata: Metadata = {
         url: `${baseUrl}/man-on-phone-next-to-open-hood.jpg`,
         width: 1200,
         height: 630,
-        alt: "Car accident PIP documentation and medical exam paperwork in Palm Beach County",
+        alt: "Florida PIP 14-day rule documentation and emergency medical condition exam after car accident in Palm Beach County",
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Car Accident PIP Exam & Documentation | PrimaryUC",
-    description: "Car accident PIP exam & documentation at Palm Beach County urgent care. Same-day records, visit summaries & insurance paperwork. Florida 14-day compliant.",
+    title: "Florida PIP 14-Day Rule + EMC | Car Accident Exam | PrimaryUC",
+    description: "Florida PIP 14-day rule + EMC certification. Same-day car accident exam & PIP documentation in Palm Beach County. Protect your $10,000 PIP cap.",
     images: [`${baseUrl}/man-on-phone-next-to-open-hood.jpg`],
     site: '@primaryurgentcare',
   },
@@ -61,20 +100,14 @@ export default function Page() {
     url: pageUrl
   });
 
+  // FAQPage schema derived from the pipFaqs const — schema cannot drift from visible content.
   const faqObj = {
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Do I need an attorney before I come in?",
-        acceptedAnswer: { "@type": "Answer", text: "No. You can come in for an exam and documentation whether or not you have an attorney. If you decide to work with one later, we can share records once you sign a release." }
-      },
-      {
-        "@type": "Question",
-        name: "Can you update documentation over time?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes. Follow-up visits generate updated records that show how your symptoms and function change over weeks or months. These can be important for ongoing claims." }
-      }
-    ]
+    mainEntity: pipFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
 
   const webPageSchema = {
@@ -110,16 +143,16 @@ export default function Page() {
 
       {/* Hero Section */}
       <HeroWithForm
-        title="Car Accident PIP Documentation"
+        title="Florida PIP 14-Day Rule & Car Accident Documentation"
         subtitle={
           <p>
-            We complete a same-day post-accident exam and create the medical documentation commonly requested by insurers and attorneys.
+            Florida&apos;s PIP 14-day rule requires a qualifying medical visit within 14 days of your crash to access PIP benefits. Our car accident doctors complete the same-day exam, certify the emergency medical condition needed to unlock the full $10,000 PIP cap, and generate the documentation your insurer and any attorney will require.
           </p>
         }
         checklist={[
-          "Full exam and injury mapping for PIP claims",
-          "Same-day visit summary and records you can share",
-          "Help coordinating paperwork with insurance",
+          "Full exam + EMC certification (MD/PA/APRN) for the $10,000 PIP cap",
+          "Same-day visit summary and PIP-compliant records",
+          "Help coordinating paperwork with your insurer or attorney",
         ]}
         banner={<ImmediateCareBanner />}
         form={<AccidentAppointmentForm title="Book Your PIP Documentation Exam" noWrapper={true} showHeader={false} compact={true} />}
@@ -131,6 +164,39 @@ export default function Page() {
 
       <div className="bg-[#FAFAFA] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-[60px]">
         <div className="max-w-4xl mx-auto">
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">What Is Florida PIP Insurance, and How Does the 14-Day Rule Work?</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Florida Personal Injury Protection (PIP) is the no-fault auto insurance coverage every Florida driver is required to carry under <strong>Fla. Stat. § 627.736</strong>. It pays for your medical care after a car accident regardless of who was at fault. The headline benefit is <strong>up to $10,000 in medical and disability coverage per accident</strong> — but that headline number comes with two conditions that catch many patients off guard.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            <strong>Condition 1 — the 14-day rule.</strong> You must receive an initial medical evaluation within 14 days of the date of the accident. The clock counts from the crash date, not the day your symptoms appeared. If you wait beyond day 14, your PIP carrier can deny the entire medical portion of your claim.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            <strong>Condition 2 — the Emergency Medical Condition (EMC) determination.</strong> The full $10,000 cap is only available when a qualifying provider certifies that you have an emergency medical condition. Without an EMC determination, PIP medical benefits are capped at <strong>$2,500</strong>. We cover the EMC requirement in detail below.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-3">Emergency Medical Condition (EMC) — The $10,000 vs $2,500 Question</h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            An Emergency Medical Condition is a clinical determination that your injuries manifest as acute symptoms severe enough that, without immediate medical attention, they could reasonably result in serious jeopardy to your health, serious impairment of bodily functions, or serious dysfunction of any bodily organ or part. This is the definition Florida PIP law adopts from <strong>Fla. Stat. § 395.002(8)</strong>. Under <strong>Fla. Stat. § 627.736(1)(a)</strong>, only a limited list of providers can certify an EMC:
+          </p>
+          <ul className="list-disc ml-6 space-y-2 mb-6">
+            <li>Medical doctor (MD)</li>
+            <li>Osteopathic physician (DO)</li>
+            <li>Dentist</li>
+            <li>Physician assistant (PA)</li>
+            <li>Advanced practice registered nurse (APRN)</li>
+          </ul>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            <strong>Chiropractors and physical therapists cannot certify an EMC under Florida law</strong> — they can satisfy the 14-day rule for initial services, but they cannot make the determination that unlocks the full $10,000 PIP medical cap. If your initial visit after a crash is with a chiropractor or PT only, your PIP medical benefit is limited to $2,500 unless and until a qualifying provider (MD, DO, PA, APRN, or dentist) certifies an emergency medical condition — which a qualifying provider can do at a later visit or through records review.
+          </p>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            At PrimaryUC, your visit is with a qualifying medical provider. If the EMC determination is appropriate based on your examination findings, we make it at the time of your visit and document it in the medical record your PIP carrier will receive.
+          </p>
+        </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-black mb-3">What Your PIP Exam Includes</h2>
@@ -253,19 +319,8 @@ export default function Page() {
         />
 
         <AccidentFAQ
-          title="PIP & Documentation FAQs"
-          faqs={[
-            {
-              question: "Do I need an attorney before I come in?",
-              answer:
-                "No. You can come in for an exam and documentation whether or not you have an attorney. If you decide to work with one later, we can share records once you sign a release."
-            },
-            {
-              question: "Can you update documentation over time?",
-              answer:
-                "Yes. Follow-up visits generate updated records that show how your symptoms and function change over weeks or months. These can be important for ongoing claims."
-            }
-          ]}
+          title="Florida PIP, the 14-Day Rule & EMC — Frequently Asked Questions"
+          faqs={pipFaqs}
         />
 
         {/* Internal Links Section */}
