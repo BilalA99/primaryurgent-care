@@ -28,12 +28,19 @@ import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
 import { redirect } from 'next/navigation';
 import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 import { getAttributionData } from '@/lib/gclid';
+import {
+    getValidatedPhoneNumber,
+    formatUSPhoneNumber,
+    hasAtMostTenPhoneDigits,
+    isValidUSPhoneNumber,
+    PHONE_VALIDATION_ERROR,
+} from '@/lib/validation/phone';
 
 const formSchema = z.object({
     firstName: z.string().min(1, 'First name is required'),
     lastName: z.string().min(1, 'Last name is required'),
     email: z.string().email('Please enter a valid email address'),
-    phone: z.string().min(10, 'Please enter a valid phone number'),
+    phone: z.string().refine(isValidUSPhoneNumber, PHONE_VALIDATION_ERROR),
     postalCode: z.string().optional(),
     type: z.string(),
     message: z.string(),
@@ -65,14 +72,15 @@ const BookAppointmentForm = ({
     const [isLoading, setIsLoading] = useState(false);
     const onSubmit = async (data: FormData) => {
         setIsLoading(true);
+        const normalizedPhone = getValidatedPhoneNumber(data.phone);
         // Combine first and last name for email functions
         const fullName = `${data.firstName} ${data.lastName}`.trim();
         const attribution = getAttributionData();
-        const response = await sendContactEmail({name : fullName, email : data.email, phone : data.phone, reason : data.message, accidentType : data.type});
+        const response = await sendContactEmail({name : fullName, email : data.email, phone : normalizedPhone, reason : data.message, accidentType : data.type});
         await sendUserEmail({
           name:         fullName,
           email:        data.email,
-          phone:        data.phone,
+          phone:        normalizedPhone,
           reason:       data.message,
           accidentType: data.type,
           postalCode:   data.postalCode,
@@ -90,7 +98,7 @@ const BookAppointmentForm = ({
             // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
             pushEnhancedConversion({
                 email: data.email,
-                phone: data.phone,
+                phone: normalizedPhone,
                 firstName: data.firstName,
                 lastName: data.lastName,
                 postalCode: data.postalCode
@@ -186,9 +194,16 @@ const BookAppointmentForm = ({
                                 <FormControl>
                                     <Input
                                         type="tel"
-                                        placeholder="Enter your phone number"
+                                        inputMode="tel"
+                                        autoComplete="tel"
+                                        placeholder="(___) ___-____"
                                         className="w-full rounded-lg px-5 py-3 bg-white text-black text-base outline-none border-none"
                                         {...field}
+                                        onChange={(event) => {
+                                            if (hasAtMostTenPhoneDigits(event.target.value)) {
+                                                field.onChange(formatUSPhoneNumber(event.target.value));
+                                            }
+                                        }}
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -285,4 +300,4 @@ const BookAppointmentForm = ({
     );
 };
 
-export default BookAppointmentForm; 
+export default BookAppointmentForm;
