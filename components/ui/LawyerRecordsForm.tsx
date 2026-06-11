@@ -4,6 +4,13 @@ import Image from 'next/image';
 import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 import { sendLawyerRecordsEmail, sendLawyerRecordsThankYouEmail } from '../email/SendEmail';
 import { getAttributionData } from '@/lib/gclid';
+import {
+    getValidatedPhoneNumber,
+    formatUSPhoneNumber,
+    hasAtMostTenPhoneDigits,
+    isValidUSPhoneNumber,
+    PHONE_VALIDATION_ERROR,
+} from '@/lib/validation/phone';
 
 interface FormData {
     lawFirm: string;
@@ -40,6 +47,7 @@ export default function LawyerRecordsForm() {
     const [error, setError] = useState('');
     const [submitting, setSubmitting] = useState(false);
     const [fileError, setFileError] = useState('');
+    const [phoneError, setPhoneError] = useState('');
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         const { name, value, type } = e.target;
@@ -52,6 +60,9 @@ export default function LawyerRecordsForm() {
             setForm(f => ({ ...f, [name]: selected }));
         } else {
             setForm(f => ({ ...f, [name]: value }));
+            if (name === 'phone' && phoneError) {
+                setPhoneError('');
+            }
         }
     }
 
@@ -87,6 +98,10 @@ export default function LawyerRecordsForm() {
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         // Simple validation
+        if (!isValidUSPhoneNumber(form.phone)) {
+            setPhoneError(PHONE_VALIDATION_ERROR);
+            return;
+        }
         if (!form.lawFirm || !form.email || !form.phone || !form.patientFirstName || !form.patientLastName || !form.dob || !form.dos || form.records.length === 0 || !form.confirm) {
             setError('Please fill all fields and confirm authorization.');
             return;
@@ -95,13 +110,15 @@ export default function LawyerRecordsForm() {
             setError('Please upload at least one authorization document.');
             return;
         }
+        setPhoneError('');
         setSubmitting(true);
         // Combine first and last name for email functions
         const patientFullName = `${form.patientFirstName} ${form.patientLastName}`.trim();
+        const normalizedPhone = getValidatedPhoneNumber(form.phone);
         const result = await sendLawyerRecordsEmail({
             lawFirm: form.lawFirm,
             email: form.email,
-            phone: form.phone,
+            phone: normalizedPhone,
             patientName: patientFullName,
             dob: form.dob,
             dos: form.dos,
@@ -118,7 +135,7 @@ export default function LawyerRecordsForm() {
             lawFirm:      form.lawFirm,
             email:        form.email,
             patientName:  patientFullName,
-            phone:        form.phone,
+            phone:        normalizedPhone,
             gclid:        attribution.gclid,
             utm_source:   attribution.utm_source,
             utm_medium:   attribution.utm_medium,
@@ -137,7 +154,7 @@ export default function LawyerRecordsForm() {
         // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
         pushEnhancedConversion({
             email: form.email,
-            phone: form.phone,
+            phone: normalizedPhone,
             firstName: form.patientFirstName,
             lastName: form.patientLastName,
             postalCode: form.postalCode
@@ -201,8 +218,41 @@ export default function LawyerRecordsForm() {
                             <input name="email" type="email" value={form.email} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
                         </div>
                         <div className="flex flex-col gap-3">
-                            <label className="text-sm font-medium">Phone Number</label>
-                            <input name="phone" type="tel" value={form.phone} onChange={handleChange} className="rounded-lg border border-gray-200 px-4 py-2 bg-white" />
+                            <label htmlFor="lawyer-records-phone" className="text-sm font-medium">Phone Number</label>
+                            <input
+                                id="lawyer-records-phone"
+                                name="phone"
+                                type="tel"
+                                inputMode="tel"
+                                autoComplete="tel"
+                                placeholder="(___) ___-____"
+                                value={form.phone}
+                                onChange={(event) => {
+                                    if (hasAtMostTenPhoneDigits(event.target.value)) {
+                                        setForm(currentForm => ({
+                                            ...currentForm,
+                                            phone: formatUSPhoneNumber(event.target.value),
+                                        }));
+                                        if (phoneError) {
+                                            setPhoneError('');
+                                        }
+                                    }
+                                }}
+                                onBlur={() => {
+                                    if (form.phone && !isValidUSPhoneNumber(form.phone)) {
+                                        setPhoneError(PHONE_VALIDATION_ERROR);
+                                    }
+                                }}
+                                aria-invalid={Boolean(phoneError)}
+                                aria-describedby={phoneError ? 'lawyer-records-phone-error' : undefined}
+                                className="rounded-lg border border-gray-200 px-4 py-2 bg-white"
+                                required
+                            />
+                            {phoneError && (
+                                <p id="lawyer-records-phone-error" className="text-sm text-red-600">
+                                    {phoneError}
+                                </p>
+                            )}
                         </div>
                         <div className="flex flex-col gap-3">
                             <label className="text-sm font-medium">ZIP Code</label>
@@ -324,4 +374,4 @@ export default function LawyerRecordsForm() {
             </div>
         </section>
     );
-} 
+}

@@ -8,6 +8,13 @@ import { sendContactEmail, sendUserEmail } from '@/components/email/SendEmail';
 import { pushEnhancedConversion } from '@/lib/gtag';
 import { getAttributionData } from '@/lib/gclid';
 import { Shield, Clock, FileText, Lock } from 'lucide-react';
+import {
+  getValidatedPhoneNumber,
+  formatUSPhoneNumber,
+  hasAtMostTenPhoneDigits,
+  isValidUSPhoneNumber,
+  PHONE_VALIDATION_ERROR,
+} from '@/lib/validation/phone';
 
 interface CompactAccidentFormProps {
   title: string;
@@ -22,13 +29,22 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
     preferredTime: ''
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidUSPhoneNumber(formData.phone)) {
+      setPhoneError(PHONE_VALIDATION_ERROR);
+      return;
+    }
+
+    setPhoneError('');
     setIsLoading(true);
 
     try {
       const attribution = getAttributionData();
+      const normalizedPhone = getValidatedPhoneNumber(formData.phone);
 
       // Fire GTM car_accident_form_submit event
       try {
@@ -51,7 +67,7 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
       await sendContactEmail({
         name: formData.fullName,
         email: formData.email || 'noreply@unknown.com',
-        phone: formData.phone,
+        phone: normalizedPhone,
         reason: formData.preferredTime ? `Preferred time: ${formData.preferredTime}` : '',
         accidentType: 'car-accident'
       });
@@ -61,7 +77,7 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
         await sendUserEmail({
           name: formData.fullName,
           email: formData.email,
-          phone: formData.phone,
+          phone: normalizedPhone,
           reason: formData.preferredTime ? `Preferred time: ${formData.preferredTime}` : '',
           accidentType: 'car-accident',
           gclid: attribution.gclid,
@@ -77,7 +93,7 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
       const nameParts = formData.fullName.trim().split(' ');
       pushEnhancedConversion({
         email: formData.email,
-        phone: formData.phone,
+        phone: normalizedPhone,
         firstName: nameParts[0] || '',
         lastName: nameParts.slice(1).join(' ') || '',
         postalCode: ''
@@ -134,17 +150,39 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
 
         {/* Field 2: Phone */}
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-1">Phone Number</label>
+          <label htmlFor="compact-accident-phone" className="text-sm font-medium text-gray-700 block mb-1">
+            Phone Number
+          </label>
           <Input
+            id="compact-accident-phone"
             type="tel"
-            placeholder="(561) 555-1234"
+            placeholder="(___) ___-____"
             value={formData.phone}
-            onChange={(e) => handleChange('phone', e.target.value)}
+            onChange={(e) => {
+              if (hasAtMostTenPhoneDigits(e.target.value)) {
+                handleChange('phone', formatUSPhoneNumber(e.target.value));
+                if (phoneError) {
+                  setPhoneError('');
+                }
+              }
+            }}
+            onBlur={() => {
+              if (formData.phone && !isValidUSPhoneNumber(formData.phone)) {
+                setPhoneError(PHONE_VALIDATION_ERROR);
+              }
+            }}
             className="w-full h-11 text-sm px-3"
             autoComplete="tel"
             inputMode="tel"
+            aria-invalid={Boolean(phoneError)}
+            aria-describedby={phoneError ? 'compact-accident-phone-error' : undefined}
             required
           />
+          {phoneError && (
+            <p id="compact-accident-phone-error" className="mt-1 text-sm text-red-600">
+              {phoneError}
+            </p>
+          )}
         </div>
 
         {/* Field 3: Email (optional) */}

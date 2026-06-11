@@ -5,6 +5,7 @@ import { Resend } from 'resend';
 import { LawyerRecordsEmailTemplate } from "./LawyerRecordsEmailTemplate";
 import { LawyerRecordsThankYouEmailTemplate } from "./LawyerRecordsThankYouEmailTemplate";
 import { supabase } from '@/utils/supabase/server';
+import { getValidatedPhoneNumber } from '@/lib/validation/phone';
 
 const resend = new Resend(process.env.RESEND_KEY);
 
@@ -66,16 +67,17 @@ export async function sendUserEmail(formData: {
   utm_content?:  string;
 }) {
   try {
+    const normalizedPhone = getValidatedPhoneNumber(formData.phone);
     const data = await resend.emails.send({
       from: 'Primary & Urgent Care Centers <support@primaryuc.com>',
       to: [formData.email],
       subject: 'Thank you for contacting Primary & Urgent Care Centers',
-      react: await UserEmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone }),
+      react: await UserEmailTemplate({ name: formData.name, email: formData.email, phone: normalizedPhone }),
     });
     await logLeadToSupabase({
       patient_name:  formData.name,
       patient_email: formData.email,
-      patient_phone: formData.phone,
+      patient_phone: normalizedPhone,
       reason:        formData.reason,
       accident_type: formData.accidentType,
       postal_code:   formData.postalCode,
@@ -96,11 +98,12 @@ export async function sendUserEmail(formData: {
 
 export async function sendContactEmail(formData: { name: string, email: string, phone: string, reason: string, accidentType: string }) {
   try {
+    const normalizedPhone = getValidatedPhoneNumber(formData.phone);
     const data = await resend.emails.send({
       from: 'Primary & Urgent Care Centers <support@primaryuc.com>',
       to: ['support@primaryuc.com'],
       subject: 'New Contact Form Submission',
-      react: await ContactEmailTemplate({ name: formData.name, email: formData.email, phone: formData.phone, reason: formData.reason, accidentType: formData.accidentType }),
+      react: await ContactEmailTemplate({ name: formData.name, email: formData.email, phone: normalizedPhone, reason: formData.reason, accidentType: formData.accidentType }),
     });
     return data;
   } catch (error) {
@@ -120,11 +123,12 @@ export async function sendLawyerRecordsEmail(formData: {
   files: { file: File; content: string }[];
 }) {
   try {
+    const normalizedPhone = getValidatedPhoneNumber(formData.phone);
     const data = await resend.emails.send({
       from: 'Primary & Urgent Care Centers <support@primaryuc.com>',
       to: ['support@primaryuc.com'],
       subject: 'New Medical Records Request from Attorney',
-      react: await LawyerRecordsEmailTemplate({ lawFirm: formData.lawFirm, email: formData.email, phone: formData.phone, patientName: formData.patientName, dob: formData.dob, dos: formData.dos, records: formData.records, files: formData.files }),
+      react: await LawyerRecordsEmailTemplate({ lawFirm: formData.lawFirm, email: formData.email, phone: normalizedPhone, patientName: formData.patientName, dob: formData.dob, dos: formData.dos, records: formData.records, files: formData.files }),
       attachments: formData.files.map(file => ({
         filename: file.file.name,
         content: file.content,
@@ -142,7 +146,7 @@ export async function sendLawyerRecordsThankYouEmail(formData: {
   lawFirm:       string;
   email:         string;
   patientName:   string;
-  phone?:        string;
+  phone:         string;
   gclid?:        string;
   utm_source?:   string;
   utm_medium?:   string;
@@ -151,6 +155,7 @@ export async function sendLawyerRecordsThankYouEmail(formData: {
   utm_content?:  string;
 }) {
   try {
+    const normalizedPhone = getValidatedPhoneNumber(formData.phone);
     const data = await resend.emails.send({
       from: 'Primary & Urgent Care Centers <support@primaryuc.com>',
       to: [formData.email],
@@ -160,7 +165,7 @@ export async function sendLawyerRecordsThankYouEmail(formData: {
     await logLeadToSupabase({
       patient_name:  formData.patientName,
       patient_email: formData.email,
-      patient_phone: formData.phone,
+      patient_phone: normalizedPhone,
       attorney_firm: formData.lawFirm,
       form_source:   'attorney-records',
       gclid:         formData.gclid,
