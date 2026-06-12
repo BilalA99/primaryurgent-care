@@ -9,6 +9,10 @@ import { getValidatedPhoneNumber } from '@/lib/validation/phone';
 
 const resend = new Resend(process.env.RESEND_KEY);
 
+// Internal recipients for all lead/contact notifications.
+// Add or remove addresses here to update all form flows at once.
+const PRIMARY_UC_LEAD_RECIPIENTS = ['support@primaryuc.com', 'urgentroyal@gmail.com'];
+
 async function logLeadToSupabase(data: {
   patient_name?:   string;
   patient_email?:  string;
@@ -101,7 +105,7 @@ export async function sendContactEmail(formData: { name: string, email: string, 
     const normalizedPhone = getValidatedPhoneNumber(formData.phone);
     const data = await resend.emails.send({
       from: 'Primary & Urgent Care Centers <support@primaryuc.com>',
-      to: ['support@primaryuc.com'],
+      to: PRIMARY_UC_LEAD_RECIPIENTS,
       subject: 'New Contact Form Submission',
       react: await ContactEmailTemplate({ name: formData.name, email: formData.email, phone: normalizedPhone, reason: formData.reason, accidentType: formData.accidentType }),
     });
@@ -126,7 +130,7 @@ export async function sendLawyerRecordsEmail(formData: {
     const normalizedPhone = getValidatedPhoneNumber(formData.phone);
     const data = await resend.emails.send({
       from: 'Primary & Urgent Care Centers <support@primaryuc.com>',
-      to: ['support@primaryuc.com'],
+      to: PRIMARY_UC_LEAD_RECIPIENTS,
       subject: 'New Medical Records Request from Attorney',
       react: await LawyerRecordsEmailTemplate({ lawFirm: formData.lawFirm, email: formData.email, phone: normalizedPhone, patientName: formData.patientName, dob: formData.dob, dos: formData.dos, records: formData.records, files: formData.files }),
       attachments: formData.files.map(file => ({
