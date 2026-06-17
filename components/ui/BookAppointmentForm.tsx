@@ -52,18 +52,24 @@ const BookAppointmentForm = ({
     title = 'Book An Appointment',
     bgColor = 'bg-[#F2F6FC]',
     textColor = 'text-black',
+    initialFirstName = '',
+    initialLastName = '',
+    initialPhone = '',
 }: {
     title?: string;
     bgColor?: string;
     textColor?: string;
+    initialFirstName?: string;
+    initialLastName?: string;
+    initialPhone?: string;
 }) => {
     const form = useForm<FormData>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            firstName: '',
-            lastName: '',
+            firstName: initialFirstName,
+            lastName: initialLastName,
             email: '',
-            phone: '',
+            phone: initialPhone,
             postalCode: '',
             type: '',
             message: '',

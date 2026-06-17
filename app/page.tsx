@@ -18,7 +18,7 @@ import Testimonials from "@/components/testimonials";
 import Reviews from "@/components/Reviews";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import Link from "next/link";
-import BookAppointmentForm from "@/components/ui/BookAppointmentForm";
+import HomepageMobileHeroForm from "@/components/ui/HomepageMobileHeroForm";
 export const metadata = {
   title: 'Car Accident Doctor Palm Beach County | PrimaryUC',
   description: 'Car accident doctor in Palm Beach County. Immediate PIP exam, X-ray & documentation. Walk-ins welcome — 4 locations, seen in under 15 min.',
@@ -97,8 +97,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className=" w-full h-full ">
-            <BookAppointmentForm title="Request an appointment" bgColor="backdrop-blur-3xl lg:p-8 p-4 rounded-2xl" textColor="text-white" />
+          <div className="w-full h-full">
+            <HomepageMobileHeroForm />
           </div>
 
         </div>

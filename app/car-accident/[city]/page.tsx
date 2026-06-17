@@ -12,7 +12,6 @@ import AccidentSEOContent from "@/components/accident/AccidentSEOContent";
 import AccidentFAQ from "@/components/accident/AccidentFAQ";
 import MobileCarousel from "@/components/ui/MobileCarousel";
 import FourteenDayBanner from "@/components/accident/FourteenDayBanner";
-import MobileStickyFooter from "@/components/accident/MobileStickyFooter";
 import PatientReviewsSection from "@/components/accident/PatientReviewsSection";
 import TrustBadges from "@/components/accident/TrustBadges";
 import AccidentInternalLinks from "@/components/accident/AccidentInternalLinks";
@@ -619,8 +618,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         );
       })()}
 
-      {/* Mobile Sticky Footer */}
-      <MobileStickyFooter phoneHref={c.phoneHref} phoneDisplay={c.phoneDisplay} />
     </main>
   );
 }
