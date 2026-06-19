@@ -43,8 +43,8 @@ export default function HomepageMobileHeroForm() {
     pushDataLayerEvent({
       event: "mobile_hero_call_click",
       page_type: "home",
-      phone_number: "561-653-3177",
-      cta_text: "Call Now: 561-653-3177",
+      phone_number: "561-355-2651",
+      cta_text: "Call Now: 561-355-2651",
       cta_position: "mobile_hero_top_fold",
       page_path: window.location.pathname,
     });
@@ -117,14 +117,14 @@ export default function HomepageMobileHeroForm() {
 
         {/* Call Now — below the card */}
         <a
-          href="tel:5616533177"
+          href="tel:+15613552651"
           onClick={handleCallClick}
           className="flex items-center justify-center gap-3 w-full bg-[#2563eb] hover:bg-[#1d4ed8] active:bg-[#1e40af] text-white font-bold text-base rounded-xl shadow-lg touch-manipulation transition-colors duration-200"
           style={{ minHeight: "52px" }}
-          aria-label="Call now: 561-653-3177"
+          aria-label="Call now: 561-355-2651"
         >
           <Phone className="w-5 h-5 flex-shrink-0" />
-          Call Now: 561-653-3177
+          Call Now: 561-355-2651
         </a>
       </div>
 
