@@ -98,7 +98,7 @@ export function PricingJsonLd() {
           ],
           openingHours: 'Mo-Su 08:00-20:00',
           priceRange: '$$',
-          telephone: '+1-561-653-3177', // Update to real phone if available
+          telephone: '+1-561-355-2651',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Urgent Care Pricing',
@@ -563,7 +563,7 @@ const PricingPage = () => {
                       <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                         <p className="text-sm text-blue-800">
                           <strong>Don't see your insurance?</strong> We work with many additional plans.
-                          Call us at 561-653-3177
+                          Call us at 561-355-2651
                           ‬ to verify your coverage or discuss our affordable self-pay options.
                         </p>
                       </div>

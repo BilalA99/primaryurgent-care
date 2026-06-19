@@ -292,7 +292,7 @@ export default async function BlogPostPage({ params }: Params) {
               label="blog_post_cta" 
               className="bg-transparent text-white font-semibold px-6 py-3 rounded-lg border-2 border-white hover:bg-white hover:text-[#D52128] transition-colors"
             >
-              Call 561-653-3177
+              Call 561-355-2651
             </CallButton>
           </div>
         </div>
