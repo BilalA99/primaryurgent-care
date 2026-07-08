@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useConsent } from './ConsentProvider';
 
 export default function CookieConsentBanner() {
-  const { isBannerVisible, acceptAll, rejectAll, openPreferences } = useConsent();
+  const { isBannerVisible, isPreferencesOpen, acceptAll, rejectAll, openPreferences } = useConsent();
   const pathname = usePathname();
   const [bottomOffset, setBottomOffset] = useState(0);
 
@@ -33,7 +33,7 @@ export default function CookieConsentBanner() {
     };
   }, [isBannerVisible, pathname]);
 
-  if (!isBannerVisible) return null;
+  if (!isBannerVisible || isPreferencesOpen) return null;
 
   return (
     <div
