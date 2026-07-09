@@ -114,7 +114,7 @@ const BookAppointmentForm = ({
                     postalCode: data.postalCode
                 });
             }
-            
+
             // Track form submission for Google Analytics
             trackFormSubmission({
                 formName: 'BookAppointmentForm',
