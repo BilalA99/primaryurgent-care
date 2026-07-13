@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 import { sendLawyerRecordsEmail, sendLawyerRecordsThankYouEmail } from '../email/SendEmail';
 import { getAttributionData } from '@/lib/gclid';
+import { useConsent } from '@/components/ConsentProvider';
 import {
     getValidatedPhoneNumber,
     formatUSPhoneNumber,
@@ -48,6 +49,7 @@ export default function LawyerRecordsForm() {
     const [submitting, setSubmitting] = useState(false);
     const [fileError, setFileError] = useState('');
     const [phoneError, setPhoneError] = useState('');
+    const { hasConsent } = useConsent();
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         const { name, value, type } = e.target;
@@ -151,14 +153,17 @@ export default function LawyerRecordsForm() {
         setError('');
         setSubmitted(true);
         setSubmitting(false);
-        // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
-        pushEnhancedConversion({
-            email: form.email,
-            phone: normalizedPhone,
-            firstName: form.patientFirstName,
-            lastName: form.patientLastName,
-            postalCode: form.postalCode
-        });
+        // Push enhanced conversion data to dataLayer only with marketing consent
+        // (contains PII for Google Ads enhanced conversions - GTM handles hashing)
+        if (hasConsent('marketing')) {
+            pushEnhancedConversion({
+                email: form.email,
+                phone: normalizedPhone,
+                firstName: form.patientFirstName,
+                lastName: form.patientLastName,
+                postalCode: form.postalCode
+            });
+        }
         
         setForm({
             lawFirm: '',

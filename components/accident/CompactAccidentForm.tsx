@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { sendContactEmail, sendUserEmail } from '@/components/email/SendEmail';
 import { pushEnhancedConversion } from '@/lib/gtag';
 import { getAttributionData } from '@/lib/gclid';
+import { useConsent } from '@/components/ConsentProvider';
 import { Shield, Clock, FileText, Lock } from 'lucide-react';
 import {
   getValidatedPhoneNumber,
@@ -30,6 +31,7 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
   });
   const [isLoading, setIsLoading] = useState(false);
   const [phoneError, setPhoneError] = useState('');
+  const { hasConsent } = useConsent();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,15 +91,17 @@ const CompactAccidentForm: React.FC<CompactAccidentFormProps> = ({ title, city }
         });
       }
 
-      // Push enhanced conversion data
-      const nameParts = formData.fullName.trim().split(' ');
-      pushEnhancedConversion({
-        email: formData.email,
-        phone: normalizedPhone,
-        firstName: nameParts[0] || '',
-        lastName: nameParts.slice(1).join(' ') || '',
-        postalCode: ''
-      });
+      // Push enhanced conversion data only with marketing consent (contains PII)
+      if (hasConsent('marketing')) {
+        const nameParts = formData.fullName.trim().split(' ');
+        pushEnhancedConversion({
+          email: formData.email,
+          phone: normalizedPhone,
+          firstName: nameParts[0] || '',
+          lastName: nameParts.slice(1).join(' ') || '',
+          postalCode: ''
+        });
+      }
 
       setFormData({ fullName: '', phone: '', email: '', preferredTime: '' });
       window.location.href = '/thank-you';

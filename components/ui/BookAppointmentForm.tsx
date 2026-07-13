@@ -28,6 +28,7 @@ import { sendContactEmail, sendUserEmail } from '../email/SendEmail';
 import { redirect } from 'next/navigation';
 import { trackFormSubmission, pushEnhancedConversion } from '../../lib/gtag';
 import { getAttributionData } from '@/lib/gclid';
+import { useConsent } from '@/components/ConsentProvider';
 import {
     getValidatedPhoneNumber,
     formatUSPhoneNumber,
@@ -76,6 +77,7 @@ const BookAppointmentForm = ({
         },
     });
     const [isLoading, setIsLoading] = useState(false);
+    const { hasConsent } = useConsent();
     const onSubmit = async (data: FormData) => {
         setIsLoading(true);
         const normalizedPhone = getValidatedPhoneNumber(data.phone);
@@ -101,15 +103,18 @@ const BookAppointmentForm = ({
             setIsLoading(false);
             form.reset();
             
-            // Push enhanced conversion data to dataLayer (GTM handles hashing and conversion)
-            pushEnhancedConversion({
-                email: data.email,
-                phone: normalizedPhone,
-                firstName: data.firstName,
-                lastName: data.lastName,
-                postalCode: data.postalCode
-            });
-            
+            // Push enhanced conversion data to dataLayer only with marketing consent
+            // (contains PII for Google Ads enhanced conversions - GTM handles hashing)
+            if (hasConsent('marketing')) {
+                pushEnhancedConversion({
+                    email: data.email,
+                    phone: normalizedPhone,
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    postalCode: data.postalCode
+                });
+            }
+
             // Track form submission for Google Analytics
             trackFormSubmission({
                 formName: 'BookAppointmentForm',
