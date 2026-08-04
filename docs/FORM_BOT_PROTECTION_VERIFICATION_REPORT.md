@@ -8,27 +8,27 @@ Production site inspected: `https://primaryuc.com`
 
 **PARTIAL**
 
-The working tree contains a layered protection path for every discovered public lead form, and focused unit, integration, browser, formatting, scoped-lint, and production-build checks pass. The implementation is not committed or pushed. Live `/api/forms/submit` and `/api/forms/records` return `404`, required platform configuration cannot be verified, production emits wildcard CORS, `www.primaryuc.com` has a TLS hostname error, and a Supabase service-role JWT-like value exists in committed history.
+The branch contains a layered protection path for every discovered public lead form, and focused unit, integration, browser, formatting, scoped-lint, and production-build checks pass. Live `/api/forms/submit` and `/api/forms/records` still return `404`, required platform configuration cannot be verified, production emits wildcard CORS, `www.primaryuc.com` has a TLS hostname error, and a Supabase service-role JWT-like value exists in committed history.
 
-Repository implementation state: **IMPLEMENTED_BUT_UNCOMMITTED**.
+Repository implementation state: **IMPLEMENTED_AND_PUSHED**.
 
 ## 2. Git status
 
 | Item | Evidence | Status |
 | --- | --- | --- |
-| Branch | `main` | Present |
-| HEAD | `1371c949c499d10682ae4d054654713e6c9e652c` | Present |
-| Upstream | `origin/main` at the same SHA | Ahead 0 / behind 0 |
-| Bot-protection commit | `git log --all -- instrumentation-client.ts lib/form-security/handler.ts app/api/forms/submit/route.ts` returned no commit | Not committed |
-| Staged changes | `git diff --cached --stat` returned no output | None |
-| Pushed implementation | Protection files/changes are working-tree-only | No |
+| Branch | `agent-form-bot-protection` | Present |
+| HEAD | `bca3957eb4f1c38d11b59ec58f02b45be9d19f8d` | Present |
+| Upstream | `origin/agent-form-bot-protection` at the same SHA | Ahead 0 / behind 0 |
+| Bot-protection commit | `Verify and complete layered form bot protection` | Committed |
+| Staged changes | No staged reviewed files | None |
+| Pushed implementation | `origin/agent-form-bot-protection` matches HEAD | Yes |
 | Merge/rebase conflict | No unmerged paths or rebase state found | None |
 
-The base branch is pushed and synchronized, but the protection implementation is absent from its history. Unrelated/pre-existing dirty files such as `app/privacy-policy/page.tsx` must not be swept into the security commit. `tsconfig.json` hashes identically to `HEAD` even though Windows/Git may report a stat-only modification after Next regenerates types.
+The feature branch is pushed and synchronized. Unrelated/pre-existing dirty files such as `app/privacy-policy/page.tsx`, `.claude/`, and `.eslintrc.json` were left out of the security commit. The pull request is [#2](https://github.com/BilalA99/primaryurgent-care/pull/2). `tsconfig.json` hashes identically to `HEAD` even though Windows/Git may report a stat-only modification after Next regenerates types.
 
 Recommended commit message: `Verify and complete layered form bot protection`.
 
-Recommended scoped commit files are `.gitignore`, `.eslintrc.json`, `.prettierignore`, both `app/api/forms/*/route.ts` files, the four form components, `components/email/SendEmail.ts`, `env.example`, `instrumentation-client.ts`, every `lib/form-security/*.ts` file, `next.config.ts`, `package.json`, `package-lock.json`, `playwright.config.ts`, `vitest.config.ts`, every `tests/form-security/*.test.ts` file, `tests/browser/forms.spec.ts`, `tests/server-only.ts`, and this report. Exclude the pre-existing `docs/FORM_BOT_PROTECTION_IMPLEMENTATION_REPORT.md` unless it is intentionally archived/replaced, and review every other dirty file separately.
+The committed scoped files are `.gitignore`, `.prettierignore`, both `app/api/forms/*/route.ts` files, the form components, `components/email/SendEmail.ts`, `env.example`, `instrumentation-client.ts`, every `lib/form-security/*.ts` file, `next.config.ts`, `package.json`, `package-lock.json`, `playwright.config.ts`, `vitest.config.ts`, both verification/implementation reports, and the focused tests. Unrelated dirty files remain outside the commit.
 
 ## 3. Coverage table
 
@@ -160,7 +160,7 @@ Sixteen manual actions remain.
 
 ## 9. Remaining risks
 
-- Production does not have this implementation today: both routes return `404` and the code is uncommitted/unpushed.
+- Production does not have this implementation today: both routes return `404`; the feature branch is committed and pushed, but not deployed.
 - Vercel BotID and Upstash provisioning are unverified; code completeness is not infrastructure completeness.
 - Wildcard production CORS and broken www TLS require infrastructure changes.
 - The historically committed Supabase service-role credential is compromised until rotated.
@@ -175,12 +175,12 @@ Sixteen manual actions remain.
 
 **SAFE_TO_PUSH_FOR_PREVIEW**
 
-The reviewed code can be committed to a scoped branch and exercised in a Vercel preview. Do not merge/deploy to production until the exposed Supabase credential is rotated, Vercel/Upstash/Resend/Supabase configuration is verified, wildcard CORS and www TLS are corrected, and post-deploy controls are validated. A PR and preview are strongly recommended.
+The reviewed code is committed on `agent-form-bot-protection`, pushed, and available in [PR #2](https://github.com/BilalA99/primaryurgent-care/pull/2) for a Vercel preview. Do not merge/deploy to production until the exposed Supabase credential is rotated, Vercel/Upstash/Resend/Supabase configuration is verified, wildcard CORS and www TLS are corrected, and post-deploy controls are validated.
 
 ```text
 BOT PROTECTION CODE: PASS
-COMMITTED: NO
-PUSHED: NO
+COMMITTED: YES
+PUSHED: YES
 ALL FORMS COVERED: YES
 BUILD: PASS
 FOCUSED TESTS: PASS
