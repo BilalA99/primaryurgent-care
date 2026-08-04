@@ -17,8 +17,8 @@ Repository implementation state: **IMPLEMENTED_AND_PUSHED**.
 | Item | Evidence | Status |
 | --- | --- | --- |
 | Branch | `agent-form-bot-protection` | Present |
-| HEAD | `bca3957eb4f1c38d11b59ec58f02b45be9d19f8d` | Present |
-| Upstream | `origin/agent-form-bot-protection` at the same SHA | Ahead 0 / behind 0 |
+| HEAD | `69b7c9f` (report-status follow-up; implementation commit `bca3957eb4f1c38d11b59ec58f02b45be9d19f8d`) | Present |
+| Upstream | `origin/agent-form-bot-protection` at `69b7c9f` | Ahead 0 / behind 0 |
 | Bot-protection commit | `Verify and complete layered form bot protection` | Committed |
 | Staged changes | No staged reviewed files | None |
 | Pushed implementation | `origin/agent-form-bot-protection` matches HEAD | Yes |
