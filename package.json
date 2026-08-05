@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "format:check": "prettier --check \"app/api/forms/**/*.ts\" \"lib/form-security/**/*.ts\" \"tests/**/*.ts\" \"instrumentation-client.ts\" \"playwright.config.ts\" \"vitest.config.ts\" \"components/email/SendEmail.ts\" \"components/ui/BookAppointmentForm.tsx\" \"components/ui/HomepageMobileHeroForm.tsx\" \"components/ui/LawyerRecordsForm.tsx\" \"components/accident/CompactAccidentForm.tsx\" \"next.config.ts\""
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
@@ -18,6 +23,9 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@react-google-maps/api": "^2.20.7",
     "@supabase/supabase-js": "^2.58.0",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.38.1",
+    "botid": "^1.5.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.22",
@@ -38,12 +46,18 @@
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.3.8",
+    "prettier": "^3.9.6",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }
