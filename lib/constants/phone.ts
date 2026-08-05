@@ -26,4 +26,4 @@ export const PRIMARY_PHONE_HREF = `tel:${PRIMARY_UC_PHONE_TEL}`;
  * Primary phone number for structured data (JSON-LD)
  * Format: +1-XXX-XXX-XXXX
  */
-export const PRIMARY_PHONE_STRUCTURED = '+1-561-653-3177';
+export const PRIMARY_PHONE_STRUCTURED = '+1-561-355-2651';

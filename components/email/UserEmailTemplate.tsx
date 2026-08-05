@@ -16,7 +16,7 @@ const textSizes = {
     xl: { fontSize: '20px', lineHeight: '28px' },
     '2xl': { fontSize: '24px', lineHeight: '32px' },
 };
-// +1 561-653-3177
+// +1 561-355-2651
 
 export const UserEmailTemplate: React.FC<Readonly<UserEmailProps>> = ({ name, email, phone }) => {
     return (

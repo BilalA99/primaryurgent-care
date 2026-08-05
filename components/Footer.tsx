@@ -6,6 +6,7 @@ import BookAnAppointmentPopup from './BookAnAppointmentPopup';
 import { trackEvent } from '../lib/gtag';
 import CallButton from './CallButton';
 import { PRIMARY_PHONE_HREF, PRIMARY_PHONE_DISPLAY } from '@/lib/constants/phone';
+import CookiePreferencesButton from './CookiePreferencesButton';
 const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Appointment', href: '/appointment' },
@@ -83,8 +84,10 @@ const Footer = () => (
             <div className="border-t border-white/10 pt-6">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm">© 2025 Primary & Urgent Care Centers. All rights reserved.</p>
-                    <div className="flex items-center gap-6 text-xs text-gray-500">
+                    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
                         <span>Serving Palm Beach County, FL</span>
+                        <Link href="/privacy-policy" className="hover:text-[#D52128] transition-colors">Privacy Policy</Link>
+                        <CookiePreferencesButton className="hover:text-[#D52128] transition-colors" />
                     </div>
                 </div>
             </div>

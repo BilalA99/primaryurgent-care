@@ -81,7 +81,7 @@ export default function Home() {
         <div className="flex flex-col xl:flex-row xl:space-y-0 space-y-10 justify-between sm:max-w-8xl w-full xl:px-[60px] px-6">
           <div className="flex flex-col justify-center space-y-6 w-fit">
             <div className="backdrop-blur-3xl bg-white/20 text-white text-sm px-4 py-2 rounded-full self-start">
-              Call for any emergency: 561-653-3177
+              Call for any emergency: 561-355-2651
 
             </div>
             <h1 className="lg:text-6xl text-4xl font-bold ">

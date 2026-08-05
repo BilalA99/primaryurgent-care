@@ -1,3 +1,5 @@
+import { PRIMARY_UC_PHONE_DISPLAY } from '@/lib/constants/contact';
+
 export const LocationsScreens = [
   {
     name: 'Royal Palm Beach',
@@ -5,7 +7,7 @@ export const LocationsScreens = [
     address: '11476 Okeechobee Blvd',
     city: 'Royal Palm Beach',
     postalCode: '33411',
-    phone: '561-653-3177',
+    phone: PRIMARY_UC_PHONE_DISPLAY,
     slug: 'royal-palm-beach-primary-urgent-care-center',
     image: '/royalpalm.jpg',
     subimg: '/doctorgroups.png',
@@ -35,7 +37,7 @@ export const LocationsScreens = [
     address: '6447 Lake Worth Rd',
     city: 'Lake Worth Beach',
     postalCode: '33463',
-    phone: '561-653-3177',
+    phone: PRIMARY_UC_PHONE_DISPLAY,
     slug: 'lake-worth-primary-urgent-care-center',
     image: '/lakeworth.jpg',
     subimg: '/lakeworth2.jpg',
@@ -65,7 +67,7 @@ export const LocationsScreens = [
     address: '3460 S Congress Ave',
     city: 'Palm Springs',
     postalCode: '33461',
-    phone: '561-653-3177',
+    phone: PRIMARY_UC_PHONE_DISPLAY,
     slug: 'palm-springs-primary-urgent-care-center',
     image: '/palmsprings.jpg',
     subimg: '/palmspring2.jpg',
@@ -96,7 +98,7 @@ export const LocationsScreens = [
     address: '6169 Jog Rd Unit 4B',
     city: 'Lake Worth Beach', // GBP city - must use in NAP
     postalCode: '33463', // GBP ZIP
-    phone: '561-653-3177',
+    phone: PRIMARY_UC_PHONE_DISPLAY,
     slug: 'lantana-primary-urgent-care-center',
     image: '/lakeworth.jpg',
     subimg: '/lantana.jpg',

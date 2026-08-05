@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 import BookAppointmentSection from "@/components/BookAppointmentSection";
 import Script from "next/script";
 import GclidCapture from "@/components/GclidCapture";
+import { ConsentProvider } from "@/components/ConsentProvider";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import CookiePreferencesModal from "@/components/CookiePreferencesModal";
+import ConsentAwareScripts from "@/components/ConsentAwareScripts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://primaryuc.com'),
@@ -91,10 +95,30 @@ export default function RootLayout({
   return (
     <html lang="en" className={interTight.className} suppressHydrationWarning={true}>
       <head>
+        {/* Google Consent Mode v2 - default state, must run before GTM/gtag load */}
+        <Script
+          id="consent-default"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                analytics_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                functionality_storage: 'denied',
+                personalization_storage: 'denied',
+                security_storage: 'granted'
+              });
+            `,
+          }}
+        />
         {/* Google tag (gtag.js) - GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2BKMKZM043"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script
           id="ga4-base"
@@ -133,7 +157,7 @@ export default function RootLayout({
                     '@type': 'AdministrativeArea',
                     name: 'Palm Beach County, FL'
                   },
-                  telephone: '+1-561-653-3177',
+                  telephone: '+1-561-355-2651',
                   sameAs: [
                     'https://www.facebook.com/primaryurgentcare',
                     'https://www.instagram.com/primaryurgentcare'
@@ -144,7 +168,7 @@ export default function RootLayout({
                   '@id': 'https://primaryuc.com/#clinic',
                   name: 'Primary & Urgent Care Centers of Palm Beach County',
                   url: 'https://primaryuc.com',
-                  telephone: '+1-561-653-3177',
+                  telephone: '+1-561-355-2651',
                   image: {
                     '@type': 'ImageObject',
                     url: 'https://primaryuc.com/websitelogo.png',
@@ -201,50 +225,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
-        {/* Ahrefs Analytics */}
-        <Script
-          id="ahrefs-analytics"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var ahrefs_analytics_script = document.createElement('script');
-              ahrefs_analytics_script.async = true;
-              ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
-              ahrefs_analytics_script.setAttribute('data-key', 'khUTLsUI7zITAp50h78JNA');
-              document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-            `
-          }}
-        />
-        {/* End Ahrefs Analytics */}
-        <Script src="/assets/lang-config.js" strategy="afterInteractive" />
-        <Script src="/assets/translation.js" strategy="afterInteractive" />
-        <Script
-          src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
-          strategy="lazyOnload"
-        />
+        {/* Ahrefs Analytics and Google Translate load only after consent via
+            ConsentAwareScripts (rendered in body, gated by analytics/functional consent) */}
       </head>
 
       <body
         className={`${interTight.variable} antialiased overscroll-none`}
         suppressHydrationWarning
       >
-        <GclidCapture />
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TQFNQD3Z"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
-        <NavBar />
-        <div className="mt-[74px] lg:mt-14">
-          {children}
-        </div>
-        <BookAppointmentSection />
-        <Footer />
+        <ConsentProvider>
+          <GclidCapture />
+          {/* Google Tag Manager (noscript) */}
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-TQFNQD3Z"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            ></iframe>
+          </noscript>
+          {/* End Google Tag Manager (noscript) */}
+          <ConsentAwareScripts />
+          <NavBar />
+          <div className="mt-[74px] lg:mt-14">
+            {children}
+          </div>
+          <BookAppointmentSection />
+          <Footer />
+          <CookieConsentBanner />
+          <CookiePreferencesModal />
+        </ConsentProvider>
       </body>
     </html>
   );
